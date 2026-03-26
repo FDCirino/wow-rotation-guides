@@ -110,7 +110,7 @@ rotation:
 cooldowns:
 - name: Guardian of Ancient Kings
   cooldown: 3min (second charge via Empyrean Authority talent)/1.5min (reduced via Righteous Protector Talent)
-  description: 'Major defensive — 50% DR for 8 seconds/4.8 seconds (reduced via Rightreous Protector Talent). Second charge is NOT baseline; requires Empyrean
+  description: 'Major defensive — 50% DR for 8 seconds/4.8 seconds (reduced via Righteous Protector Talent). Second charge is NOT baseline; requires Empyrean
     Authority talent. Use before periods of large damage.'
 - name: Ardent Defender
   cooldown: 1.5min
