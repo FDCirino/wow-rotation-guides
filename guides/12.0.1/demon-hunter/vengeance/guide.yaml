@@ -27,6 +27,27 @@ maintenanceBuffs:
     importance: high
     coachingTip: 'Now a flat 40% damage reduction buff on yourself. Use proactively for mitigation and offensively to buff Fire damage via Fiery Demise.'
 
+tankingGuide:
+  defensivePhilosophy: |
+    Vengeance DH is a REACTIVE tank that self-heals through Soul Cleave consuming Soul Fragments.
+    Health naturally dips between Soul Cleave casts — this is normal gameplay, not a problem.
+    The spec relies on generating Soul Fragments via Fracture, then spending them for healing and
+    damage. Staying near enemies is critical for Soul Fragment pickup and Fury generation.
+
+  deathPattern: |
+    Vengeance DH deaths typically happen when: (1) Demon Spikes is down during heavy physical
+    damage, (2) no Soul Fragments are available for Soul Cleave healing, (3) Fiery Brand and
+    Metamorphosis are both on cooldown during a dangerous mechanic, or (4) they're out of melee
+    range and can't generate resources. Do NOT blame health dips — blame active mitigation gaps
+    or resource starvation.
+
+  coachingNotes: |
+    When analyzing Vengeance DH deaths: (1) Check Demon Spikes uptime — was it active during
+    the hit? With Feed the Demon, near-100% uptime is expected. (2) Check Soul Fragment
+    availability — did they have fragments for Soul Cleave? (3) Check Fiery Brand and
+    Metamorphosis — were major CDs available? (4) Do NOT flag health dips as a problem — it's
+    how reactive healing works. (5) Focus on Demon Spikes uptime and major CD availability.
+
 playstyles:
   - id: aldrachi_reaver
     name: Aldrachi Reaver

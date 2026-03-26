@@ -52,10 +52,17 @@ tankingGuide:
   staggerManagement: |-
     Stagger is the core Brewmaster mechanic. It converts incoming damage into a 10-15s DoT, smoothing
     damage intake. Shuffle increases Stagger effectiveness — without it, Stagger barely works.
-    Purifying Brew is required to actually REDUCE the delayed damage. Monitor your Stagger bar color:
+    Purifying Brew is required to actually REDUCE the delayed damage. Stagger does NOT reduce total
+    damage — it only DELAYS it. Monitor your Stagger bar color:
     green (low) = safe, yellow (medium) = consider purifying, red (high) = purify immediately.
     Mastery (Elusive Brawler) increases dodge chance each time you are hit or use Blackout Kick,
     resetting on dodge.
+
+    IMPORTANT — How Brewmasters die: A big hit lands, ~50% is staggered, the remaining ~50% brings
+    you low, then the first 1-2 Stagger ticks finish you off. This is inherent to the spec — not a
+    misplay. The real questions are: Was a defensive CD available? Could you have pre-shielded with
+    Celestial Brew? Was Purifying Brew ready to immediately clear the Stagger? Do NOT tell a Brewmaster
+    they "died to bad Stagger management" — focus on defensive cooldown availability before the hit.
 
 removedMechanics:
 - Rising Sun Kick (and Strike at Dawn)

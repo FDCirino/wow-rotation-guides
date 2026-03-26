@@ -3,13 +3,15 @@ className: Monk
 specName: Brewmaster
 role: Tank
 patch: 12.0.1
-guideVersion: 3
+guideVersion: 4
 heroTalent: Master of Harmony
 resourceManagement:
   primaryResource: Energy
   secondaryResource: Vitality / Stagger
-  resourceNotes: Energy is spent on Keg Smash and Tiger Palm to reduce Brew cooldowns. Stagger delays damage into a DoT. Vitality
-    is accumulated from damage/healing and spent via Celestial Brew or Celestial Infusion to trigger Aspect of Harmony.
+  resourceNotes: 'Energy is spent on Keg Smash and Tiger Palm to reduce Brew cooldowns. Stagger delays damage into a DoT.
+    Vitality accumulates passively from damage dealt and healing received — it does not need to be actively built. Using
+    Celestial Brew or Celestial Infusion consumes ALL current Vitality into the Aspect of Harmony buff. The only management
+    required is avoiding capping Vitality (cap equals your max HP pool).'
 maintenanceBuffs:
 - spellId: 0
   spellName: Shuffle
@@ -20,7 +22,7 @@ maintenanceBuffs:
   spellName: Charred Passions
   targetUptimePct: 90
   importance: high
-  coachingTip: Triggered by Breath of Fire. Enhances Blackout Kick and Spinning Crane Kick.
+  coachingTip: Triggered by Breath of Fire. Enhances Blackout Kick damage.
 - spellId: 0
   spellName: Aspect of Harmony
   targetUptimePct: 70
@@ -51,10 +53,21 @@ tankingGuide:
   staggerManagement: |-
     Stagger is the core Brewmaster mechanic. It converts incoming damage into a 10-15s DoT, smoothing
     damage intake. Shuffle increases Stagger effectiveness — without it, Stagger barely works.
-    Purifying Brew is required to actually REDUCE the delayed damage. Monitor your Stagger bar color:
+    Purifying Brew is required to actually REDUCE the delayed damage. Stagger does NOT reduce total
+    damage — it only DELAYS it. Monitor your Stagger bar color:
     green (low) = safe, yellow (medium) = consider purifying, red (high) = purify immediately.
     Mastery (Elusive Brawler) increases dodge chance each time you are hit or use Blackout Kick,
     resetting on dodge. This provides additional passive mitigation.
+
+    IMPORTANT — How Brewmasters die: A big hit lands, ~50% is staggered, the remaining ~50% brings
+    you low, then the first 1-2 Stagger ticks finish you off. This is inherent to the spec — not a
+    misplay. The real questions are: Was a defensive CD available? Could you have pre-shielded with
+    Celestial Brew? Was Purifying Brew ready to immediately clear the Stagger? Do NOT tell a Brewmaster
+    they "died to bad Stagger management" — focus on defensive cooldown availability before the hit.
+
+    VITALITY CLARIFICATION: Spending Vitality via Celestial Brew/Infusion does NOT empower the absorb
+    shield. It triggers Aspect of Harmony (a separate buff that increases damage and healing output).
+    The Celestial Brew shield size is based on Attack Power, not Vitality.
 
 removedMechanics:
 - Rising Sun Kick (removed in 12.0)
@@ -64,39 +77,43 @@ removedMechanics:
 - Diffuse Magic (reworked into passive enhancement for Fortifying Brew)
 - Hit Scheme (removed in 12.0)
 rotation:
+  notes: |
+    Master of Harmony makes Tiger Palm incredibly powerful. The core loop is Blackout Kick → Tiger Palm.
+    This is especially important in AoE because MoH turns both Blackout Kick and Tiger Palm into AoE abilities.
+    Spinning Crane Kick is severely undertuned and should never be used — Tiger Palm does more damage and provides Brew CDR.
   singleTarget: |
     1. Activate Black Ox Brew if it won't waste Energy or Brew charges.
     2. Use Touch of Death on targets below your max HP or 15% HP.
     3. Use Blackout Kick to trigger Blackout Combo.
     4. Cast Chi Burst.
     5. Activate Celestial Brew or Celestial Infusion if taking minimal damage to gain an Empty Barrel from Bring Me Another.
-    6. Activate Celestial Brew or Celestial Infusion if at two charges or vitality is full to trigger Harmonic Surge and gain an Empty Barrel.
+    6. Activate Celestial Brew or Celestial Infusion if at two charges or vitality is near cap to gain an Empty Barrel.
     7. Trigger Invoke Niuzao, the Black Ox if the fight will last at least 25 seconds.
-    8. Consume Blackout Combo buff with Tiger Palm to spend a stack of Harmonic Surge.
-    9. Use a charge of Keg Smash or an active Empty Barrel from Bring Me Another.
+    8. Consume Blackout Combo buff with Tiger Palm.
+    9. Use first charge of Keg Smash or an active Empty Barrel from Bring Me Another (always keep one charge on cooldown).
     10. Use Keg Smash if an Empty Barrel is active to trigger Potential Energy and drain vitality for bonus damage.
     11. Use Breath of Fire to maintain the Charred Passions buff.
     12. Throw Exploding Keg (ideally with Rushing Jade Wind active) to reset a Keg Smash charge.
     13. Use a spare charge of Purifying Brew if taking low damage to proc Special Delivery or Bring Me Another.
     14. Reactivate Rushing Jade Wind.
     15. Use Tiger Palm as filler if you have excess Energy for the next Keg Smash.
-    16. Use Spinning Crane Kick as filler if you have excess Energy for the next Keg Smash.
   aoe: |
-    1. Activate Black Ox Brew.
+    1. Activate Black Ox Brew while minimizing Energy waste.
     2. Use Touch of Death.
-    3. Use Blackout Kick to trigger Blackout Combo.
+    3. Use Blackout Kick to trigger Blackout Combo (MoH makes this an AoE ability).
     4. Cast Chi Burst.
     5. Activate Celestial Brew or Celestial Infusion to gain an Empty Barrel.
-    6. Activate Celestial Brew or Celestial Infusion if at two charges or vitality is full for Harmonic Surge.
+    6. Activate Celestial Brew or Celestial Infusion if at two charges or vitality is near cap to gain an Empty Barrel.
     7. Trigger Invoke Niuzao, the Black Ox.
-    8. Consume Blackout Combo buff with Tiger Palm to spend Harmonic Surge.
-    9. Use Keg Smash or an active Empty Barrel.
+    8. Consume Blackout Combo buff with Tiger Palm (MoH makes this an AoE ability — always use even in AoE).
+    9. Use first charge of Keg Smash or an active Empty Barrel (always keep one charge on cooldown).
     10. Use Keg Smash with an active Empty Barrel to trigger Potential Energy and drain vitality.
     11. Use Breath of Fire to maintain Charred Passions.
     12. Throw Exploding Keg.
-    13. Use a spare charge of Purifying Brew.
-    14. Reactivate Rushing Jade Wind.
-    15. Use Spinning Crane Kick if fighting 3+ enemies and Energy is available for the next Keg Smash.
+    13. Use second charge of Keg Smash.
+    14. Use a spare charge of Purifying Brew.
+    15. Reactivate Rushing Jade Wind.
+    16. Use Tiger Palm as filler — it does more damage than Spinning Crane Kick even in AoE and provides Brew CDR.
   opener: |
     1. Use Breath of Fire 3 seconds before combat for Charred Passions.
     2. Activate Rushing Jade Wind 1-2 seconds before combat.
@@ -136,10 +153,11 @@ cooldowns:
   cooldown: 2min
   description: Instantly resets Celestial Brew and Purifying Brew charges. Also restores Energy.
 concepts:
-- 'Aspect of Harmony (Conduit): Vitality accumulates from damage dealt and healing received. Spending Vitality via Celestial
-  Brew or Celestial Infusion triggers Aspect of Harmony, increasing your damage and healing.'
-- 'Harmonic Surge (Conduit): Triggered when Celestial Brew/Infusion is used at two charges or full Vitality. Empowers your
-  next Tiger Palm to deal bonus damage.'
+- 'Aspect of Harmony: Vitality accumulates passively from damage dealt and healing received (cap equals max HP).
+  Using Celestial Brew or Celestial Infusion consumes ALL current Vitality into the Aspect of Harmony buff,
+  increasing damage and healing. The only management needed is avoiding capping Vitality.'
+- 'Harmonic Surge: Mostly passive — triggered when Celestial Brew/Infusion is used. Not a resource to actively
+  track or optimize around.'
 - 'Empty Barrel (Conduit): Gained from Bring Me Another when using Celestial Brew/Infusion. Provides an extra Keg Smash charge
   that triggers Potential Energy for bonus damage.'
 - 'Blackout Combo: Blackout Kick empowers your next ability. Tiger Palm is the primary consumer for the Combo buff.'
@@ -148,8 +166,9 @@ concepts:
 commonMistakes:
 - 'Letting Shuffle drop below 100% uptime, drastically reducing Stagger effectiveness.'
 - Overcapping Celestial Brew charges instead of using them to trigger Aspect of Harmony.
-- Ignoring Vitality management — not spending full Vitality via Celestial Brew for maximum Harmonic Surge benefit.
+- Letting Vitality cap at max HP — use Celestial Brew or Celestial Infusion before it caps.
 - Forgetting to consume Blackout Combo with Tiger Palm before using other abilities.
+- Using Spinning Crane Kick instead of Tiger Palm — SCK is severely undertuned even in AoE. Tiger Palm does more damage and provides Brew CDR.
 - Not maintaining Charred Passions by casting Breath of Fire regularly.
 - Holding Purifying Brew too long when Stagger is dangerously high.
 patchChanges:

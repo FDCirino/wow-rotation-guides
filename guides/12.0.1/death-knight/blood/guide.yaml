@@ -32,6 +32,28 @@ maintenanceBuffs:
     importance: medium
     coachingTip: 'Stack this buff by using Death Strike to increase the damage of your Blood Plague.'
 
+tankingGuide:
+  defensivePhilosophy: |
+    Blood DK is a REACTIVE tank — it takes damage first, then heals it back with Death Strike.
+    This means the health bar naturally yo-yos between low and high. Low health is NORMAL and
+    EXPECTED, not a sign of poor play. Death Strike heals for a minimum of 7% max HP, or 20% of
+    damage taken in the last 5 seconds — whichever is higher. Being at low health after a big hit
+    is OPTIMAL because the next Death Strike will heal for more.
+
+  deathPattern: |
+    Blood DK deaths typically happen when: (1) they run out of Runic Power and can't Death Strike,
+    (2) Bone Shield drops below 5 stacks removing damage smoothing and Ossuary discount,
+    (3) they take a massive hit without Vampiric Blood or Icebound Fortitude pre-applied, or
+    (4) back-to-back hits arrive without time to Death Strike between them.
+    Do NOT blame low health — blame resource depletion or missing cooldowns.
+
+  coachingNotes: |
+    When analyzing Blood DK deaths: (1) Check Runic Power — did they have RP for Death Strike
+    when they needed it? (2) Check Bone Shield stacks — were they at 5+? (3) Check major CDs —
+    was Vampiric Blood or Icebound Fortitude available? (4) Do NOT flag low health as a problem —
+    it's how the spec works. (5) Focus on resource management and cooldown availability, not
+    health bar patterns.
+
 playstyles:
   - id: sanlayn
     name: San'layn
