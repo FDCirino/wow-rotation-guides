@@ -1,0 +1,159 @@
+specId: 71
+className: Warrior
+specName: Arms
+role: DPS
+heroTalent: Colossus
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Rage
+  secondaryResource: None
+  resourceNotes: 'Rage is generated primarily through auto-attack swings. Colossus gameplay revolves around spending
+    Rage on Mortal Strike and Cleave to reduce the cooldown of Demolish. Avoid overcapping Rage while ensuring
+    enough is available for high-priority Mortal Strike casts. Skyfury grants extra auto-attack swings which also
+    generate Rage, so having a Shaman in the group is highly preferred.'
+maintenanceBuffs:
+- spellId: 0
+  spellName: Rend
+  targetUptimePct: 95
+  importance: high
+  coachingTip: Maintain Rend on the target, refreshing when there are fewer than 4 seconds remaining.
+- spellId: 0
+  spellName: Battle Shout
+  targetUptimePct: 100
+  importance: high
+  coachingTip: Ensure Battle Shout is active on the party/raid at all times for the 5% Attack Power bonus.
+- spellId: 0
+  spellName: Deep Wounds
+  targetUptimePct: 95
+  importance: high
+  coachingTip: Maintain Deep Wounds via Mortal Strike and Demolish (through Decimator). Mastery increases damage
+    while using a two-handed weapon.
+rotation:
+  singleTarget: |-
+    Priority (after opener):
+    1. Apply or refresh Rend if it has less than 4 seconds remaining.
+    2. Cast Ravager just before Colossus Smash.
+    3. Cast Avatar just before or with Colossus Smash.
+    4. Cast Colossus Smash on cooldown.
+    5. Cast Heroic Strike if Master of Warfare proc is active.
+    6. Cast Demolish during the Colossus Smash window.
+    7. Cast Overpower if you have two charges available.
+    8. Cast Mortal Strike on cooldown (priority for Demolish CDR).
+    9. Cast Execute if a Sudden Death proc occurs.
+    10. Cast Heroic Strike as a filler.
+    11. Cast Execute to consume remaining Sudden Death procs.
+    12. Cast Overpower.
+    13. Cast Wrecking Throw.
+    14. Cast Slam to fill the rotation if no other priorities are available.
+  executePhase: |-
+    Priority (target below 35% with Massacre):
+    1. Cast Ravager.
+    2. Cast Avatar just before or with Colossus Smash.
+    3. Cast Colossus Smash.
+    4. Cast Execute with Sudden Death procs.
+    5. Cast Heroic Strike if Master of Warfare proc is active.
+    6. Cast Demolish during Colossus Smash.
+    7. Cast Overpower if you have two charges or less than 40 Rage.
+    8. Cast Mortal Strike on cooldown (Colossus prioritizes Mortal Strike over Execute for Demolish CDR).
+    9. Cast Mortal Strike if you have two stacks of Executioner's Precision.
+    10. Cast Overpower if you have less than 90 Rage.
+    11. Cast Execute if you have more than 40 Rage or a Sudden Death proc.
+    12. Cast Overpower.
+    13. Cast Execute.
+    14. Cast Execute if Deep Wounds is active.
+    15. Cast Slam.
+    16. Cast Wrecking Throw.
+  aoe: |-
+    Priority (3+ targets):
+    1. Apply or refresh Rend if under 4 seconds remaining.
+    2. Cast Sweeping Strikes if Broad Strokes is not talented or Colossus Smash is on cooldown.
+    3. Cast Ravager.
+    4. Cast Avatar.
+    5. Cast Colossus Smash.
+    6. Cast Demolish during Colossus Smash.
+    7. Cast Cleave as your primary multi-target spender.
+    8. Cast Execute with Sudden Death procs.
+    9. Cast Overpower with Opportunist or two charges available.
+    10. Cast Mortal Strike with two stacks of Executioner's Precision.
+    11. Cast Mortal Strike.
+    12. Cast Overpower.
+    13. Cast Slam (with Fervor of Battle).
+  opener: |-
+    Standard Opener:
+    1. Use Charge to initiate combat and generate initial Rage.
+    2. Apply Rend.
+    3. Cast Ravager and Avatar.
+    4. Cast Colossus Smash.
+    5. Proceed with standard Single Target priority (Demolish/Mortal Strike).
+cooldowns:
+- name: Colossus Smash
+  cooldown: 45s (reduced by Anger Management and Master of Warfare)
+  description: Main burst window. Use strictly on cooldown. Can be circumstantially delayed for add groups. Its
+    actual cooldown is often much shorter than implied due to constant reduction from Anger Management and Master
+    of Warfare.
+- name: Avatar
+  cooldown: 1.5min (reduced by Anger Management)
+  description: Minor offensive cooldown. Keep aligned with Colossus Smash. Has lost its follow-on talents, becoming
+    a fairly minor buff with no inherent gameplay benefits.
+- name: Ravager
+  cooldown: 90s (not affected by cooldown reduction)
+  description: Predominantly multi-target ability whose minor damage is offset by the large buff to Cleave. Align
+    with Colossus Smash whenever possible for Crushing Combo. Ravager is no longer affected by any form of cooldown
+    reduction.
+- name: Demolish
+  cooldown: Variable (reduced by Mortal Strike and Cleave)
+  description: Signature Colossus ability. Channeled powerhouse. Use during Colossus Smash windows. Has its own
+    distinct form of cooldown reduction via Mortal Strike and Cleave which does not always align with other CDs.
+- name: Sweeping Strikes
+  cooldown: 30s (charge system)
+  description: Now operates on a charge system. Use for 2+ targets to cleave single-target abilities.
+- name: Die by the Sword
+  cooldown: 2min
+  description: Primary defensive. Parries melee attacks and reduces damage. Can be used to tank physical hits briefly.
+- name: Rallying Cry
+  cooldown: 3min
+  description: Group defensive. Buffed by 50% in small group content (Midnight change).
+- name: Spell Reflection
+  cooldown: 25s
+  description: Mitigates or reflects magical damage. Extremely useful for many sources of magic damage.
+concepts:
+- 'Colossus focuses on Mortal Strike and Bleeds to drive its unique cooldown reduction for Demolish. Execute is
+  rarely used in multi-target; the emphasis is on Mortal Strike and Cleave.'
+- 'Demolish is a powerful channeled ability that should ideally be used within the Colossus Smash debuff window.
+  Keep a careful eye on the various cooldown timers to maximize its damage.'
+- 'Crushing Combo: Align Ravager with Colossus Smash whenever possible to maximize damage. Ravager is on a fixed
+  90-second cooldown with no reduction, so alignment will drift.'
+- 'Master of Warfare (Apex Talent): Replaces Slam with Heroic Strike via procs. Heroic Strike reduces the cooldown
+  of Colossus Smash, but can desync it from Avatar. Stacks have individual durations, so treat the buff passively.'
+- 'Rage Management: Most Rage comes from auto-attacks. Avoid overcapping, but prioritize having enough Rage for
+  every Mortal Strike cooldown. Outside burst windows, let Rage accrue and only spend if it will not prevent a
+  follow-on Mortal Strike.'
+- 'Cycle Charging: Use Heroic Leap or move out to Charge back in for extra Rage generation during downtime, provided
+  Colossus Smash is not active.'
+- 'Mastery: Changed in Midnight to no longer interact with Deep Wounds; it now simply increases damage while wielding
+  a two-handed weapon.'
+- 'Sweeping Strikes: Now operates on a charge system, allowing for more flexible use without wasting cleave potential.'
+- 'Colossus Smash Window: Maximize damage by filling as many globals as possible during the Colossus Smash
+  debuff. Align Avatar and Ravager with this window.'
+- 'Pre-emptive Defense: Warrior survivability is proactive. Use Defensive Stance and Die by the Sword
+  BEFORE damage hits, not reactively. Spell Reflection is extremely powerful when used proactively.'
+removedMechanics:
+- Skullsplitter (removed in 12.0)
+- Bitter Immunity (removed in 12.0)
+- Thunderous Roar (removed in 12.0)
+- Warbreaker (now baked into Colossus Smash)
+- Juggernaut (removed in 12.0)
+commonMistakes:
+- Delaying Mortal Strike, which slows down the cooldown reduction for Demolish.
+- Using Demolish outside of the Colossus Smash burst window.
+- Overcapping Rage instead of spending it on Heroic Strike or Slam fillers.
+- Desyncing Colossus Smash and Avatar due to the Master of Warfare cooldown reduction.
+- Failing to maintain Rend uptime, especially in multi-target scenarios.
+- Standing out of melee range and losing auto-attack Rage generation.
+- Treating Ravager as a 1-minute cooldown instead of its actual 90-second cooldown.
+patchChanges:
+  '12.0': 'Skullsplitter, Bitter Immunity, Thunderous Roar, Juggernaut removed. Warbreaker baked into Colossus
+    Smash. Mastery reworked to flat damage increase with 2H weapons. Rage generation significantly reduced.'
+  12.0.1: 'Reviewed for Midnight Season 1. Demolish damage and cooldown reduction mechanics adjusted. Rallying
+    Cry effectiveness increased by 50% in 5-man content. Sweeping Strikes now operates on a charge system.'

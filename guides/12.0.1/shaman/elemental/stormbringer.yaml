@@ -1,0 +1,115 @@
+specId: 262
+className: Shaman
+specName: Elemental
+role: DPS
+heroTalent: Stormbringer
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Maelstrom
+  secondaryResource: Mana
+  resourceNotes: 'Generate Maelstrom using builders like Lightning Bolt, Lava Burst, and Chain Lightning. Spend Maelstrom
+    on Earth Shock, Elemental Blast, or Earthquake. Stormbringer procs Tempest based on Maelstrom spent (0.3% chance per Maelstrom).
+    Avoid overcapping Maelstrom, though some overcapping is expected in high-target AoE with Aftershock.'
+maintenanceBuffs:
+- spellId: 0
+  spellName: Flame Shock / Voltaic Blaze
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: Maintain Flame Shock (or Voltaic Blaze) on the target at all times to ensure Lava Burst always critically hits
+    and to trigger Lava Surge procs.
+- spellId: 0
+  spellName: Lightning Shield
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'Keep Lightning Shield active for the 3% Intellect bonus from Instinctive Imbuements.'
+rotation:
+  singleTarget: |
+    1. Cast Stormkeeper. Ensure procs are available for Ascendance (cast 1-2 GCDs before).
+    2. Use Ancestral Swiftness.
+    3. Cast Ascendance (sync with on-use trinkets and Bloodlust).
+    4. Cast Earth Shock if Ascendance will fade within the next 3 seconds.
+    5. Cast Elemental Blast if Ascendance will fade within the next 3 seconds.
+    6. Refresh Voltaic Blaze if Ascendance will fade within the next 3 seconds.
+    7. Refresh Flame Shock if Ascendance will fade within the next 3 seconds.
+    8. Cast Voltaic Blaze to refresh Flame Shock when it has 6 seconds or less remaining.
+    9. Refresh Flame Shock when it has 6 seconds or less remaining.
+    10. Cast Tempest. If possible, try casting with the Master of the Elements buff.
+    11. Cast Earth Shock whenever you are less than 15 Maelstrom from capping or when Master of the Elements is up.
+    12. Cast Elemental Blast whenever you are less than 15 Maelstrom from capping or when Master of the Elements is up.
+    13. Cast Lava Burst if Flame Shock is up and Master of the Elements is not up.
+    14. Cast Lightning Bolt as filler.
+  aoe: |
+    1. Cast Stormkeeper. Make sure it is available during Ascendance.
+    2. Use Ancestral Swiftness.
+    3. Cast Voltaic Blaze.
+    4. Cast Ascendance (sync with on-use trinkets and Bloodlust).
+    5. Cast Tempest.
+    6. Cast Earthquake.
+    7. Cast Earthquake if there are at least 5 targets.
+    8. Cast Elemental Blast if there are at most 4 targets.
+    9. Use a Lava Surge proc to consume Purging Flames.
+    10. If there are at most 3 targets, keep one Flame Shock up.
+    11. Cast Chain Lightning (replaces Lightning Bolt at 2+ targets).
+  opener: |
+    1. Cast Stormkeeper ~3 seconds before the pull.
+    2. Cast Lava Burst ~1.5 second before the pull.
+    3. Use Ancestral Swiftness.
+    4. Cast Ascendance with on-use trinkets.
+    5. Cast Tempest.
+    6. Cast Lightning Bolt.
+    7. Cast Lava Burst.
+    8. Cast Lightning Bolt.
+cooldowns:
+- name: Ascendance
+  cooldown: 3min
+  description: 'Major offensive cooldown. Increases Elemental Overload damage by 75% and summons a Fire Elemental (with Call
+    of Fire). Sync with Stormkeeper and trinkets.'
+- name: Stormkeeper
+  cooldown: 1min
+  description: Empowers your next 2 Lightning Bolts or Chain Lightnings to be instant and deal massive damage. In Stormbringer,
+    Tempest procs grant charges of Stormkeeper.
+- name: Ancestral Swiftness
+  cooldown: 1min
+  description: Makes your next nature spell instant and increases haste. Use to trigger Ancestors or line up with burst windows.
+- name: 'Spiritwalker''s Grace'
+  cooldown: 2min
+  description: 'Allows casting while moving. Essential for maintaining DPS during high-movement mechanics.'
+- name: Astral Shift
+  cooldown: 1.5min
+  description: 'Primary defensive. Reduces damage taken by 40%.'
+concepts:
+- 'Tempest: The core Stormbringer mechanic. It has a 0.3% chance to proc per Maelstrom spent. Casting Tempest grants a stack
+  of Stormkeeper.'
+- 'Voltaic Blaze: Replaces Flame Shock. Instantly applies Flame Shock to the target and 5 nearby enemies.'
+- 'Purging Flames: After casting Voltaic Blaze, your next Lava Burst hits all Flame Shocked targets at 80% effectiveness.'
+- 'Master of the Elements: Always try to use the damage buff from Lava Burst on high-impact spells like Tempest or Elemental
+  Blast.'
+- 'Maelstrom Management: Avoid overcapping Maelstrom by using spenders (Earth Shock/Earthquake) before reaching the limit.'
+- 'Pandemic Range: Refresh Flame Shock/Voltaic Blaze when 5 seconds or less remain to extend the duration without waste.'
+- 'Windveil: Interrupting with Wind Shear provides a 15% spell damage reduction for 12 seconds.'
+- 'Feedback Loop (Apex Talent): Increases Overload damage, Crit chance, and Crit damage.'
+- 'Mobility: Use Spiritwalker''s Grace, Gust of Wind, and Ghost Wolf. Elemental has few instant casts
+  outside of procs.'
+removedMechanics:
+- Stone Bulwark Totem
+- Surge of Power
+- Deeply Rooted Elements
+- Magma Chamber
+- Echo of the Elementals
+- Echoes of Great Sundering
+- Primordial Wave
+- Liquid Magma Totem
+- Erupting Lava
+- Icefury
+commonMistakes:
+- 'Overcapping Maelstrom, especially during high-proc AoE windows'
+- Casting Lava Burst when Flame Shock is not active on the target
+- Misaligning Stormkeeper charges with Ascendance windows
+- 'Wasting Master of the Elements buffs on low-priority filler spells'
+- 'Failing to use Spiritwalker''s Grace proactively during movement-heavy phases'
+- 'Not maintaining 100% uptime on Lightning Shield for the Intellect bonus'
+patchChanges:
+  12.0.1: 'Earthquake now deals Nature damage (was Physical). Ascendance redesigned: Now increases Elemental Overload damage
+    by 75% and can summon Fire Elementals via talents. Stormbringer: Tempest proc logic changed to 0.3% chance per Maelstrom
+    spent. Stormbringer: Arc Discharge redesigned to make Tempest grant a stack of Stormkeeper.'

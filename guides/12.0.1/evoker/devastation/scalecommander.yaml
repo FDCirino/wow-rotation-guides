@@ -1,0 +1,187 @@
+specId: 1467
+className: Evoker
+specName: Devastation
+role: DPS
+heroTalent: Scalecommander
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Essence
+  secondaryResource: Essence Burst
+  resourceNotes: >
+    Spend Essence on Disintegrate (Single Target) and Pyre (AoE). Generate Essence Burst procs
+    using filler spells (Living Flame, Azure Strike/Azure Sweep). During Dragonrage, fillers are
+    guaranteed to proc Essence Burst. Spending Essence reduces the cooldown of empowered spells
+    via the Causality talent. Never overcap Essence or Essence Burst procs.
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Fire Breath (DoT)
+    targetUptimePct: 95
+    importance: critical
+    coachingTip: >
+      Maintain the damage-over-time effect by using Fire Breath (usually Empower Level 1 for ST)
+      on cooldown. Blast Furnace extends duration by 4s. Catalyze synergizes with the DoT.
+  - spellId: 0
+    spellName: Bombardments
+    targetUptimePct: 0
+    importance: high
+    coachingTip: >
+      Scalecommander core mechanic: Mass Disintegrate applies Bombardments to its primary target.
+      Spread to multiple targets by targeting different enemies with Mass Disintegrate. Casting Essence
+      abilities extends the duration of all active Bombardments. More Bombardments = more Deep Breath
+      CDR from Wingleader and doubled damage.
+  - spellId: 0
+    spellName: Rising Fury (Apex Talent)
+    targetUptimePct: 0
+    importance: high
+    coachingTip: >
+      Stacks during Dragonrage: gain 4% Haste every 6s, up to 5 stacks (20% total). At 5 stacks,
+      all damage dealt is increased by 15%. When Dragonrage ends, Risen Fury persists for 4s per
+      stack (up to 20s), maintaining the Haste and damage buff.
+
+removedMechanics:
+  - "Shattering Star (Reworked into passive on Eternity Surge — now deals bonus damage per empower level, no longer applies damage taken debuff)"
+  - "Firestorm (No longer a separate spell; only procs passively from Feed the Flames talent)"
+  - "Dense Energy (Removed in 12.0; Pyre now costs 3 Essence baseline unless Imminent Destruction is active)"
+  - "Renewing Blaze (Reworked — now a passive upgrade to Obsidian Scales, healing you over 8s equal to damage it reduced)"
+  - "Unravel (Now a passive effect added to Fire Breath)"
+  - "Twin Guardian shield (Reworked — Rescue now grants 100% movement speed and cast-while-moving for 3s instead of a 30% shield)"
+
+rotation:
+  singleTarget: |
+    1. Use Fire Breath (Empower Level 1) on cooldown to maintain the DoT.
+    2. Use Eternity Surge on cooldown.
+    3. Use Deep Breath on cooldown.
+    4. Use the second charge of Deep Breath from Strafing Run 7-8 seconds after the first.
+    5. Use Azure Sweep after Eternity Surge (core filler with tier set — reduces Eternity Surge CD by 2s per use).
+    6. Spend Essence Burst on Disintegrate. Chain Disintegrate casts for net damage increase. Do NOT chain Mass Disintegrate — let it tick fully before recasting.
+    7. Weave Pyre between Mass Disintegrate casts to build Charged Blast stacks.
+    8. Use Living Flame as primary filler.
+    9. Use Azure Strike as movement filler only if Hover is unavailable.
+    10. Use Hover after instant casts to mask the animation in the GCD.
+  aoe: |
+    1. Cast Deep Breath once enemies are grouped.
+    2. Cast Dragonrage.
+    3. Cast Eternity Surge (with Eternity's Span this hits 2/4/6 targets at ranks 1/2/3).
+    4. Cast Fire Breath at Rank 1 or with Tip the Scales.
+    5. Cast Mass Disintegrate — higher priority than Pyre at ALL target counts per Method.
+       Target different enemies to spread Bombardments. Let Mass Disintegrate tick fully before recasting.
+    6. Weave Pyre between Mass Disintegrate casts to build Charged Blast stacks.
+    7. Cast Azure Sweep for AoE damage and Essence Burst generation (enhanced by tier set).
+    8. Cast Azure Strike as filler for Essence Burst procs.
+    9. Cast Living Flame with Burnout procs when Leaping Flames stacks are active.
+    10. Use empowered spells on cooldown; avoid overcapping Essence.
+  opener: |
+    1. Pre-cast Living Flame so it lands on pull.
+    2. Cast Deep Breath.
+    3. Cast Dragonrage.
+    4. Cast Fire Breath with Tip the Scales.
+    5. Cast Eternity Surge.
+    6. Cast Azure Sweep (tier set charge).
+    7. Cast Disintegrate until Essence is depleted.
+    8. Cast Living Flame to generate Essence Burst procs.
+    9. Cast Deep Breath a second time (Strafing Run).
+    10. Proceed with normal priority.
+
+cooldowns:
+  - name: Dragonrage
+    cooldown: 2min
+    description: >
+      Major offensive cooldown. Grants full effectiveness of Mastery: Giantkiller regardless of
+      target HP. Guarantees Essence Burst from fillers. Extend duration using Empower spells via
+      Animosity (diminishing returns: 25% less per empower cast during DR). Rising Fury stacks
+      Haste (20%) and damage (15%) during DR, persisting up to 20s after it ends.
+  - name: Deep Breath
+    cooldown: Variable (reduced by Wingleader from Bombardments targets)
+    description: >
+      Scalecommander version with Strafing Run allows a second cast within 18s, dealing 20%
+      increased damage. Terror of the Skies adds a 3s stun. Stretch Time converts 100% of damage
+      taken during flight into a 10s DoT (powerful defensive). Imminent Destruction: reduces Essence
+      cost of next 4 Disintegrates or Pyres by 1.
+  - name: Tip the Scales
+    cooldown: See tooltip
+    description: >
+      Makes your next Empower spell instant and cast at maximum empower level. Best used on Fire
+      Breath during Dragonrage or Eternity Surge for immediate value.
+  - name: Obsidian Scales
+    cooldown: See tooltip
+    description: >
+      Flat damage reduction. Renewing Blaze (passive) causes it to also heal you over 8s equal to
+      the damage it reduced.
+  - name: Zephyr
+    cooldown: 2min
+    description: >
+      Group utility — reduces AoE damage taken by 20% and increases movement speed. Use when AoE
+      damage is going out.
+  - name: Time Spiral
+    cooldown: 2min
+    description: >
+      Grants the party an additional use of their movement ability (Hover for Evokers).
+
+concepts:
+  - >
+    Dragonrage Extending: Use Fire Breath and Eternity Surge during Dragonrage to extend
+    duration via Animosity. Extensions diminish by 25% per empower spell cast during DR.
+    Rising Fury adds Haste and damage stacks that persist after DR ends.
+  - >
+    Bombardment Cleaving: Scalecommander's core mechanic. Mass Disintegrate applies Bombardments
+    to its primary target. Spread by targeting different enemies. Each Essence ability extends all
+    active Bombardments. More Bombardments = doubled damage and more Deep Breath CDR from Wingleader.
+  - >
+    Mass Disintegrate Priority: Higher priority than Pyre at ALL target counts per Method.
+    Weave a Pyre cast between Mass Disintegrate casts for Charged Blast stacks. Do NOT chain
+    Mass Disintegrate — let it tick fully, then recast.
+  - >
+    Azure Sweep: Eternity Surge transforms your next Azure Strike into Azure Sweep, dealing 75%
+    more damage and hitting all nearby enemies. Tier set: +50% damage (+100% to primary target),
+    grants additional charge, and each use reduces Eternity Surge CD by 2s. Core rotational spell.
+  - >
+    Rising Fury (Apex Talent): 4% Haste every 6s during Dragonrage (up to 20%). At 5 stacks,
+    15% damage increase. Risen Fury persists 4s per stack after DR ends (max 20s). Major
+    throughput increase to DR windows and the period immediately after.
+  - >
+    Empowered Spell Spacing: Leave a 4-5 second window between Empower casts to maximize Power
+    Swell and Iridescence benefits.
+  - >
+    Mobility: Use Hover after instant casts to mask the animation in the GCD. Hover allows
+    casting Disintegrate and Living Flame while moving. With Slipstream, ensure 0 Hover charges
+    before using Deep Breath. Evoker is limited to 25 yard range.
+  - >
+    Stretch Time: Converts 100% of damage taken during Deep Breath into a 10s DoT. Powerful
+    defensive, but do not hold Deep Breath for defensive purposes as Scalecommander — the
+    damage loss is too great.
+  - >
+    Scalecommander vs Flameshaper: Scalecommander outperforms Flameshaper in almost all damage
+    profiles per Method. Provides better spread cleave and only suffers slightly from target swapping.
+
+  - >
+    Mastery (Giantkiller): Increases damage based on target current health. Dragonrage grants full effectiveness.
+  - >
+    Limited Range: Devastation is limited to 25 yards. Position proactively.
+  - >
+    Hover: Essential for maintaining uptime. Allows casting Living Flame and Disintegrate while moving.
+commonMistakes:
+  - "Overcapping Essence or Essence Burst procs."
+  - "Casting Empower spells too close together — wastes Power Swell and Iridescence duration."
+  - "Failing to spread Bombardments to multiple targets by not targeting different enemies with Mass Disintegrate."
+  - "Chaining Mass Disintegrate instead of letting it tick fully — net DPS loss."
+  - "Not weaving Pyre between Mass Disintegrate casts — missing Charged Blast stacks."
+  - "Not using the second charge of Deep Breath from Strafing Run within the 18s window."
+  - "Standing idle during movement instead of using Hover or Azure Strike."
+  - "Using Pyre on fewer than 3 targets unless Imminent Destruction is active."
+  - "Holding Deep Breath for defensive Stretch Time purposes — damage loss as Scalecommander is too high."
+  - "Not using Azure Sweep after Eternity Surge — wasting tier set value and Eternity Surge CDR."
+
+patchChanges:
+  "12.0.1": >
+    Azure Sweep added as new talent (replaces Lay Waste node). Shattering Star reworked into passive
+    on Eternity Surge (bonus damage per empower level, no longer applies damage taken debuff).
+    Strafing Run added (Deep Breath +20% damage, recast within 18s). Stretch Time added (damage
+    stagger during Deep Breath). Animosity now has diminishing returns (25% per empower cast during DR).
+    Hover can be used during GCD after instant casts. Twin Guardian reworked (Rescue = 100% move speed
+    + cast-while-moving 3s). Renewing Blaze passive on Obsidian Scales. Imminent Destruction reworked
+    (Deep Breath reduces next 4 Essence spender costs by 1). Eternity's Span now only affects Eternity
+    Surge. Twin Flame now considered a Red spell. Tier set: 2pc Azure Sweep +50% (+100% primary target).
+    4pc Eternity Surge grants extra Azure Sweep charge; Azure Sweep reduces ES CD by 2s.

@@ -1,0 +1,110 @@
+specId: 257
+className: Priest
+specName: Holy
+role: Healer
+heroTalent: Oracle
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Holy Words
+  resourceNotes: 'Mana is your primary constraint for long encounters. Your secondary resource is Holy Words (Serenity, Sanctify,
+    Chastise), which are powerful instant-cast spells. You reduce their cooldowns by casting "filler" spells: Flash Heal reduces
+    Serenity, Prayer of Healing reduces Sanctify, and Smite/Holy Nova reduce Chastise. Oracle specifically gains a second
+    charge of Prayer of Mending via Guiding Light, allowing for better resource pooling.'
+maintenanceBuffs:
+- spellId: 0
+  spellName: 'Mastery: Echo of Light'
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: Direct healing spells leave a HoT on the target. Oracle enhances this via the Piety talent, making it a significant
+    portion of your throughput.
+- spellId: 0
+  spellName: Protective Light
+  targetUptimePct: 80
+  importance: high
+  coachingTip: Casting Flash Heal on yourself reduces damage taken. Keep this active during periods of high incoming damage.
+- spellId: 0
+  spellName: Translucent Image
+  targetUptimePct: 20
+  importance: medium
+  coachingTip: Using Fade reduces damage taken. Use it proactively before predictable mechanics.
+removedMechanics:
+- Renew (removed as a casted ability; now applied passively)
+- Heal (removed)
+- Lightwell (removed)
+- Shadowfiend (removed)
+- Symbol of Hope (removed)
+- 'Power Word: Shield (removed)'
+- 'Power Word: Life (removed)'
+- Divine Star (removed)
+- Divine Word (removed)
+- Premonition (removed from Oracle tree in 12.0)
+rotation:
+  singleTarget: |
+    1. Cast Holy Word: Serenity as your primary reactive burst heal.
+    2. Cast Prayer of Mending on cooldown (Oracle provides 2 charges via Guiding Light).
+    3. Cast Benediction (upgraded Flash Heal) whenever it procs from Prayer of Mending bounces.
+    4. Cast Flash Heal to triage allies and reduce the cooldown of Holy Word: Serenity.
+    5. Cast Holy Word: Chastise for damage or to stop enemy casts.
+    6. Cast Holy Fire on cooldown for damage.
+    7. Cast Smite as a filler to deal damage and reduce the cooldown of Holy Word: Chastise.
+  aoe: |
+    1. Cast Holy Word: Sanctify for group healing (Note: This is disabled if talented into Ultimate Serenity).
+    2. Cast Prayer of Mending on cooldown to maximize Oracle's passive healing and Prompt Prognosis procs.
+    3. Cast Prayer of Healing to heal the group and reduce the cooldown of Holy Word: Sanctify (or Serenity if using Ultimate Serenity).
+    4. Cast Holy Word: Serenity (if talented into Ultimate Serenity, it cleaves to nearby allies).
+    5. Cast Divine Hymn during periods of intense group-wide damage.
+    6. Cast Holy Nova for damage when facing 4+ targets.
+  opener: |
+    1. Pre-cast Prayer of Mending on the tank or expected damage targets.
+    2. Cast Holy Fire.
+    3. Cast Holy Word: Chastise.
+    4. Cast Smite or Holy Nova for damage until healing is required.
+cooldowns:
+- name: Apotheosis
+  cooldown: 2min
+  description: 'Increases Holy Word cooldown reduction by 300% and reduces their mana cost. Use during heavy damage
+    windows for burst Holy Word resets.'
+- name: Divine Hymn
+  cooldown: 3min
+  description: 'Channeled raid cooldown. Heals all allies and increases healing received by 10% for 8 seconds.'
+- name: Guardian Spirit
+  cooldown: 3min
+  description: 'Increases healing received by the target by 60% and prevents them from dying, healing them for 40% health
+    instead.'
+- name: Power Infusion
+  cooldown: 2min
+  description: Haste buff for yourself and an ally. Coordinate with DPS for maximum group benefit.
+concepts:
+- 'Holy Words: The core of Holy Priest gameplay. Use Serenity and Sanctify as often as possible; do not sit on 2 charges.'
+- 'Oracle Specialization: Focuses on Prayer of Mending. Guiding Light grants an additional charge, allowing you to pool casts
+  for movement or high-damage windows.'
+- 'Prompt Prognosis: An Oracle talent that causes Prayer of Mending to heal the target directly upon application, significantly
+  improving spot-healing.'
+- 'Divine Image: When talented, casting Holy Words summons a Naaru that mimics your healing spells. More Holy
+  Word casts = more value. No major playstyle change needed.'
+- 'Ultimate Serenity: A new talent choice that replaces Sanctify with a cleaving Serenity. This simplifies the rotation into
+  a single powerful Holy Word button.'
+- 'Benediction Apex Talent: Prayer of Mending bounces periodically upgrade your next Flash Heal into Benediction, which heals
+  for more and triggers Cosmic Ripple.'
+- 'Reactive Healing: Holy is a reactive spec. Respond to damage taken with the appropriate tool (Serenity for single target,
+  Sanctify/Prayer of Healing for AoE).'
+- 'Damage Contribution: Use Holy Fire and Smite during low-healing periods to assist the group and speed up Holy Word: Chastise
+  resets.'
+- 'Miracle Worker: Provides 2 charges of Serenity and Sanctify. Avoid sitting on 2 charges to maximize
+  CDR value.'
+- 'Lightweaver: Alternate Flash Heal (to get the buff) and Prayer of Healing (to spend it) for mana-efficient
+  group healing.'
+commonMistakes:
+- Overcapping Holy Word charges instead of using them frequently
+- Neglecting Prayer of Mending casts, which are the foundation of the Oracle playstyle
+- 'Never using Apotheosis during a fight. Use it during predictable heavy damage windows — holding briefly
+  is good, but never using it is worse than imperfect timing.'
+- Overusing Prayer of Healing when Mana is low; it is less efficient than Holy Words
+- Forgetting to use damage spells like Holy Fire during downtime
+patchChanges:
+  12.0.1: 'Oracle: Premonition removed and replaced with talents focusing on Prayer of Mending. New Talent: Guiding Light
+    grants an additional charge of Prayer of Mending. New Talent: Prompt Prognosis adds a direct heal to Prayer of Mending
+    casts. New Talent: Ultimate Serenity allows Holy Word: Serenity to cleave but removes Holy Word: Sanctify. New Talent:
+    Benediction Apex Talent added, upgrading Flash Heal via Prayer of Mending bounces.'

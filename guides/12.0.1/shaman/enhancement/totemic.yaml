@@ -1,0 +1,141 @@
+specId: 263
+className: Shaman
+specName: Enhancement
+role: DPS
+heroTalent: Totemic
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Maelstrom Weapon
+  resourceNotes: 'Enhancement uses Maelstrom Weapon (MW) as a pseudo-resource, capping at 10 stacks. Spend at 10 stacks on
+    instant-cast Lightning Bolt or Chain Lightning (5+ acceptable to extend Hot Hand or trigger Elemental Tempo CDR). Spending
+    MW stacks triggers Elemental Tempo (cooldown reduction to melee strikes) and Totemic Momentum (extends Hot Hand uptime).'
+maintenanceBuffs:
+- spellId: 0
+  spellName: Crash Lightning (Weapon Enhancement)
+  targetUptimePct: 95
+  importance: high
+  coachingTip: 'The weapon enhancement buff from Crash Lightning now stacks and overlaps. Keep this active at all times, even
+    in single-target, to increase auto-attack speed via Storm Unleashed.'
+- spellId: 0
+  spellName: Skyfury
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: Ensure your group always has the Skyfury buff active for increased Mastery and extra melee strikes.
+- spellId: 0
+  spellName: Earth Shield
+  targetUptimePct: 100
+  importance: medium
+  coachingTip: Maintain Earth Shield on yourself and a second target (usually the tank) for passive healing and damage reduction.
+removedMechanics:
+- Primordial Wave (removed; effects moved to Sundering)
+- Frost Shock (removed from core rotation)
+- Ice Strike (removed)
+- Stone Bulwark Totem (removed)
+- Thunderstorm / Thundershock (removed for Enhancement)
+- Sundering Incapacitate (removed)
+rotation:
+  singleTarget: |
+    Totemic focuses on Lava Lash as primary strike and Hot Hand maintenance.
+    1. Cast Voltaic Blaze if Flame Shock is not active on the target.
+    2. Cast Surging Totem on cooldown.
+    3. Cast Lava Lash with Hot Hand or Whirling Fire active (highest priority strike).
+    4. Cast Sundering (triggers Whirling Elements motes — aim to sync every other cast with Surging Totem).
+    5. Cast Ascendance on cooldown if talented (use Windstrike every GCD during Ascendance).
+    6. Cast Doom Winds (synced with Surging Totem).
+    7. Cast Crash Lightning to maintain weapon enhancement and trigger Storm Unleashed.
+    8. Cast Primordial Storm with 10 Maelstrom Weapon stacks (at 5+ if buff is about to expire).
+    9. Cast Windstrike during Ascendance procs (Stormstrike during Doom Winds after Ascendance expires).
+    10. Cast Stormstrike during Doom Winds.
+    11. Spend Maelstrom Weapon at 10 stacks on Lightning Bolt. Weave spenders to extend Hot Hand via Totemic Momentum.
+    12. Cast Lava Lash.
+    13. Cast Stormstrike as filler.
+    14. Cast Voltaic Blaze.
+    15. Spend Maelstrom Weapon at 5+ stacks on Lightning Bolt if Elemental Tempo will reset Lava Lash cooldown.
+  aoe: |
+    1. Cast Voltaic Blaze if Flame Shock is not active.
+    2. Cast Surging Totem to pulse AoE damage.
+    3. Cast Sundering on cooldown.
+    4. Cast Lava Lash if Hot Hand or Whirling Fire is active.
+    5. Cast Doom Winds.
+    6. Cast Primordial Storm with 10 Maelstrom Weapon stacks.
+    7. Cast Crash Lightning to maintain AoE cleave and leave static pool.
+    8. Cast Ascendance on cooldown (if talented).
+    9. Cast Windstrike during Ascendance.
+    10. Cast Stormstrike during Doom Winds.
+    11. Cast Voltaic Blaze.
+    12. Cast Chain Lightning with 10 Maelstrom Weapon stacks.
+    13. Cast Lava Lash.
+    14. Cast Stormstrike.
+    15. Cast Chain Lightning with 5+ Maelstrom Weapon stacks.
+    Use Totemic Projection to reposition Surging Totem if the pack moves.
+  opener: |
+    Totemic ST Opener:
+    1. Cast Voltaic Blaze on the way into melee.
+    2. Cast Surging Totem.
+    3. Cast Sundering.
+    4. Cast Ascendance.
+    5. Cast Lava Lash (trigger Hot Hand).
+    6. Cast Crash Lightning.
+    7. Cast Lava Lash.
+    8. Cast Windstrike.
+    9. Cast Doom Winds + immediately Primordial Storm.
+    10. Cast Lava Lash.
+    11. Cast Crash Lightning.
+    12. Cast Primordial Storm at 10 MW ASAP.
+    13. Continue with normal priority.
+cooldowns:
+- name: Ascendance (Talent Choice)
+  cooldown: 2min
+  description: 'Replaces Doom Winds when talented. Triggers Doom Winds on activation, replaces Stormstrike with Windstrike.
+    Alternative talents: Deeply Rooted Elements (random procs) or Doom Winds (1-min standalone CD that syncs with Surging Totem).'
+- name: Surging Totem
+  cooldown: 1min
+  description: Core Totemic cooldown. Pulses AoE damage and synergizes with Maelstrom spenders and Sundering.
+- name: Doom Winds
+  cooldown: 1min
+  description: Increases Windfury chance and spawns a Nature wolf. Sync with Surging Totem.
+- name: Sundering
+  cooldown: 30s
+  description: 'Deals heavy damage and spawns a Fire wolf (5% Elemental damage). Consumes Whirling Earth mote from Surging Totem
+    for double damage and a Searing Totem. Generates 5 MW and 15% Haste via Surging Elements. Primordial Storm is a follow-up
+    combo available ONLY after a direct Sundering cast — Splitstream-triggered Sundering procs do NOT enable Primordial Storm
+    and do NOT trigger Surging Elements Haste.'
+- name: Astral Shift
+  cooldown: 1.5min
+  description: 'Primary defensive cooldown (40% damage reduction).'
+- name: Bloodlust/Heroism
+  cooldown: 10min
+  description: Major group haste buff.
+- name: Earth Elemental
+  cooldown: 3min
+  description: 'Provides a 15% health increase (via Primordial Bond) and acts as a backup tank.'
+concepts:
+- 'Totemic Momentum: Spending Maelstrom Weapon stacks can extend the duration of Hot Hand, allowing for extremely long streaks
+  of empowered Lava Lashes.'
+- 'Elemental Tempo: Melee strikes generate Maelstrom Weapon, and spending that Maelstrom Weapon reduces the cooldown of your
+  melee strikes, creating a fast-paced loop.'
+- 'Surging Totem Synergy: Surging Totem pulses damage whenever you cast a Maelstrom spender (Totemic Rebound) and whenever
+  you cast Sundering (Earthsurge).'
+- 'Splitstream: While Hot Hand is active, Lava Lash triggers Sundering effects, further amplifying your burst windows.'
+- 'Storm Unleashed: This Apex talent makes Crash Lightning a core rotational button by giving it a chance to reset its own
+  cooldown and leave behind static pools.'
+- 'Defensive Layering: Use Astral Shift for big hits, Earth Elemental for health, and Healing Surge
+  (buffed by Raging Maelstrom) for recovery.'
+- 'Skyfury: Provides Mastery and a 20% chance for an extra auto-attack to the party.'
+- 'Whirling Elements: Surging Totem triggers three motes — Whirling Earth (doubles next Sundering damage, spawns Searing Totem),
+  Whirling Fire (triggers/extends Hot Hand on next Lava Lash), and Whirling Air (triggers Totemic Rebound 3x on next MW spender).'
+- 'Ride the Lightning: Your strikes trigger Chain Lightning, providing a smooth transition from single-target to cleave.'
+commonMistakes:
+- Failing to sync Doom Winds with Surging Totem
+- 'Overcapping Maelstrom Weapon stacks above 10 — Totemic generally spends at 10 stacks, or lower only to extend Hot Hand via Totemic Momentum'
+- 'Neglecting to cast Crash Lightning in single-target scenarios'
+- Not utilizing Totemic Projection to keep Surging Totem on top of moving targets
+- Ignoring Hot Hand procs and failing to extend them with Totemic Momentum
+- Using Sundering without checking if Surging Totem is active to trigger Earthsurge
+patchChanges:
+  12.0.1: 'Small adjustments to Totemic talent builds. 12.0 (Midnight): Surging Totem reworked to a 1-minute cooldown with
+    a 25-second duration. Totemic Momentum added to allow Hot Hand extension. Primordial Wave removed; effects merged into
+    Sundering. Feral Spirit converted into a passive talent triggered by Doom Winds and Sundering. Crash Lightning buff now
+    stacks and overlaps.'

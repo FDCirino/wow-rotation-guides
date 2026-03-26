@@ -1,0 +1,186 @@
+specId: 73
+className: Warrior
+specName: Protection
+role: Tank
+heroTalent: Colossus
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Rage
+  secondaryResource: None
+  resourceNotes: 'Generate Rage through Shield Slam, Thunder Clap, Ravager, auto-attacks, and taking damage.
+    Spend Rage on Shield Block and Ignore Pain for mitigation, or Revenge and Execute for damage. Colossus
+    focuses on Demolish as a hard-hitting channel, reduced by Shield Slam via Colossal Might. Never cap Rage
+    — use Ignore Pain (off-GCD) to dump excess.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Shield Block
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: 'Maintain while actively tanking blockable damage. Effective uptime matters more than raw
+    uptime — ensure active during melee swings.'
+- spellId: 0
+  spellName: Ignore Pain
+  targetUptimePct: 70
+  importance: high
+  coachingTip: 'Use to dump excess Rage and prevent capping. Prioritize if about to hit 100 Rage or taking
+    non-blockable damage. Off-GCD — always takes priority over any ability if next cast would cap Rage.'
+- spellId: 0
+  spellName: Deep Wounds
+  targetUptimePct: 90
+  importance: medium
+  coachingTip: 'Applied via Execute (with talent) or Demolish (via Decimator). Required for Execute to be
+    worth casting. Bloodborne also requires it.'
+
+tankingGuide:
+  survivalPriority: |-
+    These abilities take absolute priority over the damage rotation below.
+    1. Maintain Shield Block while actively tanking blockable damage (most melee hits).
+       Effective uptime matters more than raw uptime — do not waste charges when not being attacked.
+       Time Shield Block around enemy swing timers and high-damage blockable abilities.
+       If not tanking, you may use Shield Block to buff Shield Slam damage (30% increase while active).
+    2. Use Ignore Pain to spend excess Rage and smooth non-blockable damage.
+       Off-GCD with its own internal cooldown — weave it between normal abilities.
+       Shield Block takes priority over Ignore Pain when tanking blockable damage.
+       Always use Ignore Pain if your next ability would cap Rage.
+       Pool Rage and cast Ignore Pain before predictable damage spikes.
+  defensiveCooldowns: |-
+    - Shield Wall (3min): Primary defensive. Use proactively for heavy damage, not as a panic button.
+      Passively triggers Last Stand (increases max HP). Reduced by Anger Management.
+    - Demoralizing Shout (45s): Both defensive and offensive (Booming Voice). Use on cooldown for
+      the DPS gain unless you need to hold it for a specific damage event. Thunderlord reduces CD further.
+    - Spell Reflection (25s): 20% magic damage reduction for 5 seconds. Reflects certain spells.
+      The magic DR persists even after a reflect consumes the buff. Know which abilities are reflectable.
+    - Rallying Cry (3min): Group-wide HP increase. Coordinate with healer for dangerous moments.
+    - Impending Victory: Self-heal on short cooldown. Use freely whenever health dips.
+  stanceDancing: |-
+    Defensive Stance: 20% damage reduction + 5% magic DR. Stay in this while actively tanking.
+    Battle Stance: 3% Crit + 10% CC reduction. Swap to this ONLY when not tanking anything and
+    taking no significant damage. The 3% crit is not worth losing 20%+ DR.
+  rageManagement: |-
+    Your rotation exists to generate Rage. Rage is spent on Shield Block and Ignore Pain for survival,
+    or Revenge for damage. Never cap at 100 — capping wastes Indomitable healing (1% per 15 Rage spent)
+    and Anger Management CDR (1s off Avatar/Shield Wall per 20 Rage). Ignore Pain (off-GCD) is your
+    primary Rage dump. Colossus generates extra Rage through Demolish and Shield Slam spam (Colossal
+    Might keeps Demolish cycling faster). Use Revenge for damage only when survivability is not a concern —
+    Revenge deals more damage than Thunder Clap for Colossus.
+
+removedMechanics:
+- Thunderous Roar (removed in 12.0)
+- Uproar (removed in 12.0)
+- Thunderous Words (removed in 12.0)
+- Immovable Object (removed in 12.0)
+- Piercing Challenge (removed in 12.0)
+- "Champion's Might (removed in 12.0)"
+- Seismic Reverberation (removed in 12.0)
+
+rotation:
+  singleTarget: |-
+    1. Cast Avatar on cooldown.
+    2. Cast Demoralizing Shout on cooldown (sync with Avatar).
+    3. Cast Champion's Spear.
+    4. Cast Ravager on cooldown.
+    5. Cast Demolish on cooldown (during Avatar/Demo Shout windows ideally).
+    6. Cast Shield Charge on cooldown.
+    7. Cast Shield Slam on cooldown (reduces Demolish CD via Colossal Might).
+    8. Cast Thunder Clap to trigger Phalanx (Apex) buffs.
+    9. Cast Wrecking Throw on cooldown (or Shattering Throw if talented).
+    10. Cast Execute ONLY if: Deep Wounds or Bloodborne is talented, Shield Slam AND Thunder Clap are on CD, AND you have 40+ Rage.
+    11. Cast Revenge if Shield Slam and Thunder Clap are on CD (deals more damage than Thunder Clap for Colossus).
+    Ignore Pain takes priority over ANY ability if next cast would cap Rage.
+  aoe: |-
+    1. Cast Avatar on cooldown.
+    2. Cast Demoralizing Shout on cooldown.
+    3. Cast Ravager on cooldown.
+    4. Cast Champion's Spear on cooldown.
+    5. Cast Shield Charge on cooldown.
+    6. Cast Demolish on cooldown (position to hit all targets for Deep Wounds via Decimator).
+    7. Cast Shield Slam on cooldown.
+    8. Cast Thunder Clap on cooldown. Takes priority over Revenge if Rend is about to fall off.
+    9. Cast Revenge for damage if survivability is not an issue.
+    10. Ignore Pain to dump excess Rage (off-GCD).
+  opener: |-
+    1. Taunt as you cast Charge.
+    2. Cast Ravager.
+    3. Cast Avatar as you Charge.
+    4. Cast Shield Block.
+    5. Cast Shield Slam.
+    6. Cast Demoralizing Shout.
+    7. Cast Champion's Spear.
+    8. Cast Demolish.
+    9. Cast Shield Charge.
+    10. Continue with single-target priority.
+
+cooldowns:
+- name: Demolish
+  cooldown: 45s (reduced by Shield Slam via Colossal Might)
+  description: 'Colossus signature. Hard-hitting channel, grants immunity to stuns/knockbacks/forced movement.
+    Position so enemies are in front — movement cancels channel. Decimator talent applies Deep Wounds to
+    all targets hit.'
+- name: Avatar
+  cooldown: 1.5min
+  description: 'Major offensive cooldown. Increases damage and generates Rage. Sync with Demolish and
+    Demoralizing Shout for maximum burst.'
+- name: Demoralizing Shout
+  cooldown: 45s
+  description: 'Defensive and offensive (Booming Voice). Reduces enemy damage, increases your damage,
+    generates 20 Rage with Booming Voice.'
+- name: "Champion's Spear"
+  cooldown: 1.5min
+  description: 'Deals damage and generates Rage. Allows leaping to spear location. Important rotational
+    cooldown — do not omit.'
+- name: Shield Wall
+  cooldown: 3min
+  description: 'Major defensive. Reduces all damage taken. Now passively triggers Last Stand (increases
+    max health).'
+- name: Ravager
+  cooldown: 90s
+  description: 'Generates up to 60 Rage, deals AoE damage. Increases Thunder Clap and Revenge damage by
+    50% while active.'
+- name: Shield Charge
+  cooldown: 45s
+  description: 'Gap closer dealing damage, generating Rage, and granting Shield Block.'
+- name: Spell Reflection
+  cooldown: 25s
+  description: 'Reduces magic damage taken and reflects certain spells.'
+- name: Rallying Cry
+  cooldown: 3min
+  description: 'Group survivability. Increases health of all party/raid members.'
+- name: Impending Victory
+  cooldown: 25s
+  description: 'Self-heal on short cooldown. Use freely whenever health dips.'
+
+concepts:
+- 'Colossal Might: Shield Slam casts reduce Demolish cooldown. This makes Shield Slam your most important
+  rotational button — never delay it.'
+- 'Demolish Mechanics: Channeled ability. Must position enemies in front. Movement cancels channel. Grants
+  stun/knockback immunity during channel. Use to avoid forced movement mechanics.'
+- 'Decimator: Demolish applies Deep Wounds to all targets hit. Critical for AoE setup.'
+- 'Execute Conditions (Colossus): Only cast if (1) Deep Wounds or Bloodborne is talented, (2) Shield Slam
+  AND Thunder Clap are both on CD, (3) 40+ Rage. Otherwise skip it.'
+- 'Revenge vs Thunder Clap: As Colossus, Revenge deals more damage than Thunder Clap. Spend excess Rage on
+  Revenge for damage when survivability is not a concern.'
+- 'Phalanx (Apex Talent): Thunder Clap buffs next Shield Slam to deal frontal cone damage. Weave Thunder
+  Clap to trigger these force waves even as Colossus.'
+- 'Mobility: Use Heroic Leap and Charge for positioning. Heroic Leap resets the cooldown of Taunt.'
+- 'Utility: Use Shockwave, Storm Bolt, and Disrupting Shout for crowd control and interrupts.'
+
+commonMistakes:
+- Interrupting Demolish channel by moving or using movement abilities.
+- Using Demolish when enemies are behind you or about to move out of frontal area.
+- Missing Champion's Spear from rotation — it is a key cooldown.
+- Prioritizing Thunder Clap over Revenge for Rage dumping (Colossus gains more from Revenge).
+- Letting Shield Block drop while actively taking melee hits.
+- Overcapping Rage instead of dumping with Ignore Pain or Revenge.
+- Holding Avatar and Demolish too long instead of using rotationally.
+- Not using Shield Slam on cooldown, delaying Demolish via Colossal Might.
+- Casting Execute without Deep Wounds/Bloodborne talented or below 40 Rage.
+
+patchChanges:
+  12.0.1: 'Taunt duration increased to 6s. Deep Wounds is now talent-only (Execute or Decimator). Last Stand
+    is passive on Shield Wall. Anger Management requires 20 Rage/sec (up from 10). Ravager increases Thunder
+    Clap and Revenge damage by 50%.'
+  '12.0': 'Thunderous Roar, Uproar, Immovable Object, Piercing Challenge removed. Colossus hero talent
+    added with Demolish. Phalanx Apex talent added.'

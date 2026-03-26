@@ -1,0 +1,145 @@
+specId: 1473
+className: Evoker
+specName: Augmentation
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Essence
+  secondaryResource: Essence Burst
+  resourceNotes: 'Generate Essence Burst by casting Living Flame (or Chrono Flame) and Azure Strike. Spend Essence or Essence Burst on Eruption to deal damage and extend the duration of Ebon Might. Essence Burst makes your next Eruption free, and with the Ignition Rush talent, it also reduces cast time by 40% and increases damage by 20%. Avoid overcapping Essence Burst (max 2 stacks) by spending it before casting generators.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Ebon Might
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'This is your highest priority. Maintain near 100% uptime by extending it with Empower spells (Fire Breath, Upheaval), Eruption, and Breath of Eons. Refresh when 3 seconds or less remain to utilize the Pandemic window.'
+  - spellId: 0
+    spellName: Prescience
+    targetUptimePct: 95
+    importance: high
+    coachingTip: 'Use rotationally on co-DPS allies. It grants Critical Strike chance and triggers Fate Mirror for additional damage/healing. In Midnight, it no longer directs Ebon Might but remains vital for personal and ally throughput.'
+  - spellId: 0
+    spellName: Blistering Scales
+    targetUptimePct: 100
+    importance: medium
+    coachingTip: 'Keep this active on the tank to provide bonus armor and physical damage reduction. Regenerative Chitin prevents it from losing charges.'
+  - spellId: 0
+    spellName: Shifting Sands
+    targetUptimePct: 90
+    importance: high
+    coachingTip: 'Triggered by casting Empower spells. It provides Versatility to allies based on your Mastery. Ensure Ebon Might is active before casting Empowers to maximize the extension value.'
+
+playstyles:
+  - id: scalecommander
+    name: Scalecommander
+    detectionCriteria:
+      heroTalents:
+        - "Scalecommander"
+  - id: chronowarden
+    name: Chronowarden
+    detectionCriteria:
+      heroTalents:
+        - "Chronowarden"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Renewing Blaze (Reworked in 12.0: Now a passive effect that causes Obsidian Scales to heal for 100% of damage reduced)
+  - Unravel (Reworked in 12.0: Now adds a passive effect to Fire Breath)
+  - Threads of Fate (Removed in 12.0)
+  - Master of Destiny (Removed in 12.0)
+  - Rockfall (Removed in 12.0)
+  - Inner Radiance (Removed in 12.0)
+  - Twin Guardian (Reworked in 12.0: Now increases movement speed by 100% and allows casting while moving for 3s instead of providing a shield)
+  - Close as Clutchmates (Disabled in 12.0: No longer needed due to Ebon Might scaling changes)
+  - Ebon Might Manual Targeting (Reworked in 12.0: Now applies to all damage-dealing allies within 100 yards in raids; Prescience no longer directs it)
+  - Quell (Moved in 12.0: Removed from the Evoker class tree and moved to DPS spec trees as a talent choice)
+
+rotation:
+  singleTarget: |
+    [Shared Priority]
+    1. Maintain Ebon Might uptime at all costs. Refresh at 3 seconds or less remaining.
+    2. Cast Prescience on cooldown (maintain 2 charges on allies).
+    3. Cast Breath of Eons. (Scalecommander: Use on cooldown. Chronowarden: Sync with ally cooldowns or use on cooldown for Duplicate uptime).
+    4. Cast Fire Breath. (Note: Use Rank 1 if talented into Molten Embers for the 25% Black spell damage bonus).
+    5. Cast Upheaval.
+    6. Cast Eruption to spend Essence and Essence Burst to extend Ebon Might.
+    7. Fill with Living Flame (or Chrono Flame for Chronowarden) to generate Essence Burst.
+    8. Use Azure Strike as a filler only if moving and Hover/Prescience are unavailable.
+
+    [Scalecommander Specifics]
+    - Prioritize extending the Bombardments debuff by casting Eruption while it is active.
+    - Use Breath of Eons on cooldown to maximize Duplicate uptime and benefit from Wingleader cooldown reduction.
+
+    [Chronowarden Specifics]
+    - Use a cancelaura macro for Tip the Scales to immediately trigger the Temporal Burst Haste buff.
+    - Prioritize Chrono Flame as your primary filler.
+  aoe: |
+    1. Maintain Ebon Might uptime.
+    2. Empower Upheaval to a higher rank until all enemies are within the area of effect.
+    3. Cast Fire Breath (Rank 1 with Molten Embers).
+    4. Cast Breath of Eons (Scalecommander: Use on cooldown; Chronowarden: Sync with group).
+    5. Cast Eruption (Mass Eruption) to apply Bombardments to multiple targets (Scalecommander).
+    6. Use Azure Strike as filler for 2+ targets if Pupil of Alexstrasza is not talented.
+    7. Use Upheaval to stop important enemy casts if needed.
+  opener: |
+    1. Pre-cast Chrono Flame (1.5s before pull).
+    2. Pre-cast Living Flame (1.5s before pull).
+    3. Cast Ebon Might.
+    4. Cast Prescience.
+    5. Cast Prescience.
+    6. Use Mastery Trinkets.
+    7. Cast Deep Breath.
+    8. Use DPS Potion and Trinkets.
+    9. Use Tip the Scales.
+    10. Cast Fire Breath (Highest rank possible in opener sequence).
+    11. Cast Eruption.
+    12. Cast Eruption.
+    13. Cast Eruption.
+    14. Continue with Normal Rotation Priority.
+
+cooldowns: |
+  - Breath of Eons (2 min): Major offensive cooldown. Flies to target, applies a 10s debuff storing 15% of ally damage, then explodes. Summons Duplicate pet.
+  - Ebon Might (30s): Core rotational cooldown. Increases primary stat of all allies by 8%. Must be extended via rotation.
+  - Tip the Scales (2 min): Makes next Empower spell instant at max rank. Chronowarden uses this to trigger Temporal Burst.
+  - Time Skip (3 min): Reduces cooldowns of Empower spells.
+  - Obsidian Scales (1.5 min): Major defensive (2 charges). Reduces damage taken by 30%. Heals via Renewing Blaze.
+  - Zephyr (2 min): Group utility. Reduces AOE damage taken by 20% and increases movement speed.
+  - Defy Fate (6 min): Passive cheat death. Heals you when taking fatal damage.
+  - Spatial Paradox (2 min): Increases your and a healer's range by 100% and allows casting while moving.
+
+concepts: |
+  - Ebon Might Extension: The core loop involves using Sands of Time (Empowers and Eruption) to keep Ebon Might active as long as possible.
+  - Duplicate (Apex Talent): Breath of Eons summons a pet that mimics Eruption, Fire Breath, and Upheaval. Extensions to Ebon Might also extend Duplicate's duration.
+  - Scalecommander Bombardments: Mass Eruption applies Bombardments. Casting Eruption extends this debuff, which deals high damage and reduces Breath of Eons cooldown.
+  - Chronowarden Chrono Flame: Replaces Living Flame. Deals additional damage based on a portion of damage dealt recently.
+  - Temporal Burst: A powerful Haste buff for Chronowardens triggered by consuming or cancelling Tip the Scales.
+  - Mastery (Shifting Sands): Your Mastery increases the Versatility granted to allies via Shifting Sands (triggered by Empowers).
+  - Range Management: You have a 25-yard base range. Use Hover to maintain uptime while moving.
+  - Empower Ranks: Fire Breath is typically cast at Rank 1 for Molten Embers. Upheaval rank is adjusted based on the number of targets needed to hit.
+  - Support Attribution: Your damage on meters is often inaccurate; use Warcraft Logs for proper attribution of buff-contributed damage.
+  - Defensive Utility: Use Cauterizing Flame to remove Bleeds, Poisons, Curses, and Diseases.
+
+commonMistakes:
+  - 'Casting Fire Breath or Upheaval when Ebon Might is not active, wasting the Sands of Time extension.'
+  - 'Upranking Fire Breath when talented into Molten Embers (Rank 1 is optimal for the 25% Black spell damage bonus).'
+  - 'Overcapping Essence Burst stacks (max 2) instead of spending them on Eruption.'
+  - 'Holding Breath of Eons too long as Scalecommander instead of using it on cooldown to maximize Duplicate uptime.'
+  - 'Forgetting to use the cancelaura macro for Tip the Scales as a Chronowarden to trigger Temporal Burst.'
+  - 'Refreshing Ebon Might too early (before the 3s Pandemic window) or letting it drop entirely.'
+  - 'Failing to use Hover to maintain casting uptime during movement-heavy mechanics.'
+
+patchChanges: |
+  12.0.1:
+  - Builds updated for Midnight Pre-Season.
+  - Fire Breath opener sequence adjusted for Molten Embers.
+  12.0:
+  - Ebon Might reworked: Now applies to all raid members, grants 8% primary stat (was 5%).
+  - Breath of Eons reworked: Now accumulates 15% damage (was 10%), effect reduced if affecting more than two allies.
+  - New Apex Talent: Duplicate added (Breath of Eons summons a pet that mimics your spells).
+  - Hover and Warp can now be cast while casting other spells.
+  - Molten Embers reworked: Fire Breath now increases Black spell damage by 25% regardless of rank.
+  - Imminent Destruction reworked: Breath of Eons reduces Essence cost of next 4 Eruptions.

@@ -1,0 +1,108 @@
+specId: 270
+className: Monk
+specName: Mistweaver
+role: Healer
+heroTalent: Master of Harmony
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Vitality Reservoir
+  resourceNotes: Mana is spent on direct heals and HoTs. Master of Harmony stores a percentage of all healing and damage dealt
+    into a Vitality Reservoir. This stored vitality is withdrawn to empower healing through Aspect of Harmony (via Thunder
+    Focus Tea) or passively through Coalescence (via Vivify and Sheilun’s Gift).
+maintenanceBuffs:
+- spellId: 0
+  spellName: Renewing Mist
+  targetUptimePct: 90
+  importance: critical
+  coachingTip: Maintain maximum coverage of Renewing Mist to enable Vivify cleave via Invigorating Mists and to maximize Rising
+    Mist extensions.
+- spellId: 0
+  spellName: Ancient Teachings
+  targetUptimePct: 85
+  importance: high
+  coachingTip: Keep this active by using Jadefire Teachings or Spinning Crane Kick. Master of Harmony increases this effect
+    via Meditative Focus.
+- spellId: 0
+  spellName: Aspect of Harmony
+  targetUptimePct: 20
+  importance: high
+  coachingTip: Triggered by Thunder Focus Tea. This replicates a portion of your throughput as a HoT on allies.
+removedMechanics:
+- Spear Hand Strike (Interrupt removed for Mistweaver in 12.0)
+- Refreshing Jade Wind (Removed in 12.0)
+- Bounce Back (Removed in 12.0)
+- Mana Tea cost reduction (Reworked to only provide mana return)
+- 'Diffuse Magic (Reworked: now an optional passive enhancement to Fortifying Brew)'
+rotation:
+  singleTarget: |
+    1. Cast Renewing Mist on cooldown (never sit on max charges).
+    2. Cast Rising Sun Kick on cooldown to extend HoTs (Rising Mist) and guarantee Harmonic Surge (Potential Energy). NOTE: If the player has the Rushing Wind Kick talent, it replaces Rising Sun Kick — use Rushing Wind Kick on cooldown instead (it also provides a 50% Renewing Mist healing buff via Rushing Winds).
+    3. Use Thunder Focus Tea to activate Aspect of Harmony and withdraw vitality for burst windows.
+    4. Cast Vivify or Sheilun's Gift to withdraw vitality via Coalescence for increased healing.
+    5. Channel Soothing Mist for efficient spot healing; follow with Enveloping Mist if damage is high.
+    6. Use Tiger Palm as a filler to fish for Harmonic Surge procs.
+    7. Cast Life Cocoon on targets in immediate danger.
+  aoe: |
+    1. Maintain Renewing Mist on as many targets as possible.
+    2. Cast Rising Sun Kick on cooldown to extend all active HoTs across the group. NOTE: If the player has Rushing Wind Kick talented, it replaces Rising Sun Kick — use Rushing Wind Kick on cooldown instead.
+    3. Use Thunder Focus Tea to trigger Aspect of Harmony, replicating group healing as a HoT.
+    4. Cast Vivify to heal multiple targets via Invigorating Mists (cleaves to all Renewing Mist targets).
+    5. Cast Sheilun's Gift for heavy group damage to withdraw large amounts of vitality.
+    6. Use Spinning Crane Kick to maintain Ancient Teachings healing.
+    7. Use Invoke Yu'lon or Invoke Chi-Ji for high-intensity damage phases.
+  opener: |
+    1. Spend all charges of Renewing Mist on the group.
+    2. Ensure Haste buff from Secret Infusion is active.
+    3. Cast Rising Sun Kick (or Rushing Wind Kick if talented) to trigger Potential Energy.
+    4. Use Thunder Focus Tea to enter Aspect of Harmony.
+    5. Cast Invoke Yu'lon or Invoke Chi-Ji to begin the healing ramp.
+cooldowns:
+- name: Thunder Focus Tea
+  cooldown: 45s
+  description: Empowers next spell and activates Aspect of Harmony (Master of Harmony specific).
+- name: 'Invoke Yu''lon, the Jade Serpent'
+  cooldown: '1-2min'
+  description: 'Summons Yu''lon to heal the raid; reduces Enveloping Mist cast time via Celestial Harmony.'
+- name: 'Invoke Chi-Ji, the Red Crane'
+  cooldown: '1-2min'
+  description: 'Melee-focused cooldown; makes Enveloping Mist instant and triggers Mastery procs from DPS.'
+- name: Revival / Restoral
+  cooldown: 3min
+  description: 'Massive raid-wide heal. Revival dispels; Restoral can be used while stunned.'
+- name: Life Cocoon
+  cooldown: 2min
+  description: 'External defensive shield; increases HoT healing on the target by 50%.'
+- name: 'Sheilun''s Gift'
+  cooldown: Variable
+  description: Large burst heal that withdraws vitality from the reservoir.
+concepts:
+- 'Vitality Reservoir: A unique Master of Harmony mechanic that stores a portion of your healing and damage for later use.'
+- 'Aspect of Harmony: Triggered by Thunder Focus Tea, this state causes your spells to replicate a portion of their throughput
+  as a HoT.'
+- 'Coalescence: A passive interaction where Vivify and Sheilun''s Gift withdraw vitality from the reservoir
+  to increase their own healing. Keep the reservoir from overcapping.'
+- 'Harmonic Surge: Tiger Palm and Vivify have a chance to trigger an eruption of healing on allies and damage on enemies.'
+- 'Potential Energy: Ensures that every Rising Sun Kick guarantees a Harmonic Surge proc.'
+- 'Meditative Focus: A passive that significantly increases the healing provided by Ancient Teachings.'
+- 'Soothing Mist: Now baseline follows the target of your Vivify or Enveloping Mist casts without breaking.'
+- 'Rising Mist: The core playstyle of using Rising Sun Kick to extend the duration of all active Renewing Mist and Enveloping
+  Mist HoTs. If the player has the Rushing Wind Kick talent, it REPLACES Rising Sun Kick entirely — Rushing Wind Kick also
+  triggers Rising Mist extensions and adds a 50% Renewing Mist healing buff (Rushing Winds) for 4 sec. Do NOT flag 0 Rising
+  Sun Kick casts if the player is using Rushing Wind Kick.'
+- 'Spiritfont (Apex Talent): Vivify and Rising Sun Kick buff your next Enveloping Mist to channel Soothing Mist onto up to
+  5 targets.'
+- 'Renewing Mist Engine: Your most important spell. Enables Vivify cleave and procs various talents.'
+- 'Mana Tea: No longer reduces costs. Use rotationally to regain raw mana. Avoid overcapping stacks.'
+- 'Mastery (Gust of Mists): Vivify, Renewing Mist, and Enveloping Mist trigger an instant gust of healing.'
+commonMistakes:
+- Overcapping the Vitality Reservoir instead of withdrawing it via Coalescence or Aspect of Harmony.
+- Letting Renewing Mist charges sit at maximum, losing out on cleave potential and HoT extensions.
+- Neglecting Rising Sun Kick (or Rushing Wind Kick if talented), which is essential for both HoT extension and Master of Harmony procs.
+- Using Revival when a mass dispel would be detrimental to the encounter (use Restoral instead).
+- Failing to maintain Ancient Teachings uptime, which provides significant passive healing through DPS.
+patchChanges:
+  12.0.1: 'Master of Harmony: Coalescence reworked; vitality withdrawal now always occurs with Vivify and
+    Sheilun''s Gift. Meditative Focus now increases Ancient Teachings effectiveness significantly.'
+  '12.0': Soothing Mist now follows targets baseline. Spear Hand Strike, Essence Font, and Refreshing Jade Wind removed.

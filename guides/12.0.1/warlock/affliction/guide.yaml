@@ -1,0 +1,162 @@
+specId: 265
+className: Warlock
+specName: Affliction
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Soul Shards
+  secondaryResource: Mana
+  resourceNotes: 'Soul Shards are the primary resource, capped at 5. They are generated primarily through Agony (main source) and Soul Shard sniping using Unstable Affliction or Drain Soul on dying targets. Soul Harvester also generates shards via Dark Harvest. Shards are spent on Unstable Affliction (Single Target) and Seed of Corruption (AoE). Overcapping shards is a significant DPS loss; they should be spent aggressively unless pooling for a damage window like Summon Darkglare or Malevolence.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Agony
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'Agony is your most important spell and sole source of Soul Shard generation. It has a ramp-up period; letting it drop causes a massive loss in DPS and resource flow.'
+  - spellId: 0
+    spellName: Corruption / Wither
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'Maintain Corruption (or Wither if Hellcaller) at all times. Use Seed of Corruption to apply/maintain this on 3+ targets.'
+  - spellId: 0
+    spellName: Unstable Affliction
+    targetUptimePct: 95
+    importance: high
+    coachingTip: 'Unstable Affliction is now the baseline single-target shard spender. Ensure it is active, especially during Summon Darkglare windows.'
+  - spellId: 0
+    spellName: Haunt
+    targetUptimePct: 90
+    importance: medium
+    coachingTip: 'Cast Haunt on cooldown. It provides a damage amplification effect that is central to your priority.'
+
+playstyles:
+  - id: hellcaller
+    name: Hellcaller
+    detectionCriteria:
+      heroTalents:
+        - "Hellcaller"
+  - id: soul_harvester
+    name: Soul Harvester
+    detectionCriteria:
+      heroTalents:
+        - "Soul Harvester"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Malefic Rapture (Removed in 12.0)
+  - Soul Rot (Removed in 12.0)
+  - Vile Taint (Removed in 12.0)
+  - Phantom Singularity (Removed in 12.0)
+  - Oblivion (Removed in 12.0)
+  - Soul Conduit (Removed in 12.0)
+  - Health Funnel (Removed in 12.0; healing merged into Drain Life via Infernal Beneficiary)
+  - Sow the Seeds (Reworked: now supports Seed of Corruption output)
+  - Agony Stacks (Reworked: maximum reduced to 6 stacks in 12.0)
+
+rotation:
+  singleTarget: |
+    [Hellcaller] Single Target Priority:
+    1. Maintain Agony and Wither effects at all times.
+    2. Cast Unstable Affliction if you are at maximum Soul Shards.
+    3. Cast Haunt whenever available.
+    4. Cast Malevolence on cooldown.
+    5. Cast Dark Harvest whenever available with any periodic effect (Corruption, Agony, or UA) active on target.
+    6. Use Shard Instability free Unstable Affliction within the buff window.
+    7. Cast Unstable Affliction to avoid capping shards.
+    8. Cast Drain Soul as a filler (if talented).
+    9. Cast Shadow Bolt as a filler.
+
+    [Soul Harvester] Single Target Priority:
+    1. Maintain Agony and Corruption effects at all times.
+    2. Cast Unstable Affliction if you are at maximum Soul Shards.
+    3. Cast Haunt whenever available.
+    4. Make sure to have 2 or less Soul Shards before casting Dark Harvest.
+    5. Cast Dark Harvest whenever available with any periodic effect (Corruption, Agony, or UA) active on target.
+    6. Use Shard Instability free Unstable Affliction within the buff window.
+    7. Cast Unstable Affliction to avoid capping shards.
+    8. Cast Drain Soul as a filler (if talented).
+    9. Cast Shadow Bolt as a filler.
+  aoe: |
+    [Hellcaller] Multiple Targets Priority:
+    1. Maintain Agony and Wither. Use Seed of Corruption to apply/maintain Wither if 3+ targets are stacked.
+    2. Cast Haunt whenever available on the primary target.
+    3. Cast Malevolence on cooldown.
+    4. Cast Seed of Corruption if already at 5 Soul Shards to avoid capping.
+    5. Cast Seed of Corruption if above 2 shards before Dark Harvest comes off cooldown.
+    6. Cast Dark Harvest whenever available with any periodic effect active on every target.
+    7. Use Shard Instability free Unstable Affliction on dying targets if below 4 shards.
+    8. Use Shard Instability free Unstable Affliction on the primary target.
+    9. Cast Drain Soul as a filler.
+    10. Cast Shadow Bolt as a filler.
+
+    [Soul Harvester] Multiple Targets Priority:
+    1. Maintain Agony and Corruption. Use Seed of Corruption to apply/maintain Corruption if 3+ targets are stacked.
+    2. Cast Haunt whenever available on the primary target.
+    3. Cast Seed of Corruption if already at 5 Soul Shards to avoid capping.
+    4. Cast Seed of Corruption if above 2 shards before Dark Harvest comes off cooldown.
+    5. Cast Dark Harvest whenever available with any periodic effect active on every target.
+    6. Use Shard Instability free Unstable Affliction on dying targets if below 4 shards.
+    7. Use Shard Instability free Unstable Affliction on the primary target.
+    8. Cast Drain Soul as a filler.
+    9. Cast Shadow Bolt as a filler.
+  opener: |
+    1. Pre-cast Haunt.
+    2. Pre-cast Shadow Bolt.
+    3. Apply Agony.
+    4. Apply Corruption / Wither.
+    5. Cast Malevolence (if Hellcaller).
+    6. Cast Unstable Affliction until reaching 2 shards.
+    7. Cast Dark Harvest.
+    8. Cast Summon Darkglare.
+    9. Use trinkets and racials.
+    10. Spend all shards on Unstable Affliction.
+    11. Cast Nightfall Drain Soul or Shadow Bolt.
+    12. Cast Malefic Grasp until the most recent Unstable Affliction has expired.
+
+cooldowns: |
+  - Summon Darkglare (2min): Main cooldown. Amplifies DoT damage. Pool shards before use and ensure Agony is refreshed via Pandemic before casting.
+  - Dark Harvest (1min): New cooldown that deals damage to all targets with baseline DoTs. Soul Harvester variant grants 3 shards; ensure you are at 2 or fewer shards before use.
+  - Malevolence (1min): Hellcaller specific. Straightforward damage boost, use in tandem with Darkglare and Dark Harvest.
+  - Unending Resolve (3min): Major defensive. Reduces damage taken and grants interrupt immunity.
+  - Dark Pact (1min): Frequent shield based on health. Use proactively for predictable damage.
+  - Soulstone: Combat resurrection. Can be used reactively or preemptively.
+  - Demonic Gateway: Raid-wide mobility tool. Teleports players 40 yards.
+
+concepts: |
+  - Pandemic Mechanic: Refresh DoTs when they have <30% duration remaining to add the new duration to the remainder. Safe refresh values: Agony (5.4s), Corruption (4.2s).
+  - Malefic Grasp: Optimization window during Summon Darkglare. Maximize GCDs spent on UA and Malefic Grasp while minimizing movement or DoT refreshes.
+  - Soul Shard Management: Avoid overcapping (5 shards). Pool only for Summon Darkglare or Malevolence windows.
+  - Agony Importance: Sole source of shard generation. Ramp-up is 6 stacks; dropping it is the most punishing mistake.
+  - Shadow of Nathreza: Apex talent that augments Haunt with damage and cleave, but does not change its "cast on cooldown" priority.
+  - Shard Sniping: Use Drain Soul or UA on targets about to die to generate extra Soul Shards in Mythic+.
+  - Hellcaller vs Soul Harvester: Hellcaller focuses on Wither and Shadowflame damage with Malevolence burst. Soul Harvester focuses on aggressive shard spending and Nightfall procs.
+  - Movement: Use Agony/Corruption refreshes or Nightfall procs to cover movement. Use Demonic Circle and Gateway to minimize downtime.
+  - Pet Choice: Felhunter for interrupts/purges (standard), Imp for dispels, Succubus for pure ST damage if no target swapping is required.
+
+commonMistakes:
+  - 'Letting Agony drop on primary targets, losing shard generation and ramp-up damage'
+  - 'Overcapping Soul Shards (reaching 5 and continuing to generate)'
+  - 'Casting Dark Harvest as a Soul Harvester while at 3+ Soul Shards, wasting the 3-shard gain'
+  - 'Moving unnecessarily (\"mirroring\" tank movement) and losing global cooldowns'
+  - 'Refreshing DoTs outside of the Pandemic window (<30% duration)'
+  - 'Not pooling shards before the Summon Darkglare window'
+  - 'Using the wrong pet for the utility required (e.g., not having Felhunter for a required interrupt)'
+
+patchChanges: |
+  12.0.1:
+  - Hellcaller: Seeds of Their Demise changed to support Shard Instability.
+  - Soul Harvester: Shadow of Death now triggers from Dark Harvest.
+  - Hero Talents (Hellcaller and Soul Harvester) received a fourth column and minor baseline changes.
+  - Apex Talents (Shadow of Nathreza) introduced.
+  12.0:
+  - Midnight Launch: Major spec rework.
+  - Unstable Affliction returned as the primary Soul Shard spender.
+  - Malefic Rapture, Soul Rot, Vile Taint, Phantom Singularity, and Oblivion removed.
+  - Soul Conduit removed.
+  - Dark Harvest added as a 1-minute cooldown.
+  - Agony ramp-up reduced (max 6 stacks).
+  - Health Funnel removed; healing merged into Drain Life.

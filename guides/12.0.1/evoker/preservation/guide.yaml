@@ -1,0 +1,141 @@
+specId: 1468
+className: Evoker
+specName: Preservation
+role: Healer
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Essence
+  resourceNotes: 'Preservation Evokers manage Mana and Essence. Essence is spent on Echo (2), Emerald Blossom (3), and Disintegrate (3). Essence Burst procs (from Living Flame, Reversion, or Leaping Flames) make the next Essence spender free. Avoid wasting Essence during downtime, but prioritize spending Essence Burst on Emerald Blossom or Disintegrate for maximum efficiency.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Echo
+    targetUptimePct: 0
+    importance: critical
+    coachingTip: 'Echo is your core mechanic. Ensure Echo is active on targets before casting high-value heals like Reversion or Merithra’s Blessing to replicate the effect.'
+  - spellId: 0
+    spellName: Reversion
+    targetUptimePct: 90
+    importance: high
+    coachingTip: 'Keep Reversion active on as many players as possible to benefit from Grace Period healing bonuses and to proc Merithra’s Blessing.'
+  - spellId: 0
+    spellName: Temporal Anomaly
+    targetUptimePct: 0
+    importance: high
+    coachingTip: 'Cast on cooldown to provide shields and apply free Echoes via the Resonating Sphere talent.'
+
+playstyles:
+  - id: flameshaper
+    name: Flameshaper
+    detectionCriteria:
+      heroTalents:
+        - "Flameshaper"
+  - id: chronowarden
+    name: Chronowarden
+    detectionCriteria:
+      heroTalents:
+        - "Chronowarden"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Spiritbloom (Removed in 12.0)
+  - Emerald Communion (Removed in 12.0)
+  - Quell (Removed in 12.0: Interrupt moved to DPS spec trees only; Preservation no longer has access to an interrupt)
+  - Engulf (Removed in 12.0)
+  - Cycle of Life (Removed in 12.0)
+  - Consume Flame (Reworked: now a passive ability)
+  - Call of Ysera (Reworked: now a passive ability; increases Dream Breath/Living Flame healing)
+  - Tempo Charged (Reworked: now a passive ability)
+  - Renewing Blaze (Merged into Obsidian Scales)
+  - Lifebind (Reworked: can no longer be Echo'd and only applies to one target)
+
+rotation:
+  singleTarget: |
+    [Flameshaper Raid] Priority:
+    1. Keep Temporal Anomaly on cooldown as much as possible.
+    2. Keep Dream Breath on cooldown (Rank 1).
+    3. Consume Essence Burst with Emerald Blossom to trigger Twin Echoes.
+    4. Spend Essence on Echo.
+    5. Consume Echoes with Reversion or Merithra's Blessing.
+    6. Cast Fire Breath on cooldown to proc Leaping Flames and generate Essence Burst.
+    7. Cast Living Flame on an enemy as filler to generate Essence Burst.
+
+    [Chronowarden Raid] Priority:
+    1. Use Tip the Scales as often as possible (ideally before large healing).
+    2. Keep Temporal Anomaly on cooldown as much as possible.
+    3. Keep Dream Breath on cooldown (Rank 1).
+    4. Consume Essence Burst with Emerald Blossom to trigger Twin Echoes.
+    5. Cast as many Echoes as possible with available Essence.
+    6. Consume Echoes with Reversion or Merithra's Blessing.
+    7. Cast Verdant Embrace on cooldown to maintain Primacy stacks.
+    8. Cast Fire Breath on cooldown to proc Leaping Flames and generate Essence Burst.
+    9. Cast Living Flame on an enemy as filler to generate Essence Burst.
+  aoe: |
+    [Mythic+ General Priority]
+    1. Cast Echo to prepare for incoming damage.
+    2. Keep Reversion on party members for Grace Period bonus.
+    3. Cast Dream Breath (Rank 1 for passive healing, Max Rank for burst).
+    4. Use Verdant Embrace for single-target burst or to consume Echoes for AoE burst.
+    5. Use Fire Breath for damage and Leaping Flames procs.
+    6. Cast Living Flame to generate Essence Burst.
+    7. Cast Emerald Blossom when players are stacked and heavy healing is needed.
+  opener: |
+    [Default Stasis Combo]
+    1. Activate Stasis.
+    2. Cast Dream Breath.
+    3. Cast Temporal Anomaly.
+    4. Cast Merithra's Blessing (to consume Echoes from Anomaly).
+
+    [Chronowarden Raid Stasis]
+    1. Cast Dream Breath (before Stasis).
+    2. Activate Stasis.
+    3. Cast Temporal Anomaly.
+    4. Wait for Temporal Anomaly cooldown (use offensive Living Flame).
+    5. Cast second Temporal Anomaly.
+    6. Cast Merithra's Blessing.
+
+cooldowns: |
+  - Stasis (1.5min) - Stores the next 3 healing spells. Order matters; always end with Temporal Anomaly to avoid wasting Echoes.
+  - Rewind (4min) - Reactive emergency button. Heals 50% of damage taken in the last 5 seconds.
+  - Dream Flight (1min) - Powerful AoE heal and HoT. Shares choice node with Stasis.
+  - Tip the Scales (2min) - Makes next Empower spell instant and max rank. In Chronowarden, triggers Temporal Burst (Haste/CDR).
+  - Zephyr (2min) - Reduces AoE damage taken by 20% for the 4 closest allies.
+  - Time Dilation (1min) - External defensive that staggers damage over time.
+  - Obsidian Scales (1.5min) - Personal defensive (2 charges). In Flameshaper, can be used on allies via Lifecinders.
+
+concepts: |
+  - Echo is the core mechanic; it replicates the next heal to all targets with the buff.
+  - Merithra's Blessing (Apex Talent) is the primary way to consume Echoes in Midnight, providing massive burst and damage reduction.
+  - Temporal Anomaly is the most efficient way to spread Echoes via Resonating Sphere.
+  - Essence Burst should be prioritized for Emerald Blossom to trigger Twin Echoes for free Echoes.
+  - Dream Breath is usually cast at Rank 1 in raids to maximize HoT duration, but Max Rank in M+ for burst.
+  - Chronowarden gameplay revolves around Tip the Scales and maintaining Primacy stacks via Verdant Embrace.
+  - Flameshaper gameplay utilizes two charges of Dream Breath to reliably proc Merithra's Blessing.
+  - Stasis Ordering: Never cast Temporal Anomaly first in a Stasis sequence if you intend to follow it with another heal, as the Echoes will be consumed immediately.
+  - Mastery: Life-Giver increases healing based on your current health percentage relative to the target.
+  - Grace Period: Increases healing on targets affected by your Reversion.
+
+commonMistakes:
+  - 'Holding Rewind too long instead of using it proactively when falling behind'
+  - 'Casting Temporal Anomaly at the start of a Stasis window, causing Echoes to be wasted'
+  - 'Overcapping Essence instead of spending it on Echo or Emerald Blossom'
+  - 'Neglecting to use Fire Breath on cooldown, losing out on Leaping Flames and Essence Burst procs'
+  - 'Using Echo with Living Flame in raids (only for desperate M+ single-target healing)'
+  - 'Failing to maintain Primacy stacks as Chronowarden by not casting Verdant Embrace'
+
+patchChanges: |
+  12.0.1:
+  - General updates for Midnight launch.
+  12.0:
+  - Spiritbloom and Emerald Communion removed.
+  - Lifebind can no longer be Echo'd.
+  - Merithra's Blessing added as new Apex Talent.
+  - Dream Breath gains a second charge for Flameshaper.
+  - Emerald Blossom buffed significantly.
+  - Consume Flame reworked into a passive.
+  - New talents: Dream Simulacrum, Wings of Liberty, Inner Flame (reworked).
+  - Quell removed from Preservation (moved to DPS spec trees only).

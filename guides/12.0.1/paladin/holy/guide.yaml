@@ -1,0 +1,157 @@
+specId: 65
+className: Paladin
+specName: Holy
+role: Healer
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Holy Power
+  resourceNotes: 'Holy Paladin uses Mana for builders and Holy Power (up to 5) for spenders. Generate Holy Power via Holy Shock, Flash of Light, and Judgment (in specific builds/procs). Spend Holy Power on Light of Dawn (Raid) or Eternal Flame/Word of Glory (Mythic+). Never cast a generator if at 5 Holy Power. Shield of the Righteous can be used during downtime to regenerate mana.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Beacon of Light
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'Keep Beacon of Light on ranged targets with lower survivability to maximize Mastery: Lightbringer value.'
+  - spellId: 0
+    spellName: Beacon of Faith
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'If talented, maintain on a second ranged target to extend your Mastery reach.'
+  - spellId: 0
+    spellName: Beacon of the Savior
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'This Apex talent automatically moves to the lowest health ally. It benefits from all Beacon-related talents like Saved by the Light.'
+  - spellId: 0
+    spellName: Devotion Aura
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'Ensure Devotion Aura is active at all times for passive raid damage reduction.'
+
+playstyles:
+  - id: herald_of_the_sun
+    name: Herald of the Sun
+    detectionCriteria:
+      heroTalents:
+        - "Herald of the Sun"
+  - id: lightsmith
+    name: Lightsmith
+    detectionCriteria:
+      heroTalents:
+        - "Lightsmith"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Rebuke (Removed in 12.0)
+  - Blessing of Summer / Blessing of the Seasons (Removed in 12.0)
+  - Merciful Auras (Removed in 12.0)
+  - Repentance (Removed in 12.0)
+  - Barrier of Faith (Removed in 12.0)
+  - Boundless Salvation (Removed in 12.0)
+  - Relentless Inquisitor (Removed in 12.0)
+  - Crusader Strike (Removed: now only available during Avenging Crusader)
+  - Hammer of Wrath (Reworked: no longer castable, replaces Judgment during Avenging Wrath)
+  - Light of Dawn (Reworked: no longer a frontal cone, now heals 5 players within 40 yards)
+  - Crusader's Might (Reworked: Holy Shock reduces Judgment CD, Judgment reduces Holy Shock CD)
+  - Awakening (Reworked: no longer triggers Avenging Wrath)
+
+rotation:
+  singleTarget: |
+    [Herald of the Sun Raiding] Priority:
+    1. Keep Divine Toll on cooldown as much as possible to proc Dawnlight.
+    2. Never waste Holy Power (do not generate at 5 stacks).
+    3. Spend Infusion of Light on Flash of Light for instant, high-value healing.
+    4. Cast Holy Shock as much as possible.
+    5. Spend Holy Power on Light of Dawn (even in single target scenarios due to current talent power).
+    6. Cast Flash of Light when you cannot do any of the above.
+    7. Cast Holy Light when you can afford the mana cost and it will not overheal.
+
+    [Lightsmith Avenging Crusader Raiding] Priority:
+    1. Keep Sacred Weapon on cooldown as much as possible.
+    2. Never waste Holy Power.
+    3. Cast Judgment as much as possible (high synergy with Hammer and Anvil).
+    4. Cast Holy Shock as much as possible.
+    5. Spend Holy Power on Light of Dawn.
+    6. Cast Flash of Light when you cannot do any of the above.
+
+    [Avenging Crusader Active] Priority:
+    1. Never waste Holy Power.
+    2. Keep Judgment on cooldown (transfers damage to healing).
+    3. Keep Crusader Strike on cooldown (returns during this window).
+    4. Spend Holy Power on Light of Dawn.
+    5. Cast Holy Shock when you cannot do any of the above.
+
+    [Mythic+] Priority:
+    1. Never waste Holy Power.
+    2. Cast Holy Shock as much as possible.
+    3. Cast Judgment as much as possible (unless intense healing is needed, then swap to Flash of Light).
+    4. Spend Holy Power on Eternal Flame.
+    5. Cast Flash of Light when you cannot do any of the above and as your main filler.
+    6. Cast Holy Light when major healing is needed and mana permits.
+    7. When no healing is needed, spend Holy Power on Shield of the Righteous for damage and mana regen.
+  aoe: |
+    [Raid AoE]:
+    1. Use Light of Dawn as the primary spender; it now heals 5 targets within 40 yards (no longer a cone).
+    2. Use Divine Toll (target an ally) to fire 5 Holy Shocks.
+    3. Use Holy Prism (target an enemy) to trigger AoE healing to nearby allies.
+
+    [Mythic+ AoE]:
+    1. Prioritize Eternal Flame for beacon transfer value.
+    2. Use Light of Dawn only when no one is in danger and Eternal Flame would overheal.
+    3. Maintain Consecration for extra damage during downtime.
+  opener: |
+    1. Ensure Devotion Aura is active.
+    2. Apply Beacon of Light and Beacon of Faith to ranged targets.
+    3. Pre-cast Holy Light or Flash of Light if damage is imminent.
+    4. Cast Holy Shock to begin Holy Power generation.
+    5. Use Divine Toll or Holy Prism early to establish Dawnlight (Herald) or Armaments (Lightsmith).
+
+cooldowns: |
+  - Avenging Wrath (2min): Increases damage, healing, and crit. Main throughput cooldown.
+  - Aura Mastery (3min): Empowers Devotion Aura to 12% damage reduction. Use for assigned raid mechanics or heavy party damage.
+  - Avenging Crusader (45s-1min): Replaces Avenging Wrath. Makes Judgment and Crusader Strike heal allies.
+  - Divine Toll (1min): Casts 5 Holy Shocks. Target an ally for healing or an enemy for damage.
+  - Holy Prism (20s): AoE healing when cast on an enemy; AoE damage when cast on an ally.
+  - Sacred Weapon / Holy Armaments (1min): Lightsmith specific. Provides Holy Bulwark (absorb) or Sacred Weapon (damage/healing proc).
+  - Divine Shield (5min): Complete immunity. Use to cheese mechanics or as an emergency defensive.
+  - Divine Protection (1min): 20% damage reduction. Use proactively for predictable damage.
+  - Blessing of Protection (5min): Physical damage/bleed immunity. Use on allies who pull threat or are targeted by physical mechanics.
+
+concepts: |
+  - Holy Power Cycle: The core loop is building Holy Power with Holy Shock/Flash of Light and spending it on Light of Dawn or Eternal Flame.
+  - ABC (Always Be Casting): Never leave a global cooldown empty. Even suboptimal casts are better than nothing.
+  - Mastery: Lightbringer: Healing is increased based on proximity. Beacons allow you to calculate proximity from either yourself or the Beaconed target.
+  - Beacon of the Savior: Automatically targets the lowest health ally. It is less punishing to heal this target directly than standard Beacons.
+  - Infusion of Light: Procs from Holy Shock. Use on Flash of Light for healing or Judgment for Holy Power generation/damage.
+  - Mana Management: Holy Light is high throughput but extremely high mana cost. Balance its use with Shield of the Righteous mana returns.
+  - Herald vs Lightsmith: Herald focuses on Dawnlight HoTs and Sun's Avatar beams. Lightsmith focuses on Judgment synergy and Holy Armaments.
+  - Crusader's Might: In Midnight, this creates a cooldown reduction loop between Holy Shock and Judgment.
+  - Position: Since Crusader Strike is removed (outside of CDs), Holy Paladins can play at range if needed, though Mastery still favors proximity.
+  - Emergency HP: In Mythic+, sit on 4-5 Holy Power so you can react to unexpected damage immediately.
+
+commonMistakes:
+  - 'Overcapping Holy Power by casting generators at 5 stacks'
+  - 'Overusing Holy Light and running out of mana too early in a fight'
+  - 'Never using Aura Mastery or Avenging Wrath during a fight. Use them during damage windows — holding briefly is fine, but never using them is worse than imperfect timing.'
+  - 'Spending all Holy Power on Shield of the Righteous in M+ right before a damage spike'
+  - 'Targeting an enemy with Divine Toll when the priority is group healing'
+  - 'Neglecting to stand near targets (or positioning Beacons poorly) and losing Mastery bonus'
+  - 'Not using Flash of Light to consume Infusion of Light when healing is needed'
+
+patchChanges: |
+  12.0.1:
+  - Light of Dawn: No longer a frontal cone; heals 5 players within 40 yards.
+  - Crusader's Might: Redesigned to link Holy Shock and Judgment cooldowns.
+  - Herald of the Sun: Walk Into Light talent added (gives 2 Holy Power when entering Avenging Wrath).
+  - Lightsmith: Reflection of Radiance added (chance to trigger Awakening from Armaments).
+  12.0:
+  - Crusader Strike removed from base kit (only available in Avenging Crusader).
+  - Hammer of Wrath replaces Judgment during Avenging Wrath.
+  - Rebuke, Blessing of Summer, and Repentance removed.
+  - Beacon of the Savior added as the new Apex Talent.
+  - Holy Prism and Divine Toll moved to a choice node.

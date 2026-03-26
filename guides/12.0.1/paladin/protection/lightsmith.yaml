@@ -1,0 +1,171 @@
+specId: 66
+className: Paladin
+specName: Protection
+role: Tank
+heroTalent: Lightsmith
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Holy Power
+  resourceNotes: 'Generate Holy Power with Judgment, Blessed Hammer, and Avenger''s Shield (via Vanguard
+    procs — up to 3 HP). Spend on Shield of the Righteous for mitigation or Word of Glory for healing.
+    Lightsmiths use Shining Light charges to trigger Valiance, reducing Holy Armaments recharge time.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Shield of the Righteous
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: 'Maintain near 100% uptime while tanking. Provides Armor based on Strength. Off-GCD so
+    weave with normal rotation. Use at 4-5 HP, avoid using at exactly 3 HP.'
+- spellId: 0
+  spellName: Consecration
+  targetUptimePct: 90
+  importance: high
+  coachingTip: 'Stand in Consecration to gain Mastery block/spell-block bonus and Sanctuary damage
+    reduction. Recast when repositioning.'
+- spellId: 0
+  spellName: Holy Bulwark / Sacred Weapon
+  targetUptimePct: 50
+  importance: high
+  coachingTip: 'Keep Holy Armaments cycling. Use Sacred Weapon when AW is not active. Solidarity grants
+    the same buff to a nearby ally. Masterwork causes next 3 abilities to create lesser copies on allies.'
+
+tankingGuide:
+  survivalPriority: |-
+    These abilities take absolute priority over the damage rotation below.
+    1. Maintain Shield of the Righteous while actively tanking. Provides Armor based on Strength.
+       Off-GCD — weave between generators. Use at 4-5 Holy Power, avoid at exactly 3 HP to keep
+       HP available for emergency Word of Glory.
+    2. Stand in Consecration for Mastery: Divine Bulwark (block and spell block bonus) and
+       Sanctuary (5% DR that lingers 4s after leaving). Recast when repositioning.
+    3. Use Word of Glory with Shining Light charges when below 50% HP. As Lightsmith, free WoG
+       charges also trigger Valiance (reduces Holy Armament recharge by 3s) — use liberally.
+    4. Keep Holy Armaments cycling. Holy Bulwark provides absorb shield; Sacred Weapon provides
+       damage/healing procs. Solidarity grants the same buff to a nearby ally.
+  defensiveCooldowns: |-
+    - Guardian of Ancient Kings (3min, 2nd charge via Empyrean Authority talent): Major defensive —
+      50% DR for 8 seconds. Second charge is NOT baseline. Use before heavy damage.
+    - Ardent Defender (1.5min): 20% DR for 8 seconds. First killing blow heals to 12% HP instead.
+      Short CD — use frequently and proactively.
+    - Avenging Wrath / Sentinel (2min): Both offensive and defensive. AW grants 20% damage/healing +
+      20% crit. Sentinel provides stacking DR (15 stacks, 2% HP + 2% DR each). Spending 3 HP prevents
+      stack loss.
+    - Divine Shield (5min): Total immunity. With Final Stand talent, provides AoE taunt during immunity.
+      Can cancel early with macro to just clear debuffs.
+    - Lay on Hands (10min): Emergency full heal for yourself or an ally. Last resort.
+    - Blessing of Sacrifice (2min): External damage reduction for a party member.
+  holyPowerManagement: |-
+    Generate Holy Power with Judgment, Blessed Hammer, and Avenger's Shield (via Vanguard — up to 3 HP).
+    Spend on Shield of the Righteous for mitigation (priority while tanking) or Word of Glory for healing.
+    Never overcap at 5 HP — every capped generator is a wasted SotR cast. Righteous Protector reduces
+    AW cooldown by spending HP, incentivizing constant generation and spending.
+
+removedMechanics:
+- Eye of Tyr (removed in 12.0)
+- Moment of Glory (removed in 12.0)
+- Bastion of Light (removed in 12.0)
+- Barricade of Faith (removed in 12.0)
+- Judgment of Light (removed in 12.0)
+- Repentance (removed in 12.0)
+- Resolute Defender (removed in 12.0)
+- Hammer of Wrath (reworked to passive replacing Judgment during Avenging Wrath)
+
+rotation:
+  singleTarget: |-
+    1. Cast Avenging Wrath on cooldown.
+    2. Cast Sacred Weapon if Avenging Wrath is not active.
+    3. Cast Divine Toll to generate Holy Power and trigger Resounding Strike.
+    4. Cast Consecration if not standing in it.
+    5. Cast Avenger's Shield (especially when Vanguard is active — generates up to 3 HP).
+    6. Cast Shield of the Righteous at 3-5 Holy Power to prevent overcapping.
+    7. Cast Hammer of Wrath / Judgment.
+    8. Cast Blessed Hammer as filler.
+    9. Cast Word of Glory with Shining Light charge if below 50% HP (triggers Valiance for Armament CDR).
+    10. Refresh Consecration if everything else is on cooldown.
+  aoe: |-
+    1. Cast Avenging Wrath.
+    2. Cast Sacred Weapon if Avenging Wrath is not active.
+    3. Cast Divine Toll (fires up to 5 shields, massive Holy Power generation).
+    4. Cast Consecration and remain within its bounds.
+    5. Cast Avenger's Shield (primary AoE damage + Bulwark of Order absorb).
+    6. Cast Shield of the Righteous to spend HP and deal frontal AoE damage.
+    7. Cast Hammer of Wrath / Judgment.
+    8. Cast Blessed Hammer (spins to hit multiple targets).
+    9. Cast Word of Glory with Shining Light procs for free healing.
+  opener: |-
+    1. Pre-place Consecration at the combat location.
+    2. Pull with Hand of Reckoning.
+    3. Cast Blessed Hammer on the way in for initial Holy Power.
+    4. Activate Avenging Wrath.
+    5. Cast Divine Toll.
+    6. Cast Shield of the Righteous.
+    7. Cast Hammer of Wrath.
+    8. Cast Shield of the Righteous.
+    9. Cast Avenger's Shield.
+    10. Cast Blessed Hammer.
+    11. Cast Shield of the Righteous.
+
+cooldowns:
+- name: Guardian of Ancient Kings
+  cooldown: 3min (second charge via Empyrean Authority talent)
+  description: 'Major defensive — 50% DR for 8 seconds. Second charge is NOT baseline; requires Empyrean
+    Authority talent. Use before periods of large damage.'
+- name: Ardent Defender
+  cooldown: 1.5min
+  description: '20% DR for 8 seconds. First killing blow heals you to 12% HP instead of killing you.
+    Use frequently — short CD. Great for bypassing deadly mechanics or playing at low HP safely.'
+- name: Avenging Wrath / Sentinel
+  cooldown: 2min baseline (shorter with Righteous Protector)
+  description: 'Increases damage and healing by 20%. Changes Judgment into Hammer of Wrath. With talents
+    grants 20% crit. Sentinel replaces it with stacking DR (15 stacks, 2% HP + 2% DR each, lose 1/sec
+    after 5s, spending 3 HP prevents stack loss).'
+- name: Holy Bulwark / Sacred Weapon
+  cooldown: 1min recharge
+  description: 'Lightsmith core ability. Holy Bulwark provides health absorb; Sacred Weapon provides
+    damage/healing procs. Solidarity gives ally the same buff. Masterwork creates lesser copies on allies.'
+- name: Divine Shield
+  cooldown: 5min
+  description: 'Total immunity. Use Final Stand talent for AoE taunt during immunity. Can cancel early
+    with macro to just remove debuffs.'
+- name: Lay on Hands
+  cooldown: 10min
+  description: 'Emergency full heal (your max HP) for yourself or ally.'
+- name: Blessing of Sacrifice
+  cooldown: 2min
+  description: 'External damage reduction for a party member.'
+
+concepts:
+- 'Holy Armaments: Lightsmith rotates between Holy Bulwark (defensive absorb) and Sacred Weapon (offensive
+  procs). Use Sacred Weapon when AW is not active for uptime on offensive buff.'
+- 'Solidarity: Casting an armament on an ally grants you the same buff. Casting on yourself grants it to
+  a nearby ally.'
+- 'Masterwork: Casting your armament causes your next three abilities to cast lesser versions on nearby
+  allies.'
+- 'Valiance: Spending Shining Light charges reduces Holy Armaments recharge by 3 seconds. Use free Word of
+  Glory charges liberally as Lightsmith to accelerate armament cycling.'
+- 'Blessing of the Forge: During Avenging Wrath, you and an ally gain Sacred Weapons, and all Holy Power
+  spending effects are duplicated. Major burst window.'
+- 'Vanguard (Apex Talent): Judgment/HoW procs Vanguard, making next Avenger''s Shield deal linear AoE and
+  generate up to 3 HP. During AW, every Avenger''s Shield benefits from Vanguard automatically.'
+- 'Grand Crusader: Avoiding attacks or using Blessed Hammer has a 20% chance to reset Avenger''s Shield CD.'
+- 'Shining Light: Every 3 SotR casts makes next Word of Glory free. Max 2 charges. As Lightsmith, use
+  these for Valiance CDR on armaments — more liberal usage than other builds.'
+
+commonMistakes:
+- Letting Shield of the Righteous buff expire while actively taking melee hits.
+- Standing outside of Consecration, losing Mastery block bonus and Sanctuary DR.
+- Overcapping Holy Power by using builders at 5 HP.
+- Holding Holy Armament charges too long instead of cycling on the 1-minute recharge.
+- Not using free Word of Glory (Shining Light) charges to reduce armament CD via Valiance.
+- Using Divine Shield without Final Stand talent, causing enemies to drop threat.
+- Missing Hammer of Light after Divine Toll.
+- Presenting GoAK 2 charges as baseline when it requires Empyrean Authority talent.
+
+patchChanges:
+  12.0.1: 'Lightsmith: Holy Armaments duration extended to 30s.'
+  '12.0': 'Eye of Tyr removed. Lightsmith hero talent hooks into Holy Armaments system. Mastery reworked
+    to Block and Spell Block. Hammer of Wrath replaces Judgment during AW. Vanguard Apex talent added.
+    Resolute Defender removed. GoAK gains optional second charge via Empyrean Authority talent.'

@@ -1,0 +1,190 @@
+specId: 1468
+className: Evoker
+specName: Preservation
+role: Healer
+heroTalent: Chronowarden
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Essence
+  resourceNotes: >
+    Preservation Evoker manages Mana and Essence. Essence is spent on Echo and Emerald Blossom.
+    Essence Burst procs (from Living Flame or Reversion) make the next Essence spender free.
+    Mana management is more demanding in Midnight after the removal of Emerald Communion.
+    Chronowarden specifically benefits from frequent Verdant Embrace and Temporal Anomaly usage.
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Reversion Blanket
+    targetUptimePct: 95
+    importance: critical
+    coachingTip: >
+      Highest priority. Spread Reversion to party/raid members — it's not just a HoT but also
+      passive damage mitigation through Merithra's Blessing and a major source of Essence Burst
+      generation. Use Temporal Anomaly to spread Echoes for Reversion coverage.
+  - spellId: 0
+    spellName: Primacy
+    targetUptimePct: 95
+    importance: high
+    coachingTip: >
+      Cast Verdant Embrace consistently to maintain Primacy stacks for a significant Haste bonus.
+      Reverberations makes Verdant Embrace also apply a HoT, making it more than just a spot heal.
+  - spellId: 0
+    spellName: Grace Period
+    targetUptimePct: 80
+    importance: medium
+    coachingTip: >
+      Keep Reversion active on party members to increase your healing on them via Grace Period.
+      The amp and Merithra's Blessing passive effect retain full value even on Temporal Anomaly
+      Echoed Reversions.
+
+removedMechanics:
+  - "Spiritbloom (Removed in 12.0)"
+  - "Emerald Communion (Removed in 12.0 — mana management is now more demanding)"
+  - "Cycle of Life (Removed in 12.0)"
+  - "Engulf (Removed in 12.0)"
+  - "Quell (Removed from Preservation in 12.0 — interrupt moved to DPS spec trees only)"
+  - "Lifebind (Reworked: effect is now 60%, lasts 8 seconds, can no longer be Echo'd)"
+  - "Twin Guardian shield (Reworked: Rescue now grants 100% movement speed and cast-while-moving for 3s)"
+
+rotation:
+  singleTarget: |
+    Raid (Chronowarden default):
+    1. Maintain strong Reversion coverage — spread via Echo and Temporal Anomaly.
+    2. Cast Temporal Anomaly to generate Echoes on players it passes through (via Resonating Sphere).
+    3. Use Echoes primarily on Reversion for blanket coverage and Merithra's Blessing value.
+    4. Cast Dream Breath on cooldown (now 40-yard range; Rank 1 for HoT, higher ranks for burst).
+    5. Consume Essence Burst with Emerald Blossom to trigger Twin Echoes.
+    6. Cast Verdant Embrace on cooldown to maintain Primacy stacks and heal targets under pressure.
+    7. Cast Fire Breath on cooldown to proc Leaping Flames and generate Essence Burst.
+    8. Cast Living Flame (Chrono Flame) on enemies as filler for Essence Burst generation.
+    9. Use Tip the Scales for Temporal Burst (Haste + CDR) — plan around this as a real throughput cooldown.
+  aoe: |
+    M+ Priority:
+    1. Open pulls by spreading Reversion — treat the blanket as highest priority.
+    2. Cast Temporal Anomaly into Reversion on tank (easiest setup for Grace Period + Merithra's).
+    3. Keep Reversion on cooldown; prioritize targets about to take damage.
+    4. Cast Dream Breath for group healing (Max Rank for burst, Rank 1 for sustained).
+    5. Cast Verdant Embrace for strong spot-healing and Primacy maintenance.
+    6. Consume Essence Burst with Emerald Blossom for Twin Echoes when group is stacked.
+    7. Use Fire Breath followed by Living Flame for Leaping Flames multi-target healing.
+    8. Reserve Temporal Anomaly primarily for Reversion coverage — using it on other spells is usually inefficient.
+  opener: |
+    Raid Opener:
+    1. Pre-spread Reversion on targets expected to take damage.
+    2. Cast Temporal Anomaly to spread Echoes for additional Reversion coverage.
+    3. Cast Dream Breath (Rank 1).
+    4. Activate Tip the Scales for Temporal Burst.
+    5. Continue with Reversion/Echo coverage and respond to incoming damage.
+
+    Stasis Combo (Maxroll recommended):
+    1. Dream Breath
+    2. Temporal Anomaly
+    3. Merithra's Blessing
+
+cooldowns:
+  - name: Stasis
+    cooldown: See tooltip
+    description: >
+      Stores the next 3 healing spells. Recommended Chronowarden combo: Dream Breath >
+      Temporal Anomaly > Merithra's Blessing. Choice node with Dream Flight.
+  - name: Rewind
+    cooldown: See tooltip (long baseline CD)
+    description: >
+      Heals 33% of damage taken in the last 5 seconds. Strongest cooldown Preservation has.
+      Plan usage carefully due to long CD. Hold until raid takes heavy damage but use immediately
+      if someone drops below 30% HP — don't let anyone die by greeding this cooldown.
+  - name: Tip the Scales
+    cooldown: See tooltip (reduced by Chronoboon)
+    description: >
+      Makes next empower spell instant and max rank. Triggers Temporal Burst (Haste, movement
+      speed, CDR). With Chronoboon reducing its CD, this becomes a real throughput cooldown
+      you can plan around. Macro-worthy — use frequently.
+  - name: Dream Flight
+    cooldown: See tooltip
+    description: >
+      Powerful AoE heal and HoT. Choice node with Stasis.
+  - name: Zephyr
+    cooldown: See tooltip
+    description: >
+      Reduces AoE damage taken by 20% for you and nearby allies. Increases movement speed.
+  - name: Time Dilation
+    cooldown: See tooltip
+    description: >
+      External cooldown — staggers 50% of damage taken by the target over the next 8 seconds.
+  - name: Obsidian Scales
+    cooldown: See tooltip
+    description: >
+      Flat damage reduction. Renewing Blaze (passive) causes it to heal you over 8s equal to
+      damage it reduced. Tempered Scales + mail armor gives solid baseline physical durability.
+
+concepts:
+  - >
+    Echo is your core mechanic — replicates your next healing spell on the target. Temporal
+    Anomaly generates Echoes on players it passes through via Resonating Sphere. Use these
+    primarily for Reversion coverage.
+  - >
+    Reversion Blanket: Your highest priority in both raid and M+. Reversion is a high-value
+    HoT, a major Essence Burst source, provides Grace Period amplification, and passive damage
+    mitigation through Merithra's Blessing. All of these retain full value even on reduced-strength
+    Temporal Anomaly Echoes.
+  - >
+    Temporal Burst (from Tip the Scales): Provides frontloaded Haste, movement speed, and CDR.
+    With Chronoboon reducing TtS cooldown, this is a meaningful throughput cooldown to plan around.
+  - >
+    Primacy: Stacks Haste based on allies affected by Verdant Embrace effects. Maintaining Primacy
+    is vital for throughput. Reverberations makes Verdant Embrace also apply a HoT.
+  - >
+    Merithra's Blessing (Apex Talent): Rank 1 — Essence abilities have a chance to empower your
+    next Reversion into a burst heal that bounces to allies. Rank 2 — All Reversion buffs heal
+    targets based on damage they take (passive mitigation). Rank 3 — Dream Breath has 100% chance
+    to empower next Reversion, and its initial healing is buffed by 125%.
+  - >
+    Essence Burst should ideally be spent on Emerald Blossom to trigger Twin Echoes for free
+    Echo generation. Note: 4pc tier set Emerald Blossom procs do NOT trigger Merithra's Blessing.
+  - >
+    Chrono Flame: Upgraded Living Flame from Chronowarden. Deals more damage and heals more.
+    Used as filler for Essence Burst generation.
+  - >
+    Preparation Healer: Preservation is at its best when you understand damage patterns ahead
+    of time and set up accordingly. Pre-HoTing > reacting. Spread Rejuvenation-style Reversion
+    blanket before damage arrives.
+  - >
+    Golden Hour: Makes Reversion heal for a portion of damage taken in the last 5 seconds —
+    powerful reactive tool that layers on top of the proactive blanket.
+  - >
+    Chronowarden vs Flameshaper: Chronowarden is the default recommendation for both raid and
+    M+ per Method (Cryve). Provides stronger interaction across several parts of the kit,
+    extra healing cooldown via Tip the Scales, stronger Living Flame, and faster feel via Primacy Haste.
+
+  - >
+    Leaping Flames: Fire Breath allows Living Flame to hit multiple targets, increasing Essence Burst generation.
+  - >
+    Golden Hour (Reversion): Heals for a portion of damage taken in last 5 seconds. Excellent reactive burst.
+commonMistakes:
+  - "Holding Rewind too long — use it when raid takes heavy damage, but never let someone die by greeding."
+  - "Letting Primacy stacks drop by not casting Verdant Embrace consistently."
+  - "Using Temporal Anomaly on spells other than Reversion in most situations — inefficient."
+  - "Overcapping Essence instead of spending it on Echo or Emerald Blossom."
+  - "Not using Tip the Scales frequently enough — it's a real throughput cooldown with Chronoboon CDR."
+  - "Casting Emerald Blossom without Essence Burst proc — poor mana efficiency."
+  - "Not maintaining Reversion blanket as highest priority — losing Merithra's Blessing passive mitigation."
+  - "Using Echo with Living Flame in raids (low value compared to Reversion/Merithra's)."
+  - "Not planning Stasis combo correctly — recommended order: Dream Breath > Temporal Anomaly > Merithra's Blessing."
+
+patchChanges:
+  "12.0.1": >
+    Chronowarden is default recommendation for raid and M+. Tier set: 2pc Verdant Embrace
+    healing +20% and CD -2s. 4pc Verdant Embrace grows Emerald Blossom on target at 100%
+    effectiveness (does NOT trigger Merithra's Blessing). Nozdormu Adept effect increased.
+  "12.0": >
+    Spiritbloom, Emerald Communion, Cycle of Life, Engulf removed. Quell moved to DPS trees
+    only. Lifebind reworked (60% effect, 8s duration, can't be Echo'd). Dream Breath now has
+    40-yard range with stronger initial heal. Twin Guardian reworked (Rescue = 100% move speed
+    + cast-while-moving 3s). Renewing Blaze passive on Obsidian Scales. New talents: Wings of
+    Liberty (extra Verdant Embrace charge), Inner Flame (increased EB chance after Stasis/Dream
+    Flight). Emerald Blossom and Verdant Embrace healing increased to compensate for lost spells.
+    Chronowarden makes Tip the Scales a throughput cooldown via Temporal Burst. Reverberations
+    makes Verdant Embrace apply a HoT. Primacy grants Haste from Verdant Embrace coverage.

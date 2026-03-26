@@ -1,0 +1,159 @@
+specId: 258
+className: Priest
+specName: Shadow
+role: DPS
+heroTalent: Archon
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Insanity
+  secondaryResource: None
+  resourceNotes: 'Generate Insanity using Mind Blast, Vampiric Touch ticks, and other builders. Spend Insanity
+    on Shadow Word: Madness (renamed from Devouring Plague). Insanity cap is 100 (150 with Voidtouched).
+    Refresh SW:Madness at <1s remaining or when Insanity deficit is <35. Rollover mechanic means no penalty
+    for early refresh.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Vampiric Touch
+  targetUptimePct: 98
+  importance: critical
+  coachingTip: 'Keep VT active on all targets at all times. Use Tentacle Slam to apply on multiple targets.
+    Generates Shadowy Apparitions and enables Psychic Link cleave.'
+- spellId: 0
+  spellName: 'Shadow Word: Pain'
+  targetUptimePct: 98
+  importance: critical
+  coachingTip: 'Keep active on all targets. With Misery talented, VT applies both. Without Misery, apply
+    manually or via Tentacle Slam.'
+- spellId: 0
+  spellName: 'Shadow Word: Madness'
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: 'Maintain high uptime for Mastery: Shadow Weaving. Refresh at <1s remaining or when about
+    to cap Insanity. Rollover mechanic — remaining damage carries over on refresh.'
+- spellId: 0
+  spellName: Shadowform
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Always active before combat for flat damage increase. Voidform replaces it during burst.'
+
+removedMechanics:
+- Dark Ascension (removed in 12.0)
+- Void Bolt (removed in 12.0)
+- Shadow Crash (reworked into Tentacle Slam)
+- Void Shift (removed in 12.0)
+- Psychic Horror (removed in 12.0)
+- 'Devouring Plague (renamed to Shadow Word: Madness)'
+
+rotation:
+  singleTarget: |-
+    Priority (start from top):
+    1. Keep Vampiric Touch and Shadow Word: Pain active at all times. Use Tentacle Slam if available for refresh.
+    2. Cast Halo on cooldown.
+    3. Cast Voidform on cooldown.
+    4. Cast Power Infusion (sync with Voidform).
+    5. Cast Shadow Word: Death if target has absorb shield (Devour Matter).
+    6. Spend Insanity on Shadow Word: Madness if not active, about to expire, or about to cap Insanity.
+    7. Cast Void Volley (available during Voidform).
+    8. Cast Tentacle Slam if about to cap charges or SW:Madness not active.
+    9. Cast Mind Blast to prevent capping at 2 charges.
+    10. Cast Mind Flay: Insanity if Shadow Word: Madness is active.
+    11. Cast Shadow Word: Death if pet is active or target below 20%/35% HP.
+    12. Cast Mind Flay as filler (interrupt for higher priority actions).
+  aoe: |-
+    AoE is similar to ST — most AoE damage comes from Psychic Link cleave on VT targets.
+    1. Maintain VT and SW:P on up to 12 targets. Use Tentacle Slam (covers 6 stacked targets).
+    2. Cast Halo on cooldown.
+    3. Cast Voidform on cooldown.
+    4. Cast Power Infusion.
+    5. Cast SW:Death if target has absorb shield (Devour Matter).
+    6. Funnel Shadow Word: Madness into highest-health priority target.
+    7. Cast Void Volley.
+    8. Cast Tentacle Slam if about to cap charges or SW:Madness not active.
+    9. Cast Mind Blast.
+    10. Cast Mind Flay: Insanity if SW:Madness is active.
+    11. Cast Mind Flay filler.
+    Do not manually DoT targets that will die in <18 seconds.
+  opener: |-
+    1. Ensure Shadowform and Power Word: Fortitude are active.
+    2. Pre-cast Tentacle Slam (or Vampiric Touch if no Tentacle Slam).
+    3. Cast Shadow Word: Pain.
+    4. Cast Halo.
+    5. Cast Voidform.
+    6. Use on-use Trinkets.
+    7. Use Tempered Potion.
+    8. Cast Power Infusion (on ally if Twins of the Sun Priestess).
+    9. Cast Shadow Word: Madness.
+    10. Cast Void Volley.
+    11. Continue with priority list.
+    NOTE: Archon does NOT use Void Torrent (Voidweaver only).
+
+cooldowns:
+- name: Voidform
+  cooldown: 2min
+  description: 'Primary burst cooldown. Replaces Shadowform. Grants access to Void Volley. Treats Mastery
+    as fully stacked. Ancient Madness extends duration via SW:Madness casts (up to ~10 extra seconds).
+    Perfected Form grants +5% damage during Voidform.'
+- name: Power Infusion
+  cooldown: 2min
+  description: 'Major haste buff. Use on ally if Twins of the Sun Priestess talented. Sync with Voidform.'
+- name: Halo
+  cooldown: See source
+  description: 'Empowering AoE spell. High priority in both ST and AoE. Interacts with Voidform.'
+- name: Void Volley
+  cooldown: Available during Voidform
+  description: 'High-priority ability only usable during Voidform. Cast immediately when available.'
+- name: Tentacle Slam
+  cooldown: Charge-based
+  description: 'Reworked Shadow Crash. AoE damage and DoT application. Applies VT and SW:P to stacked
+    targets. Do not cap charges.'
+- name: Mind Blast
+  cooldown: Short (charge-based)
+  description: 'Core Insanity generator. Do not cap at 2 charges.'
+- name: Dispersion
+  cooldown: 2min
+  description: 'Major defensive. 75% DR and increased movement speed.'
+- name: Vampiric Embrace
+  cooldown: 2min
+  description: 'Group healing based on your ST damage.'
+
+concepts:
+- 'DoT Priority: Maintaining VT + SW:P on all targets is the #1 priority. Everything else comes after.
+  Psychic Link makes your ST spells cleave to all VT targets.'
+- 'Shadow Word: Madness Rollover: Refreshing rolls remaining damage into new application. No penalty for
+  early refresh. Refresh at <1s or when about to cap Insanity (deficit <35).'
+- 'Voidform + Ancient Madness: SW:Madness casts during Voidform extend its duration by up to ~10 seconds.
+  Perfected Form grants +5% damage during Voidform. Note: Voidform REPLACES Shadowform, cancelling its
+  damage increase — the 5% from Perfected Form offsets this.'
+- 'Void Volley: Only available during Voidform. High priority — cast immediately when available.'
+- 'Mind Flay: Insanity: Empowered version of Mind Flay. Only 1 GCD long (cannot be interrupted early).
+  Cast when SW:Madness is active.'
+- 'Tentacle Slam: Covers 6 stacked targets with DoTs. Use both charges on large packs. Do not cap charges.'
+- 'Mastery: Shadow Weaving: Damage increases based on number of DoTs on target (VT, SW:P, SW:Madness).
+  Maximum value requires all 3 DoTs active.'
+- 'Psychic Link: ST spells cleave to all targets with your VT. Funnel SW:Madness into priority target.'
+- 'Idol of Yogg-Saron: Shadowy Apparitions build stacks toward Thing from Beyond.'
+- 'Mind Flay is Filler: Never finish a full Mind Flay channel if something higher priority becomes available.
+  Start thinking about recasting halfway through.'
+- 'Pandemic Window: VT and SW:P can be refreshed at 30% remaining duration without losing damage. With Misery,
+  this is about 6.3 seconds remaining.'
+- 'Execute: Shadow Word: Death becomes high priority when targets are below 20% health (or 35% with certain
+  talents) or when Shadowfiend/Mindbender pets are active.'
+
+commonMistakes:
+- Letting VT or SW:P drop on targets, losing Psychic Link cleave and Mastery stacks.
+- Capping Insanity (100/150) instead of spending on Shadow Word: Madness.
+- Missing Void Volley casts during Voidform.
+- Holding Halo too long and desyncing from Voidform windows.
+- Not using Power Infusion on ally when Twins of the Sun Priestess is talented.
+- Capping Mind Blast charges (2) and losing Insanity generation.
+- Not using Tentacle Slam for DoT application in AoE.
+- Finishing full Mind Flay channels when higher priority actions are available.
+
+patchChanges:
+  12.0.1: 'Perfected Form: +5% damage during Voidform. Spiritwell: Increased Shadowy Apparitions damage.
+    Focused Outburst: Increased Void Volley damage and reduced CD.'
+  '12.0': 'Dark Ascension removed. Voidform is primary cooldown. Shadow Crash reworked into Tentacle Slam.
+    Devouring Plague renamed to Shadow Word: Madness. Void Bolt removed.'

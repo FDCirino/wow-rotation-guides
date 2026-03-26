@@ -1,0 +1,118 @@
+specId: 267
+className: Warlock
+specName: Destruction
+role: DPS
+heroTalent: Diabolist
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Soul Shards
+  secondaryResource: Soul Shard Fragments
+  resourceNotes: Destruction uses a Soul Shard system where each Shard is composed of 10 Fragments. You generate Fragments
+    via builders (Incinerate, Conflagrate, Immolate ticks) and spend full Shards on heavy hitters (Chaos Bolt, Shadowburn).
+    Diabolist gameplay revolves around spending Shards to progress the Diabolic Ritual cycle, summoning powerful demons like
+    the Overlord, Mother of Chaos, and Pit Lord.
+maintenanceBuffs:
+- spellId: 0
+  spellName: Immolate
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: 'Maintain Immolate at all times. Use the Pandemic window (refresh when < 5.4s remains) to ensure 100% uptime
+    without wasting globals.'
+- spellId: 0
+  spellName: Diabolic Ritual
+  targetUptimePct: 100
+  importance: high
+  coachingTip: Spend Soul Shards to progress your Diabolic Ritual. This cycle is your primary source of burst damage through
+    summoned demons.
+removedMechanics:
+- Ritual of Ruin (removed in 12.0)
+- Decimation (removed in 12.0)
+- Dimension Ripper (removed in 12.0)
+- Unstable Rifts (removed in 12.0)
+- Health Funnel (removed; healing moved to Drain Life via Infernal Beneficiary)
+rotation:
+  singleTarget: |
+    1. Maintain Immolate at all times.
+    2. Cast Summon Infernal on cooldown.
+    3. Cast Shadowburn whenever available (usable on targets below 20% health or via Fiendish Cruelty procs).
+    4. Cast Soul Fire when available if below 4 Soul Shards.
+    5. Cast Chaos Bolt if you are about to cap Soul Shards (at 5 shards).
+    6. Cast Cataclysm on cooldown (if talented for Immolate refresh).
+    7. Cast Infernal Bolt if below 4 Shards.
+    8. Cast Channel Demonfire whenever available.
+    9. Cast Conflagrate if you have 2 charges to avoid capping.
+    10. Cast Dimensional Rift at 3 charges to avoid overcapping.
+    11. Cast Conflagrate to generate Soul Shards.
+    12. Cast Incinerate to generate Soul Shards.
+  aoe: |
+    1. Maintain Immolate on the main target.
+    2. Cast Summon Infernal.
+    3. Apply Immolate on any secondary target that will last a minimum of 10 seconds.
+    4. Use Conflagrate on the main target to spread Immolate to nearby targets (via Roaring Blaze).
+    5. Cast Cataclysm on cooldown to apply mass Immolate.
+    6. Cast Shadowburn whenever available (especially during Fiendish Cruelty procs).
+    7. Cast Chaos Bolt as your primary shard spender (Diabolist AoE relies on Chaos Bolt machine-gunning to trigger Diabolic Oculi and Ruination).
+    8. Cast Soul Fire when available if below 4 shards.
+    9. Apply Havoc to a secondary target to duplicate single-target spells.
+    10. Cast Channel Demonfire when available.
+    11. Cast Dimensional Rift at 3 charges to avoid overcapping.
+    12. Cast Conflagrate to generate Soul Shards and Backdraft stacks.
+    13. Cast Incinerate to generate Soul Shards.
+    Note: In Diabolist AoE builds, Rain of Fire is often ignored in favor of Chaos Bolt to maximize Diabolic Ritual summons and Oculi explosions.
+  opener: |
+    1. Pre-cast Soul Fire.
+    2. Pre-cast Incinerate.
+    3. Pre-cast Immolate.
+    4. Pre-cast Cataclysm.
+    5. Cast Dimensional Rift.
+    6. Cast Conflagrate.
+    7. Cast Summon Infernal.
+    8. Use trinkets and racials.
+    9. Cast Chaos Bolt.
+    10. Cast Conflagrate.
+cooldowns:
+- name: Summon Infernal
+  cooldown: 2min
+  description: Main offensive cooldown. Generates shards and empowers spenders. Use on cooldown or for burn phases.
+- name: Havoc
+  cooldown: 30s
+  description: 'Duplicates single-target spells onto a second target at 60% effectiveness. Essential for cleave and shard
+    generation.'
+- name: Cataclysm
+  cooldown: 30s
+  description: Used primarily to apply Immolate to all targets in an area.
+- name: Dimensional Rift
+  cooldown: 45s charge
+  description: Generates shards and deals fire damage. Keep from capping at 3 charges.
+- name: Dark Pact
+  cooldown: 1min
+  description: Strong personal shield. Use proactively before predictable damage.
+- name: Unending Resolve
+  cooldown: 3min
+  description: Major defensive reduction and interrupt immunity.
+concepts:
+- 'Diabolic Ritual: Spending Soul Shards cycles through summons (Overlord -> Mother of Chaos -> Pit Lord). This is a predictable
+  cadence of high burst.'
+- 'Diabolic Oculi: Spending shards summons Oculi that explode for AoE damage when a Demonic Art (Ritual summon) is consumed.'
+- 'Pandemic: Refresh Immolate when it has less than 30% duration (5.4s baseline) to add the remaining time to the new application.'
+- 'Havoc Management: Lead into Havoc windows with high Soul Shards to maximize the number of duplicated Chaos Bolts.'
+- 'Movement: Destruction is highly immobile. Use Conflagrate and Shadowburn to cover movement. Use Demonic Circle and Gateway
+  to minimize travel time.'
+- 'Shard Sniping: Use Shadowburn on low-health adds to refund the shard cost if the target dies within 5 seconds.'
+- 'Pet Choice: Use Felhunter for interrupts (Spell Lock) in most PvE content. Use Sayaad (Succubus) for
+  pure single-target damage if no interrupt is needed.'
+- 'Mastery (Chaotic Energies): Increases damage dealt by a random amount and reduces damage taken.'
+commonMistakes:
+- Overcapping Soul Shards (wasting generation from Immolate and builders).
+- Letting Immolate drop off the primary target.
+- Using Rain of Fire in Diabolist builds when Chaos Bolt would provide more value through Ritual progression.
+- 'Mirroring tank movement unnecessarily (wasting GCDs on movement instead of hard-casting).'
+- Casting Havoc on the primary target instead of the secondary target.
+- Holding Summon Infernal for too long instead of using it to generate resources.
+patchChanges:
+  12.0.1: 'Touch of Rancora: Toned down to a minor damage buff. Diabolic Oculi: New talent; spending shards summons Oculi
+    that explode for AoE damage. Looks That Kill: New talent; Oculi cast Diabolic Gaze at your target. Mind''s Eye: New talent;
+    Oculi explosions grant 2% Intellect for 10s. Shadowburn: Now usable only on targets below 20% health baseline. Fiendish
+    Cruelty: New proc that allows Shadowburn on any target regardless of health. Roaring Blaze: Redesigned to spread Immolate
+    to 3 nearby targets.'

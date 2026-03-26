@@ -1,0 +1,117 @@
+specId: 262
+className: Shaman
+specName: Elemental
+role: DPS
+heroTalent: Farseer
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Maelstrom
+  secondaryResource: Mana
+  resourceNotes: 'Generate Maelstrom with Lightning Bolt, Lava Burst, and Chain Lightning. Spend Maelstrom on Earth Shock
+    or Elemental Blast for single-target damage, and Earthquake for AoE. Avoid overcapping Maelstrom (100 cap) to prevent
+    wasting Elemental Overload procs.'
+maintenanceBuffs:
+- spellId: 0
+  spellName: Flame Shock / Voltaic Blaze
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: Maintain Flame Shock or Voltaic Blaze on all targets. Lava Burst is guaranteed to critically hit targets affected
+    by these debuffs.
+- spellId: 0
+  spellName: Lightning Shield
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'Keep Lightning Shield active at all times to gain the 3% Intellect bonus from the Instinctive Imbuements talent.'
+- spellId: 0
+  spellName: Earth Shield
+  targetUptimePct: 100
+  importance: medium
+  coachingTip: 'Maintain Earth Shield on yourself or the tank. With Therazane''s Resilience, it no longer loses charges and
+    provides consistent passive healing.'
+removedMechanics:
+- Deeply Rooted Elements (removed in 12.0)
+- Icefury (removed in 12.0)
+- Primordial Wave (removed in 12.0)
+- Liquid Magma Totem (removed in 12.0)
+- Stone Bulwark Totem (removed in 12.0)
+- Totemic Recall (removed in 12.0)
+- Fire Elemental (removed as a manual summon; now tied to Ascendance)
+- Echoes of Great Sundering (removed in 12.0)
+- Surge of Power (removed in 12.0)
+rotation:
+  singleTarget: |
+    1. Cast Stormkeeper on cooldown.
+    2. Use Ancestral Swiftness.
+    3. Cast Ascendance (sync with on-use trinkets and potions).
+    4. Cast Earth Shock or Elemental Blast if Ascendance will fade within the next 3 seconds.
+    5. Refresh Voltaic Blaze or Flame Shock if it has 6 seconds or less remaining (Pandemic window).
+    6. Cast Earth Shock or Elemental Blast whenever you are within 15 Maelstrom of capping.
+    7. Cast Lava Burst if Flame Shock is active on the target.
+    8. Cast Lightning Bolt as your primary filler.
+  aoe: |
+    1. Cast Stormkeeper (on 3+ targets, try to delay until you can hit 5 targets with Chain Lightning).
+    2. Use Ancestral Swiftness.
+    3. Cast Voltaic Blaze to apply Flame Shock to up to 6 nearby enemies.
+    4. Cast Ascendance.
+    5. Cast Earthquake if there are 2 or more targets.
+    6. Cast Elemental Blast if there are 4 or fewer targets.
+    7. Use Lava Surge procs to consume Purging Flames, causing Lava Burst to hit all Flame Shocked targets.
+    8. Cast Chain Lightning as your primary filler.
+  opener: |
+    1. Pre-cast Stormkeeper (~3 seconds before pull).
+    2. Pre-cast Lava Burst (~1.5 seconds before pull).
+    3. Use Ancestral Swiftness.
+    4. Cast Ascendance with on-use trinkets.
+    5. Cast Lightning Bolt.
+    6. Cast Lava Burst.
+    7. Cast Lightning Bolt.
+    8. Proceed with regular priority.
+cooldowns:
+- name: Ascendance
+  cooldown: 3min
+  description: 'Major offensive burst. Spawns a Fire Elemental (via Call of Fire) and increases Elemental Overload damage
+    by 75%.'
+- name: Stormkeeper
+  cooldown: 1min
+  description: Empowers your next 2 Lightning Bolts or Chain Lightnings to be instant and deal massive damage.
+- name: Ancestral Swiftness
+  cooldown: 1min
+  description: Makes your next Nature spell instant cast.
+- name: Earth Elemental
+  cooldown: 3min
+  description: 'Defensive cooldown that increases maximum health by 15% (via Primordial Bond) for 30 seconds.'
+- name: 'Spiritwalker''s Grace'
+  cooldown: 2min
+  description: Allows you to cast all spells while moving for 15 seconds.
+concepts:
+- 'Maelstrom Management: Your core loop involves generating Maelstrom with builders and spending it on Earth Shock/Elemental
+  Blast (ST) or Earthquake (AoE) before reaching the 100 cap.'
+- 'Voltaic Blaze: This talent replaces Flame Shock. It applies the dot to up to 6 targets instantly and deals significant
+  Nature damage.'
+- 'Purging Flames: After casting Voltaic Blaze, your next Lava Burst hits all targets affected by Flame Shock at 80% effectiveness.'
+- 'Totem Utility: Utilize your flexible toolkit including Poison Cleansing Totem (poisons), Tremor Totem (fears), and Capacitor
+  Totem (AoE stun).'
+- 'Farseer Identity: Farseer focuses on enhancing Elemental Overload procs and providing smoother sustained
+  damage compared to Stormbringer burst-oriented Tempest procs.'
+- 'Master of the Elements: Casting Lava Burst increases the damage of your next Nature, Frost, or Physical
+  spell. Use to buff Elemental Blast or Earth Shock.'
+- 'Feedback Loop (Apex Talent): Increases Overload damage, Crit chance, and Crit damage.'
+- 'Mobility: Use Spiritwalker''s Grace, Gust of Wind, and Ghost Wolf. Elemental has few instant casts
+  outside of procs.'
+- 'Elemental Blast: With Farseer builds, Elemental Blast is the preferred spender over Earth Shock for the
+  secondary stat buff it provides.'
+- 'Windveil: Successfully interrupting a spell with Wind Shear reduces all spell damage taken by 15% for 12 seconds.'
+- 'Feedback Loop: This mandatory Apex talent increases Elemental Overload damage and critical strike chance significantly.'
+commonMistakes:
+- Overcapping Maelstrom and wasting potential Elemental Overload procs
+- Casting Lava Burst on a target that does not have Flame Shock/Voltaic Blaze active
+- 'Misusing Spiritwalker''s Grace during periods of low movement'
+- 'Forgetting to maintain Lightning Shield, losing the 3% Intellect bonus'
+- Not using Wind Shear to trigger the Windveil defensive buff
+- Wasting Earthquake on targets that will die before the full duration of the spell
+patchChanges:
+  12.0.1: Feedback Loop Apex talent introduced as a mandatory pick for all builds.
+  '12.0': 'Major specialization rework: Icefury, Primordial Wave, and Liquid Magma Totem removed. New talents: Voltaic Blaze
+    (Flame Shock replacement) and Purging Flames (AoE Lava Burst). Earthquake damage type changed from Physical to Nature.
+    Ascendance redesigned to increase Overload damage and spawn a Fire Elemental via Call of Fire.'

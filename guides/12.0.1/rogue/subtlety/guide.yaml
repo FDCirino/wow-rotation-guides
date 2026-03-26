@@ -1,0 +1,154 @@
+specId: 261
+className: Rogue
+specName: Subtlety
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Energy
+  secondaryResource: Combo Points
+  resourceNotes: 'Energy (100-200 cap) refills at 10/sec, increased by Haste, Relentless Strikes (6 Energy/CP spent), and Shadow Techniques (4 Energy/proc). Spend Energy on builders (Shadowstrike, Backstab, Shuriken Storm) to generate Combo Points. Spend Combo Points on finishers (Eviscerate, Secret Technique, Black Powder, Coup de Grace). Shadow Blades doubles CP generation. Ancient Arts can refund CP via Shadow Techniques stacks.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Instant Poison
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'Always keep Instant Poison applied to your weapons for baseline damage.'
+  - spellId: 0
+    spellName: Atrophic Poison
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'Maintain Atrophic Poison in Raids to reduce enemy damage dealt by 3%.'
+  - spellId: 0
+    spellName: Numbing Poison
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'Use Numbing Poison in Mythic+ to reduce enemy attack and casting speed.'
+  - spellId: 0
+    spellName: Deathstalker's Mark
+    targetUptimePct: 95
+    importance: critical
+    coachingTip: 'Apply with Shadowstrike. As Deathstalker, this can only be moved while Darkest Night is active.'
+
+playstyles:
+  - id: trickster
+    name: Trickster
+    detectionCriteria:
+      heroTalents:
+        - "Trickster"
+  - id: deathstalker
+    name: Deathstalker
+    detectionCriteria:
+      heroTalents:
+        - "Deathstalker"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Flagellation (Removed in 12.0)
+  - Symbols of Death (Removed in 12.0)
+  - Rupture (Removed in 12.0)
+  - Shadow Dance Cooldown Reduction per CP spent (Removed in 12.0)
+  - Secret Technique Cooldown Reduction per CP spent (Removed in 12.0)
+  - Airborne Irritant (Reworked: no longer makes Blind hit multiple targets)
+  - Nimble Flurry (Reworked: no longer cleaves Eviscerate or Shadowstrike)
+  - Shadow Blades (Reworked: now doubles CP generation instead of filling to full)
+  - Shadowcraft (Reworked: CP refund part moved to Apex Talent)
+
+rotation:
+  singleTarget: |
+    [Trickster] Single Target Priority:
+    1. Ensure Instant Poison and Atrophic/Numbing Poison are applied.
+    2. Cast Shadowstrike to apply Deathstalker's Mark.
+    3. Cast Shadow Dance when you have 6 or more combo points and Secret Technique is ready or Shadow Blades is active.
+    4. Cast Shadow Blades during Shadow Dance.
+    5. Cast Secret Technique during Shadow Dance with 6 or more combo points.
+    6. Cast Coup de Grace with 6 or more combo points.
+    7. Cast Eviscerate with 6 or more combo points.
+    8. Cast Shadowstrike (at full combo points if it would grant the Ancient Arts buff).
+    9. Cast Shadowstrike as primary builder.
+    10. Cast Backstab as filler builder.
+    11. Cast Vanish when Shadow Dance is not up (follow with Shadowstrike).
+    12. Cast Cold Blood (if talented) when low on energy.
+
+    [Deathstalker] Single Target Priority:
+    1. Ensure Instant Poison and Atrophic/Numbing Poison are applied.
+    2. Cast Shadowstrike to apply Deathstalker's Mark.
+    3. Cast Shadow Dance when you have 2 or fewer combo points and Secret Technique is ready or Shadow Blades is active.
+    4. Cast Shadow Blades during Shadow Dance.
+    5. Cast Secret Technique during Shadow Dance with 6 or more combo points.
+    6. Cast Eviscerate with 6 or more combo points.
+    7. Cast Shadowstrike as primary builder.
+    8. Cast Backstab as filler builder.
+    9. Cast Vanish when Shadow Dance is not up (follow with Shadowstrike).
+    10. Cast Cold Blood (if talented) when low on energy.
+  aoe: |
+    [Trickster] AoE Priority:
+    1. Ensure Instant Poison and Atrophic/Numbing Poison are applied.
+    2. Cast Shadowstrike to apply Deathstalker's Mark.
+    3. Cast Shadow Dance when you have 6 or more combo points and Secret Technique is ready or Shadow Blades is active.
+    4. Cast Shadow Blades during Shadow Dance.
+    5. Cast Secret Technique during Shadow Dance with 6 or more combo points.
+    6. Cast Coup de Grace with 6 or more combo points.
+    7. Cast Black Powder with 6 or more combo points.
+    8. On exactly 2 targets: Cast Shadowstrike to build combo points.
+    9. On 3+ targets: Cast Shuriken Storm to build combo points.
+
+    [Deathstalker] AoE Priority:
+    1. Ensure Instant Poison and Atrophic/Numbing Poison are applied.
+    2. Cast Shadowstrike to apply Deathstalker's Mark.
+    3. Cast Shadow Dance when you have 2 or fewer combo points and Secret Technique is ready or Shadow Blades is active.
+    4. Cast Shadow Blades during Shadow Dance.
+    5. Cast Secret Technique during Shadow Dance with 6 or more combo points.
+    6. Cast Eviscerate with 6 or more combo points when Darkest Night is active.
+    7. Cast Black Powder with 6 or more combo points.
+    8. On exactly 2 targets: Cast Shadowstrike to build combo points.
+    9. On 3+ targets: Cast Shuriken Storm to build combo points.
+  opener: |
+    1. Apply Poisons
+    2. Shadowstrike (from Stealth to apply Mark)
+    3. Shadow Blades
+    4. Shadow Dance
+    5. Secret Technique (at 6+ CP)
+    6. Follow Single Target Priority
+
+cooldowns: |
+  - Shadow Blades (90s): Major offensive CD. Doubles CP generation and adds 20% shadow damage to attacks. Always align with two Shadow Dances.
+  - Shadow Dance (20s recharge): Signature CD. Allows use of Stealth abilities. Duration (6s baseline) scales with Haste via Deepening Shadows. Use with Secret Technique.
+  - Vanish (2m): Use when Shadow Dance is unavailable to trigger Stealth-based bonuses and Shadowstrike.
+  - Secret Technique (25s): High damage finisher. Use only during Shadow Dance at 6+ CP.
+  - Feint (15s): Reduces AoE damage by 40%. Costs 25 Energy. Use proactively for group damage.
+  - Cloak of Shadows (2m): Magic immunity and dispel. Use to soak mechanics or clear debuffs.
+  - Cheat Death (6m): Passive talent. Prevents death once every 6 minutes.
+  - Evasion (2m): 100% Dodge chance. Use if targeted by physical attacks or when tank dies.
+
+concepts: |
+  - Burst Windows: Subtlety revolves around stacking Shadow Blades and Shadow Dance for massive 90-second burst cycles.
+  - Shadow Techniques: A passive proc (averaging 28%) that generates CP and 4 Energy. It follows a pseudo-random sequence (0%, 0%, 50%, 100% chance on successive hits).
+  - Ancient Arts (Apex): Spawns shadow clones. If you have 5+ Shadow Techniques stacks after a builder, your next finisher refunds CP and spawns a clone.
+  - Shadowcraft: Increases Shadow Techniques frequency by 40% (50% on 2nd hit, 100% on 3rd) and doubles CP/Energy gains during Shadow Dance.
+  - Deepening Shadows: Extends Shadow Dance duration based on character Haste.
+  - Deathstalker's Mark: A core debuff for Deathstalkers. It is difficult to move between targets unless Darkest Night is active.
+  - Trickster Nuance: It is optimal to cast Shadowstrike at full CP if it activates the Ancient Arts buff (shadowy glow).
+  - Energy Management: Outside of Shadow Dance, Energy is scarce; during Shadow Dance, Relentless Strikes and Shadow Techniques provide enough to spam globals.
+  - Mastery (Executioner): Increases the damage of finishing moves.
+
+commonMistakes:
+  - 'Casting Shadow Dance when Shadow Blades has less than 10 seconds remaining on cooldown'
+  - 'Using Secret Technique outside of a Shadow Dance window'
+  - 'Overcapping Combo Points during Shadow Blades when generation is doubled'
+  - 'Using Shuriken Storm on exactly 2 targets instead of Shadowstrike'
+  - 'Failing to use Feint proactively during heavy AoE damage phases'
+  - 'Not aligning Shadow Blades with two charges/uses of Shadow Dance'
+  - "Letting Deathstalker's Mark drop or getting it stuck on a target that is about to die/despawn"
+
+patchChanges: |
+  12.0.1:
+  - Midnight Launch: Major rework. Rupture and Symbols of Death removed.
+  - Shadow Blades changed to double CP generation instead of filling to full.
+  - Introduction of Apex Talents: Ancient Arts (Shadow Clones and CP refunds).
+  - Haste now extends Shadow Dance duration via Deepening Shadows.
+  - Trickster: Nimble Flurry no longer cleaves finishers.
+  - Deathstalker: Darkest Night now triggers at 5+ CP instead of exactly 7.

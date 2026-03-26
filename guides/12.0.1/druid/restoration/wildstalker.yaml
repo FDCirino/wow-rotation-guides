@@ -1,0 +1,210 @@
+specId: 105
+className: Druid
+specName: Restoration
+role: Healer
+heroTalent: Wildstalker
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Combo Points
+  resourceNotes: >
+    Mana is your primary resource for healing. Use the Abundance talent to reduce Regrowth costs
+    by layering Rejuvenation. Master Shapeshifter provides mana regeneration when casting Wrath.
+    Wildstalker players can optionally use Energy and Combo Points in Cat Form to apply bleeds for
+    damage and Bloodseeker Vine procs, but catweaving is NOT required — Wildstalker is primarily
+    played for its healing capability.
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Efflorescence
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: >
+      Keep Efflorescence active under the group at all times. Lifetreading talent makes it
+      automatically follow your Lifebloom target. Efflorescence healing can proc Symbiotic Blooms.
+  - spellId: 0
+    spellName: Lifebloom
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: >
+      Keep Lifebloom on the tank or a player taking heavy damage. Limited to one target.
+      Everbloom Rank 1: stacks to 3 automatically every 5 seconds (refreshing keeps stacks).
+      Everbloom Rank 2/3: cleaves 15/30% of healing to two nearby allies.
+      Picking the correct Lifebloom target is crucial — your strongest ST heal in Midnight,
+      and Efflorescence + related talents are tied to it.
+  - spellId: 0
+    spellName: Mark of the Wild
+    targetUptimePct: 100
+    importance: high
+    coachingTip: Ensure this raid buff is active on all party members before combat.
+  - spellId: 0
+    spellName: Symbiotic Bloom
+    targetUptimePct: 0
+    importance: medium
+    coachingTip: >
+      Procs passively from Wild Growth, Regrowth, and Efflorescence healing. Increases healing
+      done to the affected target via Vigorous Creepers. Bursting Growth procs when you cast
+      Rejuvenation on targets with Symbiotic Blooms — prioritize Rejuvenation on these targets.
+
+removedMechanics:
+  - "Cenarion Ward (Removed in 12.0)"
+  - "Overgrowth (Removed in 12.0)"
+  - "Spring Blossoms (Removed in 12.0)"
+  - "Skull Bash (Removed from Resto in 12.0)"
+  - "Nature's Vigil (Removed in 12.0)"
+  - "Grove Tending (Removed in 12.0)"
+  - "Undergrowth (Removed in 12.0)"
+  - "Forest's Flow (Removed in 12.0)"
+  - "Invigorate (Removed in 12.0)"
+  - "Wildwood Roots (Removed in 12.0)"
+  - "Dreamstate (Removed in 12.0)"
+  - "Budding Leaves (Removed in 12.0)"
+  - "Twinleaf (Removed in 12.0)"
+  - "Flash of Clarity (Removed in 12.0)"
+  - "Flourish as active ability (Now passive during Tranquility)"
+  - "Grove Guardians as active button (Now passive on Swiftmend/Wild Growth)"
+
+rotation:
+  singleTarget: |
+    1. Maintain Efflorescence under the group (automated via Lifetreading).
+    2. Maintain Lifebloom on the tank (stacks to 3 via Everbloom; cleaves at Rank 2+).
+    3. Cast Swiftmend on cooldown — spawns Grove Guardians and procs Soul of the Forest.
+    4. Follow Swiftmend with Rejuvenation (SotF + Power of the Archdruid applies to 2 extra allies) or Regrowth for emergencies.
+    5. Cast Wild Growth on cooldown to cover moderate damage and spawn Grove Guardians.
+    6. Prioritize Rejuvenation on targets with Symbiotic Blooms for Bursting Growth procs.
+    7. Cast Rejuvenation as filler to build Abundance stacks. Cultivation heals instantly below 60% HP.
+    8. Cast Regrowth for sharp damage (crits for 260%). High Abundance stacks reduce cost.
+    9. Use Wrath during downtime for Master Shapeshifter mana regeneration.
+    10. (Optional) Enter Cat Form via Fluid Form for damage — Rake, Shred, Rip for Bloodseeker Vines.
+  aoe: |
+    1. Ensure Efflorescence and Lifebloom are active before damage hits.
+    2. Pre-spread Rejuvenation to multiple party members 5-10 seconds before damage.
+    3. Prioritize Rejuvenation on targets with Symbiotic Blooms (Bursting Growth).
+    4. Cast Wild Growth as damage hits — spawns Grove Guardians.
+    5. Cast Swiftmend for burst healing + Grove Guardians + Soul of the Forest.
+    6. Cast Regrowth to stabilize (260% crit). Chain Regrowth once Abundance stacks are high.
+    7. Use Tranquility during heavy damage — Flourish passively extends all HoTs by up to 14 seconds. 2min CD.
+    8. Use Convoke the Spirits for burst healing (can also cast in Cat Form for damage during safe windows).
+  opener: |
+    1. Pre-cast Mark of the Wild.
+    2. Place Efflorescence under the melee group.
+    3. Apply Lifebloom to the tank (allow it to stack to 3 via Everbloom).
+    4. Apply Rejuvenation to 3-5 targets expected to take early damage.
+    5. Cast Wild Growth as damage begins — spawns Grove Guardians.
+    6. Cast Swiftmend for additional Grove Guardians + Soul of the Forest.
+    7. (Optional M+) Cast Rake on primary target via Fluid Form for bleed damage.
+
+cooldowns:
+  - name: Tranquility
+    cooldown: "2min (with Inner Peace; grants 20% DR during channel)"
+    description: >
+      Major raid/group cooldown. Direct healing increased by 40% in Midnight. Flourish is now
+      passive during Tranquility — extends all HoT durations by up to 14 seconds while channeling.
+      No longer applies a HoT itself. Best used after a Rejuvenation ramp.
+  - name: Convoke the Spirits
+    cooldown: "1min (with Cenarius' Guidance)"
+    description: >
+      Rapidly casts random Druid spells over 3-4 seconds. Can move while channeling. Roughly 50%
+      of casts include a smaller Tranquility via Cenarius' Guidance. Typically includes 0-2 Wild
+      Growth, 2-4 Swiftmends, and Rejuvenations. Can also be used in Cat Form for DPS burst.
+      Use after first Ferocious Bite to gain 5 CP then Bite again.
+  - name: "Incarnation: Tree of Life"
+    cooldown: "3min (or proc via Reforestation)"
+    description: >
+      30s duration. Increases healing by 10%, makes Regrowth instant, Wild Growth hits 2 extra
+      targets, Rejuvenation cheaper. Choice node with Convoke the Spirits.
+  - name: Innervate
+    cooldown: "1min"
+    description: >
+      Makes spells free for 8s. Use early (~80% mana) and pair with heavy Rejuvenation spreading
+      to maximize uses per fight.
+  - name: Nature's Swiftness
+    cooldown: "1min"
+    description: >
+      Makes next Regrowth instant and significantly stronger. Can macro into Convoke for
+      reliable buff during channel.
+  - name: Ironbark
+    cooldown: "1.5min"
+    description: Reduces target damage taken by 20%. Use proactively on tanks or mechanic targets.
+  - name: Heart of the Wild
+    cooldown: "2min"
+    description: >
+      Form-dependent: Cat Form = empowered Feral Frenzy (best damage option per Maxroll).
+      Moonkin = AoE Starfall-like damage. Bear Form = 30% max HP. Human = empowered Wild Growth.
+      Nearly always use in Cat Form for damage unless you need Bear Form defensive.
+
+concepts:
+  - >
+    Symbiotic Bloom: Procs passively from Wild Growth, Regrowth, and Efflorescence healing.
+    Vigorous Creepers increases healing done to targets with active Symbiotic Blooms.
+    Bursting Growth procs when you Rejuvenate a target with Symbiotic Blooms — small AoE heal.
+    Resilient Flourishing extends bloom duration and causes vines to jump to new targets on death.
+  - >
+    Mastery (Harmony): Reworked in Midnight — increases healing by 11.4% per unique HoT on target.
+    Benefit falls off over time; most effective on first HoT. Symbiotic Bloom counts as an
+    additional HoT for Mastery purposes. Layer different spells for maximum ST throughput.
+  - >
+    Abundance Cycle: Rejuvenation stacks increase crit chance and reduce mana cost of Regrowth.
+    Layer Rejuvenations first, then spend on Regrowth. Regrowth now crits for 260% (was 200%).
+  - >
+    Everbloom (Apex Talent): Rank 1: Lifebloom stacks to 3 automatically (every 5s). Rank 2/3:
+    Cleaves 15/30% of healing to two nearby allies. Lifebloom limited to one target. When Soul
+    of the Forest is consumed, triggers enhanced bloom effects.
+  - >
+    Catweaving (Optional): Wildstalker does NOT require catweaving — it is played for its healing
+    capability per Icy Veins. However, Cat Form DPS via Fluid Form (Rake/Shred/Rip) triggers
+    Bloodseeker Vines and adds significant damage in M+. Liveliness increases DoT tick rate for
+    more vine procs. Use Heart of the Wild in Cat Form for best damage.
+  - >
+    Cultivation (Reworked): Rejuvenation now heals instantly on targets below 60% health.
+  - >
+    Power of the Archdruid (Reworked): Soul of the Forest causes next Rejuvenation or Regrowth
+    to apply to 2 additional allies within 20 yards.
+  - >
+    Flourish (Passive): No longer an active cooldown. Passively extends all HoTs by up to
+    14 seconds while channeling Tranquility.
+  - >
+    Grove Guardians: Spawn passively from Swiftmend and Wild Growth. Each Guardian increases
+    Rejuvenation, Efflorescence, and Lifebloom healing by 10%.
+  - >
+    Ramping: Core playstyle — spread Rejuvenations 5-10 seconds before major mechanics, prioritize
+    targets with Symbiotic Blooms, then Wild Growth + Swiftmend + Tranquility/Convoke for burst.
+  - >
+    Wildstalker vs KotG: Wildstalker outperforms KotG in M+ (ST healing + optional Cat DPS).
+    KotG is go-to for raid (AoE healing + cooldown strength). Both hero trees are close in power
+    in Midnight.
+
+  - >
+    Catweaving: Use Fluid Form to swap to Cat Form for damage during healing downtime.
+  - >
+    Abundance Cycle: Rejuvenation stacks increase Regrowth crit chance and lower mana cost.
+commonMistakes:
+  - "Letting Efflorescence drop — loses significant passive healing, Verdancy procs, and Symbiotic Bloom generation."
+  - "Moving Lifebloom too frequently — prevents Everbloom from reaching 3-stack maximum."
+  - "Casting Regrowth with zero or low Abundance stacks — rapid mana depletion."
+  - "Holding Innervate until low mana instead of using early (~80%) to maximize total uses."
+  - "Not prioritizing Rejuvenation on targets with Symbiotic Blooms — missing Bursting Growth procs."
+  - "Casting Rejuvenation unnecessarily when passive AoE or Efflorescence can handle the healing."
+  - "Not using Wrath during downtime — missing Master Shapeshifter mana returns."
+  - "Thinking catweaving is required for Wildstalker — it is optional. Wildstalker is primarily a healing tree."
+  - "Forgetting Flourish is now passive during Tranquility — don't look for a separate button."
+  - "Using Heart of the Wild in caster form instead of Cat Form — Cat Form does significantly more damage."
+
+patchChanges:
+  "12.0.1": >
+    Reviewed for Midnight Season 1. Wildstalker recommended for M+; KotG for raid.
+    Symbiotic Bloom proc rates adjusted. Patient Custodian added for general HoT increases.
+    Thriving Growth: base bloom chance increased by 30%, rate increase with larger target counts
+    slightly reduced. Symbiotic Blooms no longer appear on raid frames.
+  "12.0": >
+    Flourish reworked to passive during Tranquility (extends HoTs up to 14s). Grove Guardians
+    changed from active to passive (proc on Swiftmend/Wild Growth). Everbloom Apex Talent added.
+    Mastery reworked (11.4% per HoT, falls off over time). Cultivation reworked (instant heal
+    below 60%). Power of the Archdruid reworked (SotF applies to 2 extra allies). Regrowth crits
+    for 260% (was 200%). Lifebloom limited to one target. Photosynthesis reworked (no longer 10%
+    healing rate; bloom chance 8%). Tranquility direct healing +40%, no longer applies HoT. Heart
+    of the Wild reworked to 2min form-dependent CD. Many talents removed (see removedMechanics).
+    New Wildstalker talents: Green Thumb (20% faster vine growth), Rampancy (20% passive Bursting
+    Growth trigger), Patient Custodian (6% more effective DoTs/HoTs).

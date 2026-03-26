@@ -1,0 +1,117 @@
+specId: 65
+className: Paladin
+specName: Holy
+role: Healer
+heroTalent: Herald of the Sun
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Holy Power
+  resourceNotes: 'Generate Holy Power with Holy Shock and Flash of Light. Spend Holy Power on Light of Dawn (Raid) or Eternal Flame (Mythic+). Herald of the Sun replaces Word of Glory with Eternal Flame, which adds a heal-over-time component. Judgment is never worth casting in raid due to nerfs to Empyrean Legacy; it sees use only in Mythic+ for damage. Use Shield of the Righteous during downtime to regenerate mana. Infusion of Light has a 10% proc chance from Holy Shock.'
+maintenanceBuffs:
+- spellId: 0
+  spellName: Dawnlight
+  targetUptimePct: 80
+  importance: high
+  coachingTip: 'Applied via Divine Toll or Holy Prism. Essential for Herald of the Sun healing throughput and Sun''s Avatar beams during Avenging Wrath.'
+- spellId: 0
+  spellName: Beacon of Light / Faith
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Place Beacons on ranged players (Balance Druid, Shadow Priest, Evoker, Hunters) to maximize Mastery: Lightbringer coverage across the group.'
+- spellId: 0
+  spellName: Beacon of the Savior
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'Apex talent that automatically targets the lowest health ally. Benefits from all Beacon talents including Commanding Light and Saved by the Light. Rank 3 grants an absorb shield and damage reduction.'
+- spellId: 0
+  spellName: Devotion Aura
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Ensure Devotion Aura is active at all times for passive 3% damage reduction.'
+rotation:
+  singleTarget: |-
+    Raid Priority:
+    1. Keep Divine Toll on cooldown to apply Dawnlight and generate Holy Power.
+    2. Never waste Holy Power; spend at 5 to avoid overcapping.
+    3. Spend Infusion of Light procs on Flash of Light for instant, high-value healing.
+    4. Cast Holy Shock as much as possible to generate Holy Power and proc Infusion of Light (10% chance).
+    5. Spend Holy Power on Light of Dawn (raid primary spender due to Breaking Dawn and Second Sunrise synergy).
+    6. Cast Flash of Light as your primary filler when generators are on cooldown.
+    7. Cast Holy Light when major healing is needed and mana permits (extremely expensive).
+    8. Use Shield of the Righteous during downtime to regenerate mana.
+    NOTE: Judgment is NEVER worth casting in raid. Even with Empyrean Legacy talented, it is a significant healing loss compared to Flash of Light.
+  aoe: |-
+    Raid AoE Priority:
+    1. Cast Divine Toll on cooldown to apply Dawnlight to multiple targets (target an ally for healing).
+    2. Spend Holy Power on Light of Dawn (heals 5 players within 40 yards).
+    3. Cast Holy Shock on cooldown to maintain Holy Power flow.
+    4. Spend Infusion of Light on Flash of Light for healing; on Judgment only in M+ when no healing needed.
+    5. Cast Flash of Light as filler.
+
+    Mythic+ Priority (different from raid):
+    1. Cast Holy Shock as much as possible.
+    2. Cast Judgment as much as possible (for damage contribution via Crusader's Might loop).
+    3. Spend Holy Power on Eternal Flame (primary M+ spender for Beacon transfer value).
+    4. Cast Flash of Light as filler; swap to Flash of Light over Judgment when healing is intense.
+    5. When no healing needed, spend Holy Power on Shield of the Righteous for damage and mana regen.
+  opener: |-
+    1. Ensure Beacon of Light, Beacon of Faith, and Devotion Aura are active.
+    2. Cast Avenging Wrath to trigger Sun's Avatar (beams connect to allies with Dawnlight).
+    3. Cast Divine Toll to apply Dawnlight and generate 5 Holy Power.
+    4. Spend Holy Power on Light of Dawn or Eternal Flame.
+    5. Continue with standard priority.
+    NOTE: Avenging Wrath BEFORE Divine Toll is critical so Sun's Avatar beams immediately connect to Dawnlight targets.
+cooldowns:
+- name: Avenging Wrath
+  cooldown: 2min
+  description: Major cooldown. Increases damage, healing, and crit for 30 seconds. Triggers Sun's Avatar which creates healing beams to allies with Dawnlight. Always cast BEFORE Divine Toll so beams immediately activate on Dawnlight targets. Walk Into Light grants 2 Holy Power on activation.
+- name: Aura Mastery
+  cooldown: 3min
+  description: Empowers Devotion Aura to provide 12% damage reduction to all allies. Use for assigned raid mechanics or heavy party damage.
+- name: Divine Toll
+  cooldown: 1min
+  description: Casts 5 Holy Shocks. Primary way to apply Dawnlight for Herald of the Sun. Target an ally when healing is needed; targeting an enemy prioritizes damage Holy Shocks. Choice node with Holy Prism.
+- name: Holy Prism
+  cooldown: 20s
+  description: Choice node with Divine Toll. Cast on an enemy for AoE healing to nearby allies; cast on an ally for single-target healing and AoE damage. Also applies Dawnlight.
+- name: Divine Shield
+  cooldown: 5min
+  description: Complete immunity. Use to cheese mechanics or as an emergency defensive.
+- name: Divine Protection
+  cooldown: 1min
+  description: Short defensive cooldown for personal damage reduction.
+concepts:
+- 'Holy Power Management: Core loop is building Holy Power with Holy Shock and Flash of Light, then spending on Light of Dawn (raid) or Eternal Flame (M+). Never overcap at 5.'
+- 'Dawnlight and Sun''s Avatar: Herald of the Sun relies on applying Dawnlight via Divine Toll or Holy Prism. During Avenging Wrath, Sun''s Avatar connects you to Dawnlight targets with healing beams. This is why AW must be cast BEFORE Divine Toll in the opener.'
+- 'Eternal Flame: Replaces Word of Glory for Herald players. Provides a direct heal plus a HoT. In Mythic+ this is primary spender due to superior Beacon transfer value. In raid, Light of Dawn is better due to Breaking Dawn and Second Sunrise.'
+- 'Infusion of Light: Has a 10% proc chance from Holy Shock (not guaranteed). Use on Flash of Light for instant, high-value healing. Can use on Judgment in M+ when no healing is needed for extra Holy Power and damage.'
+- 'Beacon of the Savior: Apex talent that automatically targets the lowest health ally. Benefits from all Beacon talents (Commanding Light, Saved by the Light). Rank 3 grants absorb shield and damage reduction every 8 seconds.'
+- 'Mastery: Lightbringer: Healing is stronger based on proximity. Place Beacons on ranged players to extend effective healing range via Beacon of the Lightbringer.'
+- 'Judgment in Raid vs M+: Due to Empyrean Legacy nerfs, Judgment is never worth casting in raid. Flash of Light is strictly better. In M+ Judgment is valuable for damage and the Crusader''s Might cooldown reduction loop.'
+- 'Mana Management: Holy Light provides massive healing but is extremely expensive. Use Shield of the Righteous during downtime to return mana. Holy Paladin is one of the best Innervate targets.'
+- 'ABC (Always Be Casting): Holy Paladin is fast-paced. Always fill globals with a spell, even if suboptimal. Hesitating is worse than casting the wrong spell.'
+- 'Crusader''s Might CDR Loop: Holy Shock reduces Judgment CD and Judgment reduces Holy Shock CD. In M+
+  this creates a fast-paced rotation. In raid, Judgment is not worth casting.'
+removedMechanics:
+- Blessing of Summer / Blessing of the Seasons (Removed in 12.0)
+- Merciful Auras (Removed in 12.0)
+- Repentance (Removed in 12.0)
+- Barrier of Faith (Removed in 12.0)
+- Boundless Salvation (Removed in 12.0)
+- Relentless Inquisitor (Removed in 12.0)
+- Crusader Strike (Base version removed; only available during Avenging Crusader)
+commonMistakes:
+- Overcapping Holy Power by casting a generator while at 5 Holy Power.
+- Casting Avenging Wrath AFTER Divine Toll instead of before, missing Sun's Avatar beams on Dawnlight targets.
+- Casting Judgment in raid, which is always a healing loss compared to Flash of Light after Empyrean Legacy nerfs.
+- Overusing Holy Light and depleting mana too early in a fight.
+- Targeting enemies with Divine Toll when the priority is group healing.
+- Neglecting to use Divine Toll or Holy Prism on cooldown, leading to low Dawnlight uptime.
+- Standing too far from the group and losing Mastery Lightbringer effectiveness.
+- Using Shield of the Righteous when the party is at low health instead of healing.
+- Treating Infusion of Light as guaranteed when it only has a 10% proc rate from Holy Shock.
+patchChanges:
+  '12.0': 'Crusader Strike removed from base kit (only available during Avenging Crusader). Blessing of the Seasons, Merciful Auras, Barrier of Faith, Boundless Salvation removed. Crusader''s Might redesigned into a cooldown reduction loop between Holy Shock and Judgment.'
+  12.0.1: 'Walk Into Light grants 2 Holy Power when entering Avenging Wrath. Dawnlight healing power reduced but spec is less reliant on it for total throughput. Light of Dawn redesigned to heal 5 players within 40 yards instead of a frontal cone. Hammer of Wrath now replaces Judgment during Avenging Wrath. Infusion of Light proc chance set to 10%.'

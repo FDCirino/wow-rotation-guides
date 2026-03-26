@@ -1,0 +1,142 @@
+specId: 70
+className: Paladin
+specName: Retribution
+role: DPS
+heroTalent: Herald of the Sun
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Holy Power
+  resourceNotes: 'Generate Holy Power using Blade of Justice, Judgment, and Templar Strikes/Crusading Strikes.
+    Spend on Final Verdict (ST) or Divine Storm (AoE). Never overcap — a significant portion of damage comes
+    from Holy Power spending. Herald of the Sun focuses on Dawnlight DoTs from Wake of Ashes and enhanced
+    Hammer of Wrath during Avenging Wrath via Walk Into Light.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Expurgation
+  targetUptimePct: 95
+  importance: high
+  coachingTip: 'Keep Expurgation active on primary target via Blade of Justice. Significantly buffs damage.'
+- spellId: 0
+  spellName: Judgment
+  targetUptimePct: 90
+  importance: high
+  coachingTip: 'Keep Judgment debuff applied to enemies to increase Holy Power spender damage.'
+- spellId: 0
+  spellName: Dawnlight
+  targetUptimePct: 0
+  importance: high
+  coachingTip: 'Procs automatically from Wake of Ashes. Provides powerful DoTs and triggers additional
+    effects. Herald signature mechanic.'
+
+removedMechanics:
+- Final Reckoning (removed in 12.0)
+- Of Dusk and Dawn (removed in 12.0)
+- Divine Arbiter (removed in 12.0)
+- Searing Light (removed in 12.0)
+- Hammer of Wrath (reworked to upgrade Judgment during Avenging Wrath)
+- Shield of Vengeance (reworked to passive on Divine Protection)
+
+rotation:
+  singleTarget: |-
+    Priority (start from top, use first ability with criteria met):
+    1. Cast Avenging Wrath.
+    2. Cast Execution Sentence.
+    3. Cast Final Verdict if you have 5 Holy Power.
+    4. Cast Wake of Ashes (triggers Dawnlight for Herald).
+    5. Cast Divine Toll.
+    6. Cast Hammer of Wrath with an Art of War proc.
+    7. Cast Blade of Justice with an Art of War proc (prioritize for Light Within).
+    8. Cast Divine Storm if you have an Empyrean Power proc.
+    9. Cast Final Verdict.
+    10. Cast Hammer of Wrath.
+    11. Cast Blade of Justice.
+    12. Cast Judgment.
+    13. Cast Templar Strikes or Templar Slash.
+    14. Cast Crusader Strike.
+    Note: Herald does NOT have Hammer of Light — that is Templar only.
+  aoe: |-
+    Swap to AoE at 2+ targets with AoE talents, or 3+ with ST talents.
+    1. Cast Avenging Wrath.
+    2. Cast Execution Sentence.
+    3. Cast Divine Storm if you have 5 Holy Power.
+    4. Cast Wake of Ashes.
+    5. Cast Divine Toll.
+    6. Cast Hammer of Wrath with an Art of War proc.
+    7. Cast Blade of Justice with an Art of War proc.
+    8. Cast Final Verdict if you have Empyrean Legacy active.
+    9. Cast Divine Storm.
+    10. Cast Hammer of Wrath.
+    11. Cast Blade of Justice.
+    12. Cast Judgment.
+    13. Cast Templar Strikes or Templar Slash.
+    14. Cast Crusader Strike.
+  opener: |-
+    1. Cast Avenging Wrath.
+    2. Cast Execution Sentence.
+    3. Cast Wake of Ashes (triggers Dawnlight).
+    4. Cast Divine Toll.
+    5. Cast Final Verdict.
+    6. Cast Final Verdict.
+    7. Cast Divine Toll.
+    8. Continue with regular priority.
+
+cooldowns:
+- name: Avenging Wrath / Crusade
+  cooldown: 60s (with Crusade, provides stacking Haste buff)
+  description: 'Major offensive cooldown. Increases damage and crit. Converts Judgment into Hammer of Wrath.
+    Use before other cooldowns. With Crusade, provides stacking Haste but stacking no longer needs to be
+    prioritized over other abilities.'
+- name: Execution Sentence
+  cooldown: 60s
+  description: 'Deals initial AoE damage, then after 10s deals damage to primary target based on damage
+    done to all initial targets. Use before Wake of Ashes and other damage cooldowns.'
+- name: Wake of Ashes
+  cooldown: 30s
+  description: 'High damage AoE burst, generates Holy Power. For Herald, triggers Dawnlight DoTs.'
+- name: Divine Toll
+  cooldown: 1min
+  description: 'Instantly casts Judgment on multiple targets, generating significant Holy Power.'
+- name: Divine Shield
+  cooldown: 5min
+  description: 'Full immunity to all damage and effects.'
+- name: Divine Protection
+  cooldown: 1min
+  description: 'Personal defensive. Shield of Vengeance is now passive on this ability.'
+
+concepts:
+- 'Dawnlight: Herald''s signature mechanic. Procs from Wake of Ashes. Provides powerful DoTs and grants
+  extra bonuses to Hammer of Wrath via Walk Into Light.'
+- 'Walk Into Light: Herald talent that significantly increases Hammer of Wrath power. Makes HoW a top
+  priority during Avenging Wrath windows.'
+- 'Holy Power Management: Core loop is generating and spending HP. Never overcap at 5. It is worth wasting
+  1 HP with Blade of Justice + Art of War to avoid overwriting Light Within procs.'
+- 'Light Within (Apex Talent): Blade of Justice damage increased, procs AoE effect on Art of War/Righteous
+  Cause triggers. Prioritize BoJ with procs to avoid wasting.'
+- 'Judgment Upgrade: During Avenging Wrath, Judgment becomes Hammer of Wrath with all Judgment talent
+  buffs inherited.'
+- '1-Minute Windows: Retribution focuses on 60-second intervals where AW, Execution Sentence, and Divine
+  Toll align for maximum burst.'
+- 'Herald vs Templar: Templar is slightly ahead on damage but gap is not significant. Herald can be played
+  comfortably in all content. Herald focuses on periodic damage; Templar focuses on burst via Hammer of Light.'
+- 'Crusading Strikes vs Templar Strikes: Crusading Strikes is passive and favors Templar; Templar Strikes
+  is active (two-hit combo) and favors Herald.'
+- 'Utility: Ret brings Blessings, Cleanse Toxins, and Intercession (combat rez). Balance HP spenders with
+  Word of Glory healing when needed.'
+
+commonMistakes:
+- Overcapping Holy Power by generating when already at 5.
+- Wasting Art of War procs by casting other builders first, causing Light Within procs to be overwritten.
+- Misaligning 1-minute cooldowns (AW and Execution Sentence).
+- Ignoring utility spells like Blessing of Sacrifice or Cleanse Toxins in Mythic+.
+- Not standing in melee range despite having some ranged capabilities.
+
+patchChanges:
+  12.0.1: 'Herald of the Sun: Dawnlight redesigned for lower uptime but higher impact. Walk Into Light added
+    to increase Hammer of Wrath power. Judgment upgrades to HoW during AW.'
+  '12.0': 'Major rework. Final Reckoning, Of Dusk and Dawn, Divine Arbiter removed. HoW reworked into
+    Judgment upgrade. Shield of Vengeance now passive on Divine Protection. Execution Sentence redesigned
+    to 60s CD. Divine Resonance duplicates next Judgment casts instead of periodic auto-casts.'

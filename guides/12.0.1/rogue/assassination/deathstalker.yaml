@@ -1,0 +1,132 @@
+specId: 259
+className: Rogue
+specName: Assassination
+role: DPS
+patch: 12.0.1
+guideVersion: 3
+heroTalent: Deathstalker
+resourceManagement:
+  primaryResource: Energy
+  secondaryResource: Combo Points
+  resourceNotes: Generate Combo Points using Mutilate (Single Target) or Crimson Tempest and Fan of Knives (AoE). Spend Combo
+    Points on Rupture to maintain bleeds and Envenom for burst damage. Deathstalker gameplay revolves around consuming Deathstalker’s
+    Mark to trigger Darkest Night, which empowers your next Envenom and allows it to be cast at up to 7 Combo Points.
+maintenanceBuffs:
+- spellId: 0
+  spellName: 'Deathstalker''s Mark'
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: This is your core Hero Talent mechanic. Apply it with Garrote and consume it with finishers to trigger Darkest
+    Night. Ensure it is active before dumping Combo Points.
+- spellId: 0
+  spellName: Garrote
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: Maintain Garrote at all times to apply Deathstalker’s Mark and generate Energy via Venomous Wounds.
+- spellId: 0
+  spellName: Rupture
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: Keep Rupture active with 5+ Combo Points for sustained bleed damage and Energy regeneration.
+- spellId: 0
+  spellName: Envenom (Buff)
+  targetUptimePct: 80
+  importance: high
+  coachingTip: Chain your Envenoms to maintain the buff. Recast within the Pandemic window to benefit from talents like Rapid
+    Injection and Inspiring Strike.
+- spellId: 0
+  spellName: Slice and Dice
+  targetUptimePct: 100
+  importance: high
+  coachingTip: This is maintained automatically via Envenom thanks to the Cut to the Chase talent. You should never need to
+    cast it manually.
+rotation:
+  singleTarget: |
+    1. Use Garrote to apply Deathstalker's Mark.
+    2. Maintain Garrote at all times (use from Vanish before every Deathmark when possible).
+    3. Maintain Rupture with 5+ Combo Points.
+    4. Activate Deathmark when available.
+    5. Use Kingsbane on cooldown (sync with Deathmark).
+    6. Cast Envenom with 5+ Combo Points. Cast it with 7 CP when Darkest Night is active.
+    7. Cast Ambush to generate Combo Points whenever usable (Blindside procs).
+    8. Cast Mutilate to generate Combo Points.
+    9. Use Thistle Tea alongside Kingsbane to prevent Energy starvation.
+    10. Use Shiv only if at 6 Combo Points and Darkest Night is available.
+  aoe: |
+    1. Use Garrote to apply Deathstalker's Mark. Cast it twice on the opener to extend Improved Garrote duration.
+    2. Maintain Garrote and Rupture on all targets by using Crimson Tempest as your AoE builder.
+    3. Use Crimson Tempest as your primary AoE builder to spread bleeds.
+    4. If all targets already have bleeds, use Fan of Knives as your builder instead.
+    5. Activate Deathmark when available.
+    6. Use Kingsbane on cooldown (sync with Deathmark if ready).
+    7. Use Vanish to re-apply buffed Garrotes if the pack will live for 20+ seconds.
+    8. Cast Envenom with 5+ Combo Points (7 CP if Darkest Night is active).
+    9. Use Fan of Knives if you just re-applied Deathstalker's Mark or if at 6 CP with Darkest Night.
+    10. Use Thistle Tea alongside Kingsbane.
+    11. Use Shiv if at 6 CP and Darkest Night is available.
+  opener: |
+    1. Start from Stealth.
+    2. Cast Garrote (applies Deathstalker's Mark).
+    3. Cast Mutilate until 5+ Combo Points.
+    4. Cast Rupture.
+    5. Cast Deathmark (sync with DPS potion and on-use trinkets).
+    6. Cast Kingsbane.
+    7. Use Garrote again to refresh Improved Garrote duration.
+    8. Use Envenom with 7 CP when Darkest Night triggers, otherwise use at 5+ CP.
+    9. Use Mutilate and Ambush (Blindside) as builders to continue the chain.
+cooldowns:
+- name: Deathmark
+  cooldown: 2min
+  description: Main offensive cooldown. Increases bleed damage and duplicates Poison procs. Use on targets that
+    will survive the full duration.
+- name: Kingsbane
+  cooldown: 1min
+  description: 'High-pressure DoT that increases damage with Poison procs. Always sync with Deathmark every second cast. Requires
+    100% melee and Envenom uptime during its window.'
+- name: Thistle Tea
+  cooldown: See description
+  description: Restores Energy and grants Mastery. Use to maintain Envenom chains or during Kingsbane/Deathmark windows.
+- name: Vanish
+  cooldown: See description
+  description: Used offensively to apply empowered Garrotes (Improved Garrote) or silences (Iron Wire).
+- name: Feint
+  cooldown: See description
+  description: Short CD defensive for AoE damage. Use proactively before predictable raid damage.
+- name: Cloak of Shadows
+  cooldown: See description
+  description: Magic immunity and debuff clear. Use to soak mechanics or maintain uptime.
+concepts:
+- 'Deathstalker''s Mark: A debuff applied to a single target. Consuming it with finishers builds toward Darkest Night.'
+- 'Darkest Night: A proc that massively boosts your next Envenom and allows it to consume up to 7 Combo Points. It also reapplies
+  the Mark to the target.'
+- 'Envenom Chaining: The practice of refreshing the Envenom buff before it expires (within the Pandemic window) to trigger
+  talents like Rapid Injection (30% damage boost).'
+- 'Pandemic: Refreshing DoTs (Rupture/Garrote) or buffs (Envenom) when they have less than 30% duration remaining adds the
+  new duration to the remainder.'
+- 'Energy Pooling: Auto-attacking without spending Energy to build a reserve for burst windows or to restart an Envenom chain.'
+- 'Caustic Spatter: A mechanic where Envenom and Kingsbane cause your damage to cleave onto nearby targets, making single-target'
+- 'Snapshotting: Improved Garrote (from Stealth/Vanish) damage is snapshotted. Do not overwrite a buffed
+  Garrote with a regular one.'
+- 'Zoldyck Recipe: Provides execute-phase damage when targets are below 35% health.'
+- 'Implacable (Apex Talent): Grants Energy recharge when Envenom chains drop and provides passive CP
+  generation after Kingsbane.'
+- 'Snapshotting: Improved Garrote (from Stealth/Vanish) deals significantly more damage. Do not overwrite an empowered Garrote
+  with a regular one.'
+- 'Implacable (Apex Talent): Provides a surge of Energy recharge when an Envenom chain finally drops, smoothing out the rotation.'
+removedMechanics:
+- Indiscriminate Carnage (Removed; bleeds now spread via Crimson Tempest)
+- Serrated Bone Spike (Removed)
+- Crimson Tempest as a Finisher (Reworked into a Combo Point builder)
+- Improved Shiv (Removed; Shiv is no longer a rotational DPS button)
+- Cold Blood (Reworked into a passive)
+commonMistakes:
+- 'Letting Deathstalker''s Mark drop for a prolonged period, losing Hero Talent benefits.'
+- Switching targets frequently without a Darkest Night proc, which leaves you without a Mark on the new target.
+- 'Overcapping Combo Points or Energy, especially during high-haste windows.'
+- Refreshing an empowered Garrote (from Vanish) with a standard Garrote.
+- 'Failing to maintain 100% Envenom uptime during the Kingsbane window.'
+- Not using Crimson Tempest in AoE to spread bleeds, leading to massive DPS loss.
+patchChanges:
+  12.0.1: 'Deathstalker reviewed for Midnight Season 1. Use Garrote to apply Deathstalker''s Mark. Darkest Night
+    active at 7 CP — cast Envenom at 7 CP when active. Crimson Tempest reworked to builder that spreads bleeds.
+    Shiv removed from standard DPS rotation; now primarily utility/soothe.'

@@ -1,0 +1,134 @@
+specId: 257
+className: Priest
+specName: Holy
+role: Healer
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Holy Words
+  resourceNotes: 'Mana is the primary constraint for long encounters. Holy Words (Serenity, Sanctify, Chastise) are powerful short-cooldown abilities. Casting specific spells reduces the cooldown of associated Holy Words: Flash Heal reduces Serenity; Prayer of Healing reduces Sanctify; Smite/Holy Nova reduce Chastise. Talents like Voice of Harmony add more CDR (PoM for Serenity, Halo for Sanctify, Holy Fire for Chastise). Avoid sitting on 2 charges of Holy Words to maximize throughput.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: 'Mastery: Echo of Light'
+    targetUptimePct: 95
+    importance: high
+    coachingTip: 'Direct healing spells leave a 4-second HoT. Successive applications stack and extend the duration without losing healing.'
+  - spellId: 0
+    spellName: Protective Light
+    targetUptimePct: 80
+    importance: medium
+    coachingTip: 'Casting Flash Heal on yourself reduces damage taken. Use this to survive predictable incoming damage.'
+  - spellId: 0
+    spellName: Translucent Image
+    targetUptimePct: 20
+    importance: medium
+    coachingTip: 'Using Fade reduces damage taken. Use proactively before major mechanics.'
+
+playstyles:
+  - id: archon
+    name: Archon
+    detectionCriteria:
+      heroTalents:
+        - "Archon"
+  - id: oracle
+    name: Oracle
+    detectionCriteria:
+      heroTalents:
+        - "Oracle"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Divine Star (Removed in 12.0)
+  - Divine Word (Removed in 12.0)
+  - Heal (Removed in 12.0)
+  - Lightwell (Removed in 12.0)
+  - Power Word: Life (Removed in 12.0)
+  - Premonition (Removed in 12.0)
+  - Renew (Removed as a casted ability in 12.0; now applied passively via talents)
+  - Shadowfiend (Removed in 12.0)
+  - Shadow Word: Pain (Removed in 12.0)
+  - Symbol of Hope (Removed in 12.0)
+  - Power Word: Shield (Removed in 12.0)
+  - Answered Prayers (Removed in 12.0)
+
+rotation:
+  singleTarget: |
+    [Healing Priority]
+    1. Cast Holy Word: Serenity to respond to heavy damage (do not sit on 2 charges).
+    2. Cast Prayer of Mending on cooldown (essential for Benediction procs and Oracle synergy).
+    3. Cast Benediction (upgraded Flash Heal) immediately when it procs from Prayer of Mending.
+    4. Cast Flash Heal to triage and reduce the cooldown of Holy Word: Serenity.
+    5. Consume Surge of Light procs with Flash Heal for mana-free healing and CDR.
+    6. Cast Smite as a filler if no healing is required and mana is stable.
+
+    [Damage Priority (1-3 targets)]
+    1. Holy Word: Chastise
+    2. Holy Fire
+    3. Holy Nova (if talented into Lightburst)
+    4. Smite
+  aoe: |
+    [Healing Priority]
+    1. Cast Holy Word: Sanctify for group damage (if not talented into Ultimate Serenity).
+    2. Cast Holy Word: Serenity (if talented into Ultimate Serenity, it cleaves to nearby allies).
+    3. Cast Prayer of Mending on cooldown.
+    4. Cast Halo (Archon only) for burst group healing and Surge of Light generation.
+    5. Cast Prayer of Healing to reduce the cooldown of Holy Word: Sanctify (or Serenity if talented into Ultimate Serenity).
+    6. Cast Divine Hymn during periods of intense, sustained group damage.
+    7. Cast Holy Nova for movement-heavy AoE healing if talented.
+
+    [Damage Priority (4+ targets)]
+    1. Holy Word: Chastise
+    2. Holy Fire
+    3. Holy Nova
+  opener: |
+    [Ideal Apotheosis/Archon Sequence]
+    1. Holy Word: Sanctify (to put on cooldown)
+    2. Holy Word: Serenity (to put on cooldown)
+    3. Prayer of Mending (to put on cooldown)
+    4. Halo (to start generating Surge of Light procs and Resonant Energy)
+    5. Apotheosis (resets Holy Word charges and increases CDR)
+    6. Power Infusion (if not needed for a specific DPS window)
+    7. Resume normal priority, prioritizing Holy Words and PoM.
+
+cooldowns: |
+  - Apotheosis (2min): Major throughput cooldown. Increases Holy Word CDR by 300% and resets charges. Use during heavy damage windows for burst Holy Word resets.
+  - Divine Hymn (3min): Channeled raid heal. Increases healing received by the raid. Best used just before or during heavy AoE.
+  - Guardian Spirit (3min): External defensive. Increases healing received by 60% and prevents death. Use proactively on tanks or players about to take lethal damage.
+  - Halo (1min): Archon-specific. Powerful burst heal/damage. Use frequently to generate Surge of Light procs and stack Resonant Energy. Brief holds for upcoming damage are fine.
+  - Power Infusion (2min): Haste buff for an ally. Coordinate with DPS cooldowns.
+  - Desperate Prayer (1.5min): Personal health increase and heal. Use for survivability.
+  - Symbol of Hope: No data available from source (listed as removed in Wowhead section).
+
+concepts: |
+  - Holy Priest is a reactive healer that uses short-cooldown Holy Words to respond to damage.
+  - Holy Word CDR: Casting Flash Heal, Prayer of Healing, and Smite reduces the cooldown of Serenity, Sanctify, and Chastise respectively.
+  - Mastery: Echo of Light: Direct heals leave a HoT. This makes Holy Priest excellent at sustained throughput.
+  - Ultimate Serenity: A major talent choice that replaces Holy Word: Sanctify with a cleaving Holy Word: Serenity, simplifying the rotation into a single-target focus that handles AoE.
+  - Benediction Apex Talent: Prayer of Mending bounces periodically upgrade Flash Heal into Benediction, which heals for more and triggers Cosmic Ripple.
+  - Archon Playstyle: Centers on Halo and empowering Apotheosis for burst healing.
+  - Oracle Playstyle: Centers on Prayer of Mending charges and consistent, passive healing through Renew and Piety.
+  - Divine Image: Casting Holy Words summons a Naaru that mirrors your spells. No major playstyle change required, but increases the value of frequent Holy Word usage.
+  - Surge of Light: Procs from Smite/Holy Nova/Halo make Flash Heal instant and mana-free. Archon allows these to be used on Prayer of Healing.
+
+commonMistakes:
+  - 'Sitting on 2 charges of Holy Word: Serenity or Sanctify instead of using them for CDR'
+  - 'Not casting Prayer of Mending on cooldown, which reduces Benediction procs and Oracle effectiveness'
+  - 'Standing still to finish a Divine Hymn channel when a mechanic requires movement'
+  - 'Holding Guardian Spirit for an emergency instead of using it proactively on a tank during high damage'
+  - 'Overcapping Surge of Light procs by not using Flash Heal/Prayer of Healing'
+  - 'Neglecting damage (Smite/Holy Fire) when healing demand is low'
+
+patchChanges: |
+  12.0.1:
+  - General rebalancing of mana costs and healing amounts to favor active spells over passive healing.
+  12.0:
+  - Removed: Divine Star, Divine Word, Heal, Lightwell, Power Word: Life, Premonition, casted Renew, Shadowfiend, Shadow Word: Pain, Symbol of Hope.
+  - New Talent: Ultimate Serenity (replaces Sanctify, makes Serenity cleave).
+  - New Talent: Benediction Apex Talent (upgrades Flash Heal via PoM bounces).
+  - Hero Talents: Archon and Oracle introduced.
+  - Halo moved to Archon Hero tree.
+  - Prayer of Mending now has 2 charges (Oracle).

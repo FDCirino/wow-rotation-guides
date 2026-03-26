@@ -1,0 +1,128 @@
+specId: 577
+className: Demon Hunter
+specName: Havoc
+role: DPS
+heroTalent: Aldrachi Reaver
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Fury
+  secondaryResource: Shattered Souls
+  resourceNotes: Build Fury with Demon Blades (baseline) and Felblade. Spend Fury on Blade Dance and Chaos Strike. Consume
+    6 Shattered Souls to trigger Reaver’s Glaive, which replaces your next Throw Glaive.
+maintenanceBuffs:
+- spellId: 0
+  spellName: Thrill of the Fight
+  targetUptimePct: 80
+  importance: high
+  coachingTip: 'Maintain this buff by completing Reaver’s Glaive combos to gain 6% Haste and 30% increased damage on your
+    next Reaver’s Glaive.'
+- spellId: 0
+  spellName: Reaver’s Mark
+  targetUptimePct: 90
+  importance: critical
+  coachingTip: Apply this via Chaos Strike during your Reaver’s Glaive combo. It duplicates Physical damage as Chaos via Wounded
+    Quarry.
+- spellId: 0
+  spellName: Chaos Brand
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Passive debuff applied by your damage; ensures enemies take 5% increased Magic damage from all sources.'
+removedMechanics:
+- Fel Eruption (removed in 12.0)
+- Sigil of Flame (removed in 12.0)
+- Sigil of Spite (removed in 12.0)
+- Fel Barrage (removed in 12.0)
+- Netherwalk (removed in 12.0)
+- 'Demon''s Bite (removed in 12.0; Demon Blades is now baseline)'
+- Soul Sigils (removed in 12.0)
+rotation:
+  singleTarget: |
+    1. Cast Felblade with Inertia ready (if unavailable, use Fel Rush instead).
+    2. Cast The Hunt (spend any active Reaver's Glaive procs before casting).
+    3. Cast Reaver's Glaive if no active Reaver's Mark (follow with Chaos Strike to apply it).
+    4. Cast Death Sweep (during Demonic).
+    5. Cast Immolation Aura if at 2 charges (never cap with A Fire Inside).
+    6. Cast Vengeful Retreat to trigger Initiative/Inertia (align with Eye Beam).
+    7. Cast Eye Beam / Abyssal Gaze (consume Demonsurge procs first).
+    8. Cast Essence Break during Metamorphosis (fill 4 seconds with Death Sweep and Annihilation).
+    9. Cast Metamorphosis when Eye Beam and Death Sweep are on cooldown.
+    10. Cast Blade Dance.
+    11. Cast Reaver's Glaive (only if Glaive Flurry and Rending Strike are not active).
+    12. Cast Annihilation / Chaos Strike to spend Fury.
+    13. Cast Immolation Aura / Consuming Fire.
+    14. Cast Felblade.
+    15. Cast Throw Glaive or Fel Rush with nothing else available.
+  aoe: |
+    1. Cast Reaver's Glaive (replaces Throw Glaive) to begin the AoE combo.
+    2. Cast Blade Dance / Death Sweep (Bladecraft causes this to hit the marked target for massive damage).
+    3. Cast The Hunt to apply the DoT to multiple targets and trigger Reaver's Glaive.
+    4. Cast Eye Beam to deal high AoE damage and trigger Demonic.
+    5. Cast Essence Break to empower follow-up AoE spenders.
+    6. Maintain Immolation Aura (utilizing the full Immolation Aura talent package).
+    7. Use Chaos Strike to trigger Wounded Quarry funnel damage (soft-capped at 8 targets).
+    8. Use Chaos Nova as an AoE stop or to disrupt casts.
+  opener: |
+    Aldrachi Reaver Opener:
+    1. Cast Immolation Aura 1 second before pull.
+    2. Cast The Hunt.
+    3. Cast Felblade to trigger Inertia.
+    4. Cast Reaver's Glaive.
+    5. Cast Eye Beam.
+    6. Cast Annihilation to apply Reaver's Mark to priority target.
+    7. Cast Essence Break.
+    8. Cast Death Sweep twice (Eternal Hunt).
+    9. Cast Vengeful Retreat and immediately Metamorphosis.
+    10. Cast Death Sweep.
+    11. Cast Fel Rush to trigger Inertia.
+    12. Continue with normal priority.
+cooldowns:
+- name: Metamorphosis
+  cooldown: 2min
+  description: Major offensive cooldown. Increases Haste and empowers Blade Dance and Chaos Strike.
+- name: The Hunt
+  cooldown: 1min
+  description: 'Reduced cooldown via Eternal Hunt. Triggers Reaver''s Glaive and acts as a primary combo enabler.'
+- name: Eye Beam / Abyssal Gaze
+  cooldown: 30s
+  description: Triggers Demonic form. Fully channeling Eye Beam resets the cooldown of your next Blade Dance.
+- name: Essence Break
+  cooldown: See description
+  description: Short cooldown burst window. Provides flat bonus damage to spenders; use inside Demonic windows.
+- name: Blur
+  cooldown: 1min
+  description: 'Primary defensive with 2 charges. Provides 35% damage reduction (with Desperate Instincts).'
+- name: Darkness
+  cooldown: 5min
+  description: 'Group defensive. Provides a 30% chance to avoid damage for all allies within the zone in dungeons.'
+concepts:
+- 'Reaver''s Glaive: The core of the hero tree. Consuming 6 souls empowers your next Throw Glaive into Reaver''s Glaive, which
+  starts a high-damage combo.'
+- 'Reaver''s Mark & Wounded Quarry: Chaos Strike during a combo applies Reaver''s Mark. This allows you to "funnel" damage,
+  as Physical attacks duplicate a portion as Chaos damage on the marked target.'
+- 'Bladecraft: A key talent that makes Blade Dance deal massive damage to the target suffering from your Reaver''s Mark.'
+- 'Thrill of the Fight: Successfully completing combos grants Haste and increases the damage of the next Reaver''s Glaive.'
+- 'Eternal Hunt (Apex Talent): This 4-point talent turns The Hunt into a 1-minute cooldown, increases Blade Dance damage by
+  20%, and allows Eye Beam to reset Blade Dance.'
+- 'Fury Management: With the removal of Demon''s Bite, Fury generation is more passive (Demon Blades) and focused on Felblade.
+  Avoid overcapping before Eye Beam.'
+- 'Army Unto Oneself: Provides 10% damage reduction for 5 seconds after casting Felblade. Use this proactively to mitigate
+  incoming mechanics.'
+- 'Soul Generation: Use Broken Spirit and Soul Splitter to maintain Shattered Soul generation for Reaver''s Glaive procs.'
+- 'Demonic Windows: Eye Beam triggers 5s of Metamorphosis. Maximize with Death Sweep and Annihilation.'
+- 'Chaotic Transformation: Ensure Eye Beam and Blade Dance are on cooldown before casting Metamorphosis to benefit from the reset.'
+- 'Fury Scarcity: Midnight reduced Fury generation. Avoid overspending so you have enough for Blade Dance and Eye Beam.'
+keyTalentChoices:
+- node: "Soul Glutton / Emptiness"
+  description: "Class tree choice node. Soul Glutton grants stacking Versatility on Soul Fragment consumption. Emptiness grants stacking Haste on Soul Fragment consumption instead. Most Havoc builds prefer Emptiness for the Haste value (GCD compression, cooldown reduction, Demon Blades proc rate), but Soul Glutton is a viable alternative if Versatility is preferred."
+commonMistakes:
+- Failing to prioritize Reaver’s Glaive immediately when it procs from soul consumption.
+- Incorrect sequencing of Chaos Strike and Blade Dance during the Reaver’s Glaive combo window.
+- Letting Reaver’s Mark drop off a priority target, losing the Wounded Quarry funnel value.
+- Overcapping Fury due to the more passive generation of Demon Blades in Midnight.
+- Not fully channeling Eye Beam, which is required to trigger the Blade Dance cooldown reset from Eternal Hunt.
+- Using The Hunt as a pure gap closer instead of a rotational burst and Reaver’s Glaive enabler.
+patchChanges:
+  12.0.1: 'Thrill of the Fight: Now grants 6% Haste and increases Reaver''s Glaive damage by 30%. Wounded Quarry: Funnel effect
+    now has a soft-cap of 8 targets. New Talents: Broken Spirit, Keen Edge, and Bladecraft added to the spec/hero interaction.
+    Eternal Hunt: New Apex Talent added, significantly buffing The Hunt and Blade Dance synergy.'

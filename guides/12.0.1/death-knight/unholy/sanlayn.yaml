@@ -1,0 +1,129 @@
+specId: 252
+className: Death Knight
+specName: Unholy
+role: DPS
+heroTalent: San'layn
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Runes
+  secondaryResource: Runic Power
+  resourceNotes: 'Dual resource system. Consuming Runes generates 10 RP per Rune. Spend RP on Death Coil or
+    Epidemic to trigger Runic Corruption. For San''layn, aggressive RP spending is critical to fish for
+    Vampiric Strike procs and maintain Essence of the Blood Queen buff between Dark Transformation windows.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Essence of the Blood Queen
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: 'Stack to 7 during Dark Transformation. Spend RP between windows to proc Vampiric Strike
+    and extend duration to bridge the gap between cooldowns.'
+- spellId: 0
+  spellName: Dread Plague / Virulent Plague
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'Maintain plagues at all times. They provide Sudden Doom procs and are consumed by Pestilence
+    for massive burst.'
+- spellId: 0
+  spellName: Lesser Ghoul Stacks
+  targetUptimePct: 100
+  importance: medium
+  coachingTip: 'Maintain 4-6 stacks via Festering Strike. Scourge Strike consumes to summon minions.'
+
+removedMechanics:
+- Festering Wounds on target (removed in 12.0, replaced by Lesser Ghoul stacks on player)
+- Apocalypse (removed in 12.0)
+- Legion of Souls (removed in 12.0)
+- Defile (removed in 12.0)
+
+rotation:
+  singleTarget: |-
+    1. Maintain plagues via Outbreak or Putrefy (Blightburst). Have Putrefy charge ready for reapplication.
+    2. Cast Festering Scythe if debuff fallen off.
+    3. Cast Soul Reaper if target <35% HP or free proc via Reaping.
+    4. Cast Scourge Strike if 4+ Runes and at least 1 Lesser Ghoul stack.
+    5. Cast Death Coil if Sudden Doom proc or 80+ RP.
+    6. Cast Putrefy to avoid sitting at 2 charges.
+    7. Cast Festering Strike if <3 Lesser Ghoul stacks.
+    8. Cast Scourge Strike if at least 1 Lesser Ghoul stack.
+    9. Cast Death Coil as filler to fish for Vampiric Strike procs.
+  aoe: |-
+    1. Apply plagues via Outbreak or Putrefy (Blightburst).
+    2. Use Dark Transformation to enable pet cleave and Vampiric Strike.
+    3. Scourge Strike to cleave (hits 4-6 targets passively).
+    4. Pestilence immediately after Dark Transformation ends to consume high-duration plagues.
+    5. Putrefy to reapply plagues after Pestilence.
+    6. Epidemic at 3+ targets (or 5+ if Forbidden Knowledge Rank 1 active).
+    7. Death Coil for priority target damage or low target counts.
+  opener: |-
+    1. Outbreak (if not running Blightburst).
+    2. Festering Strike x2 to build stacks.
+    3. Army of the Dead + Dark Transformation + Trinkets + Potion.
+    4. Putrefy x2.
+    5. Soul Reaper 5 seconds before Dark Transformation ends (Pestilence plague overlap).
+    6. Death Coil.
+    7. Follow standard priority.
+
+cooldowns:
+- name: Army of the Dead
+  cooldown: 90s
+  description: 'Major summon cooldown. Triggers Forbidden Knowledge (Death Coil -> Necrotic Coil, Epidemic
+    -> Graveyard for 30s). Align with Dark Transformation.'
+- name: Dark Transformation
+  cooldown: 45s
+  description: 'Transforms ghoul for 15s. For San''layn, provides unlimited Vampiric Strikes during window.
+    Buffs minions via Commander of the Dead.'
+- name: Putrefy
+  cooldown: Charge-based
+  description: 'Summons/sacrifices ghouls. Refreshes plagues (Blightburst). Summons Magi (Reanimation).
+    Never cap at 2 charges.'
+- name: Pestilence
+  cooldown: Talented
+  description: 'Consumes all plagues dealing 100% remaining damage instantly. Use after Dark Transformation
+    ends when plague durations are maximized.'
+- name: Summon Gargoyle
+  cooldown: If talented
+  description: 'Ramps damage based on RP spent. Prioritize spending RP while active.'
+- name: Anti-Magic Shell
+  cooldown: 1min
+  description: 'Absorbs magic damage and generates extra RP.'
+
+concepts:
+- 'Essence of the Blood Queen: Core San''layn mechanic. Stacks 7 times from Vampiric Strike, providing
+  multiplicative Haste. Must be extended between Dark Transformation windows by fishing for VS procs.'
+- 'Vampiric Strike Fishing: Spend RP aggressively on Death Coil to trigger Vampiric Strike procs. This
+  extends Essence stacks between Dark Transformation windows.'
+- 'Pestilence Loop: Dark Transformation -> maximize plague duration with Death Coil/Epidemic -> consume
+  plagues with Pestilence for massive burst -> reapply with Putrefy.'
+- 'Lesser Ghoul System: Festering Strike builds stacks on player. Scourge Strike consumes to summon ghouls.
+  Maintain 4-6 stacks.'
+- 'Blood Beasts: San''layn summons Blood Beasts via Vampiric Strike. Provide quadratic AoE scaling.'
+- 'Ranged Effectiveness: Scourge Strike has 30-yard range by default.'
+- 'Forbidden Knowledge (Apex): Army of the Dead transforms Death Coil -> Necrotic Coil and Epidemic ->
+  Graveyard for 30 seconds.'
+- 'Death and Decay: NOT worth the GCD for San''layn damage. Skip it unlike Rider builds.'
+- 'Plague Management: Virulent and Dread Plagues must be maintained at all times for Sudden Doom procs.
+  Blightburst allows Putrefy to refresh plagues, saving GCDs on Outbreak.'
+- 'Putrefy/Soul Reaper Synergy: Soul Reaper automatically consumes all available Putrefy charges. In
+  execute (<35%), avoid manual Putrefy and let Soul Reaper handle it.'
+- 'Mastery (Dreadblade): Increases Shadow damage dealt by you and your minions.'
+- 'Death Grip: Displaces the target toward you, which interrupts any cast in progress. While not a
+  traditional interrupt like Mind Freeze, Death Grip is excellent for repositioning dangerous caster adds
+  and stopping their casts. Especially valuable on fights with adds that must be gripped or displaced for
+  interrupts (e.g., Muzrukh Salabar). Death''s Echo grants an extra charge.'
+
+commonMistakes:
+- Letting Essence of the Blood Queen stacks drop between Dark Transformation windows.
+- Using Death and Decay for damage (not worth the GCD for San'layn).
+- Overcapping Runic Power instead of fishing for Vampiric Strike procs.
+- Sitting on 2 Putrefy charges and wasting recharge time.
+- Using Pestilence too early before plagues have been extended to high durations.
+- Neglecting Soul Reaper during execute phase (<35% HP).
+
+patchChanges:
+  12.0.1: 'San''layn recommended for both Raid and M+ due to high versatility.'
+  '12.0': 'Major rework. Festering Wounds removed, replaced by Lesser Ghoul stacks. New abilities: Putrefy,
+    Pestilence, Reanimation. Scourge Strike range increased to 30 yards. San''layn hero talent added with
+    Vampiric Strike, Essence of the Blood Queen, Blood Beasts.'

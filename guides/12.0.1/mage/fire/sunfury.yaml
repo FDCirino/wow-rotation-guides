@@ -1,0 +1,131 @@
+specId: 63
+className: Mage
+specName: Fire
+role: DPS
+heroTalent: Sunfury
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Hot Streak
+  resourceNotes: 'Rotation revolves around chaining critical strikes to generate Heating Up, converted into
+    Hot Streak via Fire Blast. Sunfury generates Spellfire Spheres consumed to summon Arcane Phoenix during
+    Combustion. Longer Combustion window than Frostfire, with Hyperthermia follow-up via Memory of Al''ar.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Arcane Intellect
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'Ensure raid buff is active at all times for the Intellect bonus.'
+- spellId: 0
+  spellName: Blazing Barrier
+  targetUptimePct: 90
+  importance: medium
+  coachingTip: 'Primary defensive. Provides absorption, damage reduction, and minor healing. Use frequently.'
+
+removedMechanics:
+- Phoenix Flames (removed in 12.0)
+- "Sun King's Blessing (removed in 12.0, replaced by Pyroclasm)"
+- Shifting Power (removed in 12.0)
+- Ice Floes (removed in 12.0)
+- Mass Barrier (removed in 12.0)
+- Lit Fuse / Living Bomb talents (removed in 12.0)
+- Mirror Image/Greater Invisibility damage reduction (removed in 12.0)
+
+rotation:
+  singleTarget: |-
+    Firestarter Phase (target above 90% HP): All Fireball crits are guaranteed.
+    1. Pre-cast Pyroblast before pull.
+    2. Fireball -> Fire Blast -> Double Pyroblast chain until target below 90%.
+
+    Normal Priority:
+    1. Combustion when ready (activate near end of hard-cast).
+    2. Pyroclasm (hard-cast Pyroblast) if 2 stacks or about to expire.
+    3. Pyroblast with Hot Streak — chain with Fireball for simultaneous landing.
+    4. Pyroblast with Hyperthermia active (instant spam window).
+    5. Fire Blast to convert Heating Up into Hot Streak.
+    6. Scorch with Heat Shimmer proc (Sunfury-specific).
+    7. Fireball as filler.
+    8. During Combustion: Chain Pyroblast -> Fire Blast. Fired Up provides significant Fire Blast CD reduction.
+    9. Post-Combustion: Memory of Al'ar grants guaranteed Hyperthermia — spam instant Pyroblasts.
+
+    Execute Phase (below 30% HP):
+    Scorch becomes guaranteed critical strike. Prioritize Scorch over Fireball as filler.
+    Use Fire Blast without Heating Up while casting Scorch, then Pyroblast.
+  aoe: |-
+    1. Flamestrike with Hot Streak at 3+ targets (outside Combustion) or 4+ targets (during Combustion).
+    2. Never replace Fireball casts with Flamestrike — only replace Pyroblast Hot Streak spenders.
+    3. Flamestrike with Pyroclasm procs.
+    4. Fire Blast to convert Heating Up into Hot Streak.
+    5. Fireball as filler.
+    Never use Flamestrike during Firestarter phase (>90% HP).
+  opener: |-
+    1. Hard-cast Pyroblast before pull.
+    2. Fireball -> Fire Blast -> Double Pyroblast chains during Firestarter (>90% HP).
+    3. Pool Fire Blast charges 8-10s before Combustion.
+    4. Activate Combustion near end of hard-cast (summons Arcane Phoenix).
+    5. Chain Pyroblast (Hot Streak) -> Fire Blast during Combustion.
+    6. Meteor within last 8 seconds of Combustion to maximize Ignite for Burnout.
+    7. Post-Combustion: use Hyperthermia from Memory of Al'ar for instant Pyroblast spam.
+
+cooldowns:
+- name: Combustion
+  cooldown: 60s (Kindling rework)
+  description: 'Primary DPS cooldown. Guarantees all crits for 10s. Summons Arcane Phoenix (Sunfury). Longer
+    window than Frostfire. Extended by Fired Up procs. Ends with guaranteed Hyperthermia via Memory of Al''ar.'
+- name: Meteor
+  cooldown: 30s
+  description: 'High damage ability. Sunfury Execution talent makes Meteor proc Pyroclasm. Use within last 8s
+    of Combustion to maximize Ignite for Burnout.'
+- name: Hyperthermia (Proc + Guaranteed)
+  cooldown: Random proc outside Combustion; guaranteed after Combustion via Memory of Al'ar
+  description: 'All Pyroblasts and Flamestrikes become instant with guaranteed crits for 5s. Each cast
+    increases damage by 15%, stacking up to 150%. Treat as mini-Combustion.'
+- name: Ashes of Inspiration (Passive)
+  cooldown: Triggers when Arcane Phoenix expires
+  description: 'Grants 20% Haste for 10 seconds after Phoenix expires.'
+- name: Time Warp
+  cooldown: 10min shared
+  description: '30% Haste for 40s. Coordinate with raid/party.'
+
+concepts:
+- 'Arcane Phoenix: Summoned during Combustion. Casts random Arcane and Fire spells for the duration. Provides
+  extra damage and procs.'
+- 'Memory of Al''ar: Guarantees Hyperthermia (instant Pyroblast spam) after Combustion ends. This gives Sunfury
+  a potent post-Combustion burst window that Frostfire lacks.'
+- 'Pyroblast Chaining: Cast instant Pyroblast immediately after hard-cast Fireball so both land simultaneously.
+  0.2s grace period protects Heating Up if only one crits.'
+- 'Pyroclasm: Hot Streak has 15% chance to make next hard-cast Pyroblast or Flamestrike deal 230% additional
+  damage. Max 2 stacks. Sunfury Execution talent makes Meteor also proc Pyroclasm.'
+- 'Fired Up (Apex Talent): Consuming Hot Streak reduces Fire Blast CD and can extend Combustion duration.'
+- 'Burnout: Active Ignites explode for 75% remaining damage when Combustion ends. Delay Meteor to last 8s of
+  Combustion to maximize Ignite value.'
+- 'Heat Shimmer: Sunfury-specific proc that makes Scorch worth casting outside execute phase.'
+- 'Spellfire Spheres: Generated during gameplay, consumed to enhance Arcane Phoenix and trigger Meteorites.'
+- 'Firestarter: Above 90% HP, Fireball always crits. Build Hot Streak chains before first Combustion.'
+- 'Execute: Scorch, Scald, and Molten Fury provide increased damage against low-health targets. Scorch
+  guaranteed crit below 30%.'
+- 'Ignite Spreading: No longer auto-spreads via Fire Blast. Requires Ignition or Wildfire talents.'
+- 'Movement: Fire is highly mobile. Shimmer, instant Pyroblasts from Hot Streak, and Scorch (castable while
+  moving) mean Fire rarely has to stop dealing damage during mechanics.'
+- 'Sunfury vs Frostfire: Sunfury has longer Combustion, post-Combustion Hyperthermia, and Arcane Phoenix.
+  More complex but better defensively. Frostfire is simpler with shorter burst windows.'
+
+- 'Mage Defensives: Ice Block (full immunity), Alter Time (health snapshot reset), and Ice Barrier/Blazing Barrier are the actual defensive tools. Mirror Image and Greater Invisibility are threat drops only — they do NOT reduce damage taken.'
+commonMistakes:
+- Overcapping Fire Blast charges during Combustion instead of chaining Pyroblasts.
+- Hard-casting Pyroblast during Combustion and risking Fire Blast overcapping.
+- Wasting Pyroclasm stacks by letting them expire or overcapping at 2 stacks.
+- Using Flamestrike on fewer than 3 targets outside of Combustion.
+- Delaying Combustion too long and losing a total usage during the encounter.
+- Not utilizing Hyperthermia procs (random or post-Combustion) for instant Pyroblast spam.
+- Not delaying Meteor to last 8s of Combustion for Burnout value.
+
+patchChanges:
+  12.0.1: 'Sunfury: Burden of Power now passively increases damage. Ashes of Inspiration grants Lesser Time
+    Warp after Phoenix expires. Pyrocosm allows Fireball to summon Meteorites. Sunfury Execution makes Meteor
+    proc Pyroclasm. Fireball cast time reduced to 1.8s baseline.'
+  '12.0': 'Major rework. Combustion uptime reduced but burst increased. Mastery Ignite spread moved to
+    talents. Phoenix Flames removed. Kindling reworked to flat 60s CD. Pyroclasm replaces Sun King''s Blessing.'

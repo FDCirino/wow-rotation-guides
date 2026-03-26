@@ -1,0 +1,162 @@
+specId: 259
+className: Rogue
+specName: Assassination
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Energy
+  secondaryResource: Combo Points
+  resourceNotes: 'Energy regenerates at a baseline rate of 10 per second, increased by Haste, Venomous Wounds, and Thistle Tea. Spend Energy on builders (Mutilate, Fan of Knives, Crimson Tempest) to generate Combo Points. Spend Combo Points on finishers (Envenom, Rupture). Avoid "resource overflow" (capping Energy or overcapping Combo Points). Pooling Energy (auto-attacking while regenerating) is beneficial before burst windows or add spawns.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Garrote
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'Maintain Garrote at all times for damage and Energy generation via Venomous Wounds. Use Vanish-empowered Garrote before Deathmark.'
+  - spellId: 0
+    spellName: Rupture
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'Maintain Rupture with 5+ Combo Points at all times to ensure consistent Energy flow.'
+  - spellId: 0
+    spellName: Envenom (Buff)
+    targetUptimePct: 95
+    importance: high
+    coachingTip: 'Chain Envenoms by refreshing within the Pandemic window to maintain buffs like Rapid Injection and Inspiring Strike.'
+  - spellId: 0
+    spellName: Deathstalker’s Mark
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'For Deathstalker playstyle, ensure the Mark is active on your primary target to trigger Darkest Night procs.'
+  - spellId: 0
+    spellName: Slice and Dice
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'Maintained automatically via Envenom thanks to Cut to the Chase. Do not cast manually.'
+
+playstyles:
+  - id: deathstalker
+    name: Deathstalker
+    detectionCriteria:
+      heroTalents:
+        - "Deathstalker"
+  - id: fatebound
+    name: Fatebound
+    detectionCriteria:
+      heroTalents:
+        - "Fatebound"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Indiscriminate Carnage (Removed in 12.0: Bleeds are now spread using the new Crimson Tempest)
+  - Serrated Bone Spike (Removed in 12.0)
+  - Crimson Tempest Finisher (Reworked in 12.0: Now a Combo Point generator that spreads bleeds)
+  - Improved Shiv (Removed in 12.0: Shiv is no longer a rotational button)
+  - Cold Blood (Reworked in 12.0: Now a passive, no longer interacts with hero talents)
+  - Shiv Rotational Damage (Removed in 12.0: Now serves only as utility/Soothe)
+  - Deathmark Bleed Duplication (Reworked in 12.0: Now makes bleeds deal more damage and generates Energy)
+
+rotation:
+  singleTarget: |
+    [Deathstalker] Single Target Priority:
+    1. Use Garrote to apply Deathstalker's Mark.
+    2. Maintain Garrote, casted from Vanish when possible (before every Deathmark).
+    3. Maintain Rupture with 5+ Combo Points.
+    4. Activate Deathmark when available.
+    5. Use Kingsbane on cooldown, synced with Deathmark.
+    6. Cast Envenom with 5+ Combo Points (use at 7 CP when Darkest Night is active).
+    7. Cast Ambush to generate Combo Points whenever usable (Blindside procs).
+    8. Cast Mutilate to generate Combo Points.
+    9. Use Thistle Tea alongside Kingsbane.
+    10. Use Shiv only if at 6 CP and Darkest Night is available.
+
+    [Fatebound] Single Target Priority:
+    1. Maintain Garrote, casted from Vanish when possible (before every Deathmark).
+    2. Maintain Rupture with 5+ Combo Points.
+    3. Activate Deathmark when available.
+    4. Use Kingsbane on cooldown, synced with Deathmark.
+    5. Cast Envenom with 5+ Combo Points.
+    6. Cast Ambush to generate Combo Points whenever usable.
+    7. Cast Mutilate to generate Combo Points.
+    8. Use Thistle Tea alongside Kingsbane.
+  aoe: |
+    [Deathstalker] Multi-Target Priority:
+    1. Use Garrote to apply Deathstalker's Mark (cast twice to extend Improved Garrote duration on opener).
+    2. Maintain Garrote and Rupture on all targets by using Crimson Tempest as your builder.
+    3. Use Crimson Tempest as your AoE builder to spread bleeds.
+    4. If all targets have bleeds, use Fan of Knives as your builder instead.
+    5. Activate Deathmark when available.
+    6. Use Kingsbane on cooldown, synced with Deathmark.
+    7. Use Vanish to re-apply Garrotes buffed by Improved Garrote if DoTs are expiring and pack will live 20s+.
+    8. Cast Envenom with 5+ Combo Points (use at 7 CP when Darkest Night is active).
+    9. Cast Fan of Knives if you just re-applied Deathstalker's Mark or at 6 CP with Darkest Night.
+    10. Use Thistle Tea alongside Kingsbane.
+    11. Use Shiv only if at 6 CP and Darkest Night is available.
+
+    [Fatebound] Multi-Target Priority:
+    1. Maintain Garrote and Rupture on all targets by using Crimson Tempest as your builder.
+    2. Use Crimson Tempest as your AoE builder to spread bleeds.
+    3. If all targets have bleeds, use Fan of Knives as your builder instead.
+    4. Activate Deathmark when available.
+    5. Use Kingsbane on cooldown, synced with Deathmark.
+    6. Use Vanish to re-apply Garrotes buffed by Improved Garrote if DoTs are expiring and pack will live 20s+.
+    7. Cast Envenom with 5+ Combo Points.
+    8. Use Thistle Tea alongside Kingsbane.
+  opener: |
+    1. Start from Stealth.
+    2. Cast Garrote.
+    3. Cast Mutilate until 5+ CP.
+    4. Cast Rupture.
+    5. Cast Deathmark (with DPS potion and on-use trinkets).
+    6. Cast Kingsbane.
+    7. Use Garrote again to refresh Improved Garrote duration.
+    8. Use Envenom (at 7 CP if Deathstalker/Darkest Night triggers, else 5+ CP).
+    9. Use Mutilate and Ambush (Blindside) as builders until Kingsbane expires.
+
+cooldowns: |
+  - Deathmark (2min): Main cooldown. Increases bleed damage and poison procs. Use on targets that will live for the full duration.
+  - Kingsbane (1min): Deals Nature damage and DoT that increases with poison procs. Sync with Deathmark every 2 minutes.
+  - Thistle Tea (1min charge): Generates Energy and grants Mastery. Use alongside Kingsbane or to maintain Envenom chains.
+  - Vanish (2min): Used offensively to apply Improved Garrote or defensively to drop combat.
+  - Feint (15s): Reduces AoE damage taken by 40%. Core survival tool.
+  - Cloak of Shadows (2min): Magic immunity and debuff clear.
+  - Evasion (2min): 100% Dodge chance.
+  - Cheat Death (6min): Passive talent that prevents death once every 6 minutes.
+  - Crimson Vial (30s): Self-healing over time.
+
+concepts: |
+  - Envenom Chaining: Recasting Envenom while the previous buff is active (within Pandemic window) is critical for talents like Rapid Injection (+30% damage) and Inspiring Strike.
+  - Pandemic: Refreshing Rupture, Garrote, or Envenom at <30% remaining duration adds the time to the new application.
+  - Venomous Wounds: Bleeding targets grant Energy when they take damage. Maintaining bleeds is the primary source of resource flow.
+  - Deathstalker's Mark: Finisher usage consumes Mark stacks to trigger Darkest Night, which buffs the next Envenom and re-applies the Mark.
+  - Fatebound Coins: Randomly flips coins that deal direct damage or boost class ability damage.
+  - Implacable (Apex Talent): Grants Energy recharge after an Envenom chain drops and provides passive CP generation after Kingsbane.
+  - Caustic Spatter: Envenom and Kingsbane cause your poisons/bleeds to cleave onto nearby targets.
+  - Snapshotting: Improved Garrote (from Stealth/Vanish) damage is lost if overwritten by a regular Garrote. Let the empowered version run its full duration.
+  - Zoldyck Recipe: Provides significant execute damage when targets are below 35% health.
+  - Energy Pooling: Auto-attacking to save Energy for high-impact windows (Kingsbane/Deathmark) or priority add spawns.
+
+commonMistakes:
+  - 'Letting Garrote or Rupture drop off, causing a loss of Energy from Venomous Wounds'
+  - 'Overcapping Energy or Combo Points instead of spending them on finishers'
+  - 'Using Shiv as a rotational damage ability (it is now utility/Soothe only)'
+  - 'Refreshing an Improved Garrote with a non-stealthed Garrote, losing the snapshot damage bonus'
+  - 'Failing to chain Envenoms within the Pandemic window, losing Rapid Injection damage'
+  - 'Using Deathmark on a target that will die before the 2-minute cooldown value is realized'
+  - 'Not syncing Kingsbane with Deathmark every second cast'
+  - 'Capping Thistle Tea charges instead of using them to smooth out Energy during burst'
+
+patchChanges: |
+  12.0.1:
+  - Mythic+ performance and tuning reviewed.
+  12.0:
+  - Midnight Launch: Hero Talents (Deathstalker/Fatebound) introduced.
+  - Crimson Tempest reworked from finisher to builder.
+  - Shiv removed from DPS rotation.
+  - Deathmark reworked to no longer duplicate bleeds.
+  - Implacable Apex talent added (4-point talent).
+  - Venomous Wounds Energy generation reduced; passive Energy generation increased.

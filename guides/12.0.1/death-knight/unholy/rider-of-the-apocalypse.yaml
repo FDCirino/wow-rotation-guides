@@ -1,0 +1,130 @@
+specId: 252
+className: Death Knight
+specName: Unholy
+role: DPS
+heroTalent: Rider of the Apocalypse
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Runes
+  secondaryResource: Runic Power
+  resourceNotes: 'Dual resource system. Consuming Runes (6 total, 3 charging at once) generates 10 RP per
+    Rune. Spend RP on Death Coil or Epidemic to trigger Runic Corruption (faster Rune recharge). Rider
+    focuses on minion-summoning loops: Festering Strike builds Lesser Ghoul stacks on the player, Scourge
+    Strike consumes them to summon minions.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Virulent Plague / Dread Plague
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Maintain plagues at all times. Dread Plague is primary source of Sudden Doom procs and ST
+    damage. Reapply via Outbreak or Putrefy (with Blightburst).'
+- spellId: 0
+  spellName: Lesser Ghoul Stacks
+  targetUptimePct: 90
+  importance: high
+  coachingTip: 'Maintain 4-6 stacks via Festering Strike. Scourge Strike consumes to summon minions.
+    Important even at range since Scourge Strike has 30-yard range.'
+- spellId: 0
+  spellName: "Mograine's Death and Decay"
+  targetUptimePct: 100
+  importance: medium
+  coachingTip: 'When Mograine is active, stay in his Death and Decay for 5% damage increase.'
+
+removedMechanics:
+- Festering Wounds on target (removed in 12.0, replaced by Lesser Ghoul stacks on player)
+- Apocalypse (removed in 12.0)
+- Legion of Souls (removed in 12.0)
+- Defile (removed in 12.0)
+
+rotation:
+  singleTarget: |-
+    1. Maintain plagues via Outbreak or Putrefy (with Blightburst). Have a Putrefy charge ready for reapplication.
+    2. Cast Festering Scythe if its debuff has fallen off.
+    3. Cast Soul Reaper if target <35% HP or free proc via Reaping (Dark Transformation).
+    4. Cast Scourge Strike if 4+ Runes and at least 1 Lesser Ghoul stack.
+    5. Cast Death Coil if Sudden Doom proc or 80+ RP.
+    6. Cast Putrefy to avoid sitting at 2 charges. Below 35%, use Soul Reaper to trigger Putrefy instead.
+    7. Cast Festering Strike if <3 Lesser Ghoul stacks.
+    8. Cast Scourge Strike if at least 1 Lesser Ghoul stack.
+    9. Cast Death Coil as filler.
+    10. Use Trollbane's Chains of Ice immediately when available for burst.
+  aoe: |-
+    1. Apply plagues via Outbreak or Putrefy (Blightburst).
+    2. Cast Scourge Strike to cleave (hits 4-6 targets passively without Death and Decay).
+    3. Cast Epidemic (or Graveyard during Forbidden Knowledge) at 3+ targets.
+    4. Cast Death Coil (or Necrotic Coil during Forbidden Knowledge) for priority or <3 targets.
+    5. Use Soul Reaper to snipe low-health mobs (auto-consumes Putrefy charges).
+  opener: |-
+    1. Outbreak (if not running Blightburst).
+    2. Festering Strike x2 to build Lesser Ghoul stacks.
+    3. Army of the Dead + Dark Transformation + Trinkets + Potion.
+    4. Putrefy x2.
+    5. Soul Reaper 5 seconds before Dark Transformation ends (for Pestilence plague overlap).
+    6. Death Coil.
+    7. Follow standard priority.
+
+cooldowns:
+- name: Army of the Dead
+  cooldown: 90s cycle
+  description: 'Primary burst cooldown. Summons Horsemen and Magi. Triggers Forbidden Knowledge (transforms
+    Death Coil into Necrotic Coil, Epidemic into Graveyard for 30s). Align with Dark Transformation.'
+- name: Dark Transformation
+  cooldown: 45s
+  description: 'Transforms ghoul for 15s, enables cleave and buffs minions via Commander of the Dead.
+    Use on cooldown.'
+- name: Putrefy
+  cooldown: Charge-based
+  description: 'Summons and sacrifices ghouls. Refreshes plagues with Blightburst. Summons Magi with
+    Reanimation. Avoid capping at 2 charges.'
+- name: Pestilence
+  cooldown: Talented
+  description: 'Consumes all plagues on target and nearby enemies, dealing 100% remaining damage instantly.
+    Use after Dark Transformation ends when plagues are at max duration.'
+- name: Summon Gargoyle
+  cooldown: If talented
+  description: 'Ramps damage based on RP spent while active. Prioritize spending RP.'
+- name: Anti-Magic Shell
+  cooldown: 1min
+  description: 'Absorbs magic damage and generates extra RP for more Death Coils.'
+
+concepts:
+- 'Rider of the Apocalypse: Focuses on summoning Four Horsemen via Army of the Dead and Dark Transformation.
+  Each Horseman has unique interactions (Mograine = DnD buff, Trollbane = Chains of Ice burst).'
+- 'Lesser Ghoul System: Festering Strike builds stacks on the player (not wounds on target). Scourge Strike
+  consumes to summon ghouls. Maintain 4-6 stacks.'
+- 'Putrefy: Core rotational ability. Summons/sacrifices ghouls for AoE. Refreshes plagues (Blightburst).
+  Summons Magi (Reanimation). Never cap at 2 charges.'
+- 'Soul Reaper in Execute: Below 35%, Soul Reaper auto-consumes Putrefy charges, simplifying rotation.'
+- 'Ranged Effectiveness: Scourge Strike has 30-yard range by default. Most of rotation works from range.'
+- 'Forbidden Knowledge (Apex): Buffs Army of the Dead. Transforms Death Coil -> Necrotic Coil and
+  Epidemic -> Graveyard for 30 seconds.'
+- 'Pestilence Loop: Dark Transformation -> maximize plague duration -> consume with Pestilence for massive
+  burst -> reapply plagues with Putrefy.'
+- 'Death Charge: Rider mobility allowing combat mount-up for fast repositioning.'
+- 'Plague Management: Virulent and Dread Plagues must be maintained at all times for Sudden Doom procs.
+  Blightburst allows Putrefy to refresh plagues, saving GCDs on Outbreak.'
+- 'Summon Gargoyle: If talented, spending Runic Power buffs the Gargoyle. Prioritize RP expenditure
+  early in the Gargoyle''s duration to buff more subsequent attacks.'
+- 'Mastery (Dreadblade): Increases Shadow damage dealt by you and your minions. This makes minion
+  damage scale with your stats.'
+- 'Death Grip: Displaces the target toward you, which interrupts any cast in progress. While not a
+  traditional interrupt like Mind Freeze, Death Grip is excellent for repositioning dangerous caster adds
+  and stopping their casts. Especially valuable on fights with adds that must be gripped or displaced for
+  interrupts (e.g., Muzrukh Salabar). Death''s Echo grants an extra charge.'
+
+commonMistakes:
+- Overcapping Lesser Ghoul stacks (max 8) instead of consuming with Scourge Strike.
+- Allowing Putrefy to sit at 2 charges, wasting Magus of the Dead summons.
+- Moving out of Mograine's Death and Decay, losing 5% damage bonus.
+- Neglecting Trollbane's Chains of Ice for burst damage.
+- Overcapping Runic Power instead of spending to proc Runic Corruption.
+- Failing to maintain Dread Plague (primary Sudden Doom proc source).
+
+patchChanges:
+  12.0.1: 'Rider recommended for Raid and M+ for ease of use and 90s burst alignment. Scourge Strike
+    cleave updated to be independent of Death and Decay.'
+  '12.0': 'Major rework. Festering Wounds replaced by Lesser Ghoul stack system. New abilities: Putrefy,
+    Reanimation, Pestilence, Outnumber. Scourge Strike range increased to 30 yards.'

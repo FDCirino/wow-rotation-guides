@@ -1,0 +1,119 @@
+specId: 256
+className: Priest
+specName: Discipline
+role: Healer
+heroTalent: Oracle
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Atonement
+  resourceNotes: 'Discipline revolves around the Atonement passive: dealing damage heals all allies with the Atonement buff.
+    Oracle focuses on high Atonement uptime and efficient application through Penance and Power Word: Shield. Mana management
+    is critical when using expensive applicators like Power Word: Shield and Flash Heal.'
+maintenanceBuffs:
+- spellId: 0
+  spellName: Atonement
+  targetUptimePct: 90
+  importance: critical
+  coachingTip: Maintain Atonement on targets before damage occurs. Oracle benefits from Preemptive Care, which extends Atonement
+    duration.
+- spellId: 0
+  spellName: 'Shadow Word: Pain / Purge the Wicked'
+  targetUptimePct: 95
+  importance: high
+  coachingTip: 'Keep your DoT active on at least one target to proc Power of the Dark Side and enable Expiation damage from
+    Shadow Word: Death.'
+- spellId: 0
+  spellName: 'Power Word: Fortitude'
+  targetUptimePct: 100
+  importance: medium
+  coachingTip: Ensure the group always has the Stamina buff active.
+removedMechanics:
+- Divine Star (removed in 12.0)
+- Halo (removed in 12.0)
+- 'Power Word: Life (removed in 12.0)'
+- Premonition (removed in 12.0)
+- Renew (removed in 12.0)
+- Luminous Barrier (removed in 12.0)
+- Shadow Covenant (removed in 12.0)
+rotation:
+  singleTarget: |
+    1. Maintain Shadow Word: Pain on the target.
+    2. Cast Penance defensively on an ally to apply Atonement and trigger Twinsight bolts.
+    3. Cast Power Word: Shield to apply Atonement and provide effective HP.
+    4. Use Void Shield procs (from Master the Darkness) immediately before the next Penance cast.
+    5. Cast Shadow Word: Death on cooldown (especially on targets below 20% health) to trigger Expiation and summon Shadowfiends.
+    6. Cast Mind Blast on cooldown to trigger Expiation and Inescapable Torment.
+    7. Use Plea as a low-cost, instant Atonement applicator for single targets.
+    8. Use Flash Heal only when urgent direct healing is needed or to apply Atonement to yourself and a target via Binding Heal.
+    9. Cast Smite as a filler to generate Atonement healing.
+  aoe: |
+    1. Ensure Shadow Word: Pain is active on multiple targets if possible.
+    2. Cast Power Word: Radiance to apply Atonement to the entire group (in 5-man content) or 5 targets (in Raid).
+    3. Cast Evangelism to instantly apply Atonement via Radiance and grant two instant Radiance charges.
+    4. Follow up with instant Power Word: Radiance casts to reach high Atonement counts.
+    5. Cast Shadow Word: Death to trigger massive Atonement healing through Expiation echoes.
+    6. Cast Penance defensively to utilize Twinsight bolts for group healing.
+    7. Cast Mind Blast to trigger Inescapable Torment from active pets.
+    8. Cast Smite as filler.
+  opener: |
+    1. Pre-apply Shadow Word: Pain to the boss.
+    2. Cast Flash Heal on the tank (applies Atonement to self and tank via Binding Heal).
+    3. Cast Penance on an ally.
+    4. Cast Power Word: Shield on a priority target.
+    5. Begin DPS priority (Mind Blast / Shadow Word: Death).
+cooldowns:
+- name: Evangelism
+  cooldown: 1.5min
+  description: 'Redesigned: Instantly casts Power Word: Radiance and makes the next two Radiance casts instant.
+    Activates either Archangel or Mindbender depending on your talent choice. Use to quickly ramp Atonements
+    before heavy damage.'
+- name: Ultimate Penitence
+  cooldown: 4min
+  description: Massive channel that fires bolts at enemies (Atonement healing) or allies (direct healing). Use offensively
+    during high damage phases.
+- name: 'Power Word: Barrier'
+  cooldown: 3min
+  description: 'Choice node with Ultimate Penitence. Provides 20% damage reduction to all allies inside the zone.'
+- name: Pain Suppression
+  cooldown: 3min
+  description: 'Major 40% damage reduction for a single target. Use on tanks or players targeted by lethal mechanics.'
+- name: Desperate Prayer
+  cooldown: 1.5min
+  description: Personal defensive, increases max HP and heals you.
+- name: Power Infusion
+  cooldown: 2min
+  description: Massive Haste buff. Use on a DPS ally (Twins of the Sun Priestess grants it to you as well).
+concepts:
+- 'Atonement Ramping: In raids, apply Atonements via Plea/Shield/Flash Heal, then use Evangelism and Radiance to hit 20 Atonements
+  before unleashing damage.'
+- 'Oracle Penance: Twinsight makes defensive Penance casts also fire offensive bolts at an enemy (and vice
+  versa). Combined with Penance applying Atonement on defensive casts, defensive Penance is the default for
+  Oracle. Penance is a high-priority Atonement applicator.'
+- 'Master the Darkness: This Apex talent gives Penance a 30% chance to upgrade your next Shield to a Void Shield, which absorbs
+  more, splashes Atonement to 2 allies, and reflects damage.'
+- 'Expiation: Shadow Word: Death and Mind Blast consume a portion of Shadow Word: Pain to deal instant damage, which translates
+  to burst Atonement healing.'
+- 'Power of the Dark Side: Shadow Word: Pain ticks proc this buff, empowering your next Penance. Keep SW:P
+  active on at least one target (multiple targets for more procs).'
+- 'Binding Heal: Casting Flash Heal on an ally also applies Atonement to you, making it a 2-for-1 applicator.'
+- 'Ultimate Penitence Free GCD: You can cast an instant spell (like Shadow Word: Death) during the brief window while floating
+  into the air before the channel begins.'
+- 'Defensive Management: Priest defensives are weak. Stack Fade (Translucent Image for 10% DR), Protective
+  Light (Flash Heal on self), and Desperate Prayer to survive big hits.'
+commonMistakes:
+- Using Penance offensively as Oracle; defensive casts are preferred to ensure Atonement application while Twinsight handles
+  the damage
+- Overcapping Penance charges (Oracle provides two charges; keep at least one on cooldown)
+- Wasting Void Shield procs by casting another Penance before consuming the Master the Darkness buff
+- 'Forgetting to use Shadow Word: Death on targets above 20% health; it still triggers Expiation and provides significant
+  healing'
+- Not utilizing the instant Radiance charges provided by the redesigned Evangelism
+patchChanges:
+  12.0.1: 'Oracle Hero Tree redesigned: Active abilities removed; now focuses on passive Penance and Shield buffs. Evangelism
+    redesigned: Now interacts directly with Power Word: Radiance for faster Atonement application. Plea added: Replaces Renew
+    as the primary instant-cast Atonement applicator. Shadow Covenant removed: Replaced by passive Shadow damage/healing increases.
+    Pets (Shadowfiend/Mindbender) are now passive procs rather than active buttons. Ultimate Penitence and Power Word: Barrier
+    moved to a choice node. New Apex Talent: Master the Darkness (Void Shield mechanics). Power Word: Life, Divine Star, and
+    Halo removed.'

@@ -1,0 +1,141 @@
+specId: 72
+className: Warrior
+specName: Fury
+role: DPS
+heroTalent: Slayer
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Rage
+  secondaryResource: Enrage
+  resourceNotes: 'Generate Rage using Bloodthirst, Raging Blow, and Execute. Spend Rage on Rampage to trigger
+    Enrage (increases damage and Haste). Slayer focuses on maximizing Sudden Death procs to use Execute more
+    frequently, which reduces Bladestorm cooldown. Slayer uses Whirlwind for Meat Cleaver (not Thunder Clap).'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Enrage
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: 'Top priority to maintain. Increases damage and Haste. Trigger via Rampage, Odyn''s Fury,
+    or Bloodthirst (with Fresh Meat). Use Odyn''s Fury to jumpstart Enrage when Recklessness is unavailable.'
+- spellId: 0
+  spellName: Meat Cleaver
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'In AoE, use Whirlwind to maintain Meat Cleaver so single-target attacks cleave. Slayer
+    uses Whirlwind (Mountain Thane uses Thunder Clap instead).'
+- spellId: 0
+  spellName: Berserk (Rampaging Berserker)
+  targetUptimePct: 80
+  importance: medium
+  coachingTip: 'Stacks from Rampage casts via Rampaging Berserker Apex talent. Grants Strength. Maintain
+    high Rampage frequency to keep stacks.'
+- spellId: 0
+  spellName: Battle Shout
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'Ensure active on the party at all times for 5% Attack Power bonus.'
+
+removedMechanics:
+- Onslaught (removed in 12.0)
+- Ravager (removed from Fury in 12.0)
+- Bitter Immunity (removed in 12.0)
+- Thunderous Roar (removed in 12.0)
+- Single-Minded Fury (removed as mechanical choice; now transmog option via Titan's Grip)
+
+rotation:
+  singleTarget: |-
+    1. Cast Recklessness on cooldown or for burst damage.
+    2. Cast Odyn's Fury (save until after first Bloodthirst to benefit from Bloodborne bleed bonus).
+    4. Cast Bloodthirst or Bloodbath during Recklessness.
+    5. Cast Rampage if Enrage is not active or you have more than 100 Rage.
+    6. Cast Bladestorm while Enraged.
+    7. Cast Storm Bolt during Bladestorm (Slayer can use abilities during channel).
+    8. Cast Execute.
+    10. Cast Rampage.
+    11. Cast Crushing Blow during Recklessness.
+    12. Cast Rend.
+    13. Cast Wrecking Throw.
+    14. Cast Raging Blow.
+    15. Cast Whirlwind to fill the rotation.
+  aoe: |-
+    1. Cast Recklessness.
+    2. Cast Avatar simultaneously with Recklessness (only if Avatar is talented — it is a choice node).
+    3. Cast Odyn's Fury.
+    4. Cast Bladestorm while Enraged.
+    5. Cast Whirlwind if the Meat Cleaver buff is not active.
+    6. Cast Rampage if Enrage is not active or you have more than 110 Rage.
+    7. Cast Bloodthirst or Bloodbath during Recklessness.
+    8. Cast Execute with Sudden Death procs.
+    9. Cast Rampage.
+    10. Cast Rend if debuff is not active or has less than 6 seconds remaining.
+    11. Cast Execute.
+    13. Cast Raging Blow or Crushing Blow during Recklessness.
+    14. Cast Whirlwind as filler.
+  opener: |-
+    1. Use Recklessness immediately followed by Charge (Charge is off-GCD).
+    2. Cast Rampage to trigger Enrage.
+    3. Cast Bloodthirst.
+    4. Cast Odyn's Fury (save until after first Bloodthirst for Bloodborne bleed bonus).
+    5. Continue with single-target priority.
+
+cooldowns:
+- name: Recklessness
+  cooldown: 1.5min
+  description: 'Major offensive cooldown. Increases Rage generation and crit chance. Use on cooldown.'
+- name: Avatar
+  cooldown: 1.5min
+  description: 'Choice node with Bladestorm. Only talent Avatar for multi-target fights. When talented,
+    use simultaneously with Recklessness for 20% damage increase.'
+- name: Bladestorm
+  cooldown: 1.5min (reduced by Execute usage for Slayer)
+  description: 'Signature Slayer ability. High damage, generates Rage. Always use while Enraged. Slayer
+    allows Pummel and Storm Bolt during channel.'
+- name: "Odyn's Fury"
+  cooldown: 45s
+  description: 'High burst damage, triggers Enrage. Use after Bloodthirst for Bloodborne bleed bonus.
+    Can jumpstart Enrage when Recklessness is unavailable.'
+- name: Enraged Regeneration
+  cooldown: 2min
+  description: 'Primary defensive. Reduces damage taken and increases Bloodthirst healing.'
+- name: Rallying Cry
+  cooldown: 3min
+  description: 'Group defensive. Increases health of all allies. Buffed by 50% in small group content.'
+
+concepts:
+- 'The Enrage Loop: Core of Fury — generate Rage, spend on Rampage to trigger Enrage, which increases
+  damage and Haste to generate more Rage. Never let Enrage drop.'
+- 'Slayer Specialization: Focuses on Execute and Bladestorm synergy. Execute usage reduces Bladestorm
+  cooldown. Sudden Death procs give more Execute opportunities.'
+- 'Reap the Storm: Slayer passive that procs from Bloodthirst and Sudden Death. Automatic Bloodthirst
+  from Unhinged can also trigger it. Significant AoE damage contribution.'
+- 'Rampaging Berserker (Apex Talent): Rampage casts grant Berserk buff (Strength). Stacks passively.
+  High Rampage frequency keeps stacks high.'
+- 'Bladestorm Management: Always Enraged before starting. Slayer can use Pummel and Storm Bolt during
+  channel — use Storm Bolt for extra damage.'
+- 'Bloodborne: Odyn''s Fury should be used after Bloodthirst to benefit from increased bleed bonus damage.'
+- 'Rage Pooling: Can delay Rampage slightly if Enrage is already active to pool Rage, making next Rampage
+  come sooner.'
+- 'Mobility: Use Charge and Heroic Leap to maintain 100% uptime. Any time off-target is significant loss.'
+- 'Avatar vs Bladestorm: These are a CHOICE NODE — the player can only have one. Check the player''s
+  talent list before coaching. Do NOT recommend Avatar if the player has Bladestorm talented, and vice
+  versa. Avatar is preferred for multi-target, Bladestorm for single-target Slayer builds.'
+- 'Champion''s Spear: Fury does NOT take Champion''s Spear. Do not recommend or expect this ability.'
+- 'Defensive Stance: Use proactively for large incoming hits. Stance Mastery provides DR.'
+
+commonMistakes:
+- Using Bladestorm while not Enraged.
+- Letting Enrage drop by not prioritizing Rampage or Odyn's Fury.
+- Overcapping Rage instead of spending on Rampage.
+- Forgetting Meat Cleaver (Whirlwind) in multi-target situations.
+- Holding Recklessness too long instead of using on cooldown.
+- Not using Spell Reflection to mitigate or reflect incoming spell damage.
+- Using Odyn's Fury before first Bloodthirst, missing Bloodborne bonus.
+
+patchChanges:
+  12.0.1: 'Slayer: Reap the Storm proc chance updated, now triggers from Sudden Death. Avatar is a choice
+    node with Bladestorm — preferred for multi-target only.'
+  '12.0': 'Onslaught, Ravager, Thunderous Roar removed. Rend re-added. Rampaging Berserker Apex talent
+    added. Titan''s Grip now allows 1H transmog appearances.'

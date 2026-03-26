@@ -1,0 +1,130 @@
+specId: 105
+className: Druid
+specName: Restoration
+role: Healer
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: None
+  resourceNotes: 'Mana is the primary constraint. Restoration Druids can burn through Mana quickly, so filler spells like Rejuvenation should be aligned with high damage periods. Generate Mana via the Master Shapeshifter talent by casting Wrath during downtime. Use Innervate to make spells free for 8 seconds, ideally when chain-casting Rejuvenation. Avoid over-casting Regrowth without high Abundance stacks to prevent going OOM.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Efflorescence
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'Keep Efflorescence under a group of players (usually melee). With the Lifetreading talent, Efflorescence is FULLY PASSIVE — it spawns automatically under the Lifebloom target with no manual cast required. If the player has Lifetreading, evaluate Efflorescence uptime by checking Lifebloom uptime instead. Zero Efflorescence casts is EXPECTED with Lifetreading.'
+  - spellId: 0
+    spellName: Lifebloom
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'Keep on a tank or player taking heavy damage. Avoid moving it too often as it takes time to restack to 3. In dungeons, this makes the target nearly immortal via the Apex: Everbloom talent.'
+  - spellId: 0
+    spellName: Mark of the Wild
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'This is a powerful raid buff. Ensure it is active on the entire group before every pull.'
+
+playstyles:
+  - id: wildstalker
+    name: Wildstalker
+    detectionCriteria:
+      heroTalents:
+        - "Wildstalker"
+  - id: keeper_of_the_grove
+    name: Keeper of the Grove
+    detectionCriteria:
+      heroTalents:
+        - "Keeper of the Grove"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Cenarion Ward (Removed in 12.0)
+  - Overgrowth (Removed in 12.0)
+  - Spring Blossoms (Removed in 12.0)
+  - Skull Bash (Removed in 12.0)
+  - Flourish (Reworked: Now a passive talent attached to Tranquility casts)
+  - Grove Guardians (Reworked: Now a passive mechanic that procs from Swiftmend and Wild Growth)
+  - Power of the Archdruid (Reworked: Now attached to the Soul of the Forest talent)
+  - Rejuvenation Pandemic (Reworked: Rejuvenation no longer extends its duration when refreshed; only Lifebloom and Regrowth retain the 30% Pandemic window)
+  - Undergrowth (Removed in 12.0: This talent no longer exists. Do NOT reference it.)
+
+rotation:
+  singleTarget: |
+    [Raid Healing Priority]
+    1. Keep Efflorescence active under the melee group (or via Lifetreading).
+    2. Keep Lifebloom on a tank or high-damage target (allow to stack to 3).
+    3. Cast Swiftmend on cooldown and follow with Rejuvenation.
+    4. Cast Wild Growth on cooldown for group-wide efficiency.
+    5. Fill free globals with Wrath to trigger Master Shapeshifter mana regen.
+    6. Use Rejuvenation as a filler to build Abundance stacks before heavy damage.
+    7. Use Regrowth to heal injured targets after damage hits (benefiting from Abundance).
+
+    [Dungeon Healing Priority]
+    1. Keep Efflorescence active.
+    2. Keep Lifebloom on the tank (or yourself/ranged if using Lifetreading and the tank is far).
+    3. Cast Swiftmend on cooldown. Follow with Rejuvenation if the party is healthy, or Regrowth if they are struggling.
+    4. Cast Wild Growth on cooldown to cover light/moderate party damage.
+    5. Use Regrowth (paired with Nature's Swiftness if available) for sharp, instant single-target damage.
+    6. For semi-dangerous DoTs, apply 1-2 Rejuvenations before casting Regrowth.
+  aoe: |
+    [Raid/Dungeon AoE Priority]
+    1. Ensure Efflorescence and Lifebloom are active before damage hits.
+    2. Prepare by casting Rejuvenation on multiple party/raid members (the "Ramp").
+    3. Cast Swiftmend -> Regrowth as damage hits (Regrowth hits 3 targets via Rampant Growth).
+    4. Cast Wild Growth on cooldown.
+    5. Use Tranquility or Convoke the Spirits to stabilize and extend active HoTs.
+    6. Chain-cast Regrowth while Abundance stacks are high to mop up remaining damage.
+  opener: |
+    [Damage/Catweave Opener]
+    1. Prowl before the pull (increases damage of the next ability).
+    2. Cast Rake on the priority target (enters Cat Form via Fluid Form).
+    3. Cast Rip if you have 5 combo points.
+    4. Use Shred (1-2 targets) or Swipe (3+ targets) to build combo points if Rake is active.
+    5. Cast Ferocious Bite on single targets if Rip is already active.
+    6. Use Convoke the Spirits in Cat Form for burst damage if healing is not required.
+
+cooldowns: |
+  - Tranquility (3min): Massive AoE heal. Extends all active HoTs by 10s via the Flourish talent. Best used after a Rejuvenation ramp.
+  - Convoke the Spirits (1-2min): Casts random Druid spells. Use for burst healing or damage. Pair with Nature's Swiftness to empower Regrowths.
+  - Incarnation: Tree of Life (3min): Increases healing by 10%, makes Regrowth instant, Wild Growth hits 2 extra targets, and Rejuvenation is cheaper.
+  - Innervate (1min): Makes spells free for 8s. Use at ~80% mana, ideally while spamming Rejuvenation.
+  - Nature's Swiftness (1min): Makes the next Regrowth instant and much stronger. Use for emergencies or before Convoke.
+  - Ironbark (1.5min): Reduces target damage taken by 20%. Use proactively on tanks or targets of mechanics.
+  - Barkskin (1min): Personal defensive. Use frequently when taking damage.
+
+concepts: |
+  - Mastery: Harmony: Increases healing done to a target for each HoT active on them. Updates dynamically.
+  - Abundance Cycle: Rejuvenation stacks increase Regrowth crit chance and reduce its mana cost, allowing for a "ramp and pay-off" playstyle.
+  - Ramp Gameplay: The core raid loop involves layering Rejuvenations before a mechanic, then using Tranquility or Convoke to extend them.
+  - Apex: Everbloom: A 4-point talent that allows Lifebloom to stack 3 times, cleave to allies, and bloom 5 times after consuming Soul of the Forest.
+  - Master Shapeshifter: Casting Wrath in caster form provides significant mana regeneration.
+  - Grove Guardians: Now a passive mechanic; treants spawn automatically when you cast Swiftmend or Wild Growth.
+  - Flourish: Now a passive effect triggered by Tranquility, extending HoT durations by 10 seconds.
+  - Catweaving: Using the Fluid Form talent to swap to Cat Form for Rake/Rip/Shred to contribute damage during healing downtime.
+  - Pandemic: You can refresh Lifebloom and Regrowth when they have <30% duration remaining to add the time to the new HoT. Rejuvenation does not have this.
+  - Lifetreading: A talent that makes Efflorescence FULLY PASSIVE. With Lifetreading, Efflorescence spawns automatically under the Lifebloom target — no manual Efflorescence cast is needed at all. Zero SPELL_CAST_SUCCESS events for Efflorescence is expected. Its healing will appear only as SPELL_PERIODIC_HEAL ticks. Evaluate Efflorescence performance by its healing throughput, not cast count.
+  - Wildstalker: A hero tree focusing on Symbiotic Bloom HoTs and Cat Form damage synergy.
+  - Keeper of the Grove: A hero tree focusing on burst healing via passive Grove Guardian treants.
+
+commonMistakes:
+  - 'Moving Lifebloom too frequently, which prevents it from reaching its maximum 3 stacks'
+  - 'Casting Regrowth with low Abundance stacks, causing unnecessary mana depletion'
+  - 'Letting Efflorescence drop or failing to reposition it when the group moves (does NOT apply if the player has Lifetreading — Efflorescence repositions automatically with Lifebloom)'
+  - 'Holding Ironbark for an emergency instead of using its short cooldown proactively'
+  - 'Not using Wrath as a filler, missing out on Master Shapeshifter mana regeneration'
+  - 'Failing to ramp with Rejuvenation before using Tranquility, losing the Flourish extension value'
+  - 'Standing still to cast Regrowth during high-movement phases instead of using instant HoTs'
+
+patchChanges: |
+  12.0.1:
+  - Midnight Launch: Restoration Druid enters in a dominant position for both Raid and Mythic+.
+  12.0:
+  - Massive talent overhaul: Removed Cenarion Ward, Overgrowth, Spring Blossoms, Nourish, and Skull Bash.
+  - Flourish and Grove Guardians converted from active buttons to passive procs.
+  - Mastery: Harmony buffed to compensate for the removal of several minor HoTs.
+  - New Apex Talent: Everbloom added as a 4-point node.
+  - UI restrictions implemented, affecting many traditional healing addons.

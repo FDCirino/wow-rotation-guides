@@ -1,0 +1,142 @@
+specId: 270
+className: Monk
+specName: Mistweaver
+role: Healer
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Mana Tea Stacks
+  resourceNotes: 'Mistweavers spend mana aggressively to generate Mana Tea stacks (up to 20). Use Mana Tea to regain mana; it no longer reduces the mana cost of spells in 12.0. Managing the rate of mana consumption via Lifecycles or Energizing Brew is key to maintaining throughput without going OOM.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Renewing Mist
+    targetUptimePct: 95
+    importance: critical
+    coachingTip: 'Maintain Renewing Mist on as many targets as possible at all times. It is the primary driver for your healing via Invigorating Mists and Rapid Diffusion.'
+  - spellId: 0
+    spellName: Ancient Teachings
+    targetUptimePct: 90
+    importance: high
+    coachingTip: 'Ensure Ancient Teachings is active by using Jadefire Teachings mechanics to convert your melee damage into healing.'
+  - spellId: 0
+    spellName: Mystic Touch
+    targetUptimePct: 100
+    importance: medium
+    coachingTip: 'Apply this 5% physical damage debuff to enemies via any damage ability. Critical if your group has high physical damage dealers like Warriors or Hunters.'
+
+playstyles:
+  - id: conduit_of_the_celestials
+    name: Conduit of the Celestials
+    detectionCriteria:
+      heroTalents:
+        - "Conduit of the Celestials"
+  - id: master_of_harmony
+    name: Master of Harmony
+    detectionCriteria:
+      heroTalents:
+        - "Master of Harmony"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Spear Hand Strike (Removed for Healers in 12.0)
+  - Refreshing Jade Wind (Removed in 12.0)
+  - Bounce Back (Removed in 12.0)
+  - Peer Into Peace (Removed as talent; Soothing Mist following targets is now baseline)
+  - Jadefire Stomp (Reworked: Jadefire Teachings and Way of the Crane no longer require standing in the ground effect)
+  - Mana Tea (Reworked: No longer reduces mana costs, only provides mana return)
+  - Thunder Focus Tea + Vivify/Expel Harm interaction (Removed in 12.0)
+  - Diffuse Magic (Reworked: No longer a standalone DR; now an optional effect that causes Fortifying Brew to dispel magic)
+  - Invoke Chi-Ji (Reworked: No longer a build-and-spend minigame; now utilizes instant Enveloping Mists)
+  - Coalescence (Reworked: Healing intensification now capped at 20% instead of withdrawing full reservoir)
+
+rotation:
+  singleTarget: |
+    [General Single Target Priority]
+    1. Cast Renewing Mist on cooldown (do not sit on max charges).
+    2. Channel Soothing Mist if the target is taking consistent damage.
+    3. Cast Enveloping Mist while channeling Soothing Mist if damage is high.
+    4. Cast Vivify (or Sheilun's Gift if talented) as your primary direct heal.
+    5. Use Life Cocoon if the target is in immediate danger of dying.
+
+    [Rising Mist / Raid Build]
+    1. Maintain Renewing Mist on as many targets as possible.
+    2. Cast Rising Sun Kick on cooldown to extend HoTs via Rising Mist.
+    3. Cast Vivify to spot heal targets with Renewing Mist active.
+    4. Use Enveloping Mist to proc Rapid Diffusion for extra Renewing Mist spread.
+  aoe: |
+    [Raid Healing Priority]
+    1. Maintain Renewing Mist on cooldown.
+    2. Cast Rising Sun Kick on cooldown (if talented into Rising Mist).
+    3. If 3-4+ members take damage: Use Vivify to trigger Invigorating Mists on all Renewing Mist targets.
+    4. If 10+ members take damage: Use Invoke Yu'lon, the Jade Serpent or Invoke Chi-Ji, the Red Crane.
+    5. Use Revival or Restoral for massive raid-wide bursts or dispels.
+
+    [Mythic+ Priority]
+    1. Maintain wide coverage of Renewing Mist.
+    2. Use Invoke Chi-Ji, the Red Crane liberally on a short cooldown.
+    3. Spam Sheilun's Gift during high group damage.
+    4. For heavy single-target damage: Soothing Mist -> Enveloping Mist -> Sheilun's Gift.
+    5. Use Spinning Crane Kick to heal via Ancient Teachings if multiple enemies are present.
+  opener: |
+    [Invoke Yu'lon Opener]
+    1. Ensure Haste buff is active (e.g., from Secret Infusion).
+    2. Spend all charges of Renewing Mist.
+    3. Cast Invoke Yu'lon, the Jade Serpent.
+    4. Cast 3-4 Enveloping Mists (reduced cast time via Celestial Harmony) to spread HoTs via Rapid Diffusion.
+    5. Cast Rising Sun Kick to extend all active HoTs.
+    6. Fill with Vivify casts.
+    7. Weave in Enveloping Mist every few globals to maintain coverage.
+
+    [Invoke Chi-Ji Opener]
+    1. Cast Invoke Chi-Ji, the Red Crane (grants 4 stacks of Teachings of the Monastery).
+    2. Cast Blackout Kick immediately to spend stacks (ideally hitting multiple targets).
+    3. Cast Enveloping Mists (instant and reduced mana cost during Chi-Ji).
+    4. Cast Rising Sun Kick on cooldown.
+
+cooldowns: |
+  - Thunder Focus Tea (45s): Empowers next spell. Use on Renewing Mist for duration, Enveloping Mist for instant burst, or Rising Sun Kick for CD reduction.
+  - Life Cocoon (2min): Massive shield + 50% HoT healing increase. Use on targets about to take lethal damage.
+  - Invoke Yu'lon, the Jade Serpent (1-2min): Summons Yu'lon to heal and grant Chi Cocoons. Best for sustained raid damage.
+  - Invoke Chi-Ji, the Red Crane (1min): Converts DPS into healing via Mastery procs and makes Enveloping Mist instant. Use liberally in M+.
+  - Revival (3min): Massive raid heal + mass dispel.
+  - Restoral (3min): Massive raid heal + usable while stunned (replaces Revival dispel).
+  - Celestial Conduit (Hero Talent): Heals allies and damages enemies while calling all four Celestials.
+  - Fortifying Brew: Major defensive reduction. In 12.0, can be talented to dispel magic.
+
+concepts: |
+  - Renewing Mist is the engine of the spec; it enables Vivify cleave and is extended by Rising Sun Kick.
+  - Rising Mist playstyle requires being in melee to use Rising Sun Kick on cooldown to extend HoT durations.
+  - Ancient Teachings converts damage from Tiger Palm, Blackout Kick, and Rising Sun Kick into healing.
+  - Soothing Mist allows instant casts of Vivify and Enveloping Mist and now follows the target of those spells baseline.
+  - Mana Tea stacks should be consumed regularly to prevent overcapping (max 20) and to sustain the high mana costs of the spec.
+  - Spiritfont (Apex Talent) causes Vivify/RSK to buff the next Enveloping Mist to channel Soothing Mist onto 5 targets.
+  - Vitality Reservoir (Master of Harmony) stores a portion of healing/damage to be released via Vivify or Sheilun's Gift.
+  - Strength of the Black Ox (Conduit of the Celestials) provides shields when using Enveloping Mist.
+  - Mastery: Gust of Mists triggers a flat heal on primary targets of specific spells; Revival procs this on the entire raid.
+  - Roll and Transcendence provide unparalleled mobility; use Transcendence to negate knockbacks or reposition instantly.
+
+commonMistakes:
+  - 'Sitting on 2-3 charges of Renewing Mist instead of keeping the cooldown rolling'
+  - 'Overcapping Mana Tea stacks at 20 instead of channeling to regain mana'
+  - 'Using a 4-stack Blackout Kick when Rising Sun Kick has less than 1-2 seconds left on cooldown'
+  - 'Casting Revival when a mass dispel would trigger negative boss mechanics (use Restoral instead)'
+  - 'Not being in melee range to utilize Rising Sun Kick and Ancient Teachings'
+  - 'Holding Enveloping Mist too long and losing value from Strength of the Black Ox procs'
+  - 'Forgetting that Mana Tea no longer reduces mana costs, only returns raw mana'
+
+patchChanges: |
+  12.0.1:
+  - Mythic+ talent recommendations updated for Midnight launch.
+  - Master of Harmony build added for Mythic+.
+  12.0:
+  - Spiritfont Apex Talent introduced.
+  - Spear Hand Strike removed for Mistweaver.
+  - Refreshing Jade Wind removed.
+  - Soothing Mist target-switching logic made baseline.
+  - Jadefire Teachings no longer requires standing in a ground effect.
+  - Mana Tea reworked to only provide mana return.
+  - Coalescence (Master of Harmony) capped at 20% intensification.

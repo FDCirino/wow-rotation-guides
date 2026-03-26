@@ -1,0 +1,172 @@
+specId: 73
+className: Warrior
+specName: Protection
+role: Tank
+heroTalent: Mountain Thane
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Rage
+  secondaryResource: None
+  resourceNotes: 'Generate Rage through Shield Slam, Thunder Clap, Ravager, auto-attacks, and taking damage.
+    Mountain Thane creates a feedback loop: Shield Slam procs Thunder Blast, Thunder Blast procs Lightning
+    Strikes (Flashing Skies), which can reset Shield Slam. Never cap Rage — use Ignore Pain (off-GCD) to dump.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Shield Block
+  targetUptimePct: 90
+  importance: critical
+  coachingTip: 'Maintain effective uptime while actively tanking melee hits. Do not waste charges when
+    not being attacked.'
+- spellId: 0
+  spellName: Ignore Pain
+  targetUptimePct: 70
+  importance: high
+  coachingTip: 'Smooth non-blockable damage, prevent Rage overcapping. Off-GCD — always takes priority if
+    next cast would cap Rage.'
+- spellId: 0
+  spellName: Battle Shout
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'Ensure active on group at all times for 5% Attack Power.'
+
+tankingGuide:
+  survivalPriority: |-
+    These abilities take absolute priority over the damage rotation below.
+    1. Maintain Shield Block while actively tanking blockable damage (most melee hits).
+       Effective uptime matters more than raw uptime — do not waste charges when not being attacked.
+       Time Shield Block around enemy swing timers and high-damage blockable abilities.
+       If not tanking, you may use Shield Block to buff Shield Slam damage (30% increase while active).
+    2. Use Ignore Pain to spend excess Rage and smooth non-blockable damage.
+       Off-GCD with its own internal cooldown — weave it between normal abilities.
+       Shield Block takes priority over Ignore Pain when tanking blockable damage.
+       Always use Ignore Pain if your next ability would cap Rage.
+       Pool Rage and cast Ignore Pain before predictable damage spikes.
+  defensiveCooldowns: |-
+    - Shield Wall (3min): Primary defensive. Use proactively for heavy damage, not as a panic button.
+      Passively triggers Last Stand (increases max HP). Reduced by Anger Management.
+    - Demoralizing Shout (45s): Both defensive and offensive (Booming Voice). Use on cooldown for
+      the DPS gain unless you need to hold it for a specific damage event. Thunderlord reduces CD further.
+    - Spell Reflection (25s): 20% magic damage reduction for 5 seconds. Reflects certain spells.
+      The magic DR persists even after a reflect consumes the buff. Know which abilities are reflectable.
+    - Rallying Cry (3min): Group-wide HP increase. Coordinate with healer for dangerous moments.
+    - Impending Victory: Self-heal on short cooldown. Use freely whenever health dips.
+  stanceDancing: |-
+    Defensive Stance: 20% damage reduction + 5% magic DR. Stay in this while actively tanking.
+    Battle Stance: 3% Crit + 10% CC reduction. Swap to this ONLY when not tanking anything and
+    taking no significant damage. The 3% crit is not worth losing 20%+ DR.
+  rageManagement: |-
+    Your rotation exists to generate Rage. Rage is spent on Shield Block and Ignore Pain for survival,
+    or Revenge for damage. Never cap at 100 — capping wastes Indomitable healing (1% per 15 Rage spent)
+    and Anger Management CDR (1s off Avatar/Shield Wall per 20 Rage). Ignore Pain (off-GCD) is your
+    primary Rage dump. Use Revenge for damage only when survivability is not a concern.
+
+removedMechanics:
+- Thunderous Roar (removed in 12.0)
+- Uproar (removed in 12.0)
+- Thunderous Words (removed in 12.0)
+- Immovable Object (removed in 12.0)
+- Piercing Challenge (removed in 12.0)
+- "Champion's Might (removed in 12.0)"
+- Seismic Reverberation (removed in 12.0)
+
+rotation:
+  singleTarget: |-
+    1. Cast Avatar on cooldown (grants 2 Thunder Blast stacks — spend existing stacks first).
+    2. Cast Demoralizing Shout on cooldown.
+    3. Cast Ravager on cooldown.
+    4. Cast Shield Charge on cooldown.
+    5. Cast Shield Slam on cooldown (watch for Burst of Power procs — next 2 have no CD).
+    6. Cast Thunder Blast whenever it procs (top priority during Avatar due to Capacitance).
+    7. Cast Thunder Clap on cooldown (Storm Surge reduces CD during Avatar to every other GCD).
+    8. Cast Wrecking Throw on cooldown (or Shattering Throw if talented).
+    9. Cast Execute ONLY when Shield Slam AND Thunder Clap are both on CD.
+    10. Cast Revenge if you do not need Rage for survivability (deals more damage than Thunder Clap).
+    Ignore Pain takes priority over ANY ability if next cast would cap Rage.
+  aoe: |-
+    1. Cast Avatar on cooldown (spend existing Thunder Blast stacks first).
+    2. Cast Demoralizing Shout on cooldown.
+    3. Cast Ravager on cooldown.
+    4. Cast Shield Charge on cooldown.
+    5. Cast Thunder Blast on cooldown (NUMBER ONE priority in 2+ targets).
+    6. Cast Shield Slam on cooldown.
+    7. Cast Thunder Clap on cooldown. Takes priority over Revenge if Rend is about to fall off.
+    8. Cast Revenge for damage unless extra Rage needed for survivability.
+    Ignore Pain off-GCD to dump excess Rage.
+  opener: |-
+    1. Taunt as you cast Charge.
+    2. Cast Ravager.
+    3. Cast Avatar as you Charge (grants 2 Thunder Blast stacks).
+    4. Cast Shield Block.
+    5. Cast Shield Slam.
+    6. Cast Demoralizing Shout.
+    7. Cast Thunder Blast.
+    8. Cast Shield Charge.
+    9. Continue with single-target priority.
+
+cooldowns:
+- name: Avatar
+  cooldown: 1.5min
+  description: 'Major offensive cooldown. Grants 2 Thunder Blast stacks (Avatar of the Storm). Reduces
+    Thunder Clap CD significantly (Storm Surge). Spend existing Thunder Blasts before pressing Avatar.'
+- name: Demoralizing Shout
+  cooldown: 45s
+  description: 'Defensive and offensive (Booming Voice). Reduces enemy damage, generates 20 Rage.'
+- name: Shield Wall
+  cooldown: 3min
+  description: 'Major defensive. Reduces all damage taken. Passively triggers Last Stand (increases max HP).'
+- name: Ravager
+  cooldown: 90s
+  description: 'Generates up to 60 Rage, AoE damage. Increases Thunder Clap and Revenge damage by 50%
+    while active.'
+- name: Shield Charge
+  cooldown: 45s
+  description: 'Gap closer dealing damage, generating Rage, granting Shield Block.'
+- name: Spell Reflection
+  cooldown: 25s
+  description: 'Reduces magic damage taken, reflects certain spells.'
+- name: Rallying Cry
+  cooldown: 3min
+  description: 'Group survivability. Increases health of all party/raid members.'
+- name: Berserker Rage
+  cooldown: 1min
+  description: 'Removes and grants immunity to Fear, Sap, and Incapacitate.'
+- name: Impending Victory
+  cooldown: 25s
+  description: 'Self-heal on short cooldown. Use freely whenever health dips.'
+
+concepts:
+- 'Thunder Blast: Enhanced Thunder Clap, stacks up to 2. Top priority in AoE (2+ targets). During Avatar,
+  becomes absolute #1 priority due to Capacitance talent amplifying its damage.'
+- 'Capacitance: During Avatar, Thunder Blast damage is significantly amplified. This is why Thunder Blast
+  is the top priority during Avatar windows.'
+- 'Flashing Skies: Thunder Blast can proc Lightning Strikes, creating a positive feedback loop of damage.
+  Lightning Strikes can in turn reset Shield Slam.'
+- 'Avatar of the Storm: Avatar grants 2 Thunder Blast stacks. Always spend existing stacks before pressing
+  Avatar to avoid waste.'
+- 'Storm Surge: During Avatar, Thunder Clap CD is reduced so much you can use it every other GCD.'
+- 'Burst of Power: Procs making next 2 Shield Slams have no cooldown. React immediately.'
+- 'Execute Conditions (MT): Only cast when Shield Slam AND Thunder Clap are both on CD. Simpler than
+  Colossus which also requires Deep Wounds/Bloodborne + 40 Rage.'
+- 'Phalanx (Apex Talent): Thunder Clap buffs next Shield Slam for frontal cone damage.'
+- 'Storm Shield: If Intervene is talented, grants target a magic absorb shield.'
+- 'Mobility: Use Heroic Leap and Charge for positioning. Heroic Leap resets the cooldown of Taunt.'
+- 'Utility: Use Shockwave, Storm Bolt, and Disrupting Shout for crowd control and interrupts.'
+
+commonMistakes:
+- Overcapping Rage instead of using Ignore Pain or Revenge.
+- Using Avatar while already holding 2 stacks of Thunder Blast (waste).
+- Ignoring Thunder Blast procs instead of using immediately while Enraged.
+- Using Shield Block when not actively being melee attacked (wastes charges).
+- Standing outside melee range and not generating Rage.
+- Holding defensive cooldowns for emergencies instead of using proactively.
+- Not reacting to Burst of Power procs for free Shield Slams.
+
+patchChanges:
+  12.0.1: 'Taunt duration increased to 6s. Last Stand now passive on Shield Wall. Indomitable increases max
+    HP by 10%, heals 1% per 15 Rage spent. Ravager increases Thunder Clap/Revenge damage by 50%.
+    Javelineer grants ranged interrupt.'
+  '12.0': 'Thunderous Roar, Uproar, Immovable Object, Piercing Challenge removed. Mountain Thane hero talent
+    added with Thunder Blast, Storm Surge, Capacitance, Flashing Skies. Phalanx Apex talent added.'

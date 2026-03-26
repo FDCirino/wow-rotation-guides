@@ -1,0 +1,122 @@
+specId: 263
+className: Shaman
+specName: Enhancement
+role: DPS
+patch: 12.0.1
+guideVersion: 3
+heroTalent: Stormbringer
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Maelstrom Weapon
+  resourceNotes: 'Generate Maelstrom Weapon stacks with melee strikes (Stormstrike, Lava Lash, Crash Lightning). Spend stacks
+    (aim for 10, minimum 5+ when needed) on Lightning Bolt or Chain Lightning to make them instant. Spending Maelstrom Weapon
+    has a chance to trigger Tempest and refunds resources via Thunder Capacitor. Maelstrom Weapon also provides cooldown
+    reduction through Elemental Tempo.'
+maintenanceBuffs:
+- spellId: 0
+  spellName: Crash Lightning (Weapon Enhancement)
+  targetUptimePct: 95
+  importance: high
+  coachingTip: 'Maintain this buff at all times. In Midnight, it triggers regardless of target count and provides a 15% auto-attack
+    speed increase per stack via Storm Unleashed.'
+- spellId: 0
+  spellName: Lightning Shield
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'Primary Elemental Shield choice due to the bonus Agility provided by Instinctive Imbuements. Cast once to also
+    auto-apply both weapon imbues.'
+- spellId: 0
+  spellName: Windfury Weapon / Flametongue Weapon
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: Ensure both weapons are always imbued for maximum strike damage and Maelstrom generation.
+removedMechanics:
+- Primordial Wave (Removed; effects moved to Sundering)
+- Frost Shock (Removed as rotational filler)
+- Ice Strike (Removed)
+- Stone Bulwark Totem (Removed)
+- Thunderstorm / Thundershock (Removed)
+- Sundering Incapacitate (Removed)
+- 'Guardian''s Cudgel (Removed)'
+rotation:
+  singleTarget: |
+    1. Cast Sundering on cooldown.
+    2. Cast Doom Winds on cooldown.
+    3. Cast Crash Lightning to maintain weapon enhancement and trigger Storm Unleashed procs.
+    4. Cast Ascendance on cooldown if talented (use Windstrike during Ascendance).
+    5. Cast Windstrike during Ascendance.
+    6. Cast Stormstrike during Doom Winds.
+    7. Cast Tempest / Lightning Bolt with 10 Maelstrom Weapon stacks.
+    8. Cast Stormstrike on cooldown.
+    9. Cast Lava Lash.
+    10. Cast Voltaic Blaze.
+    11. Cast Lightning Bolt at 5+ stacks of Maelstrom Weapon to fish for Tempest procs.
+  aoe: |
+    1. Cast Sundering on cooldown.
+    2. Cast Ascendance on cooldown (if talented).
+    3. Cast Doom Winds on cooldown.
+    4. Cast Primordial Storm with 10 Maelstrom Weapon stacks.
+    5. Cast Crash Lightning to maintain cleave buff and leave static pools (Storm Unleashed).
+    6. Cast Windstrike during Ascendance.
+    7. Cast Stormstrike during Doom Winds.
+    8. Cast Tempest when available with 10 Maelstrom Weapon stacks.
+    9. Cast Chain Lightning at 9+ stacks of Maelstrom Weapon.
+    10. Cast Voltaic Blaze.
+    11. Cast Stormstrike.
+    12. Cast Lava Lash.
+    13. Cast Chain Lightning at 5+ stacks to fish for Tempest.
+  opener: |
+    Stormbringer ST Opener:
+    1. Cast Voltaic Blaze on the way into melee.
+    2. Cast Sundering.
+    3. Cast Crash Lightning.
+    4. Cast Lava Lash (apply Lashing Flames).
+    5. Cast Ascendance.
+    6. Cast Windstrike every GCD during Ascendance.
+    7. Cast Doom Winds and immediately Crash Lightning.
+    8. Cast Stormstrike twice.
+    9. Cast Primordial Storm with 10 Maelstrom Weapon before it expires.
+    10. Continue with normal priority.
+cooldowns:
+- name: Ascendance (Talent Choice)
+  cooldown: 2min
+  description: 'Replaces Doom Winds when talented. Triggers Doom Winds on activation and allows rapid resource cycling via
+    Thorim''s Invocation. Alternative talents: Deeply Rooted Elements (random procs) or Doom Winds (1-min standalone CD).'
+- name: Doom Winds
+  cooldown: 1min
+  description: 'Base cooldown (replaced by Ascendance if talented). Grants 200% increased Windfury Weapon chance for 8 seconds.
+    Inherits Static Accumulation and Thorim''s Invocation effects.'
+- name: Sundering
+  cooldown: 30s
+  description: 'High damage strike that spawns a Fire wolf (5% Elemental damage increase). Incorporates Primordial Storm effects.'
+- name: Astral Shift
+  cooldown: 1.5min
+  description: 'Primary defensive damage reduction (40%).'
+- name: Earth Elemental
+  cooldown: 3min
+  description: 'Provides 15% max health increase via Primordial Bond.'
+concepts:
+- 'Tempest: The core Stormbringer mechanic. Spending Maelstrom Weapon has a 2% chance per stack to convert your next Lightning
+  Bolt into Tempest.'
+- 'Supercharge: Spending Maelstrom Weapon has a chance to refund stacks, allowing for faster resource cycling.'
+- 'Conductive Energy: Spenders apply a debuff to targets, converting a portion of damage dealt into extra funnel damage.'
+- 'Storm Unleashed: Apex talent that gives Crash Lightning a chance to ignore its cooldown and leave static pools for extra
+  damage.'
+- 'Elemental Tempo: Spending Maelstrom Weapon provides cooldown reduction to your melee strikes.'
+- 'Ride the Lightning: Causes your strikes to trigger Chain Lightning, facilitating a smooth transition into cleave.'
+- 'Awakening Storms: An RPPM proc that can trigger Tempest independently of Maelstrom spending.'
+- 'Defensive Layering: Use Astral Shift for big hits, Earth Elemental for health, and Healing Surge
+  (buffed by Raging Maelstrom) for recovery.'
+- 'Skyfury: Provides Mastery and a 20% chance for an extra auto-attack to the party.'
+- 'Thorim''s Invocation: Synergizes with Ascendance to automatically spend/generate resources during the burst window.'
+commonMistakes:
+- Overcapping Maelstrom Weapon stacks (wasting potential Tempest procs)
+- 'Letting the Crash Lightning weapon enhancement buff drop in single-target'
+- Not using Stormstrike as the priority strike over Lava Lash in Stormbringer builds
+- Holding Tempest procs too long instead of cycling them to fish for the next one
+- Hard casting Maelstrom Weapon spenders below 5 stacks (incurs a cast time and resets the swing timer)
+- Using spenders at low Maelstrom stacks when not fishing for procs
+patchChanges:
+  12.0.1: 'Tempest: Now has a 2% chance to trigger per Maelstrom Weapon spent. Awakening Storms: Changed to a 1.1 RPPM chance
+    of triggering Tempest. Rolling Thunder: Now summons a Feral Spirit wolf when Doom Winds is triggered. Arc Discharge: Now
+    only triggers from Chain Lightning. Descending Skies: New talent added to the Stormbringer tree.'

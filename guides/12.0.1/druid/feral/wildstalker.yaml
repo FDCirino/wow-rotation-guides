@@ -1,0 +1,160 @@
+specId: 103
+className: Druid
+specName: Feral
+role: DPS
+heroTalent: Wildstalker
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Energy
+  secondaryResource: Combo Points
+  resourceNotes: 'Feral uses Energy to cast generators like Shred and Rake to build Combo Points. Spend CP on finishers like
+    Rip and Ferocious Bite. Wildstalker relies on maintaining bleeds (Rip, Rake) to trigger Thriving Growth which grows Bloodseeker
+    Vines on targets. Snapshotting is simplified in Midnight: only Tiger''s Fury and Prowl snapshot bleeds.'
+maintenanceBuffs:
+- spellId: 5217
+  spellName: Tiger's Fury
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: Primary damage amp and energy restore. Snapshots bleeds for full duration. Use on cooldown at low energy. Pair
+    with Berserk when available.
+- spellId: 1822
+  spellName: Rake
+  targetUptimePct: 100
+  importance: high
+  coachingTip: Maintain Rake at all times — Rip and Rake damage triggers Thriving Growth to grow Bloodseeker Vines. Refresh
+    early if Tiger's Fury comes off CD to upgrade snapshot. In AoE with Double-Clawed Rake, spread to all targets.
+- spellId: 1079
+  spellName: Rip
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'Keep Rip active to trigger Bloodseeker Vines via Thriving Growth. Apply at 5 CP with TF active. Don''t downgrade
+    a TF-snapshot Rip. In AoE use Primal Wrath. Pandemic window: 5.8s remaining.'
+- spellId: 155625
+  spellName: Moonfire (Lunar Inspiration)
+  targetUptimePct: 95
+  importance: medium
+  coachingTip: Wildstalker benefits from Lunar Inspiration as an additional DoT for resource generation. Maintain on primary
+    target and priority targets in AoE.
+removedMechanics:
+- Bloodtalons (Removed in 12.0)
+- Thrash (Removed from Feral tree in 12.0)
+- Brutal Slash (Removed in 12.0)
+- Nature's Vigil (Removed in 12.0)
+- Adaptive Swarm (Removed in 12.0)
+- 'Berserk: Frenzy (Removed in 12.0)'
+- Sudden Ambush (Reworked in 12.0 — no longer snapshots Rake; prioritize on Shred ST / Swipe AoE)
+rotation:
+  singleTarget: |-
+    Priority (after opener):
+    1. Use Berserk on cooldown, paired with Tiger's Fury.
+    2. Use Tiger's Fury on cooldown at low energy.
+    3. Maintain Rake; upgrade snapshot by refreshing early when TF comes off CD.
+    4. Maintain Rip at 5 CP with TF active. Don't downgrade a TF-snapshot Rip.
+    5. Maintain Moonfire (Lunar Inspiration).
+    6. Use Feral Frenzy / Focused Frenzy on cooldown at low combo points (0-2), follow with a finisher. Implant immediately causes a Bloodseeker Vine on the target.
+    7. Use Convoke the Spirits on cooldown (if talented), paired with TF and Berserk.
+    8. Cast Ferocious Bite at 5 CP when DoTs are secure to trigger Bursting Growth on targets with Bloodseeker Vines.
+    9. Consume Apex Predator's Craving procs — ensure bleeds are active for Rampant Ferocity.
+    10. Cast Shred to generate CP. Watch for Panther's Guile procs — weave extra Ferocious Bites.
+    11. Use Regrowth with Predatory Swiftness procs in empty globals if healing needed.
+  aoe: |-
+    Priority:
+    1. Use Berserk on cooldown, paired with Tiger's Fury.
+    2. Use Tiger's Fury on cooldown.
+    3. Maintain Rip via Primal Wrath; refresh early to upgrade TF snapshot.
+    4. Use Convoke on cooldown (if talented), paired with TF + Berserk. Ensure Rip lasts through channel.
+    5. Use Frantic Frenzy on cooldown at low CP.
+    6. At 5 CP with healthy Rip duration, weave Ferocious Bite on targets with Bloodseeker Vines for Bursting Growth + Rampant Ferocity.
+    7. Don't downgrade TF-snapshot Primal Wrath — weave Bites instead.
+    8. Consume Apex Predator's Craving procs.
+    9. With Double-Clawed Rake: Rake all targets before Swiping. Without: Rake up to 4 targets.
+    10. Swipe as primary generator at high target counts.
+    11. Moonfire on priority targets if Lunar Inspiration talented.
+  opener: |-
+    Standard ST Opener:
+    1. Prowl.
+    2. Rake from stealth.
+    3. Shred and Moonfire (if Lunar Inspiration) to 5 combo points.
+    4. Tiger's Fury.
+    5. Rip.
+    6. Berserk.
+    7. Feral Frenzy (if talented) + Ferocious Bite.
+    8. Convoke the Spirits (if talented).
+
+    AoE Opener:
+    1. Prowl.
+    2. Rake.
+    3. Rake or Swipe to 5 CP.
+    4. Tiger's Fury.
+    5. Primal Wrath.
+    6. Berserk.
+    7. Frantic Frenzy + Ferocious Bite.
+    8. Convoke (if talented).
+    9. Primal Wrath to refresh Rips.
+cooldowns:
+- name: 'Berserk / Incarnation: Avatar of Ashamane'
+  cooldown: '2min (Incarnation: 1m30s with Ashamane''s Guidance). Choice node with Convoke.'
+  description: Major offensive burst. Pair with Tiger's Fury. Convoke is generally better for first patch per Method.
+- name: Convoke the Spirits
+  cooldown: 2min baseline. Choice node with Incarnation.
+  description: Channels a flurry of Druid spells for burst. Pair with TF + Berserk. Ensure Rip will last through the channel.
+- name: Tiger's Fury
+  cooldown: 30s
+  description: Restores energy and increases damage by 15%. Snapshots bleeds. Be at low energy when it comes up.
+- name: Feral Frenzy / Focused Frenzy / Frantic Frenzy
+  cooldown: 45s base (30s with Focused Frenzy)
+  description: Generates 5 CP and heavy bleed damage. Focused Frenzy reduces CD and increases damage by 20% (ST). Frantic
+    Frenzy converts to AoE. Implant talent causes immediate Bloodseeker Vine on target. Use at 0-2 CP.
+- name: Barkskin
+  cooldown: 1min
+  description: 30% DR for 12 seconds, off GCD. Use proactively.
+- name: Survival Instincts
+  cooldown: 3min
+  description: Major defensive reduction. Use for lethal mechanics.
+- name: Heart of the Wild
+  cooldown: 2min
+  description: 'Bear Form: 30% max HP increase for 20s (persists after shifting).'
+concepts:
+- 'Thriving Growth (Keystone): Rip and Rake damage has a chance to cause Bloodseeker Vines to grow on the target, dealing
+  bleed damage over 6 seconds. Multiple vines can overlap. More bleeds on more targets = faster vine growth.'
+- 'Bloodseeker Vines: DoT effect that also debuffs the target with Vigorous Creepers (increases damage victims take from you
+  by 4% per vine). More vines = more damage amp.'
+- 'Bursting Growth: When Bloodseeker Vines expire OR you Ferocious Bite a target with vines, they explode dealing physical
+  damage to nearby enemies. Always Bite targets with vines for AoE payoff.'
+- 'Implant: Feral Frenzy immediately causes a Bloodseeker Vine to grow on the target. Gives you control over vine placement.'
+- 'Rampancy: Vines have a 30% chance to trigger Bursting Growth every 2 seconds passively. Stacking vines amplifies this.'
+- 'Patient Custodian: All bleed and DoT damage increased by 8%.'
+- 'Unseen Predator (Apex Talent): Ferocious Bite has a chance to trigger Unseen Slash (ST) or Unseen Swipe (AoE). Rank 2:
+  15% damage buff for 5s on proc. Rank 3: Tiger''s Fury forces next 2 generators to proc Unseen Attack. Fully passive — no
+  rotational changes needed.'
+- 'Snapshotting (Simplified): Only Tiger''s Fury and Prowl snapshot bleeds in Midnight. Don''t downgrade TF-snapshot Rip/Rake
+  by refreshing without TF.'
+- 'Panther''s Guile: Shred has a chance to grant bonus CP. Don''t blindly queue two Shreds — weave extra finishers from procs.'
+- 'Circle of Life and Death: Should always be played as Wildstalker (ST and AoE) per Method.'
+- 'DoT-Centric Playstyle: Wildstalker focuses on high uptime of Rake, Rip, and Moonfire to maximize Thriving Growth procs.
+  More bleeds = more vines = more Bursting Growth.'
+- 'Wildstalker vs DotC: Wildstalker is recommended for single-target/raid. DotC is better for M+/AoE burst. Both are close
+  on ST.'
+- 'Snapshotting: Tiger''s Fury increases Bleed damage for their entire duration if applied during the buff.'
+- 'Pandemic: Refresh DoTs at <30% duration remaining (Rake 4.5s, Rip 7.2s) to add time.'
+- 'Combo Point Management: Always spend at exactly 5 CP. Do not overcap.'
+- 'Mastery: Increases the damage of Bleed and Finishing abilities.'
+commonMistakes:
+- Letting Rake or Rip drop off — prevents Bloodseeker Vines from growing.
+- Overcapping Energy by using Tiger's Fury at high energy.
+- Spending CP at fewer than 5, reducing finisher efficiency (can spend at 4 outside Berserk to avoid Primal Fury overcap).
+- Ignoring Moonfire uptime when playing Lunar Inspiration.
+- Downgrading a TF-snapshot Rip by refreshing without TF active — wait for expiry or TF return.
+- Using Ferocious Bite on targets without Bloodseeker Vines — missing Bursting Growth AoE explosion.
+- Blindly queuing two Shreds without checking for Panther's Guile CP procs.
+- Using Convoke without ensuring Rip will last through the full channel.
+- Not spreading Rake in AoE when Double-Clawed Rake is talented.
+patchChanges:
+  12.0.1: 'Reviewed for Midnight Season 1. Wildstalker recommended for ST/Raid. Bloodseeker Vines damage -15%. Bursting Growth
+    damage -20%. Vigorous Creepers nerfed to 4% (was 6%). Rampancy chance increased to 30% (was 20%). Patient Custodian increased
+    to 8% (was 6%). Focused Frenzy damage increase nerfed to 20% (was 40%). Tier set: 2pc Omen of Clarity gives 5% crit for
+    4s; 4pc Rake damage +20%, Clearcasting boosts Shred/Swipe by 15%.'
+  '12.0': 'Bloodtalons, Thrash, Brutal Slash, Adaptive Swarm, Nature''s Vigil removed. Berserk Frenzy removed. Sudden Ambush
+    reworked (no longer snapshots Rake). Snapshotting simplified to TF and Prowl only. New talents: Chomp, Frantic Frenzy,
+    Focused Frenzy, Panther''s Guile, Rampancy, Green Thumb, Patient Custodian. Apex Talent: Unseen Predator added.'

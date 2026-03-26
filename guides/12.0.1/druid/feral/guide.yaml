@@ -1,0 +1,138 @@
+specId: 103
+className: Druid
+specName: Feral
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Energy
+  secondaryResource: Combo Points
+  resourceNotes: 'Feral uses Energy that regenerates passively or actively via Tiger''s Fury. Energy is spent on generators (Shred, Rake) to build Combo Points. Combo Points (up to 5) are spent on powerful finishers (Rip, Ferocious Bite, Primal Wrath). Avoid wasting resources by overcapping Energy or generating Combo Points beyond the limit of 5.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Tiger's Fury
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'Tiger''s Fury is the primary source of Bleed amplification in Midnight. Use it to snapshot your DoTs and restore Energy.'
+  - spellId: 0
+    spellName: Rip
+    targetUptimePct: 95
+    importance: critical
+    coachingTip: 'Maintain Rip at all times. In AoE, use Primal Wrath to apply and refresh Rip on all targets.'
+  - spellId: 0
+    spellName: Rake
+    targetUptimePct: 95
+    importance: high
+    coachingTip: 'Keep Rake active on your primary target. Use Double-Clawed Rake in AoE to spread the bleed efficiently.'
+  - spellId: 0
+    spellName: Mark of the Wild
+    targetUptimePct: 100
+    importance: medium
+    coachingTip: 'Ensure the group has the 3% Versatility buff active at all times.'
+
+playstyles:
+  - id: druid_of_the_claw
+    name: Druid of the Claw
+    detectionCriteria:
+      heroTalents:
+        - "Druid of the Claw"
+  - id: wildstalker
+    name: Wildstalker
+    detectionCriteria:
+      heroTalents:
+        - "Wildstalker"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Bloodtalons (Removed in 12.0)
+  - Thrash (Removed in 12.0)
+  - Brutal Slash (Removed in 12.0)
+  - Nature's Vigil (Removed in 12.0)
+  - Sudden Ambush (Reworked in 12.0: no longer a snapshot mechanic, primary bleed amplification moved to Tiger's Fury)
+  - Adaptive Swarm (Removed in 12.0)
+  - Massive Attack (Reworked/Renamed to Ravage in 12.0)
+
+rotation:
+  singleTarget: |
+    [Wildstalker] Single Target Priority:
+    1. Maintain Tiger's Fury on cooldown for Energy and bleed amplification.
+    2. Maintain Rake (generator).
+    3. Maintain Moonfire (if Lunar Inspiration is talented).
+    4. Maintain Rip (finisher) with 5 Combo Points.
+    5. Cast Feral Frenzy on cooldown (Focused Frenzy reduces this to a 30s window).
+    6. Cast Convoke the Spirits and Berserk for major burst windows.
+    7. Spend 5 Combo Points on Ferocious Bite.
+    8. Use Shred as your primary filler generator.
+
+    [Druid of the Claw] Single Target Priority:
+    1. Maintain Tiger's Fury on cooldown.
+    2. Maintain Rake.
+    3. Maintain Rip with 5 Combo Points.
+    4. Cast Feral Frenzy and Chomp (enhanced by Tear Down the Mighty).
+    5. Cast Ravage (replaces Ferocious Bite when triggered by auto-attack procs or during Berserk via Claw Rampage).
+    6. Cast Convoke the Spirits and Berserk for major burst windows.
+    7. Spend 5 Combo Points on Ferocious Bite.
+    8. Use Shred as your primary filler generator.
+  aoe: |
+    1. Apply Rake to targets (Double-Clawed Rake helps spread this).
+    2. Cast Primal Wrath (finisher) at 5 Combo Points to apply and maintain Rip on all targets.
+    3. Cast Frantic Frenzy (converts Feral Frenzy into an AoE burst tool).
+    4. Cast Berserk and Convoke the Spirits.
+    5. Cast Ferocious Bite (or Ravage) to trigger Rampant Ferocity for AoE cleave.
+    6. Use Tiger's Fury to sustain Energy (Hunger for Battle provides additional sustain).
+    7. Use Swipe as a filler generator if not using Rake.
+  opener: |
+    1. Prowl (pre-combat)
+    2. Rake (from stealth to trigger Pouncing Strikes)
+    3. Tiger's Fury
+    4. Berserk
+    5. Convoke the Spirits
+    6. Feral Frenzy
+    7. Rip (Single Target) or Primal Wrath (AoE)
+
+cooldowns: |
+  - Berserk (2min): Major offensive cooldown. Increases energy regeneration and allows certain abilities to ignore requirements.
+  - Convoke the Spirits (1min or 2min): Channels a flurry of Druid spells. Primary burst tool.
+  - Feral Frenzy (45s): Generates 5 Combo Points and applies a heavy bleed. Can be reduced to 30s (Focused Frenzy) or made AoE (Frantic Frenzy).
+  - Tiger's Fury (30s): Restores Energy and increases damage. Primary snapshot tool for bleeds.
+  - Barkskin (1min): 30% damage reduction for 12 seconds. Use liberally.
+  - Survival Instincts (3min): 60% damage reduction for 6 seconds. Save for lethal mechanics.
+  - Heart of the Wild (2min): Increases health by 30% when used in Bear Form.
+  - Stampeding Roar (2min): Increases movement speed for all nearby allies.
+  - Rebirth (2min): Combat resurrection.
+
+concepts: |
+  - Dual Resource System: Manage the flow of Energy (builders) into Combo Points (finishers).
+  - Snapshotting: Bleed damage is amplified by Tiger's Fury. Ensure Tiger's Fury is active when applying or refreshing Rake and Rip.
+  - Unseen Predator (Apex Talent): A 4-step talent that buffs finishers, increases all damage by 15% after triggers, and increases Rip damage by 30%.
+  - Druid of the Claw: Focuses on Ravage procs and Ferocious Bite. Provides superior defense via Bear Form and Frenzied Regeneration in Cat Form.
+  - Wildstalker: Focuses on Bleeds and DoTs. Bloodseeker Vines grow on targets with Rake/Rip, dealing extra damage and triggering Bursting Growth.
+  - Chomp: A new high-damage attack available at specific Energy thresholds, amplified by Druid of the Claw talents.
+  - Mobility: High passive speed in Cat Form. Use Skull Bash, Dash, and Wild Charge to navigate encounters.
+  - Utility: Bring Mark of the Wild (Versatility), Innervate (Healer Mana), and Soothe (Enrage dispel) to every group.
+  - Active Defense: Feral is fragile passively; survival depends on proactive use of Barkskin, Survival Instincts, and Bear Form.
+
+commonMistakes:
+  - 'Overcapping Energy or wasting Combo Points by generating more than 5'
+  - 'Letting Rake or Rip bleeds drop off, losing significant sustained damage'
+  - 'Misusing Tiger''s Fury by casting it when Energy is already near maximum'
+  - 'Holding defensive cooldowns like Barkskin for too long instead of using them proactively'
+  - 'Standing in melee range without Bear Form or defensives during high-damage phases'
+  - 'Failing to use Primal Wrath in AoE, resulting in low Rip uptime on secondary targets'
+  - 'Ignoring Ravage procs as Druid of the Claw, losing high-impact burst opportunities'
+
+patchChanges: |
+  12.0.1:
+  - General tuning for Midnight release.
+  - Wildstalker single-target recommendation updated.
+  12.0:
+  - Major rework: Bloodtalons, Thrash, and Brutal Slash removed.
+  - Snapshotting simplified; Tiger's Fury is now the primary amplifier.
+  - New Apex Talent: Unseen Predator added.
+  - New Hero Talents: Druid of the Claw and Wildstalker added.
+  - Chomp added as a new high-damage Energy-based attack.
+  - Ashamane's Guidance now reduces Incarnation cooldown to 1m30s.
+  - Hunger for Battle and Blood Spattered added to enhance AoE Rip gameplay.

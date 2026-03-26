@@ -1,0 +1,116 @@
+specId: 251
+className: Death Knight
+specName: Frost
+role: DPS
+heroTalent: Rider of the Apocalypse
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Runes
+  secondaryResource: Runic Power
+  resourceNotes: 'Dual resource system. Consuming Runes generates 10 RP per Rune. Spending RP on Frost Strike/
+    Glacial Advance restores Runes via Runic Empowerment. Rider synergizes with Frostbane via Hungering Thirst
+    (increases Frost Strike damage). Core loop: KM procs on Obliterate, Rime on Howling Blast, RP on Frost Strike.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Pillar of Frost
+  targetUptimePct: 25
+  importance: critical
+  coachingTip: 'Primary 45s burst window. 30% Strength for 12s. Maximize GCDs within this window.'
+- spellId: 0
+  spellName: Remorseless Winter
+  targetUptimePct: 70
+  importance: high
+  coachingTip: 'If talented into Frozen Dominion, Remorseless Winter is auto-cast with Pillar of Frost — 0 manual casts is expected. Otherwise, maintain manually for AoE damage and Cleaving Strikes (buffs Frostscythe). Align with Pillar of Frost.'
+- spellId: 0
+  spellName: Razorice
+  targetUptimePct: 95
+  importance: high
+  coachingTip: 'Maintain 5 stacks on target for Frostbane and Shattering Blade value.'
+
+removedMechanics:
+- Soul Reaper (moved to Unholy tree)
+- Sacrificial Pact (removed)
+- Unholy Ground (removed)
+- Cleaving Strikes Obliterate cleave (reworked to buff Frostscythe)
+
+rotation:
+  singleTarget: |-
+    1. Cast Obliterate with Killing Machine proc.
+    2. Cast Howling Blast with Rime proc.
+    3. Cast Frost Strike (prioritize at 5 Razorice stacks with Shattering Blade/Frostbane).
+    4. Cast Empower Rune Weapon to generate KM + 40 RP, avoiding naked Obliterates.
+    5. Cast naked Obliterate only as builder for RP.
+    If 3+ Runes, prioritize consuming KM. If low Runes, use Rime/Frost Strike first. Always consume KM
+    immediately if at 2 stacks.
+  aoe: |-
+    1. Cast Obliterate/Frostscythe with Killing Machine (Frostscythe at 3+ targets).
+    2. Cast Remorseless Winter on cooldown.
+    3. Cast Howling Blast with Rime proc.
+    4. Cast Glacial Advance at 3+ targets (replaces Frost Strike).
+    5. Cast Empower Rune Weapon for resources and KM.
+    6. Cast naked Obliterate/Frostscythe as filler.
+  opener: |-
+    1. Remorseless Winter.
+    2. Pillar of Frost + Trinket + Potion + Raise Dead + Obliterate.
+    3. Frostwyrm's Fury (triggers Apocalypse Now, summons Horsemen).
+    4. Frost Strike.
+    5. Continue with ST priority.
+
+cooldowns:
+- name: Pillar of Frost
+  cooldown: 45s
+  description: '30% Strength for 12 seconds. Main throughput window. Use on cooldown.'
+- name: "Frostwyrm's Fury"
+  cooldown: 90s
+  description: 'Massive Frost damage + 3s stun (Absolute Zero). Triggers Apocalypse Now for Rider, summoning
+    Four Horsemen. Recast within 45s at 50% effectiveness. Use inside Pillar of Frost for Apex extensions.'
+- name: Empower Rune Weapon
+  cooldown: 2min
+  description: 'Off-GCD resource generator. Avoid casting Obliterates without KM procs.'
+- name: Breath of Sindragosa
+  cooldown: 90s
+  description: 'AoE damage with duration extended by consuming KM and Rime procs. Pool 60+ RP before.'
+- name: Apocalypse Now (Rider-specific)
+  cooldown: Triggered by Frostwyrm's Fury
+  description: 'Summons the Four Horsemen to assist in combat. Significant autonomous damage.'
+- name: Anti-Magic Zone
+  cooldown: 2min
+  description: 'Group magic damage reduction by 15%.'
+
+concepts:
+- 'Killing Machine: Auto-attack crits grant proc making next Obliterate/Frostscythe guaranteed crit dealing
+  Frost damage (scales with Mastery). Never cap at 2 stacks.'
+- 'Rime: 45% chance from Frost Strike/Glacial Advance to make next Howling Blast free + extra damage. Spend
+  before generating another proc.'
+- 'Obliteration Weaving: During Pillar of Frost, Frost Strike/Glacial Advance/Howling Blast generate KM
+  procs. Alternate between these and Obliterate for maximum proc generation.'
+- 'Rider Horsemen: Four Horsemen summoned passively or via Apocalypse Now (Frostwyrm''s Fury). Provide
+  significant autonomous damage.'
+- 'Death Charge: Rider-specific mobility allowing combat mount-up for increased movement speed while attacking.'
+- 'Chosen of Frostbrood (Apex): Buffs Frostwyrm''s Fury damage by 200%, extends Pillar of Frost duration.'
+- 'Resource Loop: Runes -> RP -> Runic Empowerment -> Runes. Never cap either resource.'
+- 'Cleaving Strikes: Remorseless Winter buffs Frostscythe damage (no longer makes Obliterate cleave).'
+- 'Mastery (Frozen Heart): Increases all Frost damage. KM Obliterates deal Frost damage and scale with
+  Mastery — naked Obliterates deal physical and do NOT benefit.'
+- 'Positioning: Breath of Sindragosa, Glacial Advance, and Frostwyrm''s Fury are frontal cone abilities.
+  Always face the maximum number of targets.'
+- 'Death Grip: Displaces the target toward you, which interrupts any cast in progress. While not a
+  traditional interrupt like Mind Freeze, Death Grip is excellent for repositioning dangerous caster adds
+  and stopping their casts. Especially valuable on fights with adds that must be gripped or displaced for
+  interrupts (e.g., Muzrukh Salabar). Death''s Echo grants an extra charge.'
+
+commonMistakes:
+- Overcapping Killing Machine charges (never generate at 2 stacks).
+- Casting naked Obliterates when RP is available for Frost Strike.
+- Wasting Rime procs by casting Frost Strike before consuming existing proc.
+- Failing to use Frostwyrm's Fury within Pillar of Frost for Strength + Apex extensions.
+- Overlapping Haste buffs from first and second Frostwyrm's Fury casts.
+- Neglecting RP spending, leading to Rune starvation.
+
+patchChanges:
+  12.0.1: 'Rider of the Apocalypse: Ride or Die!, Let Terror Reign, Unholy Armaments added.'
+  '12.0': 'Obliterate partial Frost damage. Empower Rune Weapon instant. Frostbane +300%. Breath of
+    Sindragosa reworked to 90s CD. Rider hero talent added with Horsemen, Apocalypse Now, Death Charge.'

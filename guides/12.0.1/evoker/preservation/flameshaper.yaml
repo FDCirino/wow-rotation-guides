@@ -1,0 +1,186 @@
+specId: 1468
+className: Evoker
+specName: Preservation
+role: Healer
+heroTalent: Flameshaper
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Essence
+  resourceNotes: >
+    Preservation manages Mana and Essence. Essence is spent on Echo, Emerald Blossom, and Disintegrate.
+    Essence Burst procs make next Essence spender free — main sources are Reversion (15% per cast
+    including echoed/duplicated), Living Flame (20% per cast), and various talents. Flameshaper gains
+    extra Essence Burst through Titanic Precision (Living Flame crits) and Essence Well. Mana management
+    is more demanding in Midnight after Emerald Communion removal.
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Reversion (Blanket)
+    targetUptimePct: 90
+    importance: critical
+    coachingTip: >
+      Highest priority maintenance. Spread Reversion to as many targets as possible. Provides Grace
+      Period healing bonus AND Merithra's Blessing passive damage mitigation. Reversion extends its own
+      duration on critical heals. Temporal Anomaly into Reversion on tank is the easiest setup.
+  - spellId: 0
+    spellName: Echo
+    targetUptimePct: 80
+    importance: critical
+    coachingTip: >
+      Core mechanic. Echo replicates the next healing spell on buffed targets. In Midnight, almost
+      always consumed with Reversion and Merithra's Blessing. Emerald Blossom no longer consumes Echo
+      but Twin Echoes makes EB apply free Echoes instead.
+  - spellId: 0
+    spellName: Temporal Anomaly (Shields + Echoes)
+    targetUptimePct: 70
+    importance: high
+    coachingTip: >
+      Cast on cooldown to provide shields and spread Echoes via Resonating Sphere. Reserve primarily
+      for Reversion coverage — using it on other spells is usually inefficient. Grace Period amp
+      and Merithra's Blessing passive keep full value from these Echoes.
+
+removedMechanics:
+  - "Spiritbloom (Removed in 12.0)"
+  - "Emerald Communion (Removed in 12.0 — mana management more demanding now)"
+  - "Cycle of Life (Removed in 12.0)"
+  - "Engulf (Removed in 12.0 — Flameshaper is now fully passive)"
+  - "Quell (Removed from Preservation in 12.0 — interrupt moved to DPS spec trees only)"
+  - "Lifebind (Reworked: can no longer be Echo'd; effect is now 60%, lasts 8 seconds)"
+  - "Twin Guardian shield (Reworked: Rescue now gives movement speed and cast-while-moving instead)"
+
+rotation:
+  singleTarget: |
+    1. Spread Reversion blanket as highest priority — provides Grace Period and Merithra's Blessing passive.
+    2. Keep Temporal Anomaly on cooldown to spread Echoes via Resonating Sphere. Pair with Reversion.
+    3. Keep Dream Breath on cooldown (Rank 1 for sustained, max rank for burst). Always procs Merithra's Blessing at Rank 3 Apex.
+    4. Consume Merithra's Blessing procs with Reversion on Echo'd targets for burst healing.
+    5. Consume Essence Burst procs with Emerald Blossom to trigger Twin Echoes (free Echo applications).
+    6. Spend Essence on Echo to prepare for incoming damage.
+    7. Cast Verdant Embrace for immediate single-target burst (tier set reduces CD, 4pc grows Emerald Blossom).
+    8. Cast Fire Breath on cooldown for Leaping Flames and Essence Burst generation.
+    9. Cast Living Flame on enemies as filler for Essence Burst procs. Flameshaper's Titanic Precision gives extra EB chance on crits.
+  aoe: |
+    1. Spread Reversion blanket across the group.
+    2. Cast Echo on multiple party members before damage.
+    3. Keep Dream Breath on cooldown — use both charges from Legacy of the Lifebinder. Each procs Merithra's Blessing.
+    4. Consume Merithra's Blessing procs on Echo'd targets for large burst.
+    5. Cast Temporal Anomaly for shields and Echo spread.
+    6. Cast Verdant Embrace for spot healing (Consume Flame triggers from VE and EB, consuming Dream Breath HoT for extra healing).
+    7. Cast Emerald Blossom with Essence Burst procs when stacked (triggers Twin Echoes).
+    8. Cast Fire Breath for Leaping Flames multi-target Living Flame healing.
+    9. Cast Living Flame to fish for Essence Burst procs during downtime.
+  opener: |
+    1. Pre-cast Temporal Anomaly to shield the group and apply initial Echoes.
+    2. Cast Dream Breath (Rank 1) to start HoT and guarantee Merithra's Blessing proc.
+    3. Cast Fire Breath to activate Leaping Flames.
+    4. Cast Echo on priority targets.
+    5. Consume Merithra's Blessing with Reversion on Echo'd targets for initial burst.
+
+cooldowns:
+  - name: Stasis
+    cooldown: See tooltip
+    description: >
+      Stores next 3 healing spells. Flameshaper combo: Dream Breath (guarantees Merithra's Blessing
+      proc) → Temporal Anomaly (generates Echoes via Resonating Sphere) → Merithra's Blessing
+      (consume the proc as final spell). Always end Stasis with Temporal Anomaly or Merithra's
+      Blessing so Echoes aren't instantly consumed.
+  - name: Rewind
+    cooldown: See tooltip (long CD)
+    description: >
+      Massive reactive heal — heals based on damage taken in last 5 seconds. Strongest cooldown
+      Preservation has. Plan usage carefully due to long CD. Hold for maximum damage intake but
+      cast immediately if someone drops below 30% HP.
+  - name: Dream Flight
+    cooldown: See tooltip
+    description: >
+      Powerful AoE heal and HoT. Best when hitting many targets. On some fights it may be too
+      dangerous to position for — swap to Stasis in those cases.
+  - name: Zephyr
+    cooldown: 2min
+    description: >
+      Reduces AoE damage taken by 20% for 4 closest allies. Use proactively for AoE mechanics.
+      Only applies to damage labeled as AoE.
+  - name: Time Dilation
+    cooldown: See tooltip (2 charges with Just In Time)
+    description: >
+      Stretches damage taken over 8 seconds. Use on tanks or allies targeted by lethal mechanics.
+      With Just In Time, 2 charges allow covering back-to-back mechanics.
+  - name: Tip the Scales
+    cooldown: See tooltip
+    description: >
+      Makes next Empower spell instant and max rank. Use on Dream Breath for emergency healing.
+  - name: Obsidian Scales
+    cooldown: See tooltip
+    description: >
+      Flat damage reduction. Renewing Blaze (passive) heals over 8s equal to damage reduced.
+      Flameshaper's Lifecinders talent allows casting this on allies as an external defensive.
+
+concepts:
+  - >
+    Flameshaper Identity: Fully passive hero talent tree in Midnight (Engulf removed). Focuses on
+    stronger Dream Breath and Fire Breath interactions, steady group healing, and converting sustained
+    healing into targeted burst via Consume Flame and Merithra's Blessing.
+  - >
+    Merithra's Blessing (Apex Talent): Rank 1 = Essence abilities can empower next Reversion into
+    burst heal. Rank 2 = All Reversion buffs heal targets based on damage taken. Rank 3 = Dream Breath
+    has 100% chance to empower next Reversion, initial healing buffed by 125%. Core of Preservation
+    gameplay in Midnight.
+  - >
+    Echo Mechanics (Simplified): Echo replicates next healing spell on buffed targets. In Midnight,
+    almost always consumed with Reversion and Merithra's Blessing. Emerald Blossom no longer consumes
+    Echo; instead Twin Echoes makes EB apply free Echoes.
+  - >
+    Consume Flame (Reworked): No longer triggers AoE healing explosion. Now a passive single-target
+    effect — Verdant Embrace and Emerald Blossom consume a portion of Dream Breath HoT for additional
+    healing. Much smaller part of the rotation than before.
+  - >
+    Legacy of the Lifebinder: Gives 2 charges of Dream Breath and Fire Breath. Since Dream Breath
+    always procs Merithra's Blessing (Rank 3), this enables consistent ramp cycles. Don't let both
+    charges sit — always be using them.
+  - >
+    Lifecinders: Flameshaper talent allowing Obsidian Scales to be cast on allies. Combined with
+    Time Dilation (2 charges), Preservation has some of the best external defensives in the game.
+  - >
+    Reversion Blanket Priority: Reversion spread is the highest priority per Method. Provides Grace
+    Period healing bonus AND Merithra's Blessing passive damage mitigation simultaneously. Temporal
+    Anomaly into Reversion is the easiest setup.
+  - >
+    Stasis Management: Always end Stasis with Temporal Anomaly or Merithra's Blessing so generated
+    Echoes aren't instantly consumed by a spell within the Stasis sequence.
+  - >
+    Positioning: Dream Breath and Temporal Anomaly are frontal/linear. Verdant Embrace physically
+    moves you. Stay close to team. Dream Simulacrum talent prevents VE movement if needed.
+  - >
+    Tier Set: 2pc Verdant Embrace +20% healing, reduced CD. 4pc Verdant Embrace grows Emerald
+    Blossom on target (procs Twin Echoes, Consume Flame). Flameshaper benefits heavily from
+    the reduced VE CD feeding into more Consume Flame triggers.
+
+  - >
+    Echo: Replicates the next non-cooldown healing spell on the target. Core mechanic shared across hero trees.
+  - >
+    Golden Hour (Reversion): Heals for a portion of damage taken in last 5 seconds.
+commonMistakes:
+  - "Holding Rewind too long instead of using it to stabilize — but don't waste it on light damage either. Cast immediately if someone drops below 30% HP."
+  - "Casting Temporal Anomaly at the START of Stasis — causes Echoes to be instantly consumed by next stored spell. Put it second or last."
+  - "Overcapping Essence instead of spending on Echo or Emerald Blossom."
+  - "Neglecting to use both charges of Dream Breath from Legacy of the Lifebinder."
+  - "Not maintaining Reversion blanket — losing both Grace Period AND Merithra's Blessing passive."
+  - "Forgetting Lifecinders lets you cast Obsidian Scales on allies as an external defensive."
+  - "Using Echo on Living Flame in raids (only as last resort in M+)."
+  - "Poor positioning for Dream Breath cone and Temporal Anomaly line — missing party members."
+  - "Not casting Verdant Embrace on cooldown with tier set — missing Emerald Blossom procs and Consume Flame triggers."
+
+patchChanges:
+  "12.0.1": >
+    Tier set: 2pc Verdant Embrace +20% healing, CD reduced. 4pc Verdant Embrace grows Emerald
+    Blossom on target (procs Twin Echoes, Consume Flame). Maxroll recommends Chronowarden for
+    M+ over Flameshaper. Both play similarly in raid per Method.
+  "12.0": >
+    Spiritbloom, Emerald Communion, Cycle of Life, Engulf removed. Flameshaper is now fully passive.
+    Consume Flame reworked (no longer AoE explosion; passive ST effect from VE/EB consuming Dream
+    Breath HoT). Lifebind can no longer be Echo'd (60% effect, 8s duration). Dream Breath now 40-yard
+    range with stronger initial heal. Twin Guardian reworked (Rescue = movement speed + cast-while-moving).
+    Merithra's Blessing added as Apex Talent. Quell removed from Preservation (DPS specs only).

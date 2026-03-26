@@ -1,0 +1,137 @@
+specId: 72
+className: Warrior
+specName: Fury
+role: DPS
+heroTalent: Mountain Thane
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Rage
+  secondaryResource: Enrage
+  resourceNotes: 'Generate Rage using Bloodthirst and Thunder Clap. Spend Rage on Rampage to trigger Enrage.
+    Mountain Thane replaces Whirlwind with Thunder Clap as cleave enabler and filler. Focuses on Bloodthirst
+    to trigger Thunder Blast procs. Uses Avatar instead of Bladestorm for Storm Surge synergy.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Enrage
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: 'Top priority. Increases damage and Haste. Trigger via Rampage, Odyn''s Fury, or Bloodthirst
+    (Fresh Meat / Deft Experience help maintain Enrage during Avatar channel).'
+- spellId: 0
+  spellName: Meat Cleaver
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'In AoE, use Thunder Clap (not Whirlwind) to maintain Meat Cleaver buff. Mountain Thane
+    replaces Whirlwind with Thunder Clap for this purpose.'
+- spellId: 0
+  spellName: Battle Shout
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'Ensure active on party at all times for 5% Attack Power.'
+
+removedMechanics:
+- Onslaught (removed in 12.0)
+- Ravager (removed from Fury in 12.0)
+- Bitter Immunity (removed in 12.0)
+- Thunderous Roar (removed in 12.0)
+- Single-Minded Fury (removed as talent; now transmog passive via Titan's Grip)
+
+rotation:
+  singleTarget: |-
+    1. Cast Recklessness on cooldown or for burst windows.
+    2. Cast Avatar simultaneously with Recklessness.
+    3. Cast Odyn's Fury.
+    4. Cast Thunder Blast while Enraged (high-priority Mountain Thane proc).
+    5. Cast Bloodthirst or Bloodbath during Recklessness.
+    6. Cast Rampage if Enrage is not active or you have more than 100 Rage.
+    7. Cast Champion's Spear while Enraged.
+    8. Cast Execute.
+    9. Cast Rampage.
+    10. Cast Rend.
+    11. Cast Thunder Clap during Avatar.
+    12. Cast Wrecking Throw.
+    13. Cast Raging Blow.
+    14. Cast Bloodthirst.
+    15. Cast Thunder Clap to fill the rotation.
+    Note: MT focuses on Bloodthirst over Raging Blow, but Raging Blow is still used as filler.
+  aoe: |-
+    1. Cast Recklessness.
+    2. Cast Avatar simultaneously with Recklessness.
+    3. Cast Odyn's Fury.
+    4. Cast Thunder Clap if the Meat Cleaver buff is not active.
+    5. Cast Rampage if Enrage is not active or more than 110 Rage.
+    6. Cast Bloodthirst or Bloodbath during Recklessness.
+    7. Cast Execute with Sudden Death procs.
+    8. Cast Rampage.
+    9. Cast Rend if debuff is not active or has less than 6 seconds remaining.
+    10. Cast Champion's Spear while Enraged.
+    11. Cast Execute.
+    12. Cast Raging Blow or Crushing Blow during Recklessness.
+    13. Cast Thunder Clap.
+    14. Cast Bloodthirst.
+  opener: |-
+    1. Cast Recklessness (pre-pull or on pull).
+    2. Charge (off-GCD).
+    3. Cast Rampage to trigger Enrage.
+    4. Cast Bloodthirst.
+    5. Cast Odyn's Fury (after Bloodthirst for Bloodborne bleed bonus).
+    6. Continue with single-target priority.
+
+cooldowns:
+- name: Recklessness
+  cooldown: 1.5min
+  description: 'Major offensive cooldown. Increases Rage generation and crit chance. Use on cooldown.'
+- name: Avatar
+  cooldown: 1.5min
+  description: 'Essential for Mountain Thane. Synergy with Storm Surge. Use with Recklessness. Avatar is
+    preferred over Bladestorm for MT.'
+- name: "Odyn's Fury"
+  cooldown: 45s
+  description: 'Burst damage and triggers Enrage. Use after Bloodthirst for Bloodborne bonus.'
+- name: "Champion's Spear"
+  cooldown: 1.5min
+  description: 'Use while Enraged for maximum damage.'
+- name: Enraged Regeneration
+  cooldown: 2min
+  description: 'Major defensive. Reduces damage taken, increases Bloodthirst healing. Use preemptively.'
+- name: Rallying Cry
+  cooldown: 3min
+  description: 'Group defensive. Temporary health increase. Buffed 50% in small group content.'
+- name: Spell Reflection
+  cooldown: 25s
+  description: 'Reflects spells or reduces magic damage.'
+
+concepts:
+- 'Thunder Clap replaces Whirlwind: Mountain Thane uses Thunder Clap as primary cleave enabler and filler
+  instead of Whirlwind. Never use Whirlwind as MT.'
+- 'Thunder Blast: High-priority proc from Bloodthirst. During Avatar, Thunder Blast is the #1 priority due
+  to Capacitance talent. Use immediately while Enraged.'
+- 'Capacitance: During Avatar, Thunder Blast should be your top priority because Capacitance amplifies its
+  damage significantly.'
+- 'Flashing Skies: Thunder Blast can proc Lightning Strikes, creating a positive feedback loop of AoE damage.'
+- 'Avatar over Bladestorm: MT uses Avatar instead of Bladestorm due to Storm Surge synergy. Avatar interacts
+  with Thunder Clap and Thunder Blast in ways Bladestorm does not.'
+- 'Enrage Loop: Generate Rage -> Rampage -> Enrage -> more Rage. Efficient Rampage spending is critical as
+  Rage generation is lower in Midnight.'
+- 'Bloodthirst Focus: MT prioritizes Bloodthirst over Raging Blow for Thunder Blast proc generation. Raging
+  Blow is still used as a filler but is lower priority than in Slayer.'
+- 'Mobility: Charge and Heroic Leap maintain 100% uptime. Any downtime is significant DPS loss.'
+- 'Defensive Stance: Use proactively for large incoming hits. Warpaint provides reliable DR.'
+
+commonMistakes:
+- Letting Enrage drop for extended periods.
+- Overcapping Rage instead of spending on Rampage.
+- Using Whirlwind instead of Thunder Clap as Mountain Thane.
+- Ignoring Thunder Blast procs instead of using them immediately while Enraged.
+- Not using Avatar with Recklessness (they should always be paired).
+- Holding defensive cooldowns like Enraged Regeneration until too late.
+- Completely ignoring Raging Blow — it is lower priority than Bloodthirst but still used as filler.
+
+patchChanges:
+  12.0.1: 'Bloodthirst and Rampage priority increased. Rage generation reduced. Rend added as talented
+    ability. Rallying Cry buffed 50% in small group content.'
+  '12.0': 'Onslaught, Ravager, Thunderous Roar removed. Mountain Thane replaces Whirlwind with Thunder Clap.
+    Avatar replaces Bladestorm for MT. Rampaging Berserker Apex talent added.'

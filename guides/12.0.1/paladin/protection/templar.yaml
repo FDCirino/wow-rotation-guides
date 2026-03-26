@@ -1,0 +1,166 @@
+specId: 66
+className: Paladin
+specName: Protection
+role: Tank
+heroTalent: Templar
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Holy Power
+  resourceNotes: 'Generate Holy Power using Judgment, Blessed Hammer, and Avenger''s Shield (when buffed by
+    Vanguard — up to 3 HP). Spend on Shield of the Righteous for mitigation or Word of Glory for healing.
+    Templar uses Hammer of Light as a powerful 3-HP spender after activating Divine Toll.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Shield of the Righteous
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: 'Maintain near-constant uptime while tanking. Provides Armor based on Strength. Off-GCD.
+    Use at 4-5 HP, avoid at exactly 3 HP to have HP available for emergencies.'
+- spellId: 0
+  spellName: Consecration
+  targetUptimePct: 90
+  importance: high
+  coachingTip: 'Stand in Consecration for Mastery: Divine Bulwark block bonus and Sanctuary DR.'
+- spellId: 0
+  spellName: Shake the Heavens
+  targetUptimePct: 0
+  importance: high
+  coachingTip: 'Triggered by Hammer of Light. Summons Empyrean Hammers. Extend duration by casting
+    Judgment, Hammer of Wrath, and Blessed Hammer.'
+
+tankingGuide:
+  survivalPriority: |-
+    These abilities take absolute priority over the damage rotation below.
+    1. Maintain Shield of the Righteous while actively tanking. Provides Armor based on Strength.
+       Off-GCD — weave between generators. Use at 4-5 Holy Power, avoid at exactly 3 HP to keep
+       HP available for emergency Word of Glory.
+    2. Stand in Consecration for Mastery: Divine Bulwark (block and spell block bonus) and
+       Sanctuary (5% DR that lingers 4s after leaving). Recast when repositioning.
+    3. Use Word of Glory with Shining Light charges when health is low. Every 3 SotR casts grants
+       a free Word of Glory.
+    4. Sacrosanct Crusade: Casting Divine Toll and Hammer of Light grants a 15% HP shield and
+       Hammer of Light heals for 15% HP. Templar has built-in defensive value from its burst window.
+  defensiveCooldowns: |-
+    - Guardian of Ancient Kings (3min, 2nd charge via Empyrean Authority talent): Major defensive —
+      50% DR for 8 seconds. Second charge is NOT baseline. Use before heavy damage.
+    - Ardent Defender (1.5min): 20% DR for 8 seconds. First killing blow heals to 12% HP instead.
+      Short CD — use frequently and proactively.
+    - Avenging Wrath / Sentinel (2min): Both offensive and defensive. AW grants 20% damage/healing +
+      20% crit. Sentinel provides stacking DR (15 stacks, 2% HP + 2% DR each, loses stacks after 5s
+      but spending 3 HP prevents loss). Sentinel does NOT grant 20% crit like AW.
+    - Divine Shield (5min): Total immunity. With Final Stand talent, provides AoE taunt during immunity.
+    - Lay on Hands (10min): Emergency full heal for yourself or an ally.
+    - Blessing of Protection / Spellwarding (5min, shared CD): BoP removes bleeds/physical DoTs.
+      Spellwarding provides magic immunity but does NOT remove debuffs. Both castable on allies.
+  holyPowerManagement: |-
+    Generate Holy Power with Judgment, Blessed Hammer, and Avenger's Shield (via Vanguard — up to 3 HP).
+    Spend on Shield of the Righteous for mitigation (priority while tanking) or Word of Glory for healing.
+    Never overcap at 5 HP. Righteous Protector reduces AW cooldown by spending HP, helping AW sync with
+    Divine Toll for more frequent Hammer of Light windows.
+
+removedMechanics:
+- Eye of Tyr (removed in 12.0)
+- Moment of Glory (removed in 12.0)
+- Bastion of Light (removed in 12.0)
+- Barricade of Faith (removed in 12.0)
+- Judgment of Light (removed in 12.0)
+- Repentance (removed in 12.0)
+- Resolute Defender (removed in 12.0)
+- Hammer of Wrath (reworked to passive replacing Judgment during Avenging Wrath)
+
+rotation:
+  singleTarget: |-
+    1. Cast Avenging Wrath on cooldown.
+    2. Cast Divine Toll to activate Hammer of Light (Templar activator).
+    3. Cast Hammer of Light (3 HP Templar spender — 12 second window after Divine Toll).
+    4. Cast Consecration if not standing in it.
+    5. Cast Avenger's Shield (especially when Vanguard is active — up to 3 HP).
+    6. Cast Shield of the Righteous at 3-5 HP to prevent overcapping.
+    7. Cast Hammer of Wrath / Judgment to generate HP and proc Vanguard.
+    8. Cast Blessed Hammer as filler generator.
+    9. Cast Word of Glory with Shining Light charge if below 50% HP.
+    10. Refresh Consecration if everything else is on cooldown.
+  aoe: |-
+    1. Cast Avenging Wrath.
+    2. Cast Divine Toll (fires up to 5 shields + activates Hammer of Light).
+    3. Cast Hammer of Light.
+    4. Cast Consecration (maintain 100% uptime in combat area).
+    5. Cast Avenger's Shield (primary AoE threat + Bulwark of Order absorb).
+    6. Cast Shield of the Righteous at 3-5 HP for AoE damage and mitigation.
+    7. Cast Hammer of Wrath / Judgment.
+    8. Cast Blessed Hammer.
+    9. Cast Word of Glory with Shining Light procs if health is low.
+  opener: |-
+    1. Pre-place Consecration at pull location.
+    2. Pull with Hand of Reckoning.
+    3. Cast Blessed Hammer on the way in for initial HP.
+    4. Activate Avenging Wrath.
+    5. Cast Divine Toll.
+    6. Cast Hammer of Light.
+    7. Cast Shield of the Righteous.
+    8. Cast Hammer of Wrath.
+    9. Cast Shield of the Righteous.
+    10. Cast Avenger's Shield.
+    11. Cast Blessed Hammer.
+    12. Cast Shield of the Righteous.
+
+cooldowns:
+- name: Divine Toll
+  cooldown: 1min
+  description: 'Fires multiple Avenger''s Shields. For Templar, this is the activator for Hammer of Light
+    (12-second window). Primary burst trigger.'
+- name: Guardian of Ancient Kings
+  cooldown: 3min (second charge via Empyrean Authority talent)
+  description: 'Major defensive — 50% DR for 8 seconds. Second charge requires Empyrean Authority talent,
+    not baseline. Use before periods of large damage.'
+- name: Ardent Defender
+  cooldown: 1.5min
+  description: '20% DR for 8 seconds. First killing blow heals to 12% HP instead. Use proactively and
+    frequently — short CD.'
+- name: Avenging Wrath / Sentinel
+  cooldown: 2min baseline (shorter with Righteous Protector)
+  description: 'Increases damage/healing by 20%, changes Judgment to Hammer of Wrath. Sentinel replaces
+    with stacking DR (15 stacks, 2% HP + 2% DR each). Loses stacks after 5s but spending 3 HP prevents
+    stack loss. Does NOT grant 20% crit like AW does.'
+- name: Divine Shield
+  cooldown: 5min
+  description: 'Total immunity. Final Stand talent forces AoE taunt during immunity.'
+- name: Lay on Hands
+  cooldown: 10min
+  description: 'Emergency heal equal to your max HP.'
+- name: Blessing of Protection / Spellwarding
+  cooldown: 5min (shared CD)
+  description: 'BoP: Physical immunity, removes bleeds/physical DoTs. Spellwarding: Magic immunity but
+    does NOT remove debuffs. Both can be cast on allies.'
+
+concepts:
+- 'Hammer of Light: Templar''s signature ability. Activated by Divine Toll (NOT Wake of Ashes — that is
+  Ret only). Available for 12 seconds after Divine Toll. Costs 3 HP. Triggers Shake the Heavens.'
+- 'Shake the Heavens: Hammer of Light summons Empyrean Hammers dealing passive AoE damage. Extended by
+  casting Judgment, Hammer of Wrath, and Blessed Hammer. Keep attacking to maintain uptime.'
+- 'Sacrosanct Crusade: Casting Divine Toll and Hammer of Light grants a 15% HP shield. Hammer of Light
+  also heals for 15% HP. Significant defensive value.'
+- 'Undisputed Ruling: After Hammer of Light, gain SotR buff, Consecration, and 12% Haste for 6 seconds.'
+- 'Vanguard (Apex Talent): Judgment/HoW procs Vanguard — next Avenger''s Shield deals linear AoE and
+  generates up to 3 HP. During AW, every Avenger''s Shield gets Vanguard automatically.'
+- 'Grand Crusader: Avoiding attacks or using Blessed Hammer has a 20% chance to reset Avenger''s Shield CD.'
+
+commonMistakes:
+- Overcapping Holy Power instead of spending on Shield of the Righteous.
+- Letting Shield of the Righteous uptime drop while actively tanking.
+- Standing outside Consecration, losing Mastery block bonus and Sanctuary DR.
+- Not using Divine Toll on cooldown, delaying Hammer of Light windows.
+- Missing Hammer of Light after Divine Toll (only 12-second window).
+- Using Word of Glory at high health, wasting HP that should go to mitigation.
+- Using Divine Shield without Final Stand, causing threat loss.
+- Presenting GoAK 2 charges as baseline when Empyrean Authority talent is required.
+
+patchChanges:
+  12.0.1: 'Templar: Shake the Heavens damage increased by 20%.'
+  '12.0': 'Eye of Tyr removed. Divine Toll now serves as Hammer of Light activator for Prot Templar.
+    Mastery reworked to Block and Spell Block. Vanguard Apex talent added. Resolute Defender removed.
+    GoAK gains optional second charge via Empyrean Authority talent.'

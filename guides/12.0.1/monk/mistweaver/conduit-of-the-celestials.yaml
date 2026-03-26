@@ -1,0 +1,116 @@
+specId: 270
+className: Monk
+specName: Mistweaver
+role: Healer
+heroTalent: Conduit of the Celestials
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Mana Tea Stacks
+  resourceNotes: Mistweavers spend Mana aggressively to generate Mana Tea stacks. Channeling Mana Tea returns mana but no
+    longer reduces spell costs. Conduit of the Celestials gameplay revolves around triggering August Celestial buffs through
+    normal spell usage (Tiger Palm, Vivify, Enveloping Mist).
+maintenanceBuffs:
+- spellId: 0
+  spellName: Renewing Mist
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: Maintain maximum coverage of Renewing Mist at all times; it is the primary driver for your Vivify cleave and
+    Rising Mist extensions.
+- spellId: 0
+  spellName: Ancient Teachings
+  targetUptimePct: 90
+  importance: high
+  coachingTip: In Mythic+, ensure Ancient Teachings is active to convert your damage into passive healing.
+- spellId: 0
+  spellName: Mystic Touch
+  targetUptimePct: 100
+  importance: medium
+  coachingTip: 'Ensure you are hitting enemies to maintain the 5% physical damage taken debuff for your raid.'
+rotation:
+  singleTarget: |
+    1. Cast Renewing Mist on cooldown (never sit on maximum charges).
+    2. Cast Rising Sun Kick on cooldown to extend active HoTs via Rising Mist. NOTE: If the player has the Rushing Wind Kick talent, it replaces Rising Sun Kick — use Rushing Wind Kick on cooldown instead (it also provides a 50% Renewing Mist healing buff via Rushing Winds).
+    3. Channel Soothing Mist on targets taking consistent damage to allow instant Vivify/Enveloping Mist casts.
+    4. Cast Enveloping Mist to proc Strength of the Black Ox (shield) and provide high-intensity healing.
+    5. Cast Vivify for reactive spot healing (cleaves to all targets with Renewing Mist).
+    6. Use Sheilun's Gift when single-target health drops significantly.
+    7. Use Life Cocoon as an external defensive for targets in immediate danger.
+  aoe: |
+    1. Maintain Renewing Mist on as many targets as possible.
+    2. Cast Rising Sun Kick on cooldown to extend all active HoTs across the group. NOTE: If the player has Rushing Wind Kick talented, it replaces Rising Sun Kick — use Rushing Wind Kick on cooldown instead.
+    3. Use Invoke Yu'lon or Chi-Ji to counter periods of high sustained group damage.
+    4. Cast Enveloping Mist to proc Strength of the Black Ox group shields and Rapid Diffusion.
+    5. Cast Vivify to top off the group via Invigorating Mists cleave.
+    6. Use Sheilun's Gift for burst group healing when multiple members are low.
+    7. Use Spinning Crane Kick in Mythic+ to trigger Mastery: Gust of Mists via Ancient Teachings.
+  opener: |
+    1. Spend all charges of Renewing Mist prior to the damage event.
+    2. Ensure Haste buff from Secret Infusion is active.
+    3. Pop Invoke Yu'lon, the Jade Serpent.
+    4. Rotate 3-4 Enveloping Mists on the raid (procs Rapid Diffusion and Strength of the Black Ox).
+    5. Cast Rising Sun Kick (or Rushing Wind Kick if talented).
+    6. Fill with Vivify casts to utilize the high Renewing Mist count.
+cooldowns:
+- name: 'Invoke Chi-Ji, the Red Crane'
+  cooldown: Short (Conduit of the Celestials)
+  description: 'Mana-friendly alternative to Yu''lon. Short cooldown — use liberally. Heals through damage
+    dealt. CotC enhances the Celestial invocations.'
+- name: 'Invoke Yu''lon, the Jade Serpent'
+  cooldown: 1min with Gift
+  description: 'Summons Yu''lon to heal the raid; reduces Enveloping Mist cast time via Celestial Harmony.'
+- name: 'Invoke Chi-Ji, the Red Crane'
+  cooldown: 1min with Gift
+  description: 'Melee-focused cooldown; makes Enveloping Mist instant and triggers Mastery procs from DPS abilities.'
+- name: Revival / Restoral
+  cooldown: 3min
+  description: 'Massive raid-wide heal. Revival dispels magic; Restoral can be used while stunned and does not dispel magic.'
+- name: Life Cocoon
+  cooldown: 2min
+  description: 'Single-target absorption shield; increases HoT healing on the target by 50%.'
+- name: Thunder Focus Tea
+  cooldown: 45s
+  description: 'Empowers next spell: Renewing Mist (duration), Enveloping Mist (instant heal), or Rising Sun Kick (CDR).'
+- name: Mana Tea
+  cooldown: 1min
+  description: Channel to restore mana based on stacks generated from spending mana.
+concepts:
+- 'Strength of the Black Ox: Casting Enveloping Mist grants a group-wide shield. Stampede of the Ancients increases this shield
+  value by 400%.'
+- 'Heart of the Jade Serpent: Triggered by Thunder Focus Tea or procced by Vivify/Sheilun''s Gift, granting a significant
+  Haste buff.'
+- 'Rising Mist: Rising Sun Kick is a core rotational heal that extends the duration of all active Renewing Mists and Enveloping
+  Mists. If the player has the Rushing Wind Kick talent, it REPLACES Rising Sun Kick entirely — Rushing Wind Kick also triggers
+  Rising Mist extensions and adds a 50% Renewing Mist healing buff (Rushing Winds) for 4 sec. Do NOT flag 0 Rising Sun Kick
+  casts if the player is using Rushing Wind Kick.'
+- 'Rapid Diffusion: Enveloping Mist and Rising Sun Kick apply short-duration Renewing Mists to the group.'
+- 'Soothing Mist: Now follows the target of your Vivify or Enveloping Mist casts baseline, allowing for high mobility while
+  spot healing.'
+- 'Ancient Teachings: In Mythic+, your damage abilities (Tiger Palm, Blackout Kick, RSK) heal nearby allies for a percentage
+  of damage dealt.'
+- 'Spirit Font: Apex talent that causes Vivify/RSK to buff your next Enveloping Mist to channel Soothing Mist onto 5 targets.'
+- 'Unity Within: Conduit of the Celestials enhances your Celestial invocations (Yu''lon and Chi-Ji),
+  increasing their effectiveness and interactions with your healing toolkit.'
+removedMechanics:
+- Spear Hand Strike (Interrupt removed from Mistweaver in 12.0)
+- Refreshing Jade Wind (Removed in 12.0)
+- Bounce Back (Removed in 12.0)
+- Peer Into Peace (Functionality made baseline in 12.0)
+- 'Diffuse Magic (Reworked: now an optional passive enhancement to Fortifying Brew)'
+- Mana Tea cost reduction (Reworked to only provide mana return)
+- 'Renewing Mist Engine: Your most important spell. Enables Vivify cleave and procs various talents.'
+- 'Mana Tea: No longer reduces costs. Use rotationally to regain raw mana. Avoid overcapping stacks.'
+- 'Mastery (Gust of Mists): Vivify, Renewing Mist, and Enveloping Mist trigger an instant gust of healing.'
+- 'Mobility: Use Roll, Tiger''s Lust, and Transcendence to negate mechanics.'
+commonMistakes:
+- Overcapping Renewing Mist charges instead of keeping the cooldown rolling.
+- Overcapping Mana Tea stacks (maximum 20).
+- Holding Enveloping Mist casts too long and losing value from Strength of the Black Ox shields.
+- Forgetting to use Rising Sun Kick (or Rushing Wind Kick if talented) on cooldown, leading to dropped HoT extensions.
+- Using Revival on fights where a mass magic dispel causes a raid wipe (use Restoral instead).
+- Not tracking Heart of the Jade Serpent procs to maximize the Haste window.
+patchChanges:
+  12.0.1: 'Soothing Mist now follows the target of Vivify/Enveloping Mist baseline. Mana Tea reworked: No longer reduces mana
+    costs, only provides mana return. Conduit of the Celestials: Chi-Ji''s Swiftness replaced by Stampede of the Ancients
+    (400% shield buff). Refreshing Jade Wind removed; related talents reworked into passive bonuses.'

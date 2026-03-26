@@ -1,0 +1,143 @@
+specId: 581
+className: Demon Hunter
+specName: Vengeance
+role: Tank
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Fury
+  secondaryResource: Soul Fragments
+  resourceNotes: 'Generate Fury with Felblade and Fracture. Generate Soul Fragments with Fracture, Sigil of Spite, and Immolation Aura (Fallout talent). Spend Fury and Soul Fragments on Soul Cleave and Spirit Bomb. You can hold up to 6 Soul Fragments; generating more will "overcap" them, automatically consuming the oldest for healing. Ideally, spend fragments at maximum capacity (5-6) to maximize damage and proc Apex talents.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Demon Spikes
+    targetUptimePct: 95
+    importance: critical
+    coachingTip: 'Maintain high uptime to reduce Physical damage. Use to bridge gaps between Fiery Brand and Metamorphosis. With Feed the Demon, you can achieve near 100% uptime.'
+  - spellId: 0
+    spellName: Frailty
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'Applied via Sigil of Flame and Soul Cleave. Heals you for a percentage of damage dealt to the target and reduces damage taken (with Void Reaver).'
+  - spellId: 0
+    spellName: Fiery Brand
+    targetUptimePct: 40
+    importance: high
+    coachingTip: 'Now a flat 40% damage reduction buff on yourself. Use proactively for mitigation and offensively to buff Fire damage via Fiery Demise.'
+
+playstyles:
+  - id: aldrachi_reaver
+    name: Aldrachi Reaver
+    detectionCriteria:
+      heroTalents:
+        - "Aldrachi Reaver"
+  - id: annihilator
+    name: Annihilator
+    detectionCriteria:
+      heroTalents:
+        - "Annihilator"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Demonic (Removed in 12.0: Fel Devastation no longer procs Metamorphosis)
+  - The Hunt (Removed in 12.0)
+  - Illuminated Sigils (Removed in 12.0)
+  - Fel-Scarred Hero Tree (Removed in 12.0: Replaced by Annihilator)
+  - Frailty Stacking (Reworked: No longer stacks, baseline values increased)
+  - Painbringer Stacking (Reworked: No longer stacks, baseline values increased)
+  - Fiery Brand DoT Mitigation (Reworked: Damage reduction is now a buff on the player, not dependent on the DoT)
+  - Demon Spikes Charges (Reworked: Now has 1 baseline charge; second charge requires talent)
+  - Soul Barrier (Reworked: Now a passive talent granting a shield based on fragments consumed by Spirit Bomb)
+
+rotation:
+  singleTarget: |
+    [Shared Priority]
+    1. Cast Metamorphosis if you are about to cast it (to avoid wasting procs)
+    2. Cast Soul Cleave or Spirit Bomb if you have 3 stacks of Voidfall (Annihilator)
+    3. Cast Fiery Brand if you are about to reach 2 charges
+    4. Cast Fracture if you have 2 charges, or are about to reach 2 charges
+    5. Cast Immolation Aura on cooldown
+    6. Cast Soul Cleave if you have 5 or more Soul Fragments, and Spirit Bomb is on cooldown
+    7. Cast Sigil of Flame, ideally without overcapping Fury
+    8. Cast Soul Cleave with at least 3 or more Soul Fragments
+    9. Cast Fracture
+    10. Cast Soul Cleave with 2 or fewer Soul Fragments
+    11. Cast Throw Glaive as a filler or when out of range
+
+    [Aldrachi Reaver Adjustments]
+    - Use Reaver's Glaive (replaces Throw Glaive) immediately after consuming 20 souls.
+    - Follow Reaver's Glaive with Fracture (for Reaver's Mark) or Soul Cleave (for Fury of the Aldrachi).
+    - Use Sigil of Spite to activate Art of the Glaive.
+  aoe: |
+    [Shared Priority]
+    1. Cast Metamorphosis if you are about to cast it
+    2. Cast Soul Cleave or Spirit Bomb if you have 3 stacks of Voidfall (Annihilator)
+    3. Cast Fiery Brand if you are about to reach 2 charges
+    4. Cast Fracture if you have 2 charges, or are about to reach 2 charges
+    5. Cast Immolation Aura on cooldown
+    6. Cast Spirit Bomb on cooldown with at least 5 Soul Fragments
+    7. Cast Fel Devastation
+    8. Cast Soul Cleave if you have 5 or more Soul Fragments, and Spirit Bomb is on cooldown
+    9. Cast Sigil of Flame, ideally without overcapping Fury
+    10. Cast Soul Cleave with at least 3 or more Soul Fragments
+    11. Cast Fracture
+    12. Cast Soul Cleave with 2 or fewer Soul Fragments
+    13. Cast Throw Glaive as a filler or when out of range
+  opener: |
+    [Single Target]
+    1. Pre-place Sigil of Flame 1 second before pull
+    2. Cast Fiery Brand
+    3. Cast Immolation Aura
+    4. Cast Sigil of Spite
+    5. Continue with priority rotation
+
+    [AoE]
+    1. Pre-place Sigil of Flame 1 second before pull
+    2. Cast Fiery Brand
+    3. Cast Immolation Aura
+    4. Continue with priority rotation
+
+cooldowns: |
+  - Metamorphosis (2-3min): Major defensive/offensive. Increases Health by 40% and Armor by 200%. Use frequently for damage and survival.
+  - Fiery Brand (1min, 2 charges): 40% damage reduction for 12s. Buffs Fire damage via Fiery Demise.
+  - Fel Devastation (40s): Channel for heavy Fire damage and healing.
+  - Sigil of Spite (1.5min): Massive AoE damage and spawns 3 Soul Fragments. Activates Reaver's Glaive for Aldrachi.
+  - Soul Carver (1min): High Fire damage, spawns 3 fragments initially and 3 more over time.
+  - Last Resort (8min): Cheat death. Heals you and procs 15s of Metamorphosis upon taking lethal damage.
+  - Demon Spikes (Hasted CD): Active mitigation for Physical damage and Parry.
+
+concepts: |
+  - Soul Fragments: Core mechanic for healing and damage. Consuming them heals for 6% of damage taken in last 5s (min 1% max HP).
+  - Overcapping Souls: If you exceed 6 fragments, the oldest is automatically consumed. Try to spend them manually to buff Soul Cleave/Spirit Bomb.
+  - Apex Talents (Untethered Rage): Consuming fragments gives a chance to proc a 10s Metamorphosis. This chance increases with fragments consumed.
+  - Voidfall (Annihilator): Fracture has a 35% chance to grant a stack. At 3 stacks, your next spender drops Meteors.
+  - Mass Acceleration (Annihilator): Metamorphosis procs Voidfall meteors. Avoid using Metamorphosis if you already have 2-3 Voidfall stacks to prevent wasting them.
+  - Reaver's Glaive (Aldrachi): Consuming 20 souls empowers Throw Glaive. Using it enhances your next Fracture or Soul Cleave.
+  - Wounded Quarry (Aldrachi): Provides "funnel" damage, where hitting multiple enemies increases damage to a priority target.
+  - Defensives as Offensives: Fiery Brand and Metamorphosis significantly increase damage output; align them with burst windows when survival is not at risk.
+  - Sigil Utility: Sigil of Silence (interrupt/silence), Sigil of Misery (fear/stop), and Sigil of Chains (grip/slow) provide elite crowd control.
+
+commonMistakes:
+  - 'Overcapping Soul Fragments (generating more than 6) instead of using a spender'
+  - 'Casting Fracture when already at 3 stacks of Voidfall (Annihilator)'
+  - 'Using Metamorphosis while at 2 or 3 stacks of Voidfall, wasting the Mass Acceleration proc'
+  - 'Holding Fiery Brand for too long instead of using it rotationally for Fiery Demise damage'
+  - 'Letting Demon Spikes charges sit at maximum while taking physical damage'
+  - 'Standing out of melee range, which prevents fragment generation and healing'
+  - "Not using Reaver''s Glaive immediately when it procs, delaying the next 20-soul cycle"
+
+patchChanges: |
+  12.0.1:
+  - General tuning and bug fixes for Combat Assistant.
+  12.0 (Midnight):
+  - Introduced Apex Talents (Untethered Rage) at the bottom of the tree.
+  - Annihilator Hero Tree added (replaces Fel-Scarred).
+  - Spirit Bomb changed to a 25s hasted cooldown.
+  - Soul Cleave damage now scales with fragments consumed and is uncapped.
+  - Fiery Brand reworked into a flat damage reduction buff.
+  - Sigil of Chains now replaces Sigil of Misery.
+  - Hotfix (March 9): Training Grounds nerfed, various class fixes.
+  - Hotfix (Sept 5): Tier Set bonuses made baseline.

@@ -1,0 +1,118 @@
+specId: 1467
+className: Evoker
+specName: Devastation
+role: DPS
+heroTalent: Flameshaper
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Essence
+  secondaryResource: Essence Burst
+  resourceNotes: 'Spend Essence on Disintegrate (ST) and Pyre (AoE 3+ targets). Generate Essence Burst procs
+    via Living Flame, Azure Strike, and Azure Sweep. During Dragonrage, fillers guarantee Essence Burst procs.
+    Flameshaper is simpler than Scalecommander — no Deep Breath in rotation, focus on Fire Breath uptime
+    and Consume Flame.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Fire Breath (DoT)
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: 'Always cast at Empower Level 1 to maximize Consume Flame damage. Maintain the DoT on the
+    target at all times. Blast Furnace extends duration by 4s.'
+- spellId: 0
+  spellName: Rising Fury (Apex Talent)
+  targetUptimePct: 0
+  importance: high
+  coachingTip: 'Stacks during Dragonrage: 4% Haste per 6s, up to 5 stacks (20%). At 5 stacks, +15% damage.
+    Persists 4s per stack after Dragonrage ends (up to 20s).'
+
+removedMechanics:
+- Shattering Star (reworked into passive on Eternity Surge)
+- Firestorm (no longer separate spell; only procs from Feed the Flames talent)
+- Dense Energy (removed in 12.0; Pyre costs 3 Essence baseline)
+- Renewing Blaze (reworked to passive on Obsidian Scales)
+- Unravel (now passive on Fire Breath)
+
+rotation:
+  singleTarget: |-
+    Flameshaper ST is simpler than Scalecommander — no Deep Breath or Bombardments.
+    1. Cast Fire Breath on cooldown, always at Empower Level 1 (maintains DoT, triggers Consume Flame).
+    2. Cast Eternity Surge on cooldown.
+    3. Cast Disintegrate as your Essence spender. Never overcap Essence.
+    4. Cast Azure Sweep when available.
+    5. Cast Living Flame as your filler.
+    6. Cast Azure Strike if moving without Hover charges.
+    Leave 4-5 seconds between empower casts to maximize Power Swell benefit.
+  aoe: |-
+    1. Cast Dragonrage on cooldown.
+    2. Cast Fire Breath at Empower Level 1 (maximizes Consume Flame damage).
+    3. Cast Pyre at 3+ targets as your AoE Essence spender. Switch to Disintegrate at 2 or fewer targets.
+    4. Cast Living Flame at least once between every Fire Breath (consumes Leaping Flames stacks).
+    5. Cast Azure Sweep when available.
+    6. Cast Eternity Surge when nothing else is available.
+    7. Cast Azure Strike as filler for Essence Burst procs, spend on Pyre.
+  opener: |-
+    1. Pre-cast Living Flame so it lands on pull.
+    2. Cast Dragonrage.
+    3. Cast Fire Breath at Empower Level 1.
+    4. Cast Eternity Surge at Empower Level 1.
+    5. Cast Disintegrate three times.
+    6. Cast Fire Breath at Empower Level 1.
+    7. Cast Disintegrate until out of Essence.
+    8. Cast Azure Sweep.
+    9. Continue with normal priority.
+
+cooldowns:
+- name: Dragonrage
+  cooldown: 2min
+  description: 'Major burst cooldown. Fillers guarantee Essence Burst procs during window. Extend duration
+    via Animosity (cast empower spells during Dragonrage). Rising Fury stacks Haste during this window.'
+- name: Fire Breath
+  cooldown: 30s (reduced by Causality)
+  description: 'Core empower spell. Always Empower Level 1 for Flameshaper to maximize Consume Flame damage
+    and DoT uptime.'
+- name: Eternity Surge
+  cooldown: 30s (reduced by Causality)
+  description: 'Empower spell. Match empower level to number of targets. Shattering Star passive bonus
+    damage per empower level.'
+- name: Tip the Scales
+  cooldown: 2min
+  description: 'Makes next empower spell instant. Use on Fire Breath during Dragonrage opener.'
+- name: Obsidian Scales
+  cooldown: 2.5min
+  description: 'Major defensive. Renewing Blaze rework heals you over 8s equal to damage reduced.'
+
+concepts:
+- 'Consume Flame: Flameshaper signature mechanic. Fire Breath DoT ticks trigger Consume Flame for bonus
+  damage. This is why Fire Breath is ALWAYS cast at Empower Level 1 — shorter CD = more DoT uptime = more
+  Consume Flame triggers.'
+- 'Flameshaper Simplicity: Unlike Scalecommander, Flameshaper does NOT use Deep Breath rotationally and
+  has no Bombardments mechanic. The rotation is centered on Fire Breath DoT uptime and filler management.'
+- 'Leaping Flames: After casting Fire Breath, Living Flame bounces to additional targets. Cast Living Flame
+  between Fire Breaths for maximum Essence Burst generation in AoE.'
+- 'Power Swell: Leave 4-5 seconds between empower spell casts to maximize this buff.'
+- 'Dragonrage Extension: Casting empower spells during Dragonrage extends its duration via Animosity.
+  Diminishing returns cap around 34 seconds.'
+- 'Rising Fury (Apex): Stacking buff during Dragonrage. 4% Haste per 6s (max 20%), then +15% damage at
+  5 stacks. Persists after Dragonrage ends (4s per stack). Grants Essence Burst every 4s during persistence.'
+- 'Hover: Use for movement while casting. Allows Living Flame and Disintegrate while moving.'
+- 'Essence Management: Never overcap Essence. Spending Essence reduces empower spell CDs via Causality.'
+
+- 'Mastery (Giantkiller): Increases damage based on target current health. Dragonrage grants full effectiveness regardless of health.'
+- 'Limited Range: Devastation is limited to 25 yards, requiring proactive positioning.'
+- 'Hover: Essential for maintaining 100% uptime. Allows casting while moving.'
+commonMistakes:
+- Casting Fire Breath at higher empower levels as Flameshaper (always Empower Level 1 for Consume Flame).
+- Overcapping Essence instead of spending on Disintegrate or Pyre.
+- Not leaving 4-5 seconds between empower casts (wastes Power Swell).
+- Forgetting to cast Living Flame between Fire Breaths in AoE (wastes Leaping Flames).
+- Using Pyre at 2 or fewer targets when Disintegrate is better.
+- Not using Hover for movement, losing casts.
+
+patchChanges:
+  12.0.1: 'Flameshaper reviewed for Midnight Season 1. Consume Flame interaction with Fire Breath Level 1
+    confirmed as core mechanic.'
+  '12.0': 'Shattering Star reworked to passive. Firestorm removed as active spell. Dense Energy removed.
+    Renewing Blaze reworked. Rising Fury Apex talent added.'

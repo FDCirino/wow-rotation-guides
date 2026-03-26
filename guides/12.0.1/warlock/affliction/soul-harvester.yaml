@@ -1,0 +1,119 @@
+specId: 265
+className: Warlock
+specName: Affliction
+role: DPS
+heroTalent: Soul Harvester
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Soul Shards
+  secondaryResource: Mana
+  resourceNotes: 'Soul Shards are your primary resource, generated mainly by Agony. Soul Harvester gameplay focuses on aggressive
+    shard expenditure to trigger DoT effects and generate Nightfall procs through Sataiel''s Volition. Dark Harvest provides
+    a significant shard influx (3 shards) every 35-40 seconds.'
+maintenanceBuffs:
+- spellId: 0
+  spellName: Agony
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: Agony is your sole source of Soul Shard generation. Letting it drop causes a massive loss in both damage and
+    resource flow.
+- spellId: 0
+  spellName: Corruption
+  targetUptimePct: 100
+  importance: high
+  coachingTip: Maintain Corruption at all times. In AoE (3+ targets), use Seed of Corruption to apply and refresh it efficiently.
+- spellId: 0
+  spellName: Unstable Affliction
+  targetUptimePct: 95
+  importance: high
+  coachingTip: 'Now the baseline single-target shard spender. Maintain active effects on the target and avoid overcapping
+    shards.'
+removedMechanics:
+- Malefic Rapture (removed in 12.0)
+- Soul Rot (removed in 12.0)
+- Vile Taint (removed in 12.0)
+- Phantom Singularity (removed in 12.0)
+- Health Funnel (removed in 12.0; healing moved to Drain Life)
+rotation:
+  singleTarget: |
+    1. Maintain Agony and Corruption effects at all times.
+    2. Cast Unstable Affliction if you are at maximum Soul Shards.
+    3. Cast Haunt whenever available.
+    4. Cast Malevolence on cooldown.
+    5. Ensure you have 2 or less Soul Shards before casting Dark Harvest to benefit from Shadow of Death.
+    6. Cast Dark Harvest whenever available with any periodic effect (Corruption, Agony, or Unstable Affliction) active on the target.
+    7. Use Shard Instability free Unstable Affliction within the buff window.
+    8. Cast Unstable Affliction to avoid capping shards.
+    9. Cast Drain Soul as a filler.
+    10. Cast Shadow Bolt as a filler.
+  aoe: |
+    1. Maintain Agony and Corruption. Use Seed of Corruption to apply/maintain Corruption if 3+ targets are stacked.
+    2. Cast Haunt whenever available on the primary target.
+    3. Cast Malevolence on cooldown.
+    4. Cast Seed of Corruption if at 5 Soul Shards to avoid capping.
+    5. Cast Seed of Corruption if above 2 shards before Dark Harvest comes off cooldown.
+    6. Cast Dark Harvest whenever available with periodic effects (Corruption, Agony, or Unstable Affliction) active on every target.
+    7. Use Shard Instability free Unstable Affliction on dying targets if below 4 shards for shard sniping.
+    8. Use Shard Instability free Unstable Affliction on the primary target.
+    9. Cast Drain Soul as a filler.
+    10. Cast Shadow Bolt as a filler.
+  opener: |
+    1. Pre-cast Haunt.
+    2. Pre-cast Shadow Bolt.
+    3. Apply Agony.
+    4. Apply Corruption.
+    5. Cast Malevolence.
+    6. Cast Unstable Affliction until reaching 2 shards.
+    7. Cast Dark Harvest.
+    8. Cast Summon Darkglare.
+    9. Use trinkets and racials.
+    10. Spend all shards on Unstable Affliction.
+    11. Cast Nightfall Drain Soul.
+    12. Cast Nightfall Shadow Bolt.
+    13. Cast Malefic Grasp until the most recent Unstable Affliction has expired.
+cooldowns:
+- name: Summon Darkglare
+  cooldown: 2min
+  description: 'Main cooldown. Amplifies DoTs. Pool shards before entering this window and ensure Agony is pandemic-extended.'
+- name: Dark Harvest
+  cooldown: 1min
+  description: Deals damage to all targets affected by baseline DoTs. Triggers Shadow of Death for Soul Harvester; ensure
+    you are at 2 shards or fewer before casting.
+- name: Malevolence
+  cooldown: 1min
+  description: Straightforward damage boost. Should be used in tandem with Summon Darkglare and Dark Harvest.
+- name: Shadowfury
+  cooldown: '45s-1min'
+  description: AoE stun utility for Mythic+.
+- name: Howl of Terror
+  cooldown: 40s
+  description: AoE interrupt/CC, especially strong with Oppressive Darkness talent.
+concepts:
+- 'Soul Harvester Identity: Focuses on aggressive shard spending to trigger DoT effects and Nightfall procs via Sataiel''s
+  Volition.'
+- 'Shadow of Death: A core Soul Harvester mechanic triggered by Dark Harvest. You must be at 2 or fewer shards before casting
+  Dark Harvest to avoid wasting the generated shards.'
+- 'Pandemic Mechanic: Refresh Agony (at 5.4s) and Corruption (at 4.2s) when they have less than 30% duration remaining to
+  stack the duration.'
+- 'Malefic Grasp: Optimization window during Darkglare. Maximize GCDs spent on Unstable Affliction and Malefic Grasp while
+  minimizing movement or unnecessary DoT refreshes.'
+- 'Shard Sniping: In Mythic+, use Unstable Affliction and Drain Soul on dying targets to generate extra Soul Shards.'
+- 'Mastery (Potent Afflictions): Increases the damage of your DoTs and spenders.'
+- 'Movement: Use Agony/Corruption refreshes or Nightfall procs to cover movement. Use Demonic Circle and
+  Gateway to minimize travel time.'
+- 'Manifested Avarice: Consuming Succulent Souls has a chance to trigger Soul Swipe, dealing additional AoE damage within
+  10 yards.'
+- 'Shadow of Nathreza: Apex talent that bolsters Haunt damage and cleave. Haunt should still be cast on cooldown.'
+commonMistakes:
+- Overcapping Soul Shards (max 5), especially before Dark Harvest
+- Casting Dark Harvest while having more than 2 Soul Shards, wasting Shadow of Death procs
+- 'Letting Agony drop, which halts Soul Shard generation and resets ramp-up'
+- Refreshing DoTs outside of the Pandemic window
+- Moving unnecessarily during the Malefic Grasp/Darkglare window
+- Failing to use Shard Instability procs before they expire or overcap
+patchChanges:
+  12.0.1: 'Death''s Embrace damage bonus quadrupled. Soul Harvester: Eternal Hunger now increases duration and damage of Manifested
+    Avarice.'
+  '12.0': 'Unstable Affliction is now the primary Soul Shard spender. Malefic Rapture, Soul Rot, and Vile Taint removed. Dark
+    Harvest added as a new 1-minute cooldown. Agony maximum stacks reduced to 6; ramp-up time lowered.'

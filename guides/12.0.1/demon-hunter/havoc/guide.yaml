@@ -1,0 +1,151 @@
+specId: 577
+className: Demon Hunter
+specName: Havoc
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Fury
+  secondaryResource: Shattered Souls
+  resourceNotes: 'The core loop involves building Fury with Demon Blades (now baseline) and Felblade, then spending it on Blade Dance and Chaos Strike. Avoid Fury waste by not overcapping. Pool Fury before Eye Beam to ensure you have enough for the high-intensity Demonic burst window. Aldrachi Reaver uses Shattered Souls to trigger Reaver''s Glaive (replaces Throw Glaive) after consuming 6 souls.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Chaos Brand
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'This is your primary raid utility. Ensure you hit every target at least once to apply the 5% magic damage taken debuff.'
+  - spellId: 0
+    spellName: Immolation Aura
+    targetUptimePct: 90
+    importance: high
+    coachingTip: 'Maintain high uptime for passive Fury generation. In Fel-Scarred builds, ensure it is on cooldown before entering Metamorphosis to maximize Violent Transformation.'
+  - spellId: 0
+    spellName: Reaver's Mark
+    targetUptimePct: 80
+    importance: high
+    coachingTip: 'For Aldrachi Reaver, apply this via Chaos Strike after casting Reaver''s Glaive to duplicate physical damage as Chaos damage via Wounded Quarry.'
+
+playstyles:
+  - id: fel_scarred
+    name: Fel-Scarred
+    detectionCriteria:
+      heroTalents:
+        - "Fel-Scarred"
+  - id: aldrachi_reaver
+    name: Aldrachi Reaver
+    detectionCriteria:
+      heroTalents:
+        - "Aldrachi Reaver"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Fel Eruption (Removed in 12.0)
+  - Sigil of Flame (Removed in 12.0)
+  - Sigil of Spite (Removed in 12.0)
+  - Fel Barrage (Removed in 12.0)
+  - Netherwalk (Removed in 12.0)
+  - Demon's Bite (Removed in 12.0; Demon Blades is now baseline)
+  - Sigil of Flame/Sigil of Spite/Soul Sigils (Removed in 12.0; replaced by Soul Splitter for Aldrachi)
+  - Essence Break (Reworked: now triggers flat bonus damage instead of being a multiplier)
+  - Glaive Tempest (Reworked: now a passive proc when Blade Dance hits 3+ targets instead of an active)
+  - A Fire Inside (Reworked: now flat CDR for Immolation Aura rather than a reset proc)
+
+rotation:
+  singleTarget: |
+    [Fel-Scarred] Single Target Priority:
+    1. Cast The Hunt on cooldown (1-minute burst window).
+    2. Cast Eye Beam to enter Demonic form.
+    3. Cast Essence Break immediately after Eye Beam.
+    4. Cast Death Sweep and Annihilation to trigger Demonsurge procs.
+    5. Use Vengeful Retreat and Fel Rush to maintain Inertia buffs if talented.
+    6. Cast Felblade to generate Fury and close gaps.
+    7. Cast Blade Dance on cooldown.
+    8. Cast Chaos Strike as your primary Fury spender.
+
+    [Aldrachi Reaver] Single Target Priority:
+    1. Consume 6 Shattered Souls to trigger Reaver's Glaive.
+    2. Cast Reaver's Glaive (replaces Throw Glaive).
+    3. Cast Chaos Strike immediately after Reaver's Glaive to apply Reaver's Mark.
+    4. Cast Blade Dance to trigger Bladecraft and Fury of the Aldrachi.
+    5. Cast The Hunt on cooldown.
+    6. Cast Felblade to generate Fury and maintain Army Unto Oneself damage reduction.
+    7. Cast Blade Dance on cooldown.
+    8. Cast Chaos Strike as filler.
+  aoe: |
+    [Fel-Scarred] AoE Priority:
+    1. Cast Immolation Aura to generate Fury and trigger Burning Blades.
+    2. Cast Eye Beam (triggers Demonic and empowers next Blade Dance).
+    3. Cast Essence Break for burst damage.
+    4. Cast Death Sweep (triggers Demonsurge AoE Chaos damage).
+    5. Cast Annihilation (triggers Demonsurge AoE Chaos damage).
+    6. Cast The Hunt (hits up to 5+ targets with Eternal Hunt).
+    7. Use Chaos Nova for a 3-5 second AoE stun.
+
+    [Aldrachi Reaver] AoE Priority:
+    1. Cast Reaver's Glaive (replaces Throw Glaive).
+    2. Cast Blade Dance (cleaves and triggers Bladecraft damage on marked targets).
+    3. Cast Chaos Strike to spread Reaver's Mark via Wounded Quarry (soft-capped at 8 targets).
+    4. Cast Immolation Aura.
+    5. Cast The Hunt.
+    6. Use Sigil of Misery for AoE crowd control.
+  opener: |
+    [Fel-Scarred] Opener:
+    1. Immolation Aura
+    2. The Hunt
+    3. Eye Beam
+    4. Essence Break
+    5. Death Sweep
+    6. Annihilation
+
+    [Aldrachi Reaver] Opener:
+    1. Felblade (to generate initial souls)
+    2. Reaver's Glaive
+    3. Chaos Strike (to apply Reaver's Mark)
+    4. Blade Dance
+    5. The Hunt
+
+cooldowns: |
+  - Metamorphosis (2min): Major offensive cooldown. Increases Haste and empowers Chaos Strike/Blade Dance. Stuns on impact.
+  - The Hunt (1min with Eternal Hunt): High damage charge that applies a DoT. Empowered by Eternal Hunt to buff the next Eye Beam.
+  - Eye Beam (30s): Deals high Chaos damage and triggers Demonic (Metamorphosis for 5s).
+  - Essence Break (20s): Short burst window tool. Deals damage and triggers bonus damage for follow-up attacks.
+  - Blur (1min, 2 charges): Primary defensive. 35% damage reduction (with Desperate Instincts).
+  - Darkness (5min): Group defensive. 30% chance to avoid damage in dungeons.
+  - Chaos Nova (45s): AoE stun. Duration increased to 3s (5s on primary target with Focused Ire).
+
+concepts: |
+  - Build and Spend: The core loop is generating Fury with Demon Blades/Felblade and spending on Blade Dance/Chaos Strike.
+  - Combo Burst Windows: Success depends on overlapping Eye Beam, Essence Break, and Vengeful Retreat (Inertia) buffs.
+  - Eternal Hunt (Apex Talent): Turns The Hunt into a 1-minute cooldown that empowers Eye Beam and allows Eye Beam to reset Blade Dance.
+  - Fel-Scarred Mechanics: Centers on Demonsurge procs (AoE Chaos damage) triggered by Annihilation/Death Sweep after entering Metamorphosis.
+  - Aldrachi Reaver Mechanics: Centers on Reaver's Glaive and the subsequent combo to apply Reaver's Mark for damage "funneling."
+  - Mastery (Pursuit): Increases Chaos damage and provides passive movement speed.
+  - Mobility: Use Fel Rush and Vengeful Retreat for repositioning. Glide (Wings of Wrath) provides extra on-demand movement speed.
+  - Defensive Sustain: Soul Rending provides Leech during Metamorphosis/Demonic windows for high self-healing.
+
+keyTalentChoices:
+  - node: "Soul Glutton / Emptiness"
+    description: "Class tree choice node. Soul Glutton grants stacking Versatility on Soul Fragment consumption. Emptiness grants stacking Haste on Soul Fragment consumption instead. Most Havoc builds prefer Emptiness for the Haste value (GCD compression, cooldown reduction, Demon Blades proc rate), but Soul Glutton is a viable alternative if Versatility is preferred."
+
+commonMistakes:
+  - 'Overcapping Fury instead of spending it on Chaos Strike or Blade Dance'
+  - 'Casting Metamorphosis while Immolation Aura is available (Fel-Scarred loses Violent Transformation value)'
+  - 'Desyncing Essence Break from Eye Beam windows'
+  - "Failing to follow Reaver''s Glaive with the correct Chaos Strike/Blade Dance combo"
+  - 'Not fully channeling Eye Beam, which is required to trigger the Blade Dance reset from Eternal Hunt'
+  - 'Holding Blur charges too long instead of using them proactively for dangerous mechanics'
+
+patchChanges: |
+  12.0.1:
+  - Fel-Scarred: Demonsurge now scales with Mastery.
+  - Aldrachi Reaver: Wounded Quarry funnel effect soft-capped at 8 targets.
+  - Eternal Hunt (Apex Talent) added: 4-point node empowering The Hunt and Eye Beam.
+  12.0:
+  - Demon's Bite removed; Demon Blades is now baseline and buffed by 20%.
+  - Sigil of Flame and Sigil of Spite removed.
+  - Fel Eruption and Netherwalk removed.
+  - Glaive Tempest changed to a passive proc.
+  - Blur gained a second charge via Demonic Resilience.

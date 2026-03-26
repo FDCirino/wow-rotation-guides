@@ -1,0 +1,165 @@
+specId: 73
+className: Warrior
+specName: Protection
+role: Tank
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Rage
+  secondaryResource: None
+  resourceNotes: 'Rage has a maximum capacity of 100. It is generated passively via auto-attacks (2 Rage) and taking damage from enemy auto-attacks (3 Rage). Active generation comes from Ravager (up to 60), Shield Charge (20-40), Charge (20), Demoralizing Shout (20 with Booming Voice), Shield Slam (15), and Thunder Clap (5). Spend Rage on Shield Block (30) for mitigation, and use Ignore Pain or Revenge to dump excess Rage to avoid capping at 100. During Avatar, Rage generation increases significantly, requiring faster spending.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Shield Block
+    targetUptimePct: 95
+    importance: critical
+    coachingTip: 'Maintain Shield Block whenever actively tanking melee hits. It is your primary mitigation against physical damage and increases Shield Slam damage by 30%.'
+  - spellId: 0
+    spellName: Defensive Stance
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'Stay in Defensive Stance for a constant 16% damage reduction unless damage intake is low enough to swap to Battle Stance for damage.'
+  - spellId: 0
+    spellName: Ignore Pain
+    targetUptimePct: 0
+    importance: high
+    coachingTip: 'Use Ignore Pain to smooth out damage and as a primary Rage dump to prevent overcapping. It should take priority if your next cast would put you over 100 Rage.'
+
+playstyles:
+  - id: mountain_thane
+    name: Mountain Thane
+    detectionCriteria:
+      heroTalents:
+        - "Mountain Thane"
+  - id: colossus
+    name: Colossus
+    detectionCriteria:
+      heroTalents:
+        - "Colossus"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Thunderous Roar (Removed in 12.0)
+  - Uproar (Removed in 12.0)
+  - Thunderous Words (Removed in 12.0)
+  - Immovable Object (Removed in 12.0)
+  - Piercing Challenge (Removed in 12.0)
+  - Champion's Might (Removed in 12.0)
+  - Seismic Reverberation (Removed in 12.0)
+  - Unstoppable Force (Removed: now only available for Mountain Thane as Storm Surge)
+  - Last Stand (Reworked: now a passive that activates when using Shield Wall)
+  - Deep Wounds (Reworked: now a talent applied only by Execute)
+
+rotation:
+  singleTarget: |
+    [Mountain Thane] Single-Target Priority:
+    1. Cast Avatar on cooldown (grants 2 stacks of Thunder Blast).
+    2. Cast Demoralizing Shout on cooldown.
+    3. Cast Ravager on cooldown.
+    4. Cast Demolish on cooldown.
+    5. Cast Shield Charge on cooldown.
+    6. Cast Shield Slam on cooldown (watch for Burst of Power procs for no-cooldown resets).
+    7. Cast Thunder Blast whenever it procs (highest priority in 2+ targets, high priority in ST).
+    8. Cast Thunder Clap on cooldown (Storm Surge reduces CD significantly during Avatar).
+    9. Cast Wrecking Throw on cooldown (unless needed for shield break).
+    10. Cast Execute if Shield Slam and Thunder Clap are on cooldown and you do not need Rage for survivability.
+    11. Cast Revenge if the enemy is above Execute threshold and you do not need Rage for survivability.
+    12. Use Ignore Pain off-GCD to prevent Rage capping.
+
+    [Colossus] Single-Target Priority:
+    1. Cast Avatar on cooldown.
+    2. Cast Demoralizing Shout on cooldown.
+    3. Cast Ravager on cooldown.
+    4. Cast Demolish on cooldown (hits hard, use as often as possible).
+    5. Cast Shield Charge on cooldown.
+    6. Cast Shield Slam on cooldown (Colossal Might reduces Demolish cooldown).
+    7. Cast Thunder Blast whenever it procs.
+    8. Cast Thunder Clap on cooldown.
+    9. Cast Wrecking Throw on cooldown.
+    10. Cast Execute if Shield Slam and Thunder Clap are on cooldown and you have Deep Wounds/Bloodborne talented.
+    11. Cast Revenge if you do not need Rage for survivability (Revenge hits harder than Thunder Clap for Colossus).
+    12. Use Ignore Pain off-GCD to prevent Rage capping.
+  aoe: |
+    [Mountain Thane] Multi-Target Priority:
+    1. Cast Avatar on cooldown.
+    2. Cast Demoralizing Shout on cooldown.
+    3. Cast Ravager on cooldown.
+    4. Cast Shield Charge on cooldown.
+    5. Cast Thunder Blast on cooldown (Number one priority every time it procs in 2+ targets).
+    6. Cast Demolish on cooldown.
+    7. Cast Shield Slam on cooldown.
+    8. Cast Thunder Clap on cooldown (Priority over Revenge if Rend is falling off).
+    9. Cast Revenge for damage unless extra Rage is needed.
+
+    [Colossus] Multi-Target Priority:
+    1. Follow the Single-Target priority to maximize Rage generation and survivability.
+    2. Prioritize Thunder Clap (or Revenge if TC is unavailable) over Shield Slam specifically when needing to pick up new adds for threat.
+    3. Ensure Demolish hits as many enemies as possible to apply Deep Wounds via Decimator.
+  opener: |
+    [Mountain Thane] Opener:
+    1. Taunt as you cast Charge.
+    2. Cast Ravager.
+    3. Cast Charge.
+    4. Cast Avatar as you Charge.
+    5. Cast Shield Block.
+    6. Cast Shield Slam.
+    7. Cast Demoralizing Shout.
+    8. Cast Demolish.
+    9. Cast Thunder Blast.
+    10. Cast Shield Charge.
+
+    [Colossus] Opener:
+    1. Cast Ravager.
+    2. Cast Charge.
+    3. Cast Avatar as you Charge.
+    4. Cast Shield Block.
+    5. Cast Demoralizing Shout.
+    6. Cast Thunder Blast (if procced).
+    7. Cast Demolish.
+    8. Cast Shield Charge.
+    9. Cast Revenge.
+
+cooldowns: |
+  - Shield Wall (2min): Major defensive reduction. Now passively triggers Last Stand for healing/health boost. Use for large spikes or non-blockable damage.
+  - Avatar (1.5min): Major offensive cooldown. Increases damage by 20% and generates Thunder Blast stacks for Mountain Thane.
+  - Demoralizing Shout (45s): Reduces enemy damage by 20%. With Booming Voice, use on cooldown for 20 Rage and damage boost.
+  - Ravager (1.5min): Generates up to 60 Rage and deals AoE damage. Increases Thunder Clap and Revenge damage by 50% while active.
+  - Shield Charge (45s): Charges target, deals damage, stuns, and grants Shield Block.
+  - Spell Reflection (25s): 20% magic damage reduction and reflects the next spell.
+  - Rallying Cry (3min): Increases health of all party/raid members. 50% more effective when not in a raid.
+  - Demolish (45s): Colossus Hero Talent. Heavy hitting channel that makes you immune to stuns/knockbacks.
+  - Champion's Spear (1.5min): Deals damage and tethers enemies to the location.
+
+concepts: |
+  - Rage Management: The goal is to generate maximum Rage and spend it on Shield Block/Ignore Pain without ever hitting the 100 Rage cap.
+  - Active Mitigation: Shield Block is the core of Warrior survival. It must be active during "effective uptime" (when actually taking melee hits).
+  - Mountain Thane Loop: Lightning Strikes proc Shield Slam, Shield Slam procs Thunder Blast, and Thunder Blast procs Lightning Strikes.
+  - Colossus Mechanics: Revolves around Demolish and stacking Colossal Might to reduce Demolish's cooldown via Shield Slam.
+  - Stance Dancing: Defensive Stance is the default for 16% DR. Battle Stance can be used for 3% Crit if damage intake is low.
+  - Apex Talents (Phalanx): Thunder Clap buffs the next Shield Slam to deal a wave of force in a frontal cone. This is handled automatically by the standard rotation.
+  - Block Mechanics: Block damage reduction is separate from Armor. Critical blocks double the reduction (up to 85% cap).
+  - Mobility: Use Heroic Leap and Intervene for movement. Heroic Leap resets the cooldown of Taunt.
+  - Utility: Warriors provide high stun utility (Shockwave, Storm Bolt, Shield Charge) and an AoE silence (Disrupting Shout).
+
+commonMistakes:
+  - 'Capping Rage at 100 and wasting potential Ignore Pain or Revenge casts.'
+  - 'Letting Shield Block drop while actively tanking blockable melee damage.'
+  - 'Using Shield Wall as a reactive heal instead of a proactive mitigation tool.'
+  - 'Casting Execute when Shield Slam or Thunder Clap are available (unless specific Hero Talent conditions are met).'
+  - 'Standing in harmful ground effects during the Demolish channel.'
+  - 'Using Shield Block when the boss is casting/channeling and not meleeing.'
+  - 'Delaying offensive cooldowns like Avatar or Ravager for too long, losing total casts over a fight.'
+
+patchChanges: |
+  12.0.1:
+  - Mountain Thane: Storm Surge replaces Unstoppable Force.
+  - Colossus: Decimator now causes Demolish to apply Deep Wounds to all targets.
+  - Taunt: Duration increased to 6 seconds (was 3) and threat generation increased.
+  - Indomitable: Now heals 1% of health for every 15 Rage spent.
+  - Piercing Howl: Now grants 30% movement speed to allies in addition to slowing enemies.
+  - Javelineer: New talent providing a ranged interrupt.
+  - Champion's Spear: Now allows the Warrior to leap to the spear's location.
+  - Last Stand: Converted to a passive triggered by Shield Wall.

@@ -1,0 +1,159 @@
+specId: 71
+className: Warrior
+specName: Arms
+role: DPS
+heroTalent: Slayer
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Rage
+  secondaryResource: None
+  resourceNotes: 'Rage is generated primarily through auto-attack swings. Slayer makes Bladestorm a pseudo-generator
+    because auto-attacks continue to hit during the channel. The goal is to spend enough Rage to avoid overcapping
+    while ensuring enough remains for Mortal Strike on cooldown. Skyfury grants extra auto-attack swings which
+    also generate Rage, so having a Shaman in the group is highly preferred.'
+maintenanceBuffs:
+- spellId: 0
+  spellName: Rend
+  targetUptimePct: 95
+  importance: high
+  coachingTip: Apply Rend and refresh it when there are four seconds or less remaining on the duration.
+- spellId: 0
+  spellName: Battle Shout
+  targetUptimePct: 100
+  importance: high
+  coachingTip: Ensure Battle Shout is active on the party/raid at all times for the 5% Attack Power bonus.
+- spellId: 0
+  spellName: Deep Wounds
+  targetUptimePct: 95
+  importance: high
+  coachingTip: Maintain Deep Wounds via Mortal Strike and Cleave. Mastery increases damage while using a two-handed weapon.
+rotation:
+  singleTarget: |-
+    Priority (after opener):
+    1. Apply or refresh Rend if under 4 seconds remaining.
+    2. Cast Avatar just before or with Colossus Smash.
+    3. Cast Colossus Smash on cooldown.
+    4. Cast Heroic Strike if Master of Warfare proc is active.
+    5. Cast Bladestorm during the Colossus Smash window.
+    6. Cast Storm Bolt during Bladestorm.
+    7. Cast Overpower if two charges are available.
+    8. Cast Mortal Strike on cooldown.
+    9. Cast Execute when Sudden Death procs.
+    10. Cast Heroic Strike as filler.
+    11. Cast Execute to consume remaining Sudden Death procs.
+    12. Cast Overpower.
+    13. Cast Wrecking Throw.
+    14. Cast Slam to fill the rotation.
+  executePhase: |-
+    Priority (target below 35% with Massacre):
+    1. Cast Avatar just before or with Colossus Smash.
+    2. Cast Colossus Smash on cooldown.
+    3. Cast Execute with Sudden Death proc.
+    4. Cast Heroic Strike if Master of Warfare proc is active.
+    5. Cast Bladestorm during the Colossus Smash window.
+    6. Cast Storm Bolt during Bladestorm.
+    7. Cast Overpower if two charges available or less than 40 Rage.
+    8. Cast Mortal Strike with two stacks of Executioner's Precision.
+    9. Cast Overpower with less than 90 Rage.
+    10. Cast Execute with more than 40 Rage or Sudden Death proc.
+    11. Cast Overpower.
+    12. Cast Execute.
+    13. Cast Slam/Heroic Strike only if no other options are available.
+  aoe: |-
+    Priority (3+ targets):
+    1. Apply or refresh Rend if under 4 seconds remaining.
+    2. Cast Sweeping Strikes if Broad Strokes is not talented or Colossus Smash is on cooldown.
+    3. Cast Avatar.
+    4. Cast Colossus Smash.
+    5. Cast Cleave as your primary multi-target spender.
+    6. Cast Execute when Sudden Death procs.
+    7. Cast Bladestorm.
+    8. Cast Overpower if Opportunist is active or two charges are available.
+    9. Cast Mortal Strike if you have two stacks of Executioner's Precision.
+    10. Cast Mortal Strike.
+    11. Cast Overpower.
+    12. Cast Slam to fill.
+  opener: |-
+    Standard Opener:
+    1. Charge to initiate combat and generate initial Rage.
+    2. Apply Rend.
+    3. Use Avatar and Colossus Smash.
+    4. Cast Heroic Strike if Master of Warfare proc is active.
+    5. Cast Bladestorm during Colossus Smash window.
+    6. Cast Storm Bolt during Bladestorm.
+    7. Proceed with standard Slayer priority.
+cooldowns:
+- name: Colossus Smash
+  cooldown: 45s (reduced by Anger Management and Master of Warfare)
+  description: Primary burst window. Use on cooldown. Can be delayed slightly for add spawns. Cooldown is reduced
+    by Anger Management and Master of Warfare (Heroic Strike casts).
+- name: Avatar
+  cooldown: 1.5min (reduced by Anger Management)
+  description: Minor offensive cooldown. Align with Colossus Smash. Its cooldown is also reduced by Anger Management.
+    Has lost its follow-on talents and is now a fairly minor buff.
+- name: Bladestorm
+  cooldown: 1.5min
+  description: Signature Slayer ability. Use during Colossus Smash windows. Auto-attacks continue during the channel,
+    making it a pseudo-generator. Unhinged causes automatic Mortal Strikes which can trigger Tactician and Reap the
+    Storm. Slayer allows using Pummel and Storm Bolt during the channel.
+- name: Sweeping Strikes
+  cooldown: 30s (charge system)
+  description: Now operates on a charge system. Use for 2+ targets to cleave single-target abilities.
+- name: Die by the Sword
+  cooldown: 2min
+  description: Major defensive. Increases parry chance by 100% and reduces damage taken. Can be used to briefly
+    tank physical hits.
+- name: Rallying Cry
+  cooldown: 3min
+  description: Group defensive. Increases health of all party/raid members. Effect is increased by 50% in small
+    groups (Mythic+).
+concepts:
+- 'Slayer Focus: This hero tree emphasizes Execute and Bladestorm. It increases Sudden Death procs and makes the
+  Execute phase significantly stronger. Execute usage reduces the cooldown of Bladestorm.'
+- 'Reap the Storm: A key Slayer mechanic that has a chance to proc per ability cast and is triggered by consuming
+  Sudden Death procs. Provides significant burst damage.'
+- 'Master of Warfare (Apex Talent): A proc that replaces Slam with Heroic Strike. Heroic Strike has higher priority
+  than Slam, grants armor penetration stacks (individual durations, treat passively), and reduces the cooldown
+  of Colossus Smash. Can desync Colossus Smash from Avatar.'
+- 'Bladestorm Utility: As a Slayer, you can use Pummel (interrupt) and Storm Bolt (stun) while channeling Bladestorm.
+  Storm Bolt during Bladestorm is part of the rotation priority. The Unhinged talent causes automatic Mortal
+  Strikes during the channel.'
+- 'Rage Management: Most Rage comes from auto-attacks. Uptime is critical. Avoid overcapping Rage, but prioritize
+  having enough for Mortal Strike. Slam is less important than missing a Mortal Strike.'
+- 'Tactician: Now has a consistent proc chance from all rotational abilities, including Sudden Death, leading to
+  more reliable Overpower resets.'
+- 'Sweeping Strikes: Use the new charge system to ensure you do not waste cleave potential on abilities that cannot
+  be cleaved.'
+- 'Cycle Charging: Move out of range and use Charge back in for extra Rage generation during downtime. Do this
+  between auto-attack swings when Colossus Smash is not active.'
+- 'Imminent Demise: Despite three stacks causing the Bladestorm button to glow, this is NOT an indicator of when
+  to use Bladestorm. Use Bladestorm on cooldown or timed with add spawns.'
+- 'Pre-emptive Defense: Warrior survivability is proactive. Use Defensive Stance and Die by the Sword
+  BEFORE damage hits, not reactively. Spell Reflection is extremely powerful when used proactively.'
+- 'Mastery: Changed in Midnight to a flat damage increase while wielding a two-handed weapon. No longer
+  interacts with Deep Wounds.'
+removedMechanics:
+- Skullsplitter (removed in 12.0)
+- Bitter Immunity (removed in 12.0)
+- Thunderous Roar (removed in 12.0)
+- Warbreaker (now baked into Colossus Smash)
+- Juggernaut (removed in 12.0)
+commonMistakes:
+- Using Bladestorm when Colossus Smash is not active on the target, losing significant burst damage.
+- Overcapping Overpower charges instead of using them to fill globals.
+- Rage starvation caused by over-using Slam/Heroic Strike filler, leaving no Rage for Mortal Strike.
+- Failing to maintain 100% uptime on the target, which stops auto-attack Rage generation.
+- Ignoring Rend uptime, especially in multi-target scenarios where it provides sustained pressure.
+- Holding offensive cooldowns for too long instead of letting Anger Management reduce their timers through active play.
+- Forgetting to use Storm Bolt during Bladestorm for extra damage.
+- Using Heroic Strike at the same priority as Slam instead of treating it as higher priority when Master of Warfare is active.
+- Treating Imminent Demise glow as a signal to use Bladestorm instead of using it during Colossus Smash windows.
+patchChanges:
+  '12.0': 'Skullsplitter, Bitter Immunity, Thunderous Roar, Juggernaut removed. Warbreaker baked into Colossus
+    Smash. Mastery reworked to flat damage increase with 2H weapons (no longer interacts with Deep Wounds). Rage
+    generation significantly reduced.'
+  12.0.1: 'Reviewed for Midnight Season 1. Reap the Storm updated proc chance per ability cast, now triggers from
+    Sudden Death. Sweeping Strikes now operates on a charge system. Tactician standardized proc chance across all
+    rotational abilities. Rallying Cry effectiveness increased by 50% in 5-man content. Javelineer makes Wrecking
+    Throw act as a ranged silence.'

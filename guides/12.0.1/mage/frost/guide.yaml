@@ -1,0 +1,160 @@
+specId: 64
+className: Mage
+specName: Frost
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Freezing Stacks
+  resourceNotes: 'Frost Mage operates on a strict priority list rather than a traditional resource system. The core loop involves generating Shatter (Freezing) stacks on the target using Frostbolt and Flurry, then consuming them with Ice Lance. You must manage two primary procs: Fingers of Frost (allows Ice Lance to deal maximum damage without consuming stacks) and Brain Freeze (enables Flurry). You will routinely over-cap the stack cap of 20 Freezing stacks, which is often unavoidable.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Freezing Rain
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'When Freezing Rain is active, Blizzard becomes an instant cast. Prioritize casting Blizzard during this window in AoE situations.'
+  - spellId: 0
+    spellName: Thermal Void
+    targetUptimePct: 90
+    importance: high
+    coachingTip: 'Try to optimize around Thermal Void passively. Avoid casting Flurry with Brain Freeze if Thermal Void is already active to maximize its extension/value.'
+
+playstyles:
+  - id: frostfire
+    name: Frostfire
+    detectionCriteria:
+      heroTalents:
+        - "Frostfire"
+  - id: spellslinger
+    name: Spellslinger
+    detectionCriteria:
+      heroTalents:
+        - "Spellslinger"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Icy Veins (Removed in 12.0)
+  - Winter's Chill (Removed in 12.0)
+  - Mastery: Icicles (Reworked in 12.0; Icicles exist but are no longer the Mastery)
+  - Ice Floes (Removed in 12.0)
+  - Blast Wave (Removed in 12.0)
+  - Ice Caller (Removed in 12.0)
+  - Mass Barrier (Removed in 12.0)
+  - Shifting Power (Removed in 12.0)
+  - Coldest Snap (Removed in 12.0)
+  - Mirror Image Damage Reduction (Removed in 12.0)
+  - Greater Invisibility Damage Reduction (Removed in 12.0)
+  - Temporal Velocity (Removed in 12.0)
+
+rotation:
+  singleTarget: |
+    [Frostfire] Single-Target Priority:
+    1. Cast Flurry if Thermal Void is not already active and you have Brain Freeze.
+    2. Cast Frozen Orb.
+    3. Cast Glacial Spike when available.
+    4. Cast Comet Storm.
+    5. Cast Ice Lance at 10 or more stacks of Freezing, or if Fingers of Frost is active.
+    6. Cast Flurry if you have a charge available but no Brain Freeze.
+    7. Cast Ray of Frost.
+    8. Cast Frostfire Bolt.
+
+    [Spellslinger] Single-Target Priority:
+    1. Cast Flurry with Brain Freeze if Thermal Void is not already active.
+    2. Cast Ice Lance if you have two Fingers of Frost.
+    3. Cast Frozen Orb.
+    4. Cast Glacial Spike when available.
+    5. Cast Ice Lance whenever you are at or above 10 Freezing on target, or you have Fingers of Frost.
+    6. Cast Flurry.
+    7. Cast Ray of Frost.
+    8. Cast Frostbolt.
+
+    Note: Frost continues to use the single-target rotation on 2 targets; the AoE rotation only takes over at 3 or more targets.
+  aoe: |
+    [Frostfire] AoE Priority (3+ Targets):
+    1. Cast Blizzard if Freezing Rain is active.
+    2. Cast Flurry with Brain Freeze if Thermal Void is not already active.
+    3. Cast Frozen Orb.
+    4. Cast Glacial Spike.
+    5. Cast Comet Storm.
+    6. Cast Blizzard.
+    7. Cast Ice Lance if Fingers of Frost is active or you have 10 or more Freezing on the target.
+    8. Cast Flurry if you have a charge available but no Brain Freeze.
+    9. Cast Frostfire Bolt if you have Frostfire Empowerment active.
+    10. Cast Ray of Frost.
+    11. Cast Frostfire Bolt.
+
+    [Spellslinger] AoE Priority (3+ Targets):
+    1. Cast Blizzard if Freezing Rain is active.
+    2. Cast Flurry with Brain Freeze if Thermal Void is not already active.
+    3. Cast Ice Lance if you have two Fingers of Frost.
+    4. Cast Frozen Orb.
+    5. Cast Glacial Spike when available.
+    6. Cast Ice Lance whenever you are above 10 Freezing on target, or you have Fingers of Frost.
+    7. Cast Flurry.
+    8. Cast Ray of Frost.
+    9. Cast Blizzard if you are fighting 7 or more enemies.
+    10. Cast Frostbolt.
+  opener: |
+    [Frostfire] Opener:
+    1. Pre-cast Blizzard at 2 seconds on the countdown.
+    2. Cast Flurry to start the cooldown.
+    3. Activate Time Warp if popping on pull.
+    4. Cast Glacial Spike.
+    5. Cast Flurry again.
+    6. Cast Ray of Frost.
+    7. Cast Frozen Orb.
+    8. Follow normal priority.
+
+    [Spellslinger] Opener:
+    1. Pre-cast Glacial Spike at 1 second on the countdown (ensure it finishes after combat starts).
+    2. Cast Flurry to start the cooldown.
+    3. Cast Frozen Orb.
+    4. Cast Ray of Frost.
+    5. Follow normal priority.
+
+cooldowns: |
+  - Ray of Frost (1min): Main offensive cooldown. Channels for 4s, dealing heavy damage and stacking Freezing. Fragile; movement or interrupts waste the CD.
+  - Frozen Orb (1min): Secondary cooldown. Deals AoE damage for 15s and generates Fingers of Frost procs.
+  - Time Warp (5min): Major Haste buff for the party. Use on pull or as directed.
+  - Ice Block / Ice Cold: Major defensive. Ice Cold provides damage reduction instead of immunity if talented.
+  - Mirror Image (2min): Offensive cooldown. Creates 3 copies that cast spells and attack enemies for 15 sec. Also reduces threat. NOT a defensive — does not reduce damage taken.
+  - Greater Invisibility (2min): Utility. Invisibility and threat drop for 20 sec. NOT a defensive — does not reduce damage taken. Use for threat management or skipping mechanics.
+  - Alter Time (1min): Position and health reset. If talented into Temporal Realignment, it provides a passive 50% heal when dropping below 24% health.
+
+concepts: |
+  - Shatter Rework: Shatter is no longer a Crit bonus but a stacking debuff on the enemy consumed by Ice Lance.
+  - Freezing Stacks: Most spells generate these stacks. Spend them with Ice Lance based on your Hero Talent threshold (10+ for Spellslinger, 6+ for Frostfire).
+  - Mastery (Freeze and Shatter): Increases damage against frozen targets and targets affected by Shatter stacks.
+  - Ray of Frost Fragility: Since Ray of Frost is the main cooldown and goes on CD at the start of the cast, any movement or knockback results in a total loss of the cooldown.
+  - Spell Transformations: Glacial Spike and Comet Storm are no longer standalone buttons; they transform Frostbolt and Ray of Frost respectively when available.
+  - AoE Mechanics: The Frozen Orb cooldown reduction from Blizzard has been removed. Blizzard must often be hard-casted unless Freezing Rain is active.
+  - Frostfire vs Spellslinger: Frostfire is burstier with front-loaded damage and exploding Glacial Spikes. Spellslinger relies on rapid Splinter hits and more frequent Frozen Orbs.
+  - Lonely Winter vs Water Elemental: Lonely Winter was redesigned in 12.0.1 — it now provides a flat 3% spell damage increase (no longer the old 25% buff to Frostbolt/Ice Lance/Flurry). The choice vs Water Elemental is roughly a ~1% tradeoff — Lonely Winter gains about 1% single-target DPS in exchange for ~1% loss in AoE. This is a minor optimization, not a mandatory pick.
+  - Hand of Frost (Apex Talent): Adds a second charge to Ray of Frost and causes Shatter events to fire extra spells that hit hard and add Freezing stacks.
+
+commonMistakes:
+  - 'Moving or being interrupted during Ray of Frost, wasting the spec’s primary cooldown'
+  - 'Casting Ice Lance at the wrong Freezing stack threshold (should be 10+ for Spellslinger, 6+ for Frostfire)'
+  - 'Hard-casting Blizzard in AoE when Freezing Rain is not active (unless fighting 7+ targets as Spellslinger)'
+  - 'Using Ray of Frost before consuming existing Freezing stacks, leading to massive over-capping'
+  - 'Holding Shimmer charges instead of using them to protect Ray of Frost channels'
+  - 'Over-capping Fingers of Frost procs by not prioritizing Ice Lance when at 2 charges'
+
+patchChanges: |
+  12.0.1:
+  - Wording tweaks to rotation priorities.
+  - Lonely Winter redesigned: now grants flat 3% spell damage (was 25% bonus to Frostbolt/Ice Lance/Flurry).
+  - Clarification that single-target rotation is used for 2-target cleave.
+  12.0:
+  - Complete spec revamp.
+  - Shatter changed from Crit bonus to stacking debuff.
+  - Icy Veins removed; Ray of Frost is now the main cooldown.
+  - Glacial Spike and Comet Storm removed as standalone spells (now transform other spells).
+  - Blizzard no longer reduces Frozen Orb cooldown.
+  - Ice Floes and Blast Wave removed.
+  - New Mastery: Freeze and Shatter.
+  - New Apex Talent: Hand of Frost.

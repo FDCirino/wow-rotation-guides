@@ -1,0 +1,136 @@
+specId: 269
+className: Monk
+specName: Windwalker
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Energy
+  secondaryResource: Chi
+  resourceNotes: 'Generate Chi by spending Energy on Tiger Palm. Spend Chi on high-value abilities like Rising Sun Kick and Fists of Fury. Avoid "capping" (reaching maximum) Energy or Chi, as this represents lost damage potential. During Zenith, Chi costs are reduced by 1 and Blackout Kick provides additional cooldown reduction. If talented into Obsidian Spiral, Blackout Kick generates Chi instead of consuming it.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: 'Mastery: Combo Strikes'
+    targetUptimePct: 95
+    importance: critical
+    coachingTip: 'Never cast the same ability twice in a row. This is the core of Windwalker damage.'
+  - spellId: 0
+    spellName: Heart of the Jade Serpent
+    targetUptimePct: 0
+    importance: high
+    coachingTip: 'Stagger uses of Celestial Conduit, Strike of the Windlord, and Whirling Dragon Punch to maximize uptime of this buff without overlapping them.'
+
+playstyles:
+  - id: shado_pan
+    name: Shado-Pan
+    detectionCriteria:
+      heroTalents:
+        - "Shado-Pan"
+  - id: conduit_of_the_celestials
+    name: Conduit of the Celestials
+    detectionCriteria:
+      heroTalents:
+        - "Conduit of the Celestials"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Storm, Earth, and Fire (Removed in 12.0; replaced by Zenith)
+  - Invoker's Delight (Removed in 12.0)
+  - Invoke Xuen, the White Tiger (Moved to Conduit of the Celestials hero talent tree in 12.0; no longer baseline for all Windwalkers)
+  - Fatal Touch (Reworked in 12.0: no longer provides a damage increase after use)
+  - Diffuse Magic (Reworked in 12.0: now a function of Fortifying Brew rather than a standalone ability)
+  - Ordered Elements (Removed in 12.0; Zenith functions similarly)
+  - The Emperor's Capacitor (Removed in 12.0)
+  - Power of the Thunder King (Removed in 12.0)
+  - Summon White Tiger Statue (Removed in 12.0)
+  - Jadefire Stomp (Removed in 12.0)
+  - Fury of Xuen (Removed in 12.0)
+
+rotation:
+  singleTarget: |
+    [Shared Priority / Conduit of the Celestials]
+    1. Cast Fists of Fury if Heart of the Jade Serpent has less than 1 second remaining.
+    2. Cast Touch of Death.
+    3. Cast Celestial Conduit.
+    4. Cast Invoke Xuen, the White Tiger.
+    5. Cast Tiger Palm if: you have less than 4 Chi, AND less than 2 stacks of Blackout Kick!, AND you are about to cap energy, AND Zenith is NOT active.
+    6. Cast Fists of Fury.
+    7. Cast Rising Sun Kick.
+    8. Cast Tiger Palm if any of the above are available and you do not have enough Chi.
+    9. Cast Blackout Kick if Blackout Kick! proc is active OR Zenith is active.
+    10. Cast Spinning Crane Kick if Zenith is active AND you have more than 3 Chi.
+    11. Cast Blackout Kick.
+    12. Cast Tiger Palm.
+
+    [Shado-Pan Differences]
+    - Shado-Pan focuses on consistent pressure and does not track Energy spent for Flurry Strikes anymore. Follow the general priority above, prioritizing Fists of Fury and Rising Sun Kick.
+  aoe: |
+    1. Windwalker AoE in 12.0 is primarily focused on Fists of Fury and Slicing Winds.
+    2. Spinning Crane Kick is very weak and should rarely be used even in AoE, unless Zenith is active and you have >3 Chi.
+    3. The Single Target priority list generally applies to 2-target situations.
+    4. Use Leg Sweep or Ring of Peace to control adds (e.g., during Ascendant affix).
+    5. Use Touch of Death on low-health spawns (e.g., Voidbound) to kill them quickly and gain a damage buff.
+  opener: |
+    [Shado-Pan Opener]
+    1. Cast Tiger Palm
+    2. Channel Algeth'ar Puzzle Box if equipped
+    3. Cast Invoke Xuen, the White Tiger
+    4. Cast Zenith with potions, racials, and trinkets
+    5. Cast Fists of Fury
+    6. Cast Rising Sun Kick
+    7. Cast Fists of Fury if Rising Sun Kick reset its cooldown
+
+    [Conduit of the Celestials Opener]
+    1. Cast Tiger Palm
+    2. Channel Algeth'ar Puzzle Box if equipped
+    3. Cast Invoke Xuen, the White Tiger
+    4. Cast Zenith with potions, racials, and trinkets (stat buffs go before Zenith to buff Zenith Stomp)
+    5. Cast Fists of Fury
+    6. Cast Rising Sun Kick
+    7. Cast Fists of Fury if Rising Sun Kick reset its cooldown
+    8. Continue with normal priority. Do not cast Celestial Conduit too early to avoid overlapping Heart of the Jade Serpent from Strike of the Windlord or Whirling Dragon Punch.
+
+cooldowns: |
+  - Zenith (60-90s): Resets Rising Sun Kick, provides 2 Chi, reduces Chi costs by 1, and increases Blackout Kick CDR. Use frequently; has 2 stacks.
+  - Celestial Conduit (Variable): Powerful channel that grants Heart of the Jade Serpent. Stagger with other Heart of the Jade Serpent sources.
+  - Invoke Xuen, the White Tiger (Variable): Summon pet. In Conduit builds, this is a prerequisite for Celestial Conduit.
+  - Touch of Death (Variable): Execute ability. Deals 35% of max health, or 100% if target health is lower than your max health.
+  - Touch of Karma (1.5m): Defensive shield that redirects absorbed damage to the target. Can be used offensively.
+  - Fortifying Brew (Variable): Increases max health. Use BEFORE Touch of Death or Touch of Karma to increase their damage/absorb values.
+  - Tigereye Brew (Apex Talent): Stacks up to 20. Spent by Zenith to increase Critical Strike chance.
+
+concepts: |
+  - Mastery: Combo Strikes is the defining mechanic; never use the same ability twice in a row to maintain the damage bonus.
+  - Energy is converted to Chi via Tiger Palm. Chi is spent on heavy hitters (RSK, FoF).
+  - Zenith is the primary offensive cooldown, replacing Storm, Earth, and Fire. It provides high flexibility with 2 stacks and variable cooldown reduction.
+  - Heart of the Jade Serpent is a massive throughput buff. It can be triggered by Strike of the Windlord, Whirling Dragon Punch, or Celestial Conduit. These three sources do NOT stack, so they must be staggered.
+  - Zenith triggers its own version of Heart of the Jade Serpent which DOES stack with the other sources.
+  - Tigereye Brew (Apex) stacks should be managed by spreading out Zenith uses; using Zenith charges back-to-back wastes potential Crit stacks.
+  - Blackout Kick! procs allow for free Blackout Kicks and help reduce the cooldown of RSK and FoF.
+  - Windwalker naturally has downtime; use this time to plan future GCDs rather than forcing low-value casts.
+  - Mobility is a core strength (Roll, Flying Serpent Kick, Transcendence) and should be used to maintain uptime or avoid mechanics.
+
+commonMistakes:
+  - 'Repeating the same ability twice and losing the Mastery: Combo Strikes bonus.'
+  - 'Overcapping Energy or Chi, especially during Zenith windows.'
+  - 'Casting Celestial Conduit while the Heart of the Jade Serpent buff from Strike of the Windlord or Whirling Dragon Punch is still active.'
+  - 'Using Fortifying Brew after casting Touch of Death or Touch of Karma (they snapshot health on cast).'
+  - 'Using both charges of Zenith back-to-back, which wastes Tigereye Brew crit stacks on the second charge.'
+  - 'Casting Tiger Palm too frequently during Zenith, leading to massive Chi overcapping.'
+  - 'Holding Touch of Death too long trying to find the perfect 100% health window and losing a full cast.'
+
+patchChanges: |
+  12.0.1:
+  - Updated priority and openers to reflect live tuning.
+  - Finalized transition of Storm, Earth, and Fire into Zenith.
+  12.0:
+  - Midnight Expansion Release.
+  - Major pruning: Invoker's Delight, Emperor's Capacitor, Power of the Thunder King, Summon White Tiger Statue, Jadefire Stomp, and Fury of Xuen removed.
+  - Storm, Earth, and Fire replaced by Zenith.
+  - Invoke Xuen moved to Conduit of the Celestials hero talent tree (no longer baseline).
+  - New Apex Talent: Tigereye Brew.
+  - Diffuse Magic merged into Fortifying Brew.
+  - Slicing Winds added as a new Chi-spending mobility/damage ability.

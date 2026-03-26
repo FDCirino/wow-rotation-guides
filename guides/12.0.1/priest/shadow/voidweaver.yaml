@@ -1,0 +1,165 @@
+specId: 258
+className: Priest
+specName: Shadow
+role: DPS
+heroTalent: Voidweaver
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Insanity
+  secondaryResource: None
+  resourceNotes: 'Generate Insanity via Mind Blast, Void Torrent, Mind Flay, and DoT ticks. Spend on Shadow
+    Word: Madness (renamed from Devouring Plague). Insanity cap is 100 (150 with Voidtouched). Refresh
+    SW:Madness at <1s remaining or when deficit <35. Rollover mechanic means no penalty for early refresh.
+    Voidweaver revolves around Void Torrent triggering Entropic Rift for Void Blast.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Vampiric Touch
+  targetUptimePct: 98
+  importance: critical
+  coachingTip: 'Keep active on all targets at all times. Use Tentacle Slam for multi-target application.
+    Enables Psychic Link cleave and generates Shadowy Apparitions.'
+- spellId: 0
+  spellName: 'Shadow Word: Pain'
+  targetUptimePct: 98
+  importance: critical
+  coachingTip: 'Keep active on all targets. With Misery, VT applies both. Required for Mastery: Shadow
+    Weaving stacking.'
+- spellId: 0
+  spellName: 'Shadow Word: Madness'
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: 'Maintain for Mastery: Shadow Weaving. Refresh at <1s or when about to cap Insanity.
+    Rollover mechanic carries remaining damage into new application.'
+- spellId: 0
+  spellName: Shadowform
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Always active before combat. Voidform replaces it during burst windows.'
+
+removedMechanics:
+- Dark Ascension (removed in 12.0)
+- Void Bolt (removed in 12.0)
+- Shadow Crash (reworked into Tentacle Slam)
+- Void Shift (removed in 12.0)
+- Psychic Horror (removed in 12.0)
+- 'Devouring Plague (renamed to Shadow Word: Madness)'
+
+rotation:
+  singleTarget: |-
+    Priority (start from top):
+    1. Keep Vampiric Touch and Shadow Word: Pain active at all times. Use Tentacle Slam for refresh.
+    2. Cast Halo on cooldown.
+    3. Cast Voidform on cooldown.
+    4. Cast Power Infusion (sync with Voidform, on ally if Twins of the Sun Priestess).
+    5. Cast Shadow Word: Death if target has absorb shield (Devour Matter).
+    6. Spend Insanity on Shadow Word: Madness if not active, about to expire, or about to cap Insanity.
+    7. Cast Void Volley (available during Voidform).
+    8. Cast Void Blast while Entropic Rift is active (if SW:Madness active or Rift about to expire).
+    9. Cast Tentacle Slam if about to cap charges or SW:Madness not active.
+    10. Cast Void Torrent to open Entropic Rift.
+    11. Cast Mind Blast to prevent capping at 2 charges.
+    12. Cast Mind Flay: Insanity if Shadow Word: Madness is active.
+    13. Cast Shadow Word: Death if pet is active or target below 20%/35% HP.
+    14. Cast Mind Flay as filler (interrupt for higher priority).
+  aoe: |-
+    AoE is similar to ST — most AoE comes from Psychic Link cleave on VT targets.
+    1. Maintain VT and SW:P on up to 12 targets. Use Tentacle Slam (covers 6 stacked targets).
+    2. Cast Halo on cooldown.
+    3. Cast Voidform on cooldown.
+    4. Cast Power Infusion.
+    5. Cast SW:Death if target has absorb shield (Devour Matter).
+    6. Funnel Shadow Word: Madness into highest-health priority target.
+    7. Cast Void Volley.
+    8. Cast Void Blast while Entropic Rift active.
+    9. Cast Tentacle Slam if about to cap charges or SW:Madness not active.
+    10. Cast Void Torrent to open Entropic Rift.
+    11. Cast Mind Blast.
+    12. Cast Mind Flay: Insanity if SW:Madness active.
+    13. Cast Mind Flay filler.
+    Do not manually DoT targets that will die in <18 seconds.
+  opener: |-
+    1. Ensure Shadowform and Power Word: Fortitude are active.
+    2. Pre-cast Vampiric Touch (or Tentacle Slam if available).
+    3. Cast Shadow Word: Pain.
+    4. Cast Halo.
+    5. Cast Voidform.
+    6. Use on-use Trinkets.
+    7. Use Tempered Potion.
+    8. Cast Power Infusion (on ally if Twins of the Sun Priestess).
+    9. Cast Shadow Word: Madness.
+    10. Cast Void Volley.
+    11. Cast Void Torrent (opens Entropic Rift).
+    12. Continue with priority list.
+
+cooldowns:
+- name: Voidform
+  cooldown: 2min
+  description: 'Primary burst cooldown. Replaces Shadowform. Grants Void Volley. Treats Mastery as fully
+    stacked. Ancient Madness extends duration via SW:Madness casts.'
+- name: Power Infusion
+  cooldown: 2min
+  description: 'Major haste buff. Sync with Voidform. Use on ally if Twins of the Sun Priestess.'
+- name: Void Torrent
+  cooldown: Short (Voidweaver core)
+  description: 'Voidweaver core ability. Channels damage and creates Entropic Rift. Can cast while moving
+    with Dark Energy. Do not interrupt early unless forced.'
+- name: Void Volley
+  cooldown: Available during Voidform
+  description: 'High-priority ability only usable during Voidform. Cast immediately when available.'
+- name: Halo
+  cooldown: See source
+  description: 'AoE spell. High priority in both ST and AoE rotations.'
+- name: Tentacle Slam
+  cooldown: Charge-based
+  description: 'Reworked Shadow Crash. AoE damage, applies VT and SW:P to 6 stacked targets. Do not
+    cap charges.'
+- name: Mind Blast
+  cooldown: Short (charge-based)
+  description: 'Core Insanity generator. Do not cap at 2 charges.'
+- name: Dispersion
+  cooldown: 2min
+  description: 'Major defensive. 75% DR and increased movement speed.'
+- name: Vampiric Embrace
+  cooldown: 2min
+  description: 'Group healing based on your ST damage.'
+
+concepts:
+- 'DoT Priority: Maintaining VT + SW:P on all targets is the #1 priority. Psychic Link makes ST spells
+  cleave to all VT targets.'
+- 'Entropic Rift: Core Voidweaver mechanic. Triggered by Void Torrent. Creates a rift dealing AoE damage
+  and transforming Mind Blast into Void Blast.'
+- 'Void Blast: While Entropic Rift is active, Mind Blast becomes Void Blast (higher damage). Prioritize
+  during Rift window, especially when SW:Madness is active or Rift about to expire.'
+- 'Voidheart: Voidweaver talent buffing Shadow damage types while Entropic Rift is active. Use on-use
+  trinkets during Rift for bonus damage.'
+- 'Shadow Word: Madness Rollover: Remaining damage carries over on refresh. No penalty for early refresh.'
+- 'Void Volley: Only available during Voidform. High priority — cast immediately.'
+- 'Mind Flay: Insanity: Empowered 1-GCD version. Cast when SW:Madness is active.'
+- 'Power of the Dark Side: SW:Pain ticks proc this buff for next Penance. Dark Indulgence also triggers
+  it from Mind Blast.'
+- 'Mastery: Shadow Weaving: Damage scales with number of DoTs on target. All 3 DoTs = max value.'
+- 'Fade Pulling: Use Fade for threat drop while applying DoTs as tank gathers mobs in M+.'
+- 'Pandemic Window: VT and SW:P can be refreshed at 30% remaining duration without losing damage.'
+- 'Execute: Shadow Word: Death becomes high priority when targets are below 20% health (or 35% with certain
+  talents) or when Shadowfiend/Mindbender pets are active.'
+- 'Void Torrent: The trigger for Entropic Rift. Cast on cooldown to spawn Rifts. This is the core of the
+  Voidweaver damage loop.'
+
+commonMistakes:
+- Letting VT or SW:P drop on targets, losing Psychic Link cleave and Mastery stacks.
+- Capping Insanity (100/150) instead of spending on Shadow Word: Madness.
+- Missing Void Volley casts during Voidform.
+- Casting Void Torrent without SW:Madness active (losing Mastery bonus).
+- Letting Entropic Rift expire while Void Blast charges are available.
+- Interrupting Void Torrent channel early without Dark Energy.
+- Not using Tentacle Slam for DoT application in AoE.
+- Over-dotting in AoE (not worth manually applying to more than 12 targets).
+
+patchChanges:
+  12.0.1: 'Voidweaver: Touch of the Void allows Voidheart to persist briefly after Rift ends. Void
+    Empowerment grants Shadowy Insight charge. SW:Madness rollover mechanics clarified.'
+  '12.0': 'Dark Ascension removed. Voidform is primary cooldown. Shadow Crash reworked into Tentacle Slam.
+    Devouring Plague renamed to Shadow Word: Madness. Void Bolt removed.'

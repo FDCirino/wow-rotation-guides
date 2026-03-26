@@ -1,0 +1,152 @@
+specId: 581
+className: Demon Hunter
+specName: Vengeance
+role: Tank
+heroTalent: Aldrachi Reaver
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Fury
+  secondaryResource: Soul Fragments
+  resourceNotes: Generate Soul Fragments with Fracture, Sigil of Flame (via Fallout), and Sigil of Spite. Spend Soul Fragments
+    on Spirit Bomb (ideally at 6 souls) and Soul Cleave. Consuming 20 Soul Fragments activates Art of the Glaive, transforming
+    Throw Glaive into Reaver’s Glaive.
+maintenanceBuffs:
+- spellId: 0
+  spellName: Demon Spikes
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Maintain near 100% uptime using Feed the Demon. Use to reduce Physical damage and increase Parry.'
+- spellId: 0
+  spellName: Frailty
+  targetUptimePct: 95
+  importance: high
+  coachingTip: 'Apply via Sigil of Flame and Soul Cleave (with Void Reaver). This provides essential damage reduction and
+    self-healing.'
+- spellId: 0
+  spellName: 'Reaver''s Mark'
+  targetUptimePct: 0
+  importance: high
+  coachingTip: Applied by finishing a Reaver’s Glaive combo with Fracture. Increases damage taken by the target from your
+    melee attacks.
+- spellId: 0
+  spellName: Thrill of the Fight
+  targetUptimePct: 0
+  importance: medium
+  coachingTip: ‘Grants 6% Haste for 30 seconds after using Reaver’’s Glaive. Ensure this does not drop during active combat.’
+tankingGuide:
+  survivalPriority: |-
+    These abilities take absolute priority over the damage rotation below.
+    1. Maintain Demon Spikes for physical damage reduction and Parry. Feed the Demon allows
+       near-permanent uptime by reducing CD when consuming Soul Fragments. Use frequently.
+    2. Maintain Frailty on targets via Sigil of Flame and Soul Cleave. Void Reaver makes Frailty
+       reduce damage taken. Also heals you for a portion of damage dealt to affected targets.
+    3. Consume Soul Fragments for healing. Each fragment heals 6% of damage taken in last 5s (min 1% max HP).
+       Soul Cleave and Spirit Bomb consume fragments — do not overcap above 6.
+    4. Use Fiery Brand for 40% DR against dangerous targets. Also buffs Fire damage via Fiery Demise.
+       Balance defensive and offensive use — 2 charges allows aggressive cycling.
+  defensiveCooldowns: |-
+    - Metamorphosis (2-3min): Major defensive and offensive. Increases HP by 40% and Armor by 200%.
+      Use proactively for dangerous pulls or burst windows.
+    - Fiery Brand (1min, 2 charges): 40% DR for 12 seconds. Use one charge defensively, one offensively.
+      Fiery Demise buffs all Fire damage during the debuff.
+    - Fel Devastation (40s): High Fire damage cone + medium healing. Costs 50 Fury. Use on cooldown
+      for both damage and self-healing.
+    - Last Resort (8min): Passive cheat death — triggers 15s Metamorphosis on lethal damage. Do not
+      rely on it; treat it as emergency backup.
+  soulFragmentManagement: |-
+    Soul Fragments are the core of Vengeance. They heal for 6% of damage taken in last 5s (min 1% max HP)
+    when consumed. Generate with Fracture, Sigil of Flame (Fallout), and Sigil of Spite. Spend on
+    Spirit Bomb (ideally at 5-6 fragments) or Soul Cleave. Do not overcap above 6.
+    For Aldrachi Reaver, consuming 20 fragments activates Art of the Glaive, transforming Throw Glaive
+    into Reaver's Glaive — track your fragment consumption count.
+
+removedMechanics:
+- Demonic (Fel Devastation no longer triggers Metamorphosis)
+- The Hunt (Removed for Vengeance)
+- Illuminated Sigils (Sigil of Flame power reduced)
+- 'Fel-Scarred Hero Tree (Replaced by Annihilator/Aldrachi Reaver)'
+rotation:
+  singleTarget: |
+    IMPORTANT: Art of the Glaive combo order (Bladecraft) — always Fracture FIRST, then Soul Cleave SECOND.
+    1. Cast Metamorphosis if available and needed for burst/survival.
+    2. Cast Reaver's Glaive when Art of the Glaive procs (unless already in a combo).
+    3. Cast Fracture buffed by Art of the Glaive as the FIRST ability in the combo.
+    4. Cast Soul Cleave buffed by Art of the Glaive as the SECOND ability in the combo.
+    5. Cast Sigil of Spite on cooldown to activate Art of the Glaive if Reaver's Glaive is not available.
+    6. Cast Fiery Brand if you have 2 charges or are about to cap.
+    7. Cast Fracture if you have 2 charges or are about to cap.
+    8. Cast Immolation Aura on cooldown.
+    9. Cast Soul Cleave if 5+ Soul Fragments and Spirit Bomb is on cooldown.
+    10. Cast Sigil of Flame (avoid overcapping Fury).
+    11. Cast Soul Cleave with at least 3 Soul Fragments.
+    12. Cast Fracture to generate souls and Fury.
+    13. Cast Throw Glaive as filler.
+    Thrill of the Fight should have 100% uptime — if it drops, your rotation has issues.
+  aoe: |
+    1. Cast Metamorphosis
+    2. Cast Reaver's Glaive (Art of the Glaive proc)
+    3. Cast Fiery Brand (if 2 charges available)
+    4. Cast Fracture (if 2 charges available)
+    5. Cast Immolation Aura on cooldown
+    6. Cast Spirit Bomb on cooldown with at least 5-6 Soul Fragments
+    7. Cast Fel Devastation
+    8. Cast Soul Cleave if you have 5+ Soul Fragments and Spirit Bomb is on cooldown
+    9. Cast Sigil of Flame
+    10. Cast Soul Cleave with 3+ Soul Fragments
+    11. Cast Fracture
+    12. Cast Soul Cleave with 2 or fewer Soul Fragments
+    13. Cast Throw Glaive as filler
+  opener: |
+    1. Pre-place Sigil of Flame 1 second before pull
+    2. Cast Fiery Brand
+    3. Cast Immolation Aura
+    4. Cast Sigil of Spite (to activate Reaver's Glaive)
+    5. Cast Reaver's Glaive
+    6. Continue with standard rotation
+cooldowns:
+- name: Metamorphosis
+  cooldown: '2-3min'
+  description: 'Major defensive and offensive cooldown. Increases Health by 40% and Armor by 200%. Use proactively for dangerous
+    pulls or to boost damage.'
+- name: Fiery Brand
+  cooldown: 1min
+  description: 'Reduces damage taken from the target by 40% for 12 seconds. Use for mitigation and to buff Fire damage via
+    Fiery Demise.'
+- name: Sigil of Spite
+  cooldown: 1.5min
+  description: 'Deals massive Chaos damage and spawns 3 Soul Fragments. For Aldrachi Reaver, this also activates Reaver''s
+    Glaive.'
+- name: Fel Devastation
+  cooldown: 40s
+  description: High fire damage cone and medium healing. Costs 50 Fury.
+- name: Soul Carver
+  cooldown: 1min
+  description: High fire damage and generates 3 souls initially plus 1 soul per second for 3 seconds.
+- name: Last Resort
+  cooldown: 8min
+  description: Cheat death mechanic that triggers Metamorphosis for 15 seconds upon taking lethal damage.
+concepts:
+- 'Soul Fragment Management: Souls are the core of the spec. They heal for 6% of damage taken in the last 5s (min 1% max HP)
+  and fuel spenders.'
+- 'Art of the Glaive: Consuming 20 souls triggers Reaver''s Glaive. This is the foundation of the Aldrachi Reaver playstyle.'
+- 'Reaver''s Glaive Combo: Using Reaver''s Glaive empowers your next Fracture or Soul Cleave. Finishing with Fracture applies
+  Reaver''s Mark (damage taken debuff); finishing with Soul Cleave triggers Fury of the Aldrachi (bonus slashes).'
+- 'Wounded Quarry: Provides a strong funnel profile. Fighting multiple enemies increases the damage dealt to a priority target.'
+- 'Sigil Utility: Use Sigil of Silence for casters, Sigil of Misery/Chains for crowd control and stops.'
+- 'Defensives as Offensives: Fiery Brand and Metamorphosis provide significant damage boosts. Juggling them for both survival
+  and DPS is key to mastery.'
+- 'Frailty: Applied by Sigils and Soul Cleave. Heals you for a portion of damage dealt to affected targets. Void Reaver makes it reduce damage taken.'
+- 'Mobility: Use Infernal Strike (off-GCD) for movement and extra damage. Keep 1 charge for mechanics.'
+commonMistakes:
+- Overcapping Soul Fragments (holding more than 6) instead of spending them
+- Wasting Reaver’s Glaive procs by not using them before the next Sigil of Spite
+- Letting Demon Spikes drop during periods of heavy physical damage
+- Not aligning Fiery Brand with Fire damage bursts for offensive value
+- 'Using Reaver’s Glaive on low-priority targets, wasting the Wounded Quarry funnel'
+- Standing out of melee range, which halts soul generation and healing
+patchChanges:
+  12.0.1: 'Sigil of Spite now activates Art of the Glaive instead of The Hunt. Thrill of the Fight now increases Reaver''s
+    Glaive damage by 30% and grants 6% Haste for 30s. New Talent: Bladecraft allows Reaver''s Mark to stack up to 3 times.
+    New Talent: Broken Spirit increases Soul Fragment generation from Sigil of Spite and Soul Cleave. Fiery Brand now applies
+    a flat 40% damage reduction buff to the player rather than relying on a debuff on the enemy.'

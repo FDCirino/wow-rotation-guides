@@ -1,0 +1,129 @@
+specId: 63
+className: Mage
+specName: Fire
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Hot Streak
+  resourceNotes: 'Fire revolves around chaining critical strikes. A single critical strike procs Heating Up; a second consecutive critical strike procs Hot Streak, making your next Pyroblast or Flamestrike instant and free. Use Fire Blast (castable during other spells) to guaranteed-crit and convert Heating Up into Hot Streak. Avoid overcapping Fire Blast charges, especially during Combustion when the Fired Up Apex talent provides significant cooldown reduction.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: 'Mastery: Ignite'
+    targetUptimePct: 95
+    importance: critical
+    coachingTip: 'Ignite is your primary cleave mechanic. In Midnight, Ignite no longer spreads automatically via Fire Blast; ensure you are talented into Ignition or Wildfire for effective cleave.'
+  - spellId: 0
+    spellName: Blazing Barrier
+    targetUptimePct: 80
+    importance: medium
+    coachingTip: 'Maintain Blazing Barrier as your primary defensive. It provides 30% max HP absorption and heals you for 15% of damage absorbed when talented.'
+  - spellId: 0
+    spellName: Arcane Intellect
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'Ensure Arcane Intellect is active on the entire group for the Intellect buff.'
+
+playstyles:
+  - id: sunfury
+    name: Sunfury
+    detectionCriteria:
+      heroTalents:
+        - "Sunfury"
+  - id: frostfire
+    name: Frostfire
+    detectionCriteria:
+      heroTalents:
+        - "Frostfire"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Phoenix Flames (Removed in 12.0)
+  - Sun King's Blessing (Removed in 12.0; reverted to Pyroclasm)
+  - Hyperthermia (Removed from baseline/talents in 12.0; now a Sunfury-specific proc)
+  - Lit Fuse (Removed in 12.0)
+  - Living Bomb talents (Removed in 12.0)
+  - Shifting Power (Removed in 12.0)
+  - Ice Floes (Removed in 12.0)
+  - Mass Barrier (Removed in 12.0)
+  - Mirror Image Damage Reduction (Removed in 12.0; now utility only)
+  - Greater Invisibility Damage Reduction (Removed in 12.0; now utility only)
+  - Blast Wave (Removed in 12.0)
+  - Mastery: Ignite Automatic Spread (Removed in 12.0; now requires talents)
+  - Fire/Frost Mastery buffs (Removed from Frostfire in 12.0)
+
+rotation:
+  singleTarget: |
+    [Outside Combustion]
+    1. Cast Combustion when ready (ideally near the end of a hard-cast spell).
+    2. If you have 2 stacks of Pyroclasm or it is about to expire, hard-cast Pyroblast immediately.
+    3. Cast Pyroblast when you have Hot Streak. Cast it immediately after a non-instant filler (Fireball/Frostfire Bolt) so both land simultaneously (Pyroblast Chaining).
+    4. Cast Fire Blast to convert Heating Up into Hot Streak.
+    5. Cast Frostfire Bolt (if Frostfire) or Fireball (if Sunfury) as filler to generate procs.
+    6. Use Scorch as filler only if moving and Shimmer is unavailable (Note: Frostfire should avoid Scorch as Frostfire Bolt is a better filler even in execute).
+
+    [During Combustion]
+    1. Cast Pyroblast when you have Hot Streak.
+    2. Cast Fire Blast to convert Heating Up into Hot Streak.
+    3. Delay Meteor until there are 8 seconds or less left of Combustion to maximize the Burnout explosion.
+    4. Cast Frostfire Bolt or Fireball as filler if you run out of Fire Blast charges.
+    5. Avoid hard-casting Pyroclasm during Combustion to prevent overcapping Fire Blast charges.
+  aoe: |
+    The AoE rotation follows the Single Target priority with specific spell replacements based on target count:
+    1. Replace Pyroblast with Flamestrike if:
+       - Frostfire: 4+ targets (During Combustion) or 3+ targets (Outside Combustion).
+       - Sunfury: 4+ targets (Both during and outside Combustion).
+    2. Always use Fuel the Fire talent when casting Flamestrike.
+    3. During Hyperthermia (Sunfury), spam instant Flamestrikes. If you have Heating Up, still use Fire Blast to convert it to Hot Streak to increase Ignite damage.
+    4. CRITICAL: Only replace Pyroblast with Flamestrike. NEVER replace your filler (Fireball/Frostfire Bolt) with Flamestrike.
+    5. Use Meteor on cooldown (30s) to proc Frostfire Empowerment or Pyroclasm.
+  opener: |
+    1. Pre-cast hard-cast Pyroblast (if Pyroclasm is active) or Fireball/Frostfire Bolt.
+    2. Cast Combustion near the end of the hard-cast.
+    3. Use Fire Blast to ensure the first spells crit and generate Hot Streak.
+    4. Follow the Combustion Priority List (Pyroblast/Flamestrike on Hot Streak > Fire Blast on Heating Up > Filler).
+
+cooldowns: |
+  - Combustion (1 min): Primary DPS cooldown. Guarantees all spells critically strike. Use on cooldown.
+  - Meteor (30s): High damage. Activates Frostfire Empowerment (Frostfire) or grants Pyroclasm (Sunfury). Use rotationally.
+  - Time Warp (5 min): 30% Haste for 40 seconds. Use on pull or as directed by leader.
+  - Blazing Barrier (25s): Primary defensive. Absorbs damage and heals (if talented).
+  - Alter Time (1 min): Use before taking damage to return to current health/position. Can be passive with Temporal Realignment.
+  - Ice Block / Ice Cold (4 min): Immunity or 70% damage reduction. Use for lethal mechanics.
+  - Cauterize (5 min): Passive cheat-death.
+
+concepts: |
+  - Hot Streak Generation: The core loop is casting fillers to get Heating Up, then using Fire Blast to get Hot Streak for an instant Pyroblast/Flamestrike.
+  - Pyroblast Chaining: Cast a filler and an instant Pyroblast at the same time. If both crit, you get a new Hot Streak. If only one crits, you keep Heating Up due to a 0.2s grace period.
+  - Burnout: Causes active Ignites to explode for 75% damage when Combustion ends. Maximize this by ensuring Ignite is high at the end of the window.
+  - Apex Talent (Fired Up): Consuming Hot Streak grants damage and reduces Fire Blast cooldown by up to 5 seconds. This allows for near-infinite Fire Blasts during Combustion.
+  - Sunfury Phoenix: Combustion summons an Arcane Phoenix. When it expires, it grants Lesser Time Warp (20% Haste).
+  - Frostfire Empowerment: Makes your next Frostfire Bolt instant, AoE, and hard-hitting. Procced by Meteor.
+  - Pyroclasm: A proc that makes your next hard-cast Pyroblast/Flamestrike deal massive damage. Stack up to 2; use one if at max stacks.
+  - Ignite Rework: Ignite no longer spreads automatically. You must talent into Ignition or Wildfire for AoE cleave.
+  - Movement: Fire is highly mobile due to Shimmer and instant procs. Scorch is an execute/movement filler but is devalued for Frostfire.
+
+commonMistakes:
+  - 'Casting Flamestrike as a filler spell instead of only using it to spend Hot Streaks'
+  - 'Hard-casting Pyroclasm during Combustion, which wastes Fire Blast cooldown reduction from Fired Up'
+  - 'Overcapping Fire Blast charges (sitting at 3 charges) and losing potential Hot Streak conversions'
+  - 'Using Fire Blast when you already have a Hot Streak active'
+  - 'Standing outside of range for Mastery: Ignite to spread to secondary targets'
+  - 'Not delaying Meteor for the final 8 seconds of Combustion to benefit from the Burnout explosion'
+  - 'Casting Scorch as Frostfire during execute when Frostfire Bolt is the superior filler'
+
+patchChanges: |
+  12.0.1:
+  - Updated Flamestrike target count thresholds for Frostfire and Sunfury.
+  - Talent tree adjustments for Midnight.
+  12.0:
+  - Major rework: Phoenix Flames, Shifting Power, and Sun King's Blessing removed.
+  - New Apex Talent: Fired Up added (4 ranks).
+  - Ignite spread mechanic moved to talents (Ignition/Wildfire).
+  - Fireball cast time reduced to 1.8s.
+  - Combustion reworked into a stronger, shorter-uptime burst window.
+  - Mirror Image and Greater Invisibility damage reduction removed.

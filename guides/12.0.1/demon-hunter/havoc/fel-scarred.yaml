@@ -1,0 +1,121 @@
+specId: 577
+className: Demon Hunter
+specName: Havoc
+role: DPS
+heroTalent: 'Fel-Scarred'
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Fury
+  secondaryResource: Shattered Souls
+  resourceNotes: 'The core loop involves building Fury with Demon Blades (now baseline) and Felblade. Spend Fury on Blade
+    Dance and Chaos Strike. Fel-Scarred gameplay focuses on maximizing Fury availability for high-intensity burst windows
+    during Metamorphosis and Demonic. Shattered Souls provide minor sustain and resource generation.'
+maintenanceBuffs:
+- spellId: 0
+  spellName: Chaos Brand
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'This is your primary raid utility. Ensure you hit every target at least once to apply the 5% magic damage
+    taken debuff.'
+- spellId: 0
+  spellName: Burning Wound
+  targetUptimePct: 95
+  importance: high
+  coachingTip: Applied via Screaming Brutality. In AoE, ensure this is spread to multiple targets to maximize consistent damage.
+- spellId: 0
+  spellName: Inertia
+  targetUptimePct: 30
+  importance: high
+  coachingTip: Line up Inertia procs with your Eye Beam casts to significantly enhance your burst windows.
+rotation:
+  singleTarget: |
+    1. Cast Immolation Aura to generate Fury and trigger talent effects.
+    2. Cast The Hunt on cooldown (acts as a 1-minute burst and combo enabler).
+    3. Cast Eye Beam on cooldown to enter Demonic form (ensure you have enough Fury pooled beforehand).
+    4. Fully channel Eye Beam to trigger the Eternal Hunt reset for Blade Dance.
+    5. Cast Death Sweep (replaces Blade Dance in Meta) to trigger Demonsurge.
+    6. Cast Annihilation (replaces Chaos Strike in Meta) to trigger Demonsurge.
+    7. Cast Essence Break during your Demonic window for flat bonus damage.
+    8. Cast Felblade if Fury is low or to proc Army Unto Oneself (if talented).
+    9. Cast Chaos Strike as your primary Fury spender during downtime.
+  aoe: |
+    1. Cast Immolation Aura (becomes Consuming Fire if empowered by Metamorphosis).
+    2. Cast Eye Beam (becomes Abyssal Gaze if empowered by Metamorphosis) to trigger Demonic.
+    3. Cast Death Sweep to trigger Demonsurge AoE Chaos damage.
+    4. Cast Annihilation to trigger additional Demonsurge procs.
+    5. Cast Essence Break to amplify burst damage against the pack.
+    6. Use Chaos Nova as an AoE stop or to trigger Focused Ire for a 5-second stun on your primary target.
+    7. Use Fel Rush and Vengeful Retreat to maintain Inertia and reposition for cleave.
+  opener: |
+    Fel-Scarred Opener (strict sequence):
+    1. Cast Immolation Aura 1 second before pull.
+    2. Cast The Hunt.
+    3. Cast Blade Dance (triggers Screaming Brutality, applies Burning Wound).
+    4. Cast Immolation Aura twice.
+    5. Cast Felblade to trigger Inertia.
+    6. Cast Eye Beam.
+    7. Cast Annihilation to consume Demonsurge.
+    8. Cast Essence Break.
+    9. Cast Death Sweep twice (Demonsurge + Eternal Hunt).
+    10. Cast Vengeful Retreat and immediately Metamorphosis.
+    11. Cast Death Sweep.
+    12. Cast Fel Rush to trigger Inertia.
+    13. Cast Consuming Fire.
+    14. Cast Annihilation.
+    15. Cast Abyssal Gaze.
+    16. Continue with normal priority.
+cooldowns:
+- name: Metamorphosis
+  cooldown: 2 min
+  description: Major offensive cooldown. Empowers Annihilation, Death Sweep, Eye Beam, and Immolation Aura. Triggers Demonsurge.
+- name: The Hunt
+  cooldown: 1 min
+  description: Now a key combo enabler via Eternal Hunt. Increases damage of the next Eye Beam and hits additional targets.
+- name: Eye Beam
+  cooldown: 30s
+  description: Triggers Demonic form. Fully channeling resets Blade Dance cooldown via Eternal Hunt.
+- name: Essence Break
+  cooldown: See description
+  description: Short cooldown burst tool. Provides flat bonus damage; should be used inside Demonic/Meta windows.
+- name: Blur
+  cooldown: 1 min, 2 charges
+  description: 'Primary defensive. Provides 35% damage reduction (with Desperate Instincts).'
+- name: Darkness
+  cooldown: 5 min
+  description: 'Group defensive tool. Provides a 30% chance to avoid damage while standing within the zone.'
+concepts:
+- 'Fel-Scarred focuses entirely on maximizing Metamorphosis and Demonic windows through a 20-second burst cycle.'
+- Demonsurge is your core Hero mechanic; it deals high AoE Chaos damage and scales with Mastery. It is triggered by your first
+  Annihilation and Death Sweep after entering Meta/Demonic.
+- 'Eternal Hunt (Apex Talent) turns The Hunt into a 1-minute burst cooldown that empowers Eye Beam and allows for double Death
+  Sweep casts.'
+- Violent Transformation requires you to use Immolation Aura before casting Metamorphosis to maximize empowered ability uptime.
+- Mastery (Pursuit) is highly valued as it now directly increases the damage of Demonsurge.
+- Glaive Tempest is now a passive proc triggered when Blade Dance hits 3 or more targets, simplifying the AoE priority.
+- Mobility tools like Fel Rush and Vengeful Retreat are used rotationally to trigger Inertia and maintain high uptime on targets.
+removedMechanics:
+- Fel Eruption (Removed)
+- Sigil of Flame (Removed)
+- Sigil of Spite (Removed)
+- Fel Barrage (Removed)
+- Netherwalk (Removed)
+- 'Demon''s Bite (Removed; Demon Blades is now baseline)'
+- 'Chaotic Transformation: Ensure Eye Beam and Blade Dance are on cooldown before casting Metamorphosis to benefit from the reset.'
+- 'Fury Scarcity: Midnight reduced Fury generation. Avoid overspending so you have enough for Blade Dance and Eye Beam.'
+- 'Ragefire Management: When playing Ragefire, be in melee range when Immolation Aura expires to land the explosion.'
+keyTalentChoices:
+- node: "Soul Glutton / Emptiness"
+  description: "Class tree choice node. Soul Glutton grants stacking Versatility on Soul Fragment consumption. Emptiness grants stacking Haste on Soul Fragment consumption instead. Most Havoc builds prefer Emptiness for the Haste value (GCD compression, cooldown reduction, Demon Blades proc rate), but Soul Glutton is a viable alternative if Versatility is preferred."
+commonMistakes:
+- Capping Fury instead of spending it on Chaos Strike/Annihilation
+- Failing to fully channel Eye Beam, missing the Blade Dance cooldown reset from Eternal Hunt
+- Using Metamorphosis while Immolation Aura is still available (Violent Transformation optimization)
+- Not lining up Essence Break with Demonic windows
+- 'Holding The Hunt for too long instead of using it as a 1-minute rotational burst'
+- Overlapping CC or wasting Chaos Nova when a simple interrupt would suffice
+patchChanges:
+  12.0.1: 'Demonsurge now deals Chaos damage and scales with Mastery. Burning Blades now includes First Blood damage from
+    Blade Dance. Blur now has 2 charges via Demonic Resilience. Desperate Instincts increased to 35% damage reduction. Chaos
+    Nova stun duration increased to 3 seconds (5 with Focused Ire). Wings of Wrath added, increasing movement speed while
+    Gliding.'

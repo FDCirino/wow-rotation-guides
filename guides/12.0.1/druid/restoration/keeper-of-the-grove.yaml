@@ -1,0 +1,148 @@
+specId: 105
+className: Druid
+specName: Restoration
+role: Healer
+heroTalent: Keeper of the Grove
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: None
+  resourceNotes: Manage Mana by aligning Rejuvenation filler with high damage periods. Use Master Shapeshifter to regenerate
+    Mana by casting Wrath during downtime. Blooming Infusion (KotG talent) also synergizes with Master Shapeshifter for mana
+    generation. Use Innervate early (~80% mana) and pair with heavy Rejuvenation usage to maximize uses per fight.
+maintenanceBuffs:
+- spellId: 0
+  spellName: Efflorescence
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: Keep Efflorescence under the group at all times. Lifetreading talent makes it automatically grow beneath your
+    Lifebloom target's feet.
+- spellId: 0
+  spellName: Lifebloom
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: Keep on the tank or a player taking heavy damage. With Everbloom, it stacks to 3 automatically on the same
+    target (refreshing keeps stacks). Lifebloom is limited to one target at a time in Midnight.
+- spellId: 0
+  spellName: Mark of the Wild
+  targetUptimePct: 100
+  importance: high
+  coachingTip: Ensure this raid buff is active on all party members before combat.
+rotation:
+  singleTarget: |-
+    1. Maintain Efflorescence under the target (automated via Lifetreading).
+    2. Maintain Lifebloom on the tank (stacks to 3 via Everbloom on same target).
+    3. Cast Swiftmend on cooldown — spawns Grove Guardians (each = 10% increased Rejuv/Efflor/Lifebloom healing, 5% spell healing via Harmony of the Grove).
+    4. Cast Wild Growth on cooldown — also spawns Grove Guardians.
+    5. Cast Rejuvenation as filler to build Abundance stacks and prepare for damage. Cultivation causes instant heal on targets below 60% HP.
+    6. Cast Regrowth to heal sharp damage (crits for 260%). High Abundance stacks reduce cost.
+    7. Cast Wrath during healing downtime for Master Shapeshifter mana regeneration.
+    8. Use Convoke the Spirits during damage windows — can summon up to 5 Grove Guardians for 25% spell healing increase. Brief holds for upcoming damage are fine.
+  aoe: |-
+    1. Ensure Efflorescence is positioned under the stacked group.
+    2. Maintain Lifebloom (stacks to 3 via Everbloom).
+    3. Pre-spread Rejuvenations 5-10 seconds before major damage.
+    4. Cast Wild Growth as damage hits — spawns Grove Guardians.
+    5. Cast Swiftmend for burst healing and additional Grove Guardians.
+    6. Use Convoke the Spirits for burst healing (up to 5 Grove Guardians = 25% healing boost). Macro Nature's Swiftness into Convoke.
+    7. Use Tranquility for major damage — Flourish passively extends all HoTs by up to 14 seconds during channel. 2min CD.
+    8. Chain Regrowth to stabilize once Abundance stacks are high (260% crit damage).
+    9. Track Reforestation stacks — proc Tree of Life every ~1min, use Convoke inside ToL for maximum value.
+  opener: |-
+    1. Pre-cast Mark of the Wild.
+    2. Pre-place Efflorescence under the group.
+    3. Apply Lifebloom to the tank (allow it to stack to 3 via Everbloom).
+    4. Apply Rejuvenation to 3-5 targets to prepare for initial damage.
+    5. Cast Wild Growth as damage begins — spawns Grove Guardians.
+    6. Cast Swiftmend to spawn additional Grove Guardians and buff the next heal via Soul of the Forest.
+cooldowns:
+- name: Tranquility
+  cooldown: 2min (with Inner Peace; grants 20% DR during channel)
+  description: Major raid cooldown. Direct healing increased by 40% in Midnight. Flourish is now passive during Tranquility
+    — extends all HoT durations by up to 14 seconds while channeling. No longer applies a HoT itself.
+- name: Convoke the Spirits
+  cooldown: 1min (with Cenarius' Guidance)
+  description: 'Rapidly casts random Druid spells. Critical for KotG: can summon up to 5 Grove Guardians = 25% spell healing
+    increase during window. Macro Nature''s Swiftness into Convoke. Use in Tree of Life form (via Reforestation) for maximum
+    value. Can move while channeling.'
+- name: 'Incarnation: Tree of Life'
+  cooldown: 3min (or proc via Reforestation every ~1min)
+  description: 30s duration. Increases healing by 10%, makes Regrowth instant, Wild Growth hits 2 extra targets. Reforestation
+    procs ToL from Swiftmend casts.
+- name: Innervate
+  cooldown: 1min
+  description: Makes spells free for 8s. Use early (~80% mana) and pair with heavy Rejuvenation spreading. Maximize number
+    of uses per fight.
+- name: Nature's Swiftness
+  cooldown: 1min
+  description: Makes next Regrowth instant and significantly stronger. Macro into Convoke for reliable buff during channel.
+- name: Ironbark
+  cooldown: 1.5min
+  description: Reduces target damage taken by 20%. Use proactively on tanks or mechanic targets.
+- name: Heart of the Wild
+  cooldown: 2min
+  description: 'Form-dependent: Cat Form = empowered Feral Frenzy (ST damage). Moonkin = AoE Starfall-like damage. Bear Form
+    = 30% max HP. Human = empowered Wild Growth. Use for DPS during safe windows or Bear Form for survival.'
+concepts:
+- 'Grove Guardians: Spawn passively from Swiftmend and Wild Growth casts. Each Guardian increases Rejuvenation, Efflorescence,
+  and Lifebloom healing by 10%, plus 5% spell healing via Harmony of the Grove (stacking). Duration extended by Durability
+  of Nature talent. Convoke can summon up to 5 = 25% healing boost.'
+- 'Abundance Cycle: Rejuvenation stacks increase crit chance and reduce mana cost of Regrowth. Layer Rejuvenations first,
+  then spend on Regrowth. Regrowth now crits for 260% (was 200%).'
+- 'Flourish (Passive): No longer an active cooldown. Now passively extends all HoTs by up to 14 seconds while channeling Tranquility.'
+- 'Everbloom (Apex Talent): Lifebloom stacks to 3 automatically on the same target (refreshing keeps stacks). Lifebloom is
+  limited to one target. When Soul of the Forest is consumed, triggers enhanced bloom effects.'
+- 'Mastery (Harmony): Reworked — increases healing by 11.4% per unique HoT on the target. Benefit falls off over time; most
+  effective on the first HoT. Layering different spells is key for heavy ST throughput.'
+- 'Cultivation (Reworked): Rejuvenation now heals instantly on targets below 60% health (no longer a separate HoT).'
+- 'Power of the Archdruid (Reworked): Soul of the Forest now causes next Rejuvenation or Regrowth to apply to 2 additional
+  allies within 20 yards.'
+- 'Reforestation + Convoke: Track Reforestation stacks to proc Tree of Life every ~1min. Use Convoke inside ToL for maximum
+  Grove Guardian spawns and healing output.'
+- 'Ramping: Core playstyle — spread Rejuvenations 5-10 seconds before major mechanics, then Wild Growth + Swiftmend + Tranquility/Convoke
+  for burst.'
+- 'Protective Growth: KotG talent providing additional defensive value while Regrowth HoT is active on yourself.'
+- 'Dream Surge: AoE healing creates 2 healing petals (nerfed from 3). Enhanced by Power of the Dream.'
+- 'KotG vs Wildstalker: KotG is go-to for raiding (AoE healing + cooldown strength). Wildstalker is generally better for M+
+  (ST healing + Cat Form DPS).'
+removedMechanics:
+- Cenarion Ward (Removed in 12.0)
+- Overgrowth (Removed in 12.0)
+- Spring Blossoms (Removed in 12.0)
+- Skull Bash (Removed from Resto in 12.0)
+- Nature's Vigil (Removed in 12.0)
+- Grove Tending (Removed in 12.0)
+- Undergrowth (Removed in 12.0)
+- Forest's Flow (Removed in 12.0)
+- Invigorate (Removed in 12.0)
+- Wildwood Roots (Removed in 12.0)
+- Dreamstate (Removed in 12.0)
+- Budding Leaves (Removed in 12.0)
+- Twinleaf (Removed in 12.0)
+- Flash of Clarity (Removed in 12.0)
+- Flourish as active ability (Now passive during Tranquility)
+- Grove Guardians as active button (Now passive on Swiftmend/Wild Growth)
+- 'Ramping: Spread Rejuvenation before burst healing (Tranquility/Convoke) to maximize extension value.'
+- 'Catweaving: Use Fluid Form to swap to Cat Form for damage during healing downtime.'
+commonMistakes:
+- Letting Efflorescence drop — loses significant passive healing and Verdancy procs.
+- Casting Regrowth with zero or low Abundance stacks — rapid mana depletion.
+- Holding Swiftmend or Wild Growth too long — missing Grove Guardian spawns and healing value.
+- Not using Innervate early enough — aim for ~80% mana, maximize total uses per fight.
+- Not tracking Reforestation stacks — missing free Tree of Life procs for Convoke windows.
+- Not macro'ing Nature's Swiftness into Convoke — missing consistent buff during channel.
+- Ignoring Wrath during downtime — missed Master Shapeshifter mana returns.
+- Moving Lifebloom too frequently — prevents Everbloom from reaching 3-stack maximum.
+- Using Convoke without being in Tree of Life form when Reforestation is available.
+- Forgetting that Flourish is now passive during Tranquility — don't look for a separate Flourish button.
+patchChanges:
+  12.0.1: Reviewed for Midnight Season 1. KotG is go-to for raiding. Dream Surge nerfed (2 petals from 3). Cenarius' Might
+    reworked (+20% Swiftmend healing). Early Spring reworked (-1s on WG/SM CDs). Sylvan Beckoning new (periodic heals can
+    empower Swiftmend to summon Dryad casting 10% Tranquility).
+  '12.0': Grove Guardians changed from active to passive (proc on Swiftmend/Wild Growth). Flourish removed as active CD; now
+    passive during Tranquility (extends HoTs up to 14s). Everbloom Apex Talent added. Mastery reworked (11.4% per HoT, falls
+    off over time). Cultivation reworked (instant heal below 60%). Power of the Archdruid reworked (SotF applies to 2 extra
+    allies). Regrowth crits for 260% (was 200%). Photosynthesis reworked (no longer 10% healing rate; bloom chance 8%). Tranquility
+    direct healing +40%, no longer applies HoT. Lifebloom limited to one target. Heart of the Wild reworked to 2min form-dependent
+    CD. Many talents removed (see removedMechanics).

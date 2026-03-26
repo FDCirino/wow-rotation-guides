@@ -1,0 +1,143 @@
+specId: 264
+className: Shaman
+specName: Restoration
+role: Healer
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: None
+  resourceNotes: 'Mana management is core. Aim to keep your Mana percentage roughly equal to the enemy health percentage throughout an encounter. Use Lightning Bolt during low damage periods to recoup Mana. Resurgence returns Mana based on critical heals. High-cost spells like Chain Heal should be used judiciously to avoid going OOM before the fight ends.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Water Shield
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'Always keep Water Shield active on yourself for Mana regeneration and Intellect bonuses from Instinctive Imbuements.'
+  - spellId: 0
+    spellName: Earth Shield
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'Maintain Earth Shield on the tank and yourself (via Elemental Orbit). It increases healing received and provides passive reactive healing.'
+  - spellId: 0
+    spellName: Healing Rain / Surging Totem
+    targetUptimePct: 85
+    importance: high
+    coachingTip: 'Keep Healing Rain (or Surging Totem if Totemic) active whenever the group is stacked. In Midnight, Healing Rain has an 18s duration and 18s cooldown.'
+
+playstyles:
+  - id: farseer
+    name: Farseer
+    detectionCriteria:
+      heroTalents:
+        - "Farseer"
+  - id: totemic
+    name: Totemic
+    detectionCriteria:
+      heroTalents:
+        - "Totemic"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Healing Surge (Replaced by Healing Wave in 12.0)
+  - Cloudburst Totem (Removed in 12.0)
+  - Ancestral Protection Totem (Removed in 12.0)
+  - Earthen Wall Totem (Removed in 12.0)
+  - High Tide (Removed in 12.0)
+  - Mana Tide (Removed in 12.0)
+  - Spiritwalker's Tidal Totem (Removed in 12.0)
+  - Master of the Elements (Removed in 12.0)
+  - Tidebringer (Removed in 12.0)
+  - Undulation (Removed in 12.0)
+  - Wellspring (Removed in 12.0)
+  - Totemic Recall (Removed in 12.0)
+  - Stone Bulwark Totem (Removed in 12.0)
+  - Thunderstorm (Removed for Restoration in 12.0)
+  - Whispering Waves (Removed in 12.0.1)
+
+rotation:
+  singleTarget: |
+    [Farseer] Healing Priority:
+    1. Maintain Earth Shield on the tank and yourself.
+    2. Cast Unleash Life and Ancestral Swiftness on cooldown to spawn Ancestors and buff your next heal.
+    3. Cast Riptide on cooldown to maintain buffs and generate Tidal Waves.
+    4. Use Healing Stream Totem as an emergency heal or when reaching maximum charges.
+    5. Cast Healing Wave to heal injured individuals (benefiting from Windspeaker and Maelstrom Supremacy).
+    6. Use Lightning Bolt, Flame Shock, and Lava Burst for DPS if no healing is required.
+
+    [Totemic] Healing Priority:
+    1. Maintain Earth Shield on the tank and yourself.
+    2. Place Surging Totem where it hits the most allies; use Totemic Projection to move it as needed.
+    3. Cast Nature's Swiftness on cooldown to trigger Stormstream Totem procs.
+    4. Use Healing Stream Totem on cooldown to trigger Lively Totems (free Chain Heals).
+    5. Cast Riptide on cooldown.
+    6. Cast Healing Wave for single-target spot healing (guarantees Earthliving Weapon with Improved Earthliving Weapon).
+    7. Use Lightning Bolt, Flame Shock, and Lava Burst for DPS if no healing is required.
+  aoe: |
+    [Farseer] Group Healing:
+    1. Cast Healing Rain if the group will remain inside for the duration.
+    2. Cast Unleash Life + Ancestral Swiftness to spawn Ancestors; they will mimic your Chain Heals.
+    3. Cast Riptide on cooldown to spread the buff.
+    4. Cast Chain Heal on targets with Riptide (if talented into Flow of the Tides) for increased effectiveness.
+    5. Use Healing Tide Totem or Ascendance for heavy group damage.
+
+    [Totemic] Group Healing:
+    1. Maintain Surging Totem uptime (replaces Healing Rain).
+    2. Use Healing Stream Totem to trigger Lively Totems' free Chain Heals.
+    3. Cast Nature's Swiftness + Chain Heal for a powerful instant burst and Stormstream proc.
+    4. Cast Riptide on cooldown.
+    5. Cast Chain Heal as a filler for group-wide damage.
+    6. Use Healing Tide Totem (buffed by Splitstream) for major damage events.
+  opener: |
+    1. Ensure Water Shield is active on self.
+    2. Apply Earth Shield to the tank and self.
+    3. Pre-cast Healing Rain (or Surging Totem) just before pull.
+    4. Apply Riptide to as many targets as possible.
+    5. Cast Unleash Life to prepare for the first damage event.
+    6. Apply Flame Shock to the boss.
+
+cooldowns: |
+  - Spirit Link Totem (3 min): Redistributes health and provides 15% damage reduction. Use to save single targets or stabilize the group before massive hits.
+  - Healing Tide Totem (3 min): Choice node with Ascendance. Pure raid healing cooldown that synergizes with Totemic's Splitstream and Primal Catalyst. Heals all allies within 40 yards.
+  - Ascendance (3 min): Choice node with Healing Tide Totem. More flexible option — provides very high single-target healing, buffs Chain Heal and Healing Wave. Generally preferred for its versatility; HTT is viable when your assignment needs a passive raid cooldown.
+  - Nature's Swiftness / Ancestral Swiftness (1 min): Makes the next spell instant and free. Farseer version spawns an Ancestor.
+  - Unleash Life (15 sec): Heals a target and increases the effectiveness of the next heal. Use before Chain Heal or Healing Wave.
+  - Stormstream Totem (Apex Proc): Grants a powerful version of Healing Stream Totem. Use before regular HST charges cap.
+  - Spiritwalker's Grace (2 min): Allows casting while moving. Use during heavy movement phases.
+  - Astral Shift (1.5 min): Major personal defensive (40% damage reduction).
+
+concepts: |
+  - Mastery: Deep Healing: Your heals are significantly more powerful on targets with lower health. Focus on the most injured players first.
+  - Skyfury: A critical raid buff that Shamans provide; ensure it is always active for the group.
+  - Farseer Ancestors: Spawning Ancestors via Unleash Life/Ancestral Swiftness is key. They mimic your spells (Healing Wave mimics Healing Wave, Chain Heal mimics Chain Heal).
+  - Totemic Surging Totem: Replaces Healing Rain. It is instant and can be moved with Totemic Projection, making it more flexible for movement.
+  - Lively Totems: For Totemic players, dropping throughput totems (HST, HTT, SLT) triggers free Chain Heals.
+  - Tidal Waves: Generated by Riptide; reduces the cast time of Healing Wave or increases the crit chance of Chain Heal.
+  - Earthliving Weapon: A weapon imbue that procs a HoT. Improved Earthliving Weapon makes Healing Wave guarantee this proc.
+  - Mana/HP Parity: A core Shaman concept where you try to match your remaining Mana percentage to the boss's remaining HP percentage.
+  - Reincarnation: A unique self-resurrection. Does not reset on pull; use only when critical.
+
+commonMistakes:
+  - 'Letting Earth Shield stacks fall off the tank or yourself'
+  - 'Overcapping Healing Stream Totem charges instead of using them for Lively Totems procs'
+  - 'Holding Spirit Link Totem for a \"perfect\" moment that never comes instead of using it to stabilize'
+  - 'Casting Chain Heal on targets without Riptide when talented into Flow of the Tides'
+  - "Standing still during movement mechanics instead of using Spiritwalker''s Grace or Ghost Wolf"
+  - 'Neglecting Wind Shear; Shamans are the only healers with a ranged interrupt'
+  - 'Forgetting to move Surging Totem with Totemic Projection when the group moves'
+
+patchChanges: |
+  12.0.1:
+  - Whispering Waves removed.
+  - Farseer raid rotation updated for best practices.
+  - Tidal Waves added back to spell list.
+  12.0:
+  - Midnight Launch: Massive ability prune (Cloudburst, Earthen Wall, Wellspring removed).
+  - Healing Surge replaced by Healing Wave.
+  - Ascendance and Healing Tide Totem moved to a choice node.
+  - Healing Rain duration and cooldown increased to 18s.
+  - New Hero Talents: Farseer and Totemic.
+  - Wind Shear cooldown increased to 30s.

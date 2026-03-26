@@ -1,0 +1,97 @@
+specId: 261
+className: Rogue
+specName: Subtlety
+role: DPS
+heroTalent: Deathstalker
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Energy
+  secondaryResource: Combo Points
+  resourceNotes: 'Energy refills at 10/sec (200 cap with Vigor). Shadow Techniques provides passive Combo Points and 4 Energy
+    on a cycle (0/0/50/100% chance). Shadow Blades doubles Combo Point generation. Ancient Arts refunds Combo Points if builders
+    leave 5+ Shadow Techniques stacks.'
+maintenanceBuffs:
+- spellId: 0
+  spellName: 'Deathstalker''s Mark'
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: Always start the fight with Shadowstrike to apply the Mark. It is the core of your Hero Talent damage.
+- spellId: 0
+  spellName: Darkest Night
+  targetUptimePct: 40
+  importance: high
+  coachingTip: Triggered by Eviscerate at 5+ Combo Points. This buff allows you to move your Mark to new targets.
+rotation:
+  singleTarget: |
+    1. Cast Shadowstrike to apply Deathstalker's Mark (Opener/Maintenance)
+    2. Cast Shadow Dance when you have 6 or more combo points and Secret Technique is ready or Shadow Blades is active
+    3. Cast Shadow Dance when you have 2 or fewer combo points and Secret Technique is ready or Shadow Blades is active
+    4. Cast Shadow Blades during Shadow Dance
+    5. Cast Secret Technique during Shadow Dance with 6 or more combo points
+    6. Cast Coup de Grace with 6 or more combo points
+    7. Cast Eviscerate with 6 or more combo points
+    8. Cast Shadowstrike whenever possible to build combo points
+    9. Cast Backstab as a filler builder
+    10. Cast Vanish when Shadow Dance is not up, followed immediately by Shadowstrike
+  aoe: |
+    1. Cast Shadowstrike to apply Deathstalker's Mark (Priority Target)
+    2. Cast Shadow Dance when you have 6 or more combo points and Secret Technique is ready or Shadow Blades is active
+    3. Cast Shadow Dance when you have 2 or fewer combo points and Secret Technique is ready or Shadow Blades is active
+    4. Cast Shadow Blades during Shadow Dance
+    5. Cast Secret Technique during Shadow Dance with 6 or more combo points
+    6. Cast Eviscerate with 6 or more combo points when Darkest Night is active
+    7. Cast Coup de Grace with 6 or more combo points
+    8. Cast Black Powder with 6 or more combo points
+    9. Cast Goremaw's Bite when not in Shadow Dance.
+    10. Cast Shuriken Storm to build combo points (3+ targets)
+    11. Cast Shadowstrike to build combo points on exactly 2 targets
+  opener: |
+    1. Shadowstrike (Apply Deathstalker's Mark)
+    2. Shadow Dance
+    3. Shadow Blades
+    4. Secret Technique (at 6+ Combo Points)
+cooldowns:
+- name: Shadow Blades
+  cooldown: 90s
+  description: 'Major cooldown. Doubles combo point generation and adds 20% shadow damage to all attacks. Align with Shadow
+    Dance.'
+- name: Shadow Dance
+  cooldown: 20s recharge
+  description: Signature burst window. Allows use of Stealth abilities. Duration scales with Haste.
+- name: Secret Technique
+  cooldown: 25s
+  description: Primary burst finisher. Always use inside Shadow Dance windows. Cooldown reduced by Haste.
+- name: Vanish
+  cooldown: 2min
+  description: Use offensively when Shadow Dance is unavailable to trigger Shadowstrike and maintain rotation flow.
+concepts:
+- 'Burst Windows: Subtlety revolves around stacking Shadow Blades and Shadow Dance for massive 90-second burst cycles.'
+- 'Deathstalker''s Mark: This debuff is your primary hero mechanic. It is applied via Shadowstrike and provides significant
+  priority damage.'
+- 'Darkest Night: Triggered by Eviscerate at 5+ CP. This buff is required to move your Mark to a new target if the current
+  one is about to die.'
+- 'Ancient Arts: A shadow clone mechanic that increases shadow damage and provides Combo Point refunds when builders leave
+  5+ Shadow Techniques stacks.'
+- 'Shadow Techniques: A non-random passive generation system (0/0/50/100% chance cycle) that provides CP and Energy.'
+- 'Funnel Damage: Deathstalker excels at priority damage in AoE by using Shuriken Storm to generate CP for heavy finishers'
+- 'Mastery: Increases all Shadow damage. Most abilities and shadow clone attacks deal Shadow damage.'
+- 'Deepening Shadows: Haste extends Shadow Dance duration, making it a valuable stat.'
+- 'Shroud of Concealment: Use with Shrouded in Darkness for a massive group movement speed boost in dungeons.'
+- 'Haste Scaling: Deepening Shadows and Swift Slasher make Haste valuable by extending Shadow Dance duration and reducing
+  Secret Technique cooldown.'
+removedMechanics:
+- Flagellation (removed in 12.0)
+- Symbols of Death (removed in 12.0)
+- Rupture (removed in 12.0)
+- Shadow Dance/Secret Technique cooldown reduction per combo point spent (removed in 12.0)
+commonMistakes:
+- Casting Shadow Dance when Shadow Blades has less than 10 seconds remaining on cooldown
+- 'Losing Deathstalker''s Mark on targets that run away or despawn'
+- Overcapping Combo Points during Shadow Blades windows
+- Failing to use Secret Technique as the first finisher inside a Shadow Dance
+- Not using Darkest Night windows to reposition the Mark in Mythic+
+patchChanges:
+  12.0.1: 'Deathstalker''s Mark movement restricted to Darkest Night buff windows. Darkest Night trigger threshold changed
+    to 5+ Combo Points (previously exactly 7). Precise Killer talent updated to make Critical Strike a high-value stat for
+    Deathstalker. Shadow Blades reworked to double CP generation instead of filling to max.'

@@ -1,0 +1,173 @@
+specId: 256
+className: Priest
+specName: Discipline
+role: Healer
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Atonement
+  resourceNotes: 'Mana is your primary constraint; Power Word: Shield and Flash Heal are expensive and can lead to going OOM if overused. Atonement is your secondary resource/mechanic; you apply it to allies using applicators (Power Word: Radiance, Power Word: Shield, Plea, Flash Heal) and then deal damage to enemies to convert a portion of that damage into healing for all allies with the Atonement buff.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Atonement
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'This is your core healing mechanic. Ensure Atonement is active on injured targets before using damage abilities like Penance or Mind Blast.'
+  - spellId: 0
+    spellName: 'Shadow Word: Pain'
+    targetUptimePct: 95
+    importance: high
+    coachingTip: 'Keep this active on at least one target to proc Power of the Dark Side and enable Expiation damage from Shadow Word: Death.'
+  - spellId: 0
+    spellName: 'Power Word: Fortitude'
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'Keep this buff active on your entire group/raid at all times for the stamina bonus.'
+
+playstyles:
+  - id: oracle
+    name: Oracle
+    detectionCriteria:
+      heroTalents:
+        - "Oracle"
+  - id: voidweaver
+    name: Voidweaver
+    detectionCriteria:
+      heroTalents:
+        - "Voidweaver"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Divine Star (Removed in 12.0)
+  - Halo (Removed in 12.0)
+  - Power Word: Life (Removed in 12.0)
+  - Premonition (Removed in 12.0)
+  - Renew (Removed in 12.0 - Replaced by Plea)
+  - Luminous Barrier (Removed in 12.0)
+  - Shadow Covenant (Removed in 12.0 - Replaced by Occultist passive)
+  - Schism (Removed in 12.0)
+  - Shadowfiend/Mindbender as active buttons (Reworked: now passive summons via Evangelism or SW:D)
+
+rotation:
+  singleTarget: |
+    [Oracle] Raid Evangelism Ramp:
+    1. Refresh Shadow Word: Pain to ensure it lasts the entire duration of your Ramp.
+    2. Cast Flash Heal (applies Atonement to target and self via Binding Heal).
+    3. Cast Penance - used on an ally (applies Atonement).
+    4. Cast Power Word: Shield.
+    5. Cast Plea.
+    6. Cast Evangelism.
+    7. Cast Power Word: Radiance x2.
+    8. Cast Shadow Word: Death.
+    9. Cast Penance - used on an ally.
+    10. Cast Mind Blast.
+    11. Cast Penance - used on an ally.
+    12. Cast Smite until Penance/Death become available again.
+
+    [Voidweaver] Raid Evangelism Ramp:
+    1. Refresh Shadow Word: Pain to ensure it lasts the entire duration of your Ramp.
+    2. Cast Flash Heal.
+    3. Cast Penance - used on an ally.
+    4. Cast Power Word: Shield.
+    5. Cast Plea.
+    6. Cast Evangelism.
+    7. Cast Power Word: Radiance.
+    8. Cast Mind Blast (summons Entropic Rift).
+    9. Cast Shadow Word: Death.
+    10. Cast Power Word: Radiance.
+    11. Cast Penance - used on an enemy.
+    12. Cast Void Blast until Penance/Death become available again.
+
+    [Voidweaver] Double Radiance Ramp (No Evangelism):
+    1. Refresh Shadow Word: Pain.
+    2. Cast Flash Heal.
+    3. Cast Penance - used on an ally.
+    4. Cast Power Word: Shield.
+    5. Cast Plea.
+    6. Cast Power Word: Radiance x2.
+    7. Cast Mind Blast.
+    8. Cast Shadow Word: Death.
+    9. Cast Penance - used on an enemy.
+    10. Cast Void Blast until Penance/Death become available again.
+
+    [Mythic+] Healing Priority:
+    - Oracle: Focus on Penance and Power Word: Shield. Use Penance defensively to apply Atonement and spot heal.
+    - Voidweaver: Focus on Entropic Rift windows. Use Mind Blast to trigger the rift, then Penance and Void Blast to push damage.
+  aoe: |
+    [Raid AoE]
+    - Use Power Word: Radiance to apply Atonement to 5 targets per cast.
+    - Follow the Ramp sequences (Evangelism or Ultimate Penitence) to cover the raid before major damage.
+
+    [Mythic+ AoE]
+    - A single cast of Power Word: Radiance covers the entire group.
+    - Use Power Word: Radiance reactively to apply Atonement to everyone, then follow with damage (Penance, Mind Blast, Smite/Void Blast).
+    - Use Ultimate Penitence offensively for massive group healing through Atonement.
+  opener: |
+    [Oracle] Ultimate Penitence Ramp:
+    1. Refresh Shadow Word: Pain.
+    2. Cast Flash Heal.
+    3. Cast Penance - used on an ally.
+    4. Cast Power Word: Shield.
+    5. Cast Plea.
+    6. Cast Power Word: Radiance x2.
+    7. Cast Ultimate Penitence - cast Shadow Word: Death while traveling into the air.
+    8. Cast Penance - used on an ally.
+    9. Cast Mind Blast.
+    10. Cast Penance - used on an ally.
+    11. Cast Smite filler.
+
+    [Voidweaver] Ultimate Penitence Ramp:
+    1. Refresh Shadow Word: Pain.
+    2. Cast Flash Heal.
+    3. Cast Penance - used on an ally.
+    4. Cast Power Word: Shield.
+    5. Cast Plea.
+    6. Cast Power Word: Radiance x2.
+    7. Cast Mind Blast.
+    8. Cast Ultimate Penitence - cast Shadow Word: Death while traveling into the air.
+    9. Cast Penance - used on an enemy.
+    10. Cast Void Blast filler.
+
+cooldowns: |
+  - Evangelism (Redesigned): Instantly casts Power Word: Radiance and makes the next 2 Radiance casts instant. Summons Mindbender. Use to rapidly apply Atonements for a raid ramp.
+  - Ultimate Penitence (4min): Channels bolts at enemies (offensive) or allies (defensive). Almost always use offensively for Atonement healing.
+  - Power Word: Barrier (3min): Reduces damage taken by 25% for all allies inside the zone. Requires stacking. Choice node with Ultimate Penitence.
+  - Pain Suppression (3min): 40% damage reduction on a single target. Use on tanks or players with heavy DoTs.
+  - Power Infusion (2min): 20% Haste buff. Use on a DPS ally; Twins of the Sun Priestess grants it to you as well.
+  - Desperate Prayer (1.5min): Increases max HP by 25% and heals you for that amount. Primary defensive.
+  - Fade (30s): With Translucent Image talent, provides 10% damage reduction. Use frequently during damage.
+
+concepts: |
+  - Atonement: Your core mechanic. Damage dealt heals allies with the Atonement buff.
+  - Ramping: The process of applying Atonements (Application Phase) followed by using damage cooldowns (DPS Phase) to burst heal the raid.
+  - Oracle Playstyle: Focuses on Penance. Penance should be used defensively on allies to apply Atonement and trigger Twinsight bolts.
+  - Voidweaver Playstyle: Revolves around Entropic Rift. Mind Blast summons the rift, which transforms Smite into Void Blast.
+  - Master the Darkness (Apex Talent): Penance has a chance to proc Void Shield, a powerful version of Power Word: Shield that splashes Atonement to 2 extra targets and reflects damage.
+  - Expiation: Shadow Word: Death and Mind Blast consume a portion of Shadow Word: Pain to deal instant damage, triggering burst Atonement healing.
+  - Execute: Shadow Word: Death triggers Shadowfiend when used on targets below 20% health.
+  - Binding Heal: Casting Flash Heal on an ally also applies Atonement to yourself.
+  - Ultimate Penitence GCD: You can cast an instant spell (like Shadow Word: Death) while floating into the air before the channel begins.
+  - Defensive Management: Priest survivability is weak; you must stack Fade (Translucent Image), Protective Light (Flash Heal on self), and Desperate Prayer.
+
+commonMistakes:
+  - 'Overusing Power Word: Shield or Flash Heal and running out of mana'
+  - 'Casting Penance offensively as an Oracle (losing the direct Atonement application)'
+  - 'Wasting a Void Shield proc by casting another Penance before using the proc'
+  - 'Not keeping Shadow Word: Pain active, which prevents Expiation from triggering'
+  - 'Using Ultimate Penitence defensively when offensive usage would provide more Atonement healing'
+  - 'Holding Pain Suppression charges instead of using them proactively on high damage'
+  - 'Applying Atonements too early or too late for a boss mechanic (mis-timing the ramp)'
+
+patchChanges: |
+  12.0.1:
+  - Oracle redesigned: No active abilities; provides second charge of Penance and passive benefits.
+  - Evangelism redesigned: Now instantly casts PW:R and makes next 2 instant.
+  - Plea added: Replaces Renew as spammable Atonement applicator.
+  - Pets (Shadowfiend/Mindbender/Voidwraith) moved to passive triggers.
+  - Shadow Covenant removed; replaced by Occultist passive.
+  - Ultimate Penitence and Power Word: Barrier are now a choice node.
+  - New Apex Talent: Master the Darkness (Void Shield procs).

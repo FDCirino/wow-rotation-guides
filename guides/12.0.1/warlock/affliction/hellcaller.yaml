@@ -1,0 +1,114 @@
+specId: 265
+className: Warlock
+specName: Affliction
+role: DPS
+heroTalent: Hellcaller
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Soul Shards
+  secondaryResource: Mana
+  resourceNotes: Soul Shards are generated primarily by Agony. Management is crucial as overcapping results in significant
+    damage loss. Spend shards on Unstable Affliction for single target and Seed of Corruption for AoE. Hellcaller gameplay
+    revolves around methodical shard expenditure, particularly during Malevolence windows.
+maintenanceBuffs:
+- spellId: 0
+  spellName: Agony
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Agony is your sole source of Soul Shard generation. It has a ramp-up period; letting it drop will hemorrhage
+    DPS and shard generation.'
+- spellId: 0
+  spellName: Wither
+  targetUptimePct: 100
+  importance: high
+  coachingTip: Hellcaller replaces Corruption with Wither. Maintain this Shadowflame DoT at all times to enable Blackened
+    Soul procs.
+- spellId: 0
+  spellName: Unstable Affliction
+  targetUptimePct: 95
+  importance: high
+  coachingTip: 'Now the baseline single-target shard spender. Maintain active effects and spend shards to avoid capping.'
+removedMechanics:
+- Malefic Rapture (removed in 12.0)
+- Soul Rot (removed in 12.0)
+- Vile Taint (removed in 12.0)
+- Phantom Singularity (removed in 12.0)
+- Health Funnel (removed in 12.0; healing moved to Drain Life)
+rotation:
+  singleTarget: |
+    1. Maintain Agony and Wither effects at all times.
+    2. Cast Unstable Affliction if you are at maximum (5) Soul Shards.
+    3. Cast Haunt whenever available.
+    4. Cast Malevolence on cooldown.
+    5. Cast Dark Harvest whenever available with periodic effects (Agony, Wither, UA) active.
+    6. Use Shard Instability free Unstable Affliction procs within the buff window.
+    7. Cast Unstable Affliction to avoid capping shards.
+    8. Cast Drain Soul as a filler (if talented).
+    9. Cast Shadow Bolt as a filler.
+  aoe: |
+    1. Maintain Agony and Wither. If 3+ targets are stacked, use Seed of Corruption to apply/maintain Wither.
+    2. Cast Haunt whenever available on the primary target.
+    3. Cast Malevolence on cooldown.
+    4. Cast Seed of Corruption if at 5 Soul Shards to avoid capping.
+    5. Cast Seed of Corruption if above 2 shards before Dark Harvest comes off cooldown.
+    6. Cast Dark Harvest whenever available with periodic effects active on every target.
+    7. Use Shard Instability free Unstable Affliction on dying targets if below 4 shards.
+    8. Use Shard Instability free Unstable Affliction on the primary target.
+    9. Cast Drain Soul or Shadow Bolt as filler.
+  opener: |
+    1. Pre-cast Haunt.
+    2. Pre-cast Shadow Bolt.
+    3. Apply Agony.
+    4. Apply Wither.
+    5. Cast Malevolence.
+    6. Cast Unstable Affliction until reaching 2 shards.
+    7. Cast Dark Harvest.
+    8. Cast Summon Darkglare.
+    9. Use trinkets and racials.
+    10. Spend all shards on Unstable Affliction.
+    11. Cast Nightfall procs (Drain Soul or Shadow Bolt).
+    12. Cast Malefic Grasp until the most recent Unstable Affliction has expired.
+cooldowns:
+- name: Summon Darkglare
+  cooldown: 2min
+  description: 'Spec main cooldown. Amplifies DoTs. Pool resources before entry. Ensure Agony is pandemic-extended before
+    casting.'
+- name: Dark Harvest
+  cooldown: 1min
+  description: New cooldown that deals damage to every target affected by a baseline DoT. Sync with Summon Darkglare.
+- name: Malevolence
+  cooldown: 1min
+  description: 'Hellcaller-specific burst window. Bolsters damage and interacts with Wither stacks. Use in tandem with Darkglare
+    and Dark Harvest.'
+- name: Summon Felhunter
+  cooldown: See description
+  description: Standard pet for interrupt (Spell Lock) and purge.
+concepts:
+- 'Pandemic Mechanic: Refresh DoTs when they have <30% duration remaining (Agony: 5.4s, Wither/Corruption: 4.2s) to add the
+  full duration to the remainder.'
+- 'Malefic Grasp: Optimization window during Darkglare. Maximize GCDs spent on Unstable Affliction and Malefic Grasp while
+  minimizing movement or Agony refreshes.'
+- 'Shard Instability: Watch for procs that grant free, instant-cast Unstable Afflictions. Do not let these overcap.'
+- 'Agony Ramp: Agony is the most important spell for shard generation. It has a 6-stack maximum and requires uptime to reach
+  full effectiveness.'
+- 'Hellcaller Identity: Themed around Shadowflame damage. Wither replaces Corruption and can generate Blackened Soul.'
+- 'Shadow of Nathreza: Apex talent that bolsters Haunt damage and allows it to cleave. Does not change Haunt''s'
+- 'Mastery (Potent Afflictions): Increases the damage of your DoTs and spenders.'
+- 'Movement: Use Agony/Corruption refreshes or Nightfall procs to cover movement. Use Demonic Circle and
+  Gateway to minimize travel time.'
+- 'Quiet Movement: Minimize unnecessary movement. Use instant procs (Nightfall) or DoT refreshes to cover forced movement.'
+- 'Soul Shard Sniping: In Mythic+, use Unstable Affliction and Drain Soul on dying targets to generate extra shards.'
+commonMistakes:
+- 'Letting Agony drop, which resets the ramp-up and kills shard generation'
+- Overcapping Soul Shards (holding 5 shards without spending)
+- Wasting Shard Instability procs by not casting the free Unstable Affliction
+- Refreshing DoTs outside of the Pandemic window (too early or too late)
+- 'Unnecessary movement that interrupts filler casting (\"mirroring\" tank movement)'
+- Not pooling shards before the Summon Darkglare/Malevolence window
+patchChanges:
+  12.0.1: 'Seeds of Their Demise: Changed to support Shard Instability talent. Through the Felvine: Increases shard spender
+    damage, doubled during Malevolence. Devil Fruit: Wither has a chance to grant Malevolence. Alzzin''s Iniquity: Malevolence
+    grants additional Haste and adds Wither stacks.'
+  '12.0': 'Unstable Affliction is now the primary shard spender. Malefic Rapture, Soul Rot, and Vile Taint removed. Dark Harvest
+    added as a 1-minute cooldown. Agony ramp time substantially lowered (max 6 stacks).'

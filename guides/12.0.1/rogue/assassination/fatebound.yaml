@@ -1,0 +1,126 @@
+specId: 259
+className: Rogue
+specName: Assassination
+role: DPS
+heroTalent: Fatebound
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Energy
+  secondaryResource: Combo Points
+  resourceNotes: Assassination is limited by Energy rather than the GCD. Generate Combo Points using Mutilate (Single Target)
+    or Fan of Knives/Crimson Tempest (AoE). Spend on Rupture and Garrote to maintain bleeds, which triggers Venomous Wounds
+    for Energy return. Spend excess Combo Points on Envenom to maintain Slice and Dice and trigger Fatebound Coin flips.
+maintenanceBuffs:
+- spellId: 0
+  spellName: Garrote
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: Maintain Garrote at all times for damage and Energy regeneration via Venomous Wounds. Use from Stealth or Vanish
+    to benefit from Improved Garrote.
+- spellId: 0
+  spellName: Rupture
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Keep Rupture active on all targets. Refresh within the Pandemic window (30% remaining duration) to avoid losing
+    ticks.'
+- spellId: 0
+  spellName: Envenom
+  targetUptimePct: 95
+  importance: high
+  coachingTip: Chain Envenoms by refreshing the buff just before it expires to benefit from talents like Rapid Injection and
+    Inspiring Strike.
+- spellId: 0
+  spellName: Slice and Dice
+  targetUptimePct: 100
+  importance: high
+  coachingTip: Do not cast this manually. It is automatically maintained by Envenom through the Cut to the Chase talent.
+removedMechanics:
+- Indiscriminate Carnage (Removed in 12.0; bleeds now spread via Crimson Tempest)
+- Serrated Bone Spike (Removed in 12.0)
+- Crimson Tempest as a Finisher (Reworked into a Combo Point generator)
+- Improved Shiv (Removed; Shiv is no longer a rotational DPS button)
+- Cold Blood (Reworked into a passive)
+rotation:
+  singleTarget: |
+    1. Maintain Garrote (Use from Vanish when possible, especially before Deathmark).
+    2. Maintain Rupture with 5+ Combo Points.
+    3. Activate Deathmark when available.
+    4. Use Kingsbane on cooldown (Sync with Deathmark).
+    5. Cast Envenom with 5+ Combo Points.
+    6. Cast Ambush to generate Combo Points whenever usable (Blindside procs).
+    7. Cast Mutilate to generate Combo Points.
+    8. Use Thistle Tea alongside Kingsbane to prevent Energy starvation.
+  aoe: |
+    1. Maintain Garrote and Rupture on all targets by using Crimson Tempest as your builder.
+    2. Use Crimson Tempest as your AoE builder to spread bleeds.
+    3. If all targets already have bleeds, use Fan of Knives as your builder instead.
+    4. Activate Deathmark when available (now useful in AoE via Finish the Job).
+    5. Use Kingsbane on cooldown (Sync with Deathmark if ready).
+    6. Use Vanish to re-apply Garrotes buffed by Improved Garrote if DoTs are expiring and targets will live 20+ seconds.
+    7. Cast Envenom with 5+ Combo Points to trigger Caustic Spatter cleave.
+    8. Use Thistle Tea alongside Kingsbane.
+  opener: |
+    1. Start from Stealth.
+    2. Cast Garrote.
+    3. Cast Mutilate until 5+ Combo Points.
+    4. Cast Rupture.
+    5. Cast Deathmark (together with DPS potion and on-use trinkets).
+    6. Cast Kingsbane.
+    7. Use Garrote again to refresh Improved Garrote duration.
+    8. Use Envenom at 5+ Combo Points.
+    9. Use Mutilate and Ambush (Blindside) as builders.
+cooldowns:
+- name: Deathmark
+  cooldown: 2min
+  description: Main burst cooldown. Increases bleed damage and duplicates poison procs. Use on targets that will survive the
+    full duration.
+- name: Kingsbane
+  cooldown: 1min
+  description: 'High-pressure Nature damage. Damage increases with each poison proc. Maintain 100% melee and Envenom uptime
+    during its window.'
+- name: Thistle Tea
+  cooldown: 1min charge
+  description: Restores Energy and grants Mastery. Use during Kingsbane or when Energy is low to maintain Envenom chains.
+- name: Vanish
+  cooldown: 2min
+  description: Used offensively to apply empowered Garrotes (Improved Garrote) or defensively to drop combat.
+- name: Feint
+  cooldown: 15s
+  description: 'Reduces AoE damage taken by 40%. Use proactively for raid/dungeon mechanics.'
+- name: Cloak of Shadows
+  cooldown: 2min
+  description: Magic immunity and debuff clear.
+- name: Evasion
+  cooldown: 2min
+  description: '100% Dodge chance. Can be used to tank mobs briefly if the tank dies.'
+concepts:
+- 'Fatebound Coins: Finishers flip a coin. Heads deals direct damage; Tails boosts class ability damage. These stack up to
+  a capstone buff.'
+- 'Envenom Chaining: Recasting Envenom while the previous buff is still active (within Pandemic window) is a core DPS gain
+  due to talents like Rapid Injection.'
+- 'Implacable (Apex Talent): Provides a surge of Energy recharge when an Envenom chain finally drops, smoothing out the rotation.'
+- 'Pandemic: Refresh DoTs (Garrote, Rupture) and buffs (Envenom) when they have less than 30% of their base duration remaining
+  to add the time to the new application.'
+- 'Energy Pooling: Auto-attacking while waiting for Energy to regenerate. Essential after an Envenom chain drops or before
+  a burst window.'
+- 'Snapshotting: Improved Garrote (from Stealth/Vanish) damage is snapshotted. Do not overwrite a buffed
+  Garrote with a regular one.'
+- 'Zoldyck Recipe: Provides execute-phase damage when targets are below 35% health.'
+- 'Caustic Spatter: Envenom and Kingsbane cause your physical damage to cleave onto nearby targets, making single-target priority
+  damage effective in AoE.'
+- 'Snapshotting: Improved Garrote damage is "snapshotted" when cast from Stealth/Vanish. Do not overwrite an empowered Garrote
+  with a weak one.'
+- 'Venomous Wounds: Core passive that grants Energy when your bleeds tick on poisoned targets.'
+commonMistakes:
+- Overcapping Energy or Combo Points.
+- Letting Garrote or Rupture drop off, losing Energy regeneration from Venomous Wounds.
+- Using Deathmark on a target that is about to die.
+- Failing to sync Kingsbane with Deathmark every 2 minutes.
+- Overwriting an empowered (Vanish/Stealth) Garrote with a regular one.
+- 'Not chaining Envenoms, losing the 30% damage bonus from Rapid Injection.'
+- Using Shiv as a DPS button (it is now utility only).
+patchChanges:
+  12.0.1: 'Fatebound: Fate Intertwined now boosts Caustic Spatter damage significantly. Fatebound: Coin rolling is more consistent
+    and no longer requires Cold Blood. Implacable (Apex Talent): Now grants passive Combo Point generation for 1s after using
+    Kingsbane. Crimson Tempest: Reworked into a builder that spreads bleeds.'

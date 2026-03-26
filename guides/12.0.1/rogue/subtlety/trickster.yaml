@@ -1,0 +1,102 @@
+specId: 261
+className: Rogue
+specName: Subtlety
+role: DPS
+heroTalent: Trickster
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Energy
+  secondaryResource: Combo Points
+  resourceNotes: Energy generates passively (10/sec, increased by Haste). Spend Energy on builders (Shadowstrike, Backstab,
+    Shuriken Storm) to generate Combo Points. Spend Combo Points on finishers (Coup de Grace, Eviscerate, Black Powder). Shadow
+    Techniques provides passive Combo Point and Energy generation. Ancient Arts (Apex Talent) allows for Combo Point refunds
+    when casting finishers while the shadowy glow buff is active.
+maintenanceBuffs:
+- spellId: 0
+  spellName: Flawless Form
+  targetUptimePct: 80
+  importance: high
+  coachingTip: 'Trickster-specific buff that increases damage. Stacks up to 5 times; maintain high uptime through your regular
+    rotation.'
+- spellId: 0
+  spellName: Ancient Arts (Shadowy Glow)
+  targetUptimePct: 0
+  importance: high
+  coachingTip: This buff triggers when you have 5+ Shadow Techniques stacks after a builder. Your next finisher will refund
+    combo points and spawn a clone.
+removedMechanics:
+- Rupture (removed in 12.0)
+- Symbols of Death (removed in 12.0)
+- Flagellation (removed in 12.0)
+- Shadow Dance/Secret Technique cooldown reduction per combo point spent (removed in 12.0)
+rotation:
+  singleTarget: |
+    1. Cast Shadow Dance when you have 6 or more combo points and Secret Technique is ready or Shadow Blades is active.
+    2. Cast Shadow Blades during Shadow Dance.
+    3. Cast Secret Technique during Shadow Dance with 6 or more combo points.
+    4. Cast Coup de Grace with 6 or more combo points.
+    5. Cast Eviscerate with 6 or more combo points.
+    6. Cast Shadowstrike to build combo points.
+    7. Cast Backstab as a filler builder if Shadowstrike is unavailable.
+    8. Optimization: Cast Shadowstrike while at full combo points if the Ancient Arts buff is NOT active and casting it would grant the buff (5+ Shadow Techniques stacks).
+  aoe: |
+    1. Cast Shadow Dance when you have 6 or more combo points and Secret Technique is ready or Shadow Blades is active.
+    2. Cast Shadow Blades during Shadow Dance.
+    3. Cast Secret Technique during Shadow Dance with 6 or more combo points.
+    4. Cast Coup de Grace with 6 or more combo points.
+    5. Cast Black Powder with 6 or more combo points.
+    6. Cast Shuriken Storm to build combo points (on 3+ targets).
+    7. On exactly 2 targets, use Shadowstrike to build combo points instead of Shuriken Storm.
+  opener: |
+    1. Shadowstrike (from Stealth)
+    2. Shadow Dance
+    3. Shadow Blades
+    4. Secret Technique (with 6+ Combo Points)
+    5. Coup de Grace
+cooldowns:
+- name: Shadow Blades
+  cooldown: 90s
+  description: 'Major offensive cooldown. Doubles combo points generated and adds 20% shadow damage to attacks. Always align
+    with two Shadow Dance windows.'
+- name: Shadow Dance
+  cooldown: 20s recharge
+  description: Signature burst window. Allows use of Stealth abilities. Baseline 6s duration, extended by Haste (Deepening
+    Shadows).
+- name: Secret Technique
+  cooldown: 25s
+  description: Powerful finisher. Always use inside Shadow Dance windows.
+- name: Vanish
+  cooldown: 2min
+  description: Use when Shadow Dance is unavailable to enable a Shadowstrike.
+- name: Cloak of Shadows
+  cooldown: 2min
+  description: 'Removes non-physical debuffs and provides spell immunity.'
+- name: Feint
+  cooldown: 15s
+  description: 'Reduces AoE damage taken by 40%.'
+concepts:
+- 'Shadow Techniques: A stacking internal buff from auto-attacks. The 3rd attack has a 50% chance and the 4th has a 100% chance
+  to proc a combo point and 4 energy.'
+- 'Ancient Arts (Apex Talents): Builders have a chance to spawn shadow clones. If you have 5+ Shadow Techniques stacks after
+  a builder, your next finisher refunds combo points.'
+- 'Shadow Dance Windows: Subtlety is burst-centric. You must pool resources and align Secret Technique and Shadow Blades inside
+  your Shadow Dance windows.'
+- 'Trickster Profile: Focuses on doubling down on burst damage. Coup de Grace is your empowered finisher that replaces or
+  supplements Eviscerate.'
+- 'Flawless Form: A Trickster talent that rewards consistent rotational play with a stacking damage buff (max 5 stacks).'
+- 'Mastery: Increases all Shadow damage. Most abilities and shadow clone attacks deal Shadow damage.'
+- 'Deepening Shadows: Haste extends Shadow Dance duration, making it a valuable stat.'
+- 'Energy Management: Outside of Shadow Dance, it is normal to have empty globals due to energy constraints. During Shadow
+  Dance, you should spam every global.'
+commonMistakes:
+- Casting Shadow Dance when Shadow Blades has less than 10 seconds remaining on its cooldown (save it to align them).
+- Overcapping Combo Points by ignoring the Ancient Arts refund mechanic.
+- Using Secret Technique outside of a Shadow Dance window.
+- Not using Shadowstrike as the first global in a Shadow Dance window.
+- 'Failing to maintain Flawless Form stacks during high-uptime encounters.'
+patchChanges:
+  12.0.1: Nimble Flurry no longer cleaves Eviscerate or Shadowstrike. Clever Combatant allows Shuriken Storm to proc Unseen
+    Blade. Flawless Form cap set to 5 stacks.
+  '12.0': Rupture, Symbols of Death, and Flagellation removed. Shadow Blades reworked to double combo point generation rather
+    than filling to max. New Apex Talents (Ancient Arts) added to the bottom of the tree.

@@ -1,0 +1,122 @@
+specId: 253
+className: Hunter
+specName: Beast Mastery
+role: DPS
+heroTalent: Dark Ranger
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Focus
+  secondaryResource: Black Arrow Charges
+  resourceNotes: 'Focus is spent on Kill Command and Wild Thrash. Generated passively (2 per auto-attack)
+    and via Barbed Shot (Pack Tactics). Dark Ranger revolves around Black Arrow procs (Deathblow) and timing
+    Wailing Arrow within the Withering Fire window of Bestial Wrath.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: "Hunter's Mark"
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Mandatory 3% damage increase for entire raid/group. Ensure active on primary target.'
+- spellId: 0
+  spellName: Beast Cleave
+  targetUptimePct: 95
+  importance: high
+  coachingTip: 'Maintain in AoE via Wild Thrash on its 8-second cooldown (8s duration = 100% uptime).'
+- spellId: 0
+  spellName: Black Arrow
+  targetUptimePct: 90
+  importance: high
+  coachingTip: 'Keep DoT active. Procs from Bestial Wrath, Wailing Arrow, and Soul Drinker.'
+
+removedMechanics:
+- Frenzy Stack Maintenance (reworked; Barbed Shot no longer generates stacks; Frenzy is passive 40% pet attack speed)
+- Kill Shot (removed for BM in 12.0; now Marksmanship exclusive)
+- Multi-Shot (replaced by Wild Thrash)
+- Call of the Wild (removed in 12.0)
+- Explosive Shot (removed in 12.0)
+- Bursting Shot and High Explosive Trap (removed in 12.0)
+- Scatter Shot (removed in 12.0)
+
+rotation:
+  singleTarget: |-
+    1. Activate Bestial Wrath on cooldown.
+    2. Cast Kill Command on cooldown with Nature's Ally up. NEVER cast Kill Command twice in a row.
+    3. Cast Wailing Arrow when 7 seconds left on Bestial Wrath (fits end of Withering Fire window).
+    4. Cast Barbed Shot during Bestial Wrath.
+    5. Cast Black Arrow (spend Deathblow procs immediately).
+    6. Cast Barbed Shot as filler.
+    7. Cast Cobra Shot only when absolutely nothing else is available.
+  aoe: |-
+    1. Cast Black Arrow if Beast Cleave is expiring.
+    2. Activate Bestial Wrath.
+    3. Cast Wild Thrash on cooldown to maintain Beast Cleave.
+    4. Cast Kill Command on cooldown with Nature's Ally up. Never double Kill Command.
+    5. Cast Wailing Arrow if Bestial Wrath is about to end.
+    6. Cast Black Arrow during first 10 seconds of Bestial Wrath.
+    7. Cast Barbed Shot on cooldown.
+    8. Cast Wailing Arrow.
+    9. Cast Black Arrow.
+    10. Cast Cobra Shot as filler.
+  opener: |-
+    1. Ensure Hunter's Mark is active on target.
+    2. Cast Barbed Shot.
+    3. Activate Bestial Wrath.
+    4. Cast Black Arrow.
+    5. Cast Kill Command.
+    6. Cast Barbed Shot.
+    7. Cast Kill Command.
+    8. Continue rotation, fitting Wailing Arrow at 7s left on Bestial Wrath.
+
+cooldowns:
+- name: Bestial Wrath
+  cooldown: 30s (flat)
+  description: 'Increases damage by 20% for 15s. Procs Black Arrow. Button transforms into Wailing Arrow
+    once activated.'
+- name: Wailing Arrow
+  cooldown: Replaces Bestial Wrath button while active
+  description: 'Heavy damage, procs Black Arrow, silences/kicks all targets for 1s. Time at 7s remaining
+    on Bestial Wrath for Withering Fire window.'
+- name: Black Arrow
+  cooldown: Proc-based
+  description: 'Primary Dark Ranger mechanic. Up-front damage + DoT. Procs from Bestial Wrath, Wailing
+    Arrow, and Soul Drinker.'
+- name: Wild Thrash
+  cooldown: 8s
+  description: 'Replaces Multi-Shot. Heavy AoE damage, activates Beast Cleave for 8s.'
+- name: Aspect of the Turtle
+  cooldown: 2min
+  description: 'Major defensive. Immunity or 50% DR with talents.'
+- name: Exhilaration
+  cooldown: 1min
+  description: 'Major self-heal.'
+
+concepts:
+- 'Nature''s Ally (Apex Talent): Buffs Kill Command after using a non-Kill Command ability. Always weave
+  a filler between Kill Commands. Casting Kill Command twice in a row is never correct.'
+- 'Withering Fire Window: 10-second window triggered by Bestial Wrath. Wailing Arrow must land within it
+  (ideally at 7s remaining on BW timer).'
+- 'Black Arrow Management: No longer RNG-heavy. Generated via Soul Drinker and major CDs. Spend procs
+  immediately to avoid overcapping.'
+- 'Beast Cleave Maintenance: Wild Thrash 8s CD = 8s Beast Cleave = 100% uptime on cooldown.'
+- 'Mobility: BM is the only ranged spec with 100% damage execution while moving.'
+- 'Defensive Utility: Feign Death (Emergency Salve) acts as Poison/Disease dispel.'
+- 'Hunter''s Mark: Universal 3% damage increase for entire raid/group.'
+- 'Focus Management: No active generators. Avoid overcapping Focus and ensure enough for Kill Command.'
+- 'Pet Management: Majority of damage is pet-based. Roar of Sacrifice and other pet utility require pet alive and in range.'
+- 'Defensive Profile: Strong active defensives (Turtle, Exhilaration) but weak passive mitigation. Use proactively.'
+
+commonMistakes:
+- Casting Kill Command twice in a row, losing Nature's Ally damage bonus.
+- Missing Wailing Arrow timing (7 seconds remaining on Bestial Wrath) in single-target.
+- Overspending Focus on Cobra Shot, preventing Kill Command or Wild Thrash casts.
+- Letting Beast Cleave drop in AoE by not prioritizing Wild Thrash.
+- Overcapping Black Arrow charges by not spending procs before Bestial Wrath.
+- Holding Bestial Wrath too long — flat 30s CD, use aggressively.
+
+patchChanges:
+  12.0.1: 'Dark Ranger: Deathblow procs removed from Auto-Shots. Barbed Shot 50% Deathblow chance. Bestial
+    Wrath button transforms into Wailing Arrow.'
+  '12.0': 'Frenzy stack maintenance removed (passive talent). Multi-Shot replaced by Wild Thrash. Kill Shot
+    removed for BM. Bestial Wrath flat 30s CD.'

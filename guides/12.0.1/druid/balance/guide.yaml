@@ -1,0 +1,155 @@
+specId: 102
+className: Druid
+specName: Balance
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Astral Power
+  secondaryResource: Eclipse
+  resourceNotes: 'Generate Astral Power (AP) using builders like Wrath and Starfire, and through DoT effects (Moonfire/Sunfire). Spend AP on Starsurge for single-target or Starfall for multi-target. Avoid "overcapping" AP (reaching the 100 cap); ideally enter Eclipse with 80-100 AP to immediately spend and stack the Starlord buff. Eclipse is now an active 32-second cooldown ability that lasts 15 seconds.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Moonfire
+    targetUptimePct: 95
+    importance: high
+    coachingTip: 'Maintain Moonfire on all targets. It generates Astral Power via Shooting Stars and deals efficient damage over its duration.'
+  - spellId: 0
+    spellName: Sunfire
+    targetUptimePct: 95
+    importance: high
+    coachingTip: 'Keep Sunfire active on all targets. Apply if the target will live at least 5 seconds.'
+  - spellId: 0
+    spellName: Moonkin Form
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'Always stay in Moonkin Form during combat for the significant damage bonus.'
+
+playstyles:
+  - id: keeper_of_the_grove
+    name: Keeper of the Grove
+    detectionCriteria:
+      heroTalents:
+        - "Keeper of the Grove"
+  - id: elunes_chosen
+    name: Elune's Chosen
+    detectionCriteria:
+      heroTalents:
+        - "Elune's Chosen"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Nature's Vigil (Removed in 12.0; replaced by Gift of the Wild passive)
+  - Renewal (Removed in 12.0; Aessina's Renewal remains)
+  - Stellar Flare (Removed in 12.0)
+  - Warrior of Elune (Removed in 12.0)
+  - Passive Eclipse (Reworked in 12.0: now an active ability on the GCD)
+  - Mastery: Astral Invocation (Reworked in 12.0: removed interaction with Sunfire and Moonfire)
+
+rotation:
+  singleTarget: |
+    [Keeper of the Grove] Single Target Priority:
+    1. Apply and maintain Sunfire and Moonfire.
+    2. Use Force of Nature outside of Eclipse if your next ability is Celestial Alignment.
+    3. Cast Celestial Alignment if you have just cast Force of Nature (unless saving to line up with Convoke the Spirits).
+    4. Cast Wrath to spend Dream Surge unless you will cap on Astral Power.
+    5. Cast Convoke the Spirits if you have cast Force of Nature and Celestial Alignment and have less than 40 Astral Power.
+    6. Enter the Eclipse state appropriate to your target count by ending your Celestial Alignment with that filler.
+    7. Cast Force of Nature on cooldown.
+    8. Spend Dream Surge using Wrath unless you will cap on Astral Power.
+    9. Cast Starsurge to spend Astral Power, maintain Starlord, or to spend Touch the Cosmos.
+    10. Cast Wrath to generate Astral Power.
+
+    [Elune's Chosen] Single Target Priority:
+    1. Use Warrior of Elune on cooldown (Note: listed as removed in 12.0 overview).
+    2. Apply and maintain Sunfire, Moonfire, and Stellar Flare (Note: listed as removed in 12.0 overview).
+    3. Cast Celestial Alignment if you have just cast Fury of Elune (unless saving to line up with Convoke the Spirits).
+    4. Cast Convoke the Spirits if you have cast Celestial Alignment and have less than 40 Astral Power.
+    5. If you are not entering cooldowns, enter regular Eclipse.
+    6. Cast Fury of Elune if not entering Celestial Alignment.
+    7. Cast Starsurge to spend Astral Power, maintain Starlord, or to spend Touch the Cosmos.
+    8. Cast Starfire to generate Astral Power (Lunar Calling makes Starfire the preferred filler even in ST).
+  aoe: |
+    [Keeper of the Grove] Multi-Target Priority:
+    1. Apply and maintain Sunfire and Moonfire.
+    2. Cast Force of Nature outside of Eclipse if your next button is Celestial Alignment.
+    3. Cast Celestial Alignment if you have just cast Force of Nature and then cast Starfire to spend Dream Surge (if not capping AP).
+    4. If you are not entering cooldowns, enter your regular Eclipse.
+    5. Cast Force of Nature.
+    6. Spend Dream Surge using Starfire unless you will cap on Astral Power.
+    7. Cast Starfall to spend Astral Power, maintain Starlord, or to spend Touch the Cosmos.
+    8. Cast Starfire to generate Astral Power.
+    9. Note: Apply Sunfire if target lives 5s; Moonfire if target lives 6s.
+
+    [Elune's Chosen] Multi-Target Priority:
+    1. Use Warrior of Elune on cooldown.
+    2. Apply and maintain Sunfire and Moonfire.
+    3. Cast Fury of Elune.
+    4. Cast Celestial Alignment.
+    5. If you are not entering cooldowns, enter your regular Eclipse (Note: Lunar Calling prevents entering Solar Eclipse).
+    6. Cast Starfall to spend Astral Power, maintain Starlord, or to spend Touch the Cosmos.
+    7. Cast Starfire to generate Astral Power.
+  opener: |
+    [Keeper of the Grove] Opener:
+    1. Pre-cast two Wraths (at 2 seconds on pull-timer).
+    2. Apply and maintain Sunfire and Moonfire.
+    3. Use any on-use trinkets and potions.
+    4. Cast Celestial Alignment.
+    5. Dump Astral Power on Starsurge if using Convoke the Spirits.
+    6. Cast Force of Nature.
+    7. Cast Convoke the Spirits.
+    8. Spend any remaining Dream Surge by casting Wrath.
+    9. Cast Starsurge until out of Astral Power and resume regular rotation.
+
+    [Elune's Chosen] Opener:
+    1. Pre-cast two Wraths (at 2 seconds on pull-timer).
+    2. Apply and maintain Sunfire and Moonfire.
+    3. Use any on-use trinkets and potions.
+    4. Cast Celestial Alignment.
+    5. Cast Fury of Elune (on multi-target, cast this before Celestial Alignment).
+    6. Spend your Astral Power.
+    7. Use Starfire to generate Astral Power.
+    8. Proceed with standard rotation.
+
+cooldowns: |
+  - Celestial Alignment / Incarnation: Chosen of Elune (3min) - Major offensive cooldown. Grants both Eclipses and increases damage. Use on cooldown and stack with other buffs.
+  - Convoke the Spirits (1-2min) - Channels a flurry of spells. Use inside Celestial Alignment and Balance of All Things windows. Avoid melee range to ensure Balance-specific spells.
+  - Force of Nature (1min) - Summons Treants. In Keeper of the Grove, provides a 24% damage buff (Harmony of the Grove). Use on cooldown.
+  - Fury of Elune (1min) - Arcane beam for Astral Power and cleave. Use rotationally, especially in Elune's Chosen.
+  - Solar Beam (1min) - Powerful AoE silence. Use for mob management in Mythic+.
+  - Barkskin (1min) - Short defensive cooldown. Use frequently for minor damage reduction.
+  - Bear Form (Global) - Increases health and armor. Use to survive high-damage hits or mechanics.
+
+concepts: |
+  - Eclipse Rework: Eclipse is now an active ability. Casting Wrath before activating it triggers Solar Eclipse (ST); casting Starfire triggers Lunar Eclipse (AoE).
+  - Astral Power Cycle: Build AP with fillers/DoTs and spend on Starsurge (ST) or Starfall (AoE). Never cap at 100.
+  - Starlord: A critical buff gained by spending AP. Aim for 3 stacks and high uptime, especially during Eclipse.
+  - DoT Efficiency: Only apply DoTs if the target lives long enough (5s for Sunfire, 6s for Moonfire) to be more efficient than a filler.
+  - Keeper of the Grove: Revolves around Force of Nature. Treants provide the Harmony of the Grove damage buff and Dream Surge procs.
+  - Elune's Chosen: Focuses on Arcane damage and Starfire. Lunar Calling makes Starfire the primary filler even in single-target.
+  - Mastery (Astral Invocation): Increases damage of Nature spells in Solar Eclipse and Arcane spells in Lunar Eclipse. No longer interacts with DoTs.
+  - Always Be Casting: As a caster, movement should be handled using instant-cast spenders (Starsurge/Starfall) to maintain uptime.
+  - Pooling: Pool 80-100 Astral Power before entering Eclipse to maximize the benefit of the Eclipse window.
+  - Convoke Positioning: Stay within 45 yards but avoid melee range to ensure optimal spell selection from Convoke.
+
+commonMistakes:
+  - 'Overcapping Astral Power instead of spending it on Starsurge or Starfall'
+  - 'Casting Convoke the Spirits at max range (45+ yards) causing the spells to miss the target'
+  - 'Standing in melee range during Convoke the Spirits, which reduces the consistency of Balance-specific spells'
+  - 'Entering Eclipse with low Astral Power instead of pooling 80-100 AP beforehand'
+  - 'Applying DoTs to targets that will die in less than 5-6 seconds'
+  - 'Holding major cooldowns like Celestial Alignment or Force of Nature for more than 15 seconds'
+  - 'Letting charges of Wild Mushroom or New Moon cap instead of keeping them rolling'
+
+patchChanges: |
+  12.0.1:
+  - Reviewed and updated for Midnight launch.
+  12.0:
+  - Eclipse reworked into an active ability on a 32s cooldown.
+  - Mastery: Astral Invocation reworked to remove DoT interaction.
+  - Stellar Flare, Warrior of Elune, Nature's Vigil, and Renewal removed.
+  - New talents: Total Eclipse, Meteor Storm, Elune's Challenge.
+  - Keeper of the Grove Astral Power generation and Harmony of the Grove damage buff nerfed.

@@ -1,0 +1,130 @@
+specId: 266
+className: Warlock
+specName: Demonology
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Soul Shards
+  secondaryResource: Demonic Core
+  resourceNotes: 'Soul Shards are the primary resource (max 5). Generate them with Shadow Bolt and Demonbolt; spend them on Call Dreadstalkers and Hand of Gul''dan (which now always costs 3 shards). Demonic Core is a secondary resource (max 4 stacks) that makes Demonbolt instant and generate more shards. Overcapping shards or cores is a significant DPS loss. Always ensure you have 2 shards ready for Call Dreadstalkers on cooldown.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Doom
+    targetUptimePct: 95
+    importance: high
+    coachingTip: 'Doom deals damage when it expires or the target dies. Hand of Gul''dan reduces its duration by 3s. In single target, hold one Demonic Core charge to reapply Doom once it expires.'
+
+playstyles:
+  - id: diabolist
+    name: Diabolist
+    detectionCriteria:
+      heroTalents:
+        - "Diabolist"
+  - id: soul_harvester
+    name: Soul Harvester
+    detectionCriteria:
+      heroTalents:
+        - "Soul Harvester"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Soul Strike (Removed in 12.0)
+  - Demonic Strength (Removed in 12.0)
+  - Bilescourge Bombers (Removed in 12.0)
+  - Grimoire: Felguard (Removed in 12.0)
+  - Soul Conduit (Removed in 12.0)
+  - Health Funnel (Removed in 12.0; healing moved to Drain Life via Infernal Beneficiary)
+  - Summon Vilefiend (Removed as standalone; now attached to Summon Dreadstalkers)
+  - Pact of the Ered'ruin Doomguard proc (Removed; replaced by active cooldown)
+  - Summon Demonic Tyrant duration extension (Removed in 12.0)
+  - Summon Demonic Tyrant baseline damage aura (Removed in 12.0)
+
+rotation:
+  singleTarget: |
+    1. Cast Grimoire: Imp Lord.
+    2. Cast Grimoire: Fel Ravager.
+    3. Cast Summon Demonic Tyrant.
+    4. Cast Summon Doomguard.
+    5. Cast Power Siphon with 2 or less Demonic Core and at least 2 Wild Imps out.
+    6. Cast Implosion with 6 Wild Imps out (only if To Hell and Back is talented).
+    7. Cast Call Dreadstalkers whenever available.
+    8. Cast Hand of Gul'dan if you have 4-5 Soul Shards.
+    9. Cast Demonbolt if you have 2+ stacks of Demonic Core.
+    10. Cast Infernal Bolt when at 2 or less Soul Shards.
+    11. Cast Shadow Bolt to generate Soul Shards.
+  aoe: |
+    Demonology has little variation in playstyle when multiple targets are present.
+    1. Cast Grimoire: Imp Lord.
+    2. Cast Grimoire: Fel Ravager.
+    3. Cast Summon Demonic Tyrant.
+    4. Cast Summon Doomguard.
+    5. Cast Power Siphon with 2 or less Demonic Core and at least 2 Wild Imps out.
+    6. Cast Implosion with 6 Wild Imps out.
+    7. Cast Call Dreadstalkers whenever available.
+    8. Cast Hand of Gul'dan if you have 4-5 Soul Shards.
+    9. Cast Demonbolt if you have 2+ stacks of Demonic Core.
+    10. Cast Infernal Bolt when at 2 or less Soul Shards.
+    11. Cast Shadow Bolt to generate Soul Shards.
+  opener: |
+    1. Pre-cast Demonbolt.
+    2. Pre-cast Demonbolt.
+    3. Pre-cast Power Siphon with 2 Wild Imps out.
+    4. Pre-cast Shadow Bolt.
+    5. Cast Shadow Bolt.
+    6. Cast Summon Doomguard.
+    7. Cast Grimoire: Imp Lord.
+    8. Cast Grimoire: Fel Ravager.
+    9. Cast Shadow Bolt.
+    10. Cast Shadow Bolt.
+    11. Cast Shadow Bolt.
+    12. Cast Shadow Bolt if below 2 Soul Shards.
+    13. Cast Call Dreadstalkers.
+    14. Cast Summon Demonic Tyrant.
+    15. Focus on casting as many Hand of Gul'dan possible.
+    16. Cast Implosion with 6 Wild Imps out and 1 or less Demonic Core.
+    17. Cast Power Siphon after the second Hand of Gul'dan.
+
+cooldowns: |
+  - Summon Demonic Tyrant (2min): Main cooldown. Lasts 20s. Damage scales dynamically based on active Wild Imps and Dreadstalkers. Focus on Hand of Gul'dan spam during this window.
+  - Summon Doomguard: Offensive cooldown. Cooldown is dynamically reduced by spending Demonic Cores.
+  - Grimoire: Imp Lord / Fel Ravager (1min): Choice node. Imp Lord provides Singe Magic (dispel); Fel Ravager provides an extra interrupt/Spell Lock.
+  - Power Siphon (30s): Consumes 2 Wild Imps to grant 2 Demonic Core stacks and buff Demonbolt.
+  - Dark Pact (1min): Major defensive shield based on health.
+  - Unending Resolve (3min): Major defensive reduction and interrupt immunity.
+
+concepts: |
+  - Soul Shards: Primary resource. Hand of Gul'dan now always costs 3 shards. Never overcap.
+  - Demonic Core: Secondary resource (max 4). Enables instant Demonbolt. Pool 2 stacks before Tyrant.
+  - Tyrant Scaling: Tyrant damage is dynamic. It no longer snapshots or extends demons. The goal is to have maximum demons active during its 20s window.
+  - Apex Talent (Dominion of Argus): Shifts rotation from pre-Tyrant setup to post-Tyrant sequence. Maximize Hand of Gul'dan casts while Tyrant is active to trigger extra summons.
+  - Doom Management: Deals damage on expiration. Hand of Gul'dan reduces duration. In AoE, spread Doom by casting Demonbolt at different targets.
+  - Implosion: In AoE, use at 6 Imps. In Single Target, only use if "To Hell and Back" is talented for the extra cores/imps.
+  - Diabolist: Revolves around a cycle of Overlord, Mother of Chaos, and Pit Lord summoned via Diabolic Ritual. High burst potential.
+  - Soul Harvester: Focuses on aggressive shard spending to trigger DoT effects and Sataiel's Volition for more Demonic Cores.
+  - Movement: Use instant Demonbolt procs to cover movement. Use Demonic Gateway and Demonic Circle proactively for encounter mechanics.
+  - Pet Choice: Always use Felguard. Axe Toss serves as both an interrupt and a stun.
+
+commonMistakes:
+  - "Overcapping Soul Shards (max 5) instead of spending on Hand of Gul''dan"
+  - 'Letting Demonic Core stacks reach 4 and wasting subsequent procs'
+  - 'Casting Implosion in single target without the To Hell and Back talent'
+  - 'Entering a Summon Demonic Tyrant window with 0 Demonic Core stacks'
+  - 'Not having 2 Soul Shards ready when Call Dreadstalkers comes off cooldown'
+  - 'Failing to use Demonbolt to spread Doom debuffs in multi-target scenarios'
+  - 'Holding defensive cooldowns like Dark Pact for emergencies instead of using them proactively'
+
+patchChanges: |
+  12.0.1:
+  - Fixed opener for situational talent choices.
+  - Updated rotations to include Apex Talent (Dominion of Argus) logic.
+  12.0:
+  - Hand of Gul'dan shard cost fixed to 3.
+  - Removal of Soul Strike, Demonic Strength, and Bilescourge Bombers.
+  - Summon Demonic Tyrant reworked to scale dynamically and no longer extend pets.
+  - Summon Vilefiend merged into Summon Dreadstalkers.
+  - Grimoire: Felguard replaced by Grimoire: Imp Lord/Fel Ravager choice node.
+  - New Apex Talents (Dominion of Argus) added.

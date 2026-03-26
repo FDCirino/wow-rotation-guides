@@ -1,0 +1,140 @@
+specId: 264
+className: Shaman
+specName: Restoration
+role: Healer
+heroTalent: Totemic
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: None
+  resourceNotes: 'Mana management is the core of Restoration Shaman. Aim to keep your Mana percentage roughly equal to the
+    enemy health percentage throughout an encounter. Use Lightning Bolt as a cost-free filler to recoup mana during low damage
+    periods. Totemic gameplay focuses on high-efficiency instant-cast totems to conserve mana while maintaining throughput.'
+maintenanceBuffs:
+- spellId: 0
+  spellName: Water Shield
+  targetUptimePct: 100
+  importance: high
+  coachingTip: Keep Water Shield active on yourself at all times for mana regeneration and Intellect bonuses from Instinctive
+    Imbuements.
+- spellId: 0
+  spellName: Earth Shield
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: Maintain Earth Shield on the tank and yourself (via Elemental Orbit). It increases healing received and provides
+    passive reactive healing.
+- spellId: 0
+  spellName: Surging Totem
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: Surging Totem replaces Healing Rain. It is your most important maintenance spell. Use Totemic Projection to
+    move it if the group moves.
+- spellId: 0
+  spellName: Skyfury
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: Ensure your raid buff is active to provide critical benefits to the entire group.
+rotation:
+  singleTarget: |
+    1. Maintain Water Shield on yourself and Earth Shield on the tank and yourself.
+    2. Use Healing Stream Totem whenever you hit maximum charges or as an emergency heal. This triggers Lively Totems for free Chain Heals.
+    3. Cast Nature's Swiftness on cooldown to trigger Stormstream Totem procs; use the instant cast on Chain Heal or Healing Wave.
+    4. Place Surging Totem where it hits as many allies as possible. Use Totemic Projection to reposition it as needed.
+    5. Cast Riptide on cooldown to maintain the HoT and trigger potential Stormstream Totem procs.
+    6. Use Healing Wave to heal injured single players (replaces Healing Surge in 12.0).
+    7. Use Unleash Life to buff your next Riptide, Healing Wave, or Chain Heal.
+    8. Cast Lightning Bolt or Lava Burst if no healing is required to assist with DPS.
+  aoe: |
+    1. Place Surging Totem in the center of the group.
+    2. Use Healing Stream Totem to trigger Lively Totems, which automatically casts a free Chain Heal.
+    3. Cast Nature's Swiftness on cooldown for Stormstream Totem procs and use the instant cast on Chain Heal.
+    4. Cast Riptide on cooldown. In Mythic+, use it on targets before Chain Heal to benefit from Flow of the Tides.
+    5. Cast Chain Heal on injured allies (Lively Totems provide free casts from totem usage).
+    6. Cast Healing Wave for single-target healing.
+    7. Use Healing Tide Totem or Spirit Link Totem for heavy group-wide damage.
+  opener: |
+    1. Apply Water Shield to yourself.
+    2. Apply Earth Shield to the tank and yourself.
+    3. Pre-cast Surging Totem at the location where the group will stack.
+    4. Cast Riptide on as many targets as possible before damage begins.
+    5. Drop Healing Stream Totem to trigger the first Lively Totems proc.
+cooldowns:
+- name: Spirit Link Totem
+  cooldown: 3min
+  description: 'Redistributes health and provides 15% damage reduction. Use to split overwhelming single-target damage or
+    stabilize a group.'
+- name: Healing Tide Totem
+  cooldown: 3min
+  description: Major raid healing cooldown. Heavily buffed for Totemic by Splitstream and Primal Catalyst.
+- name: Ascendance (Choice Node with HTT)
+  cooldown: '2-3min'
+  description: 'On choice node with Healing Tide Totem. Ascendance is the more flexible option — it provides
+    very high single-target healing while active and buffs both Chain Heal and Healing Wave. HTT is a pure
+    raid healing cooldown that synergizes with Splitstream and Primal Catalyst. Both are viable for Totemic;
+    Ascendance is generally preferred for its versatility unless your healing assignment specifically needs
+    a passive raid cooldown.'
+- name: 'Nature''s Swiftness'
+  cooldown: 1min
+  description: 'Makes your next spell instant and mana-free. Triggers a Stormstream Totem proc.'
+- name: Unleash Life
+  cooldown: 15s
+  description: Buffs the next heal and reduces its cast time. Use on Chain Heal or Healing Wave.
+- name: Stormstream Totem
+  cooldown: Apex Proc
+  description: A powerful version of HST that does not consume regular charges. Use before overcapping procs.
+- name: Astral Shift
+  cooldown: 1.5min
+  description: Primary defensive reduction. Use proactively before high incoming damage.
+- name: Earth Elemental
+  cooldown: 5min
+  description: 'Provides a 15% health buff via Primordial Bond and can off-tank non-boss enemies.'
+concepts:
+- 'Surging Totem: This is your primary ground-based heal. Unlike Healing Rain, it is instant and can be moved using Totemic
+  Projection without recasting.'
+- 'Lively Totems: Your throughput totems (HST, HTT, Spirit Link) now trigger free Chain Heals. This makes totem management
+  your primary source of AoE healing.'
+- 'Mastery: Deep Healing: Your heals are significantly more powerful on targets with lower health. Focus your direct heals
+  on the most injured players.'
+- 'Totemic Projection: Essential for the Totemic playstyle. Use it to keep Surging Totem and Spirit Link Totem positioned
+  correctly as the fight moves.'
+- 'Totem Synergy: Totemic gameplay revolves around instant-cast totem placement and repositioning. Surging'
+- 'Spirit Link Totem: Unique utility that equalizes health and ignores healing reduction. Can save targets
+  from one-shots.'
+- 'Wind Shear: The only healer interrupt in the game (30s CD). Use to stop dangerous casts.'
+- 'Mana Management: Match your mana burn to the boss''s health percentage. Use Lightning Bolt as a free
+  filler when healing is not needed.'
+- 'Stormstream Totem: This Apex talent grants Riptide a chance to proc a powerful version of HST. Nature''s Swiftness also
+  guarantees a proc.'
+- 'Mana Efficiency: Totemic relies on instant-cast totems and free Chain Heals from Lively Totems, which helps significantly
+  with mana longevity compared to Farseer.'
+- 'Skyfury: Always ensure this raid buff is active, as it is a primary reason for bringing a Shaman to the group.'
+removedMechanics:
+- Healing Surge (replaced by Healing Wave)
+- Cloudburst Totem
+- Earthen Wall Totem
+- Ancestral Protection Totem
+- Wellspring
+- High Tide
+- Mana Tide Totem
+- 'Spiritwalker''s Tidal Totem'
+- Master of the Elements
+- Tidebringer
+- Undulation
+- Totemic Recall
+- Stone Bulwark Totem
+- Thunderstorm (Restoration only)
+commonMistakes:
+- Leaving Surging Totem behind when the group moves instead of using Totemic Projection
+- Overcapping Healing Stream Totem charges and wasting Lively Totems procs
+- Ignoring Stormstream Totem procs and letting them expire
+- 'Not using Nature''s Swiftness on cooldown to generate Stormstream procs'
+- Holding Spirit Link Totem for a perfect moment instead of using it to stabilize health percentages
+- Forgetting to refresh Earth Shield on the tank
+patchChanges:
+  12.0.1: 'Totemic: Reactivity renamed to Splitstream; increases Healing Tide Totem healing by 25%. Totemic: New talents added:
+    Totemic Momentum, Elemental Attunement, and Primal Catalyst. Healing Rain: Baseline duration and cooldown increased to
+    18s (affects Surging Totem).'
+  '12.0': Healing Surge removed and replaced by Healing Wave. Ascendance redesigned to buff Healing Wave crits and Chain Heal
+    jumps. Wind Shear cooldown increased to 30s. Multiple talents removed (Cloudburst, High Tide, etc.) to reduce rotational
+    complexity.

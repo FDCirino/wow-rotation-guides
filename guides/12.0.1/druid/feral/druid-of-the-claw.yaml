@@ -1,0 +1,184 @@
+specId: 103
+className: Druid
+specName: Feral
+role: DPS
+heroTalent: Druid of the Claw
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Energy
+  secondaryResource: Combo Points
+  resourceNotes: 'Energy regenerates passively and is restored via Tiger''s Fury. Spend Energy on generators like Shred (ST)
+    and Swipe (AoE) to build Combo Points. Spend Combo Points on finishers like Rip, Ferocious Bite, and Primal Wrath. Druid
+    of the Claw focuses on Ravage procs which empower Ferocious Bite into a high-damage cleaving attack. Snapshotting is simplified
+    in Midnight: only Tiger''s Fury and Prowl snapshot bleeds.'
+maintenanceBuffs:
+- spellId: 5217
+  spellName: Tiger's Fury
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: Tiger's Fury is your primary damage amp and energy restore. Use on cooldown but be at low energy when it comes
+    up to avoid overcapping. Pair with Berserk when available. Snapshots bleeds for their full duration.
+- spellId: 1822
+  spellName: Rake
+  targetUptimePct: 98
+  importance: high
+  coachingTip: Maintain 100% uptime on Rake. Refresh early if Tiger's Fury comes off cooldown to upgrade the snapshot. In
+    AoE with Double-Clawed Rake, spread Rake to all targets before using Swipe.
+- spellId: 1079
+  spellName: Rip
+  targetUptimePct: 95
+  importance: high
+  coachingTip: Keep Rip active on primary target with 5 CP and ideally Tiger's Fury active. If TF is not active but previous
+    Rip was TF-snapshot, wait until it expires before refreshing (don't downgrade). Pandemic window is 5.8 seconds remaining.
+    In AoE use Primal Wrath to apply Rip to all enemies.
+- spellId: 0
+  spellName: Mark of the Wild
+  targetUptimePct: 100
+  importance: medium
+  coachingTip: Ensure this group buff is active at all times for the Versatility bonus.
+rotation:
+  singleTarget: |-
+    Priority (after opener):
+    1. Use Berserk on cooldown, paired with Tiger's Fury (cast together).
+    2. Use Tiger's Fury on cooldown if Berserk is on CD; be at low energy when it comes up.
+    3. Maintain Rake; upgrade snapshot by refreshing early when Tiger's Fury comes off CD.
+    4. Maintain Rip at 5 CP with Tiger's Fury active. Don't downgrade a TF-snapshot Rip.
+    5. Cast Chomp on cooldown (if talented); deplete energy before it comes off CD.
+    6. Use Feral Frenzy / Focused Frenzy on cooldown at low combo points (0-2), follow with a finisher.
+    7. Use Convoke the Spirits on cooldown (if talented), paired with Tiger's Fury and Berserk.
+    8. Cast Ferocious Bite at 5 CP if Rip is not in pandemic window and you wouldn't downgrade it.
+    9. Consume Apex Predator's Craving procs (free Ferocious Bite) — ensure bleeds are applied for Rampant Ferocity.
+    10. Maintain Moonfire if Lunar Inspiration is talented.
+    11. Cast Shred to generate Combo Points. Watch for Panther's Guile procs (free CP) — don't blindly queue two Shreds; weave extra Ferocious Bites from procs.
+  aoe: |-
+    Priority:
+    1. Use Berserk on cooldown, paired with Tiger's Fury.
+    2. Use Tiger's Fury on cooldown.
+    3. Maintain Rip via Primal Wrath; refresh early to upgrade snapshot with Tiger's Fury.
+    4. Use Convoke the Spirits on cooldown (if talented), paired with TF and Berserk. Ensure Rip lasts through the channel.
+    5. Use Frantic Frenzy on cooldown at low combo points.
+    6. At 5 CP with healthy Rip duration (5s+), weave Ferocious Bite for Rampant Ferocity cleave.
+    7. If TF not active but previous Primal Wrath was TF-snapshot, weave Ferocious Bite instead of downgrading.
+    8. Consume Apex Predator's Craving procs.
+    9. Cast Chomp on cooldown (if talented); deplete energy first.
+    10. Rake or Swipe to generate CP. With Double-Clawed Rake: Rake all targets before Swiping. Without: only Rake up to 4 targets.
+    11. Moonfire on priority targets if Lunar Inspiration talented.
+  opener: |-
+    Standard ST Opener:
+    1. Prowl.
+    2. Rake from stealth.
+    3. Shred and Moonfire (if Lunar Inspiration) to 5 combo points.
+    4. Tiger's Fury.
+    5. Rip.
+    6. Berserk.
+    7. Feral Frenzy (if talented) + Ferocious Bite.
+    8. Convoke the Spirits (if talented).
+
+    Advanced Chomp Opener:
+    1. Swipe the air before pull to deplete energy.
+    2. Prowl.
+    3. Rake.
+    4. Tiger's Fury + Berserk.
+    5. Chomp.
+    6. Feral Frenzy.
+    7. Rip.
+    8. Convoke the Spirits.
+
+    AoE Opener:
+    1. Prowl.
+    2. Rake.
+    3. Rake or Swipe to 5 CP (Rake if Double-Clawed Rake talented).
+    4. Tiger's Fury.
+    5. Primal Wrath.
+    6. Berserk.
+    7. Frantic Frenzy + Ferocious Bite.
+    8. Convoke (if talented).
+    9. Primal Wrath again to refresh Rips.
+cooldowns:
+- name: Berserk
+  cooldown: 2min
+  description: Major offensive burst. Triggers Claw Rampage (chance for Ravage procs per cast). Always pair with Tiger's Fury.
+    In Midnight, Berserk Frenzy has been removed and Claw Rampage was nerfed to proc per cast rather than per target hit.
+- name: 'Convoke the Spirits / Incarnation: Avatar of Ashamane'
+  cooldown: '2min baseline (Incarnation: 1m30s with Ashamane''s Guidance). Choice node.'
+  description: Convoke channels a flurry of Druid spells for burst damage. Incarnation provides sustained burst with enhanced
+    Berserk. Pair either with Tiger's Fury and Berserk. Ensure Rip will last through Convoke's channel.
+- name: Tiger's Fury
+  cooldown: 30s
+  description: Restores energy and increases damage by 15%. Snapshots bleeds for their full duration. Use on cooldown but
+    be at low energy. With Killing Strikes, first TF instantly grants Ravage.
+- name: Feral Frenzy / Focused Frenzy / Frantic Frenzy
+  cooldown: 45s base (30s with Focused Frenzy)
+  description: Generates 5 CP and deals heavy bleed damage. Focused Frenzy reduces CD and increases damage by 40% (ST). Frantic
+    Frenzy converts to AoE, blinking between targets. Use at low combo points (0-2) and follow with a finisher.
+- name: Chomp
+  cooldown: 20s, no energy cost
+  description: High damage attack available when below 30% energy (2-second grace period after threshold). Deplete energy
+    before it comes off CD. Can Tiger's Fury then immediately Chomp to buff it.
+- name: Survival Instincts
+  cooldown: 3min
+  description: Major defensive. Use for large incoming damage.
+- name: Barkskin
+  cooldown: 1min
+  description: 30% damage reduction for 12 seconds. Off GCD. Use proactively.
+- name: Heart of the Wild
+  cooldown: 2min
+  description: 'Effect depends on current form. Bear Form: 30% increased max HP for 20s (persists after shifting). Cat Form
+    / No form: other utility effects.'
+concepts:
+- 'Ravage: Empowered Ferocious Bite that deals massive damage and cleaves. Procced via Killing Strikes (Tiger''s Fury grants
+  first Ravage), auto-attacks, and during Berserk via Claw Rampage. Always ensure bleeds are applied on targets for Rampant
+  Ferocity before using.'
+- 'Claw Rampage: During Berserk, casts have a chance to trigger Ravage. Nerfed in Midnight to proc per cast rather than per
+  target hit. Maximizing builder casts (Shred/Swipe) during Berserk = more Ravage procs.'
+- 'Dreadful Wound: Ravage applies a bleed that is extended by spending energy. Largely passive but contributes meaningful
+  damage.'
+- 'Snapshotting (Simplified): Only Tiger''s Fury and Prowl snapshot bleeds in Midnight. Bleed icons change to show they''re
+  empowered. Don''t downgrade a TF-snapshot Rip/Rake by refreshing without TF active.'
+- 'Panther''s Guile: New Midnight talent. Shred has a chance to grant bonus combo points. Don''t blindly queue two Shreds
+  — watch for procs and weave extra Ferocious Bites.'
+- 'Chomp: 20s CD, no cost, available below 30% energy with 2s grace period. Can Tiger''s Fury then immediately Chomp. Deplete
+  energy before CD comes up.'
+- 'Unseen Predator (Apex Talent): Ferocious Bite has a chance to trigger Unseen Slash (ST) or Unseen Swipe (AoE). Rank 2 gives
+  15% damage buff for 5s on proc. Rank 3: Tiger''s Fury forces next 2 generators to proc Unseen Attack.'
+- 'Energy Management: Be at low energy when Tiger''s Fury comes off CD. Don''t overcap. Feral has a methodical pace — plan
+  GCDs around energy availability.'
+- 'Combo Point Efficiency: Aim to spend finishers at 5 CP. Can spend at 4 outside Berserk to avoid overcapping via Primal
+  Fury. Never waste by over-generating.'
+- 'Hybrid Defense: Druid of the Claw allows Frenzied Regeneration in Cat Form (costs 40 energy, 36s CD). Predatory Swiftness
+  gives instant Regrowth from finishers.'
+- 'Rampant Ferocity: Ferocious Bite/Ravage deals bonus damage to nearby targets with your bleeds. Always have bleeds up before
+  Biting.'
+removedMechanics:
+- Bloodtalons (Removed in 12.0)
+- Thrash (Removed from Feral in 12.0)
+- Brutal Slash (Removed in 12.0)
+- Nature's Vigil (Removed in 12.0)
+- Adaptive Swarm (Removed in 12.0)
+- 'Berserk: Frenzy (Removed in 12.0)'
+- Sudden Ambush (Reworked in 12.0 — no longer snapshots Rake; prioritize using on Shred ST / Swipe AoE instead)
+- 'Snapshotting: Tiger''s Fury increases Bleed damage for their entire duration if applied during the buff.'
+- 'Pandemic: Refresh DoTs at <30% duration remaining (Rake 4.5s, Rip 7.2s) to add time.'
+- 'Mastery: Increases the damage of Bleed and Finishing abilities.'
+- 'Movement: High mobility via Cat Form speed, Dash, Wild Charge, Stampeding Roar. Shapeshifting breaks roots.'
+commonMistakes:
+- Overcapping Energy by using Tiger's Fury while at high energy — be at low energy when TF comes off CD.
+- Wasting Combo Points by using generators at 5 CP cap — watch for Panther's Guile procs and spend first.
+- Neglecting Ravage procs and using standard Ferocious Bite instead.
+- Letting Rake or Rip bleeds drop off primary target.
+- Downgrading a Tiger's Fury-snapshot Rip by refreshing without TF active — wait for it to expire or TF to come back.
+- Not using Ferocious Bite/Ravage with bleeds active on targets (missing Rampant Ferocity cleave damage).
+- Forgetting Frenzied Regeneration is usable in Cat Form as Druid of the Claw.
+- Not depleting energy before Chomp comes off cooldown.
+- Blindly queuing two Shreds without checking for Panther's Guile CP procs.
+- Using Convoke without ensuring Rip will last through the full channel duration.
+- Holding Feral Frenzy for Tiger's Fury — it doesn't need to be held for CDs.
+patchChanges:
+  12.0.1: 'Reviewed for Midnight Season 1. Twin Claw damage +20%. Ravage primary target damage -20%. Dreadful Wound damage
+    -20%. Strike for the Heart crit chance reduced to 5% (was 8%). Tier set: 2pc Omen of Clarity gives 5% crit for 4s; 4pc
+    Rake damage +20%, Clearcasting boosts Shred/Swipe by 15%.'
+  '12.0': 'Bloodtalons, Thrash, Brutal Slash, Adaptive Swarm, Nature''s Vigil removed. Berserk Frenzy removed. Sudden Ambush
+    reworked (no longer snapshots Rake). Snapshotting simplified to Tiger''s Fury and Prowl only. Claw Rampage nerfed to proc
+    per cast not per target hit. New talents: Chomp, Frantic Frenzy, Focused Frenzy, Panther''s Guile, Blood Spattered, Hunger
+    for Battle. Apex Talent: Unseen Predator added.'

@@ -1,0 +1,138 @@
+specId: 70
+className: Paladin
+specName: Retribution
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Holy Power
+  secondaryResource: Mana
+  resourceNotes: 'Retribution gameplay revolves around managing Holy Power (max 5). You generate Holy Power with builders like Blade of Justice, Judgment, and Wake of Ashes, and spend it on powerful finishers like Final Verdict and Divine Storm. Minimizing Holy Power waste is the top priority; do not generate Holy Power when at 5. However, it is acceptable to waste 1 Holy Power with Blade of Justice if an Art of War proc occurs to avoid overwriting the Light Within effect.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Expurgation
+    targetUptimePct: 95
+    importance: high
+    coachingTip: 'Keep Expurgation active on your target as it significantly buffs your other damage.'
+  - spellId: 0
+    spellName: Judgment Debuff
+    targetUptimePct: 90
+    importance: high
+    coachingTip: 'Ensure Judgment debuffs are applied to enemies to increase the damage they take from your spenders.'
+  - spellId: 0
+    spellName: Devotion Aura
+    targetUptimePct: 100
+    importance: medium
+    coachingTip: 'Ensure Devotion Aura is active to provide 3% damage reduction to your group.'
+
+playstyles:
+  - id: templar
+    name: Templar
+    detectionCriteria:
+      heroTalents:
+        - "Templar"
+  - id: herald_of_the_sun
+    name: Herald of the Sun
+    detectionCriteria:
+      heroTalents:
+        - "Herald of the Sun"
+
+rotation:
+  singleTarget: |
+    1. Cast Avenging Wrath
+    2. Cast Execution Sentence
+    3. Cast Hammer of Light
+    4. Cast Final Verdict if you have 5 Holy Power
+    5. Cast Wake of Ashes
+    6. Cast Divine Toll
+    7. Cast Hammer of Wrath with an Art of War proc
+    8. Cast Blade of Justice with an Art of War proc
+    9. Cast Divine Storm if you have an Empyrean Power proc
+    10. Cast Final Verdict
+    11. Cast Hammer of Wrath
+    12. Cast Blade of Justice
+    13. Cast Hammer of Wrath
+    14. Cast Judgment
+    15. Cast Templar Strikes or Templar Slash
+    16. Cast Crusader Strike
+  aoe: |
+    1. Cast Avenging Wrath
+    2. Cast Execution Sentence
+    3. Cast Hammer of Light
+    4. Cast Divine Storm if you have 5 Holy Power
+    5. Cast Wake of Ashes
+    6. Cast Divine Toll
+    7. Cast Hammer of Wrath with an Art of War proc
+    8. Cast Blade of Justice with an Art of War proc
+    9. Cast Final Verdict if you have Empyrean Legacy active
+    10. Cast Divine Storm
+    11. Cast Hammer of Wrath
+    12. Cast Blade of Justice
+    13. Cast Hammer of Wrath
+    14. Cast Judgment
+    15. Cast Templar Strikes or Templar Slash
+    16. Cast Crusader Strike
+  opener: |
+    1. Cast Avenging Wrath
+    2. Cast Execution Sentence
+    3. Cast Wake of Ashes
+    4. Cast Divine Toll
+    5. Cast Hammer of Light
+    6. Cast Final Verdict
+    7. Cast Final Verdict
+    8. Cast Divine Toll
+    9. Continue with the regular priority
+
+cooldowns: |
+  - Avenging Wrath (1min): Increases damage and Critical Strike chance. Upgrades Judgment into Hammer of Wrath. Use before other cooldowns.
+  - Execution Sentence (1min): Deals initial AoE damage, then delayed damage after 10s based on damage dealt to all targets hit. Use before high-damage abilities like Wake of Ashes.
+  - Wake of Ashes (30s): Major burst damage and Holy Power generator. Triggers Hero Talent effects (Hammer of Light for Templar, Dawnlight for Herald).
+  - Divine Toll (1min): Generates Holy Power and casts multiple Judgments.
+  - Divine Shield (5min): Full immunity to all damage and effects.
+  - Divine Protection (1min): Major defensive damage reduction; now includes the Shield of Vengeance effect as a passive.
+  - Lay on Hands (10min): Heals a target for your maximum health.
+  - Blessing of Sacrifice (2min): Reduces damage taken by a party member by 30%, transferring it to you.
+  - Blessing of Protection (5min): Grants immunity to Physical damage and removes bleeds.
+
+concepts: |
+  - Holy Power Management: The core loop is generating and spending Holy Power. Avoid overcapping at 5.
+  - Light Within (Apex Talent): Focuses on Art of War and Righteous Cause procs. Prioritize spending Blade of Justice procs immediately to avoid wasting the bonus damage and AoE effect.
+  - Templar Playstyle: Centers on Hammer of Light, which becomes available after Wake of Ashes. It also features passive Empyrean Hammers.
+  - Herald of the Sun Playstyle: Focuses on Dawnlight DoT effects triggered by Wake of Ashes and significantly buffs Hammer of Wrath via Walk Into Light.
+  - Cooldown Alignment: Avenging Wrath and Execution Sentence are both 60s cooldowns; they should be used together for maximum burst.
+  - Judgment Interaction: Judgment (or Hammer of Wrath during AW) applies a debuff that increases the damage of your next Holy Power spenders.
+  - Crusading Strikes vs Templar Strikes: Crusading Strikes provides passive generation with downtime, while Templar Strikes offers active control over every GCD.
+  - Mobility: Divine Steed is the primary movement tool. Retribution can deal damage from range, which helps mitigate limited mobility.
+  - Utility: Use Rebuke for interrupts, Hammer of Justice for stuns, and Blinding Light for AoE stops. Cleanse Toxins removes Poisons and Diseases.
+
+commonMistakes:
+  - 'Overcapping Holy Power (generating when already at 5)'
+  - 'Misaligning 1-minute cooldowns (Avenging Wrath and Execution Sentence)'
+  - 'Wasting Light Within procs by delaying Blade of Justice'
+  - 'Casting Word of Glory too frequently, causing a significant loss in DPS'
+  - 'Not standing in melee range when required, though the spec has some ranged flexibility'
+  - 'Holding major cooldowns like Wake of Ashes too long instead of using them every 30 seconds'
+
+removedMechanics: |
+  - Final Reckoning (Removed in 12.0)
+  - Of Dusk and Dawn (Removed in 12.0)
+  - Divine Arbiter (Removed in 12.0)
+  - Searing Light (Removed in 12.0)
+  - Hammer of Wrath (Reworked: No longer a separate button, now upgrades Judgment during Avenging Wrath)
+  - Divine Hammer (Reworked: Now a passive talent that triggers after casting)
+  - Shield of Vengeance (Reworked: Now a passive effect tied to Divine Protection)
+  - Divine Resonance (Reworked: Now duplicates future Judgment casts instead of casting them periodically)
+  - Radiant Glory (Reworked: No longer procs Avenging Wrath randomly)
+  - Boundless Judgment (Reworked: No longer increases Holy Power provided by Judgment)
+
+patchChanges: |
+  12.0.1 (March 05, 2026):
+  - Updated priority lists and talent builds for Midnight.
+  12.0 (Midnight):
+  - Complete rework of the spec talent tree structure.
+  - Execution Sentence cooldown increased to 60s (merged with Final Reckoning effects).
+  - Crusading Strikes reworked to grant Holy Power with every hit but reduce attack speed.
+  - Herald of the Sun: Dawnlight uptime reduced; added Walk Into Light to buff Hammer of Wrath.
+  - Templar: Added Divine Hammer as a passive talent.

@@ -1,0 +1,125 @@
+specId: 1473
+className: Evoker
+specName: Augmentation
+role: DPS
+heroTalent: Scalecommander
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Essence
+  secondaryResource: Essence Burst
+  resourceNotes: Essence is spent on Eruption to deal damage and extend Ebon Might. Essence Burst procs from Living Flame
+    or Azure Strike, making the next Eruption free. Scalecommander focuses on spending Essence to apply and extend Bombardments
+    via Mass Eruption.
+maintenanceBuffs:
+- spellId: 0
+  spellName: Ebon Might
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: The core of the spec. Refresh when 3 seconds or less remain to benefit from Pandemic. Extend duration by casting
+    Empower spells and Eruption.
+- spellId: 0
+  spellName: Prescience
+  targetUptimePct: 90
+  importance: high
+  coachingTip: Maintain on two priority DPS allies. In Midnight, this no longer directs Ebon Might but provides critical strike
+    and triggers Fate Mirror.
+- spellId: 0
+  spellName: Bombardments
+  targetUptimePct: 70
+  importance: high
+  coachingTip: Scalecommander specific. Applied by Eruption after casting Empowers. Extend this debuff by casting Eruption
+    while it is active via the Extended Battle talent.
+- spellId: 0
+  spellName: Blistering Scales
+  targetUptimePct: 100
+  importance: medium
+  coachingTip: Keep this on the tank at all times to provide armor and physical damage reduction.
+playstyles:
+- id: scalecommander
+  name: Scalecommander
+  detectionCriteria:
+    heroTalents:
+    - Scalecommander
+removedMechanics:
+- Renewing Blaze (now a passive effect for Obsidian Scales)
+- Unravel (now a passive effect for Fire Breath)
+- 'Twin Guardian (shield removed; now provides speed and cast-while-moving)'
+- Close as Clutchmates (disabled in 12.0)
+- Rockfall (removed)
+- Inner Radiance (removed)
+- Quell (moved from class tree to DPS spec trees as a talent choice in 12.0)
+rotation:
+  singleTarget: |
+    1. Maintain Ebon Might (refresh at <= 3s remaining).
+    2. Maintain Prescience on two allies.
+    3. Cast Breath of Eons on cooldown (Scalecommander prioritizes frequency for Duplicate uptime).
+    4. Cast Fire Breath at Rank 1 (optimal for Molten Embers).
+    5. Cast Upheaval on cooldown.
+    6. Cast Eruption to spend Essence Burst or to prevent Essence overcapping.
+    7. Cast Eruption to extend Ebon Might and Bombardments.
+    8. Cast Living Flame as a filler to generate Essence Burst.
+    9. Use Azure Strike only if moving and Hover/Prescience charges are unavailable.
+  aoe: |
+    1. Maintain Ebon Might.
+    2. Cast Upheaval (Empower to a rank that covers all targets).
+    3. Cast Fire Breath at Rank 1.
+    4. Cast Eruption (Mass Eruption) to apply Bombardments to multiple targets.
+    5. Cast Azure Strike as filler for 2+ targets (if Pupil of Alexstrasza is not talented).
+    6. Cast Breath of Eons on cooldown to benefit from Wingleader CDR.
+  opener: |
+    1. Precast Living Flame at 1.5s before pull.
+    2. Cast Ebon Might.
+    3. Cast Prescience x2.
+    4. Use Mastery Trinkets.
+    5. Cast Breath of Eons (or Deep Breath).
+    6. Use DPS Potion and Trinkets.
+    7. Use Tip the Scales.
+    8. Cast Fire Breath at Rank 1.
+    9. Cast Eruption x3.
+    10. Continue with normal priority.
+cooldowns:
+- name: Breath of Eons
+  cooldown: 2min
+  description: Major offensive. Scalecommander uses this on cooldown to summon a Duplicate pet and trigger Wingleader CDR.
+- name: Tip the Scales
+  cooldown: 2min
+  description: Makes the next Empower instant. Best used on Upheaval for Scalecommander.
+- name: Time Skip
+  cooldown: 3min
+  description: Reduces cooldowns of Empower spells. Use to maximize Ebon Might extension windows.
+- name: Obsidian Scales
+  cooldown: 1.5min
+  description: Major personal defensive. Now includes passive healing from Renewing Blaze.
+- name: Zephyr
+  cooldown: 2min
+  description: Group defensive reducing AoE damage taken.
+- name: Spatial Paradox
+  cooldown: 2min
+  description: Increases range and allows casting while moving for you and a healer.
+concepts:
+- 'Ebon Might Extension: The primary goal is extending Ebon Might through Empowers and Eruption casts.'
+- 'Bombardments: Scalecommander''s core mechanic. Applied by Eruption after Empowers; must be extended by further Eruptions
+  via Extended Battle.'
+- 'Duplicate: The Apex talent. Breath of Eons summons a pet that mimics spells. Scalecommander uses Breath of Eons on cooldown
+  to maximize Duplicate uptime.'
+- 'Wingleader: Bombardments hits provide cooldown reduction to Breath of Eons, allowing for high frequency usage.'
+- 'Maneuverability: Scalecommander allows steering Breath of Eons. End the flight early once Command Squadron Pyres have finished
+  (approx. 2 seconds).'
+- 'Molten Embers: This talent makes Rank 1 Fire Breath the optimal choice for the damage bonus to Black spells.'
+- 'Essence Management: Spend Essence on Eruption to avoid capping and to maintain the Ebon Might/Bombardments loop.'
+- 'Molten Embers: Fire Breath (Rank 1) increases Black spell damage. Higher ranks waste cast time for no additional bonus.'
+- 'Mastery (Timewalker): Increases Shifting Sands effect and Ebon Might duration.'
+- 'Breath of Eons Positioning: Use at the shortest distance to minimize flight animation time.'
+commonMistakes:
+- Upranking Fire Breath beyond Rank 1 when talented into Molten Embers
+- 'Holding Breath of Eons for \"perfect\" windows instead of using it on cooldown as Scalecommander'
+- Letting Ebon Might drop off by not pooling Essence/Essence Burst before Empower casts
+- Not ending Breath of Eons early after the Command Squadron Pyres have finished
+- Overcapping Essence Burst (limit is 2 stacks)
+- Casting Empowers without Ebon Might active, wasting the Sands of Time extension
+patchChanges:
+  12.0.1: 'Ebon Might now affects all raid members (8% Primary Stat). Breath of Eons damage accumulation increased to 15%.
+    New Apex Talent: Duplicate (Summons pet and doubles Ebon Might power). Command Squadron added: Breath of Eons summons
+    Dracthyr to cast Pyre. Molten Embers reworked: Fire Breath now provides a flat 25% bonus to Black spells regardless of
+    rank. Hover can now be cast while already casting other spells.'

@@ -1,0 +1,118 @@
+specId: 260
+className: Rogue
+specName: Outlaw
+role: DPS
+heroTalent: Fatebound
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Energy
+  secondaryResource: Combo Points
+  resourceNotes: 'Outlaw is a fast-paced builder/spender spec. Generate Combo Points with Sinister Strike, Ambush, and Pistol
+    Shot (Opportunity procs). Spend on finishers like Between the Eyes and Dispatch. Restless Blades reduces major cooldowns
+    by 1 second per Combo Point spent. Fatebound adds Hand of Fate, flipping coins on finishers to deal damage or buff the
+    player.'
+maintenanceBuffs:
+- spellId: 0
+  spellName: Roll the Bones
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Maintain at least Stage 2. Reroll if only in Stage 1. Use Keep It Rolling to extend high-stage buffs.'
+- spellId: 0
+  spellName: Slice and Dice
+  targetUptimePct: 100
+  importance: high
+  coachingTip: Automatically maintained via Dispatch if talented, but ensure it never drops for attack speed.
+- spellId: 0
+  spellName: Between the Eyes (Damage Amp)
+  targetUptimePct: 95
+  importance: high
+  coachingTip: BtE applies a stacking damage increase. Use on cooldown to maintain and stack this buff.
+- spellId: 0
+  spellName: Blade Flurry
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'Essential for AoE. Maintain 100% uptime when more than one target is present.'
+rotation:
+  singleTarget: |
+    1. Use Roll the Bones on cooldown unless you are already in Stage 2 or higher.
+    2. Use Keep It Rolling when you are in Stage 2 or higher. If your next RtB will be buffed by Loaded Dice, you can hold onto KIR and hope to get into Stage 3 or 4. Use KIR immediately even if you only land in Stage 2.
+    3. Use Adrenaline Rush on cooldown, at low Combo Points.
+    4. Use Blade Rush on cooldown as if it were a regular builder.
+    5. Use Preparation to reset the cooldown of your AR, BtE, and Blade Rush.
+    6. Cast Dispatch as your first finisher with 5+ CP if Slice and Dice is not active.
+    7. Cast Between the Eyes on cooldown with 6+ CP.
+    8. Cast Dispatch as your main finisher with 5+ CP.
+    9. Cast Pistol Shot if you have 6 stacks of Opportunity. If you have 3 stacks, use it at 1-3 CPs only.
+    10. Cast Sinister Strike to generate Combo Points.
+  aoe: |
+    1. Use Roll the Bones on cooldown unless you are already in Stage 2 or higher.
+    2. Maintain Blade Flurry, try to use it at low Combo Points due to Deft Maneuvers.
+    3. If talented: Use Keep It Rolling when you have 4+ buffs already. If you are still missing Broadside, wait until the last second of your lowest duration RtB buff to use KIR in the hopes of getting Broadside as well.
+    4. Use Adrenaline Rush on cooldown, at low Combo Points.
+    5. Use Blade Rush on cooldown as if it were a regular builder.
+    6. Use Preparation to reset the cooldown of your AR, BtE, and Blade Rush.
+    7. Cast Between the Eyes on cooldown with 6+ CP.
+    8. Cast Dispatch as your main finisher at 5+ CP.
+    9. Cast Pistol Shot if you have 6 stacks of Opportunity. If you have 3 stacks, use it at 1-3 CPs only.
+    10. Cast Sinister Strike to generate Combo Points.
+  opener: |
+    1. Cast Adrenaline Rush and Roll the Bones immediately before the pull.
+    2. Open with Blade Rush (Single Target) or Blade Flurry then Blade Rush (AoE).
+    3. Build Combo Points with Ambush (if available) or Sinister Strike.
+    4. Use Between the Eyes at 6+ CP.
+    5. Use Preparation.
+    6. Follow regular rotational priorities.
+cooldowns:
+- name: Adrenaline Rush
+  cooldown: 3min
+  description: Increases Energy regen, max Energy, and attack speed. Reduces GCD to 0.8s based on Haste. Use on cooldown at
+    low CP.
+- name: Roll the Bones
+  cooldown: See description
+  description: 'Reworked into Stages (1-4). Stage 1: SS double strike; Stage 2: +1 CP and +15% dmg; Stage 3: +30% CDR; Stage
+    4: +10% Crit. Buffs are cumulative.'
+- name: Between the Eyes
+  cooldown: 45s
+  description: Main damage finisher and damage amplifier. Use on cooldown at 6+ CP.
+- name: Keep It Rolling
+  cooldown: 1.5min
+  description: Extends RtB duration by 30s. Use when at Stage 2 or higher.
+- name: Blade Rush
+  cooldown: 45s
+  description: Gap closer and Energy generator. Use rotationally as a builder.
+- name: Preparation
+  cooldown: 1.5min
+  description: Resets cooldowns of Adrenaline Rush, Between the Eyes, and Blade Rush. Use after spending initial charges.
+concepts:
+- 'Hand of Fate: Fatebound''s core mechanic. Finishers flip a coin. Heads buffs damage; Tails deals direct damage. 7 flips
+  procs a major damage buff capstone.'
+- 'Restless Blades: Every Combo Point spent on finishers reduces the cooldown of major abilities (AR, BtE, Blade Rush, KIR,
+  etc.) by 1 second.'
+- 'RtB Stages: Power is normalized into Stages 1 and 2. Stage 3 provides massive CDR. Always aim to stay at Stage 2 or higher.'
+- 'Gravedigger (Apex Talent): Grants BtE a chance to double-stack its amp, adds Dispatch bonus damage, and builds toward a
+  free, resource-free BtE.'
+- 'Energy Management: Energy generation is lower in Midnight. Use Blade Rush to bridge gaps when procs are low.'
+- 'Opportunity & Fan the Hammer: Pistol Shot procs (Opportunity) generate 4 CP with Fan the Hammer. Avoid
+  overcapping stacks (max 6).'
+- 'Blade Flurry: Cleave source is the player, not the target. Hits all nearby enemies within 8 yards of the Rogue.'
+- 'Atrophic Poison: Unique raid utility that reduces enemy damage dealt.'
+- 'Defensive Utility: Use Feint for AoE damage, Cloak of Shadows for magic immunity, and Cheat Death to survive lethal hits.'
+- 'Atrophic Poison: Unique raid utility that reduces enemy damage.'
+removedMechanics:
+- Count the Odds (removed in 12.0)
+- Crackshot (removed in 12.0)
+- Underhanded Upper Hand (removed in 12.0)
+- Cold Blood (removed in 12.0)
+- Ghostly Strike (removed in 12.0)
+commonMistakes:
+- Rerolling Roll the Bones when already at Stage 2 or higher
+- Overcapping Combo Points, especially during Adrenaline Rush or Broadside buffs
+- Wasting Opportunity stacks by overcapping past 6
+- Letting Between the Eyes damage amp stacks drop by not using it on cooldown
+- Using Preparation while major cooldowns (AR, BtE, Blade Rush) are still available
+- 'Failing to maintain 100% Blade Flurry uptime in multi-target scenarios'
+patchChanges:
+  12.0.1: 'Roll the Bones fully overhauled into a Stage-based system (1-4). Fatebound coin flipping made more consistent;
+    no longer requires Vanish/Cold Blood for capstone. Energy generation lowered across passives; Blade Rush importance increased.
+    New Apex Talent: Gravedigger added to enhance Between the Eyes and Dispatch. Adrenaline Rush uptime reduced to ~30-35%.'

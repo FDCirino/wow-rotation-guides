@@ -1,0 +1,123 @@
+specId: 269
+className: Monk
+specName: Windwalker
+role: DPS
+heroTalent: 'Shado-Pan'
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Energy
+  secondaryResource: Chi
+  resourceNotes: 'Use Tiger Palm to convert Energy into Chi. Spend Chi on high-impact abilities like Fists of Fury and Rising
+    Sun Kick. Shado-Pan in Midnight removes the need to track energy spent for Flurry Strikes, allowing for a more consistent
+    and smooth priority-based rotation.'
+maintenanceBuffs:
+- spellId: 0
+  spellName: 'Mastery: Combo Strikes'
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: Never cast the same ability twice in a row. This is the core of Windwalker damage.
+- spellId: 0
+  spellName: Tigereye Brew
+  targetUptimePct: 100
+  importance: high
+  coachingTip: Stacks generate naturally in combat. They are spent automatically when casting Zenith to increase your Critical
+    Strike chance.
+- spellId: 0
+  spellName: Mark of the Crane
+  targetUptimePct: 100
+  importance: medium
+  coachingTip: In AoE, hit different targets with Tiger Palm, Rising Sun Kick, and Blackout Kick to stack this buff for Spinning
+    Crane Kick.
+removedMechanics:
+- Storm, Earth, and Fire (replaced by Zenith)
+- 'Invoker''s Delight (Haste buff removed)'
+- Fatal Touch damage increase (no longer provides a buff after use)
+- 'Energy tracking for Flurry Strikes (Shado-Pan simplified in Midnight)'
+- Answered Prayers (removed in 12.0)
+rotation:
+  singleTarget: |
+    Priority list (go top to bottom, cast first available that is not the same as your previous ability):
+    1. Cast Touch of Death.
+    2. Cast Whirling Dragon Punch on cooldown.
+    3. Cast Tiger Palm if: <4 Chi, <2 Blackout Kick! stacks, about to cap Energy, AND not during Zenith.
+    4. Cast Strike of the Windlord on cooldown.
+    5. Cast Fists of Fury on cooldown.
+    6. Cast Rushing Wind Kick on cooldown.
+    7. Cast Rising Sun Kick on cooldown.
+    8. Cast Tiger Palm if any high-priority ability is available and you need Chi.
+    9. Cast Blackout Kick with Blackout Kick! proc OR during Zenith.
+    10. Cast Spinning Crane Kick with Zenith AND >3 Chi.
+    11. Cast Slicing Winds.
+    12. Cast Spinning Crane Kick with Dance of Chi-Ji proc.
+    13. Cast Blackout Kick.
+    14. Cast Tiger Palm.
+    Note: Mastery: Combo Strikes — never cast the same ability twice in a row.
+  aoe: |
+    AoE priority (3+ targets). Minor changes from ST — AoE comes naturally from Shado Over the Battlefield.
+    1. Cast Touch of Death.
+    2. Cast Whirling Dragon Punch on cooldown.
+    3. Cast Tiger Palm if: <4 Chi, <2 Blackout Kick! stacks, about to cap Energy, AND not during Zenith.
+    4. Cast Strike of the Windlord on cooldown.
+    5. Cast Fists of Fury on cooldown (primary AoE damage source).
+    6. Cast Rushing Wind Kick on cooldown.
+    7. Cast Rising Sun Kick.
+    8. Cast Blackout Kick with procs or during Zenith.
+    9. Cast Spinning Crane Kick with Zenith AND >3 Chi.
+    10. Cast Slicing Winds.
+    11. Cast Spinning Crane Kick with Dance of Chi-Ji proc.
+    12. Cast Blackout Kick.
+    13. Cast Tiger Palm.
+  opener: |
+    1. Cast Tiger Palm
+    2. Cast Zenith (alongside potions, racials, and trinkets)
+    3. Cast Fists of Fury
+    4. Cast Rising Sun Kick
+    5. Cast Fists of Fury (if Rising Sun Kick resets its cooldown via Zenith)
+    6. Continue with normal priority
+cooldowns:
+- name: Zenith
+  cooldown: '60-90s'
+  description: Replaces Storm, Earth, and Fire. Resets Rising Sun Kick, provides 2 Chi, and makes Blackout Kick free (or generate
+    Chi if talented).
+- name: Tigereye Brew
+  cooldown: Passive/Zenith
+  description: Generates stacks in combat (up to 20). Spent by Zenith to increase Crit chance.
+- name: Touch of Death
+  cooldown: Varies
+  description: 'Massive damage to low-health targets. Deals 35% of your max health, or 100% if the target has less health
+    than you.'
+- name: Touch of Karma
+  cooldown: 1.5 min
+  description: Defensive shield that redirects absorbed damage to the target.
+- name: Fortifying Brew
+  cooldown: Varies
+  description: Increases max health and reduces damage taken. Use before Touch of Death or Touch of Karma to increase their
+    damage/absorb.
+concepts:
+- 'Mastery: Combo Strikes is the defining mechanic; your damage is increased as long as you do not repeat the same ability
+  twice in a row.'
+- 'Shado-Pan focuses on consistent, even damage spread across the toolkit rather than extreme burst windows.'
+- 'Zenith is highly flexible. With two charges and a variable cooldown (60-90s), it can be aligned with 1-minute or 2-minute
+  encounter timings.'
+- 'Tigereye Brew stacks should be managed by spreading out Zenith uses; using Zenith back-to-back results in the second use
+  having very few stacks.'
+- 'Resource Management: Balance Energy and Chi to ensure you always have enough Chi for Fists of Fury and Rising Sun Kick
+  as they come off cooldown.'
+- 'Downtime is natural for Windwalker. Use gaps in the rotation to plan your next several moves rather than spamming low-value
+  buttons.'
+- Spinning Crane Kick is significantly weaker in Midnight; it is rarely used in AoE unless Zenith is active.
+- 'Mobility: Roll, Flying Serpent Kick, and Transcendence provide unparalleled battlefield control.'
+- 'Touch of Death: Deals 35% max health normally, 100% if target health is less than your max health. Fortifying Brew increases max health, buffing ToD.'
+- 'Defensive Synergy: Fortifying Brew increases max health, which directly increases Touch of Death damage and Touch of Karma absorb.'
+commonMistakes:
+- Repeating Tiger Palm or Blackout Kick and losing the Mastery: Combo Strikes bonus
+- Overcapping Chi or Energy, especially during Zenith windows
+- 'Using both charges of Zenith back-to-back, wasting Tigereye Brew crit stacks'
+- Using Spinning Crane Kick as a primary AoE filler (it is very weak in Midnight)
+- Holding Fists of Fury or Rising Sun Kick off cooldown for too long
+- 'Using Touch of Death too early on targets that would have died before the 100% health threshold'
+patchChanges:
+  12.0.1: 'Shado-Pan: Simplified energy tracking; Flurry Strikes no longer requires manual energy monitoring. Wisdom of the
+    Wall: Simplified mechanics. Shado Over the Battlefield: New talent node for Shadow-based AoE damage. Zenith: Now functions
+    as the primary cooldown, replacing Storm, Earth, and Fire.'

@@ -1,0 +1,128 @@
+specId: 260
+className: Rogue
+specName: Outlaw
+role: DPS
+heroTalent: Trickster
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Energy
+  secondaryResource: Combo Points
+  resourceNotes: 'Outlaw is a builder/spender spec. Generate Combo Points using Sinister Strike, Ambush, and Opportunity-procced
+    Pistol Shots. Spend them on finishers like Between the Eyes and Dispatch. Trickster focuses on the Coup de Grace proc,
+    which makes your next Dispatch act as if it spent 5 additional Combo Points, significantly increasing cooldown reduction
+    via Restless Blades.'
+maintenanceBuffs:
+- spellId: 0
+  spellName: Roll the Bones
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Maintain at least Stage 2 buffs. Reroll if you only have Stage 1. Use Keep It Rolling to extend high-stage
+    buffs (Stage 3 or 4).'
+- spellId: 0
+  spellName: Between the Eyes
+  targetUptimePct: 95
+  importance: high
+  coachingTip: BtE provides a stacking damage amp. Use it on cooldown at 6+ Combo Points to maintain maximum stacks.
+- spellId: 0
+  spellName: Blade Flurry
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'In AoE, maintain 100% uptime. Try to activate at low Combo Points to benefit from Deft Maneuvers.'
+- spellId: 0
+  spellName: Slice and Dice
+  targetUptimePct: 100
+  importance: high
+  coachingTip: Ensure this is active before using other finishers. Dispatch serves as the first finisher if SnD is missing.
+removedMechanics:
+- Count the Odds (removed in 12.0)
+- Crackshot (removed in 12.0)
+- Underhanded Upper Hand (removed in 12.0)
+- Ghostly Strike (removed in 12.0)
+- Cold Blood (removed in 12.0)
+rotation:
+  singleTarget: |
+    1. Use Roll the Bones on cooldown unless you are already in Stage 2 or higher.
+    2. Use Keep It Rolling when you are in Stage 2 or higher (ideally Stage 3 or 4).
+    3. Use Adrenaline Rush on cooldown, at low Combo Points.
+    4. Use Blade Rush on cooldown as if it were a regular builder.
+    5. Use Preparation to reset the cooldown of Adrenaline Rush, Between the Eyes, and Blade Rush.
+    6. Cast Between the Eyes on cooldown with 6+ Combo Points.
+    7. Use Killing Spree on cooldown at 6+ Combo Points.
+    8. Cast Dispatch as your main finisher with 6+ Combo Points if it is buffed by Coup de Grace.
+    9. Cast Dispatch as your main finisher with 6+ Combo Points.
+    10. Cast Pistol Shot if you have 6 stacks of Opportunity. If you have 3 stacks, use it at 1-3 Combo Points only.
+    11. Cast Sinister Strike to generate Combo Points.
+  aoe: |
+    1. Use Roll the Bones on cooldown unless you are already in Stage 2 or higher.
+    2. Maintain Blade Flurry; try to use it at low Combo Points due to Deft Maneuvers.
+    3. Use Keep It Rolling when you have 4+ buffs already (or wait for Broadside if a buff is about to expire).
+    4. Use Adrenaline Rush on cooldown, at low Combo Points.
+    5. Use Blade Rush on cooldown as if it were a regular builder.
+    6. Use Preparation to reset the cooldown of Adrenaline Rush, Between the Eyes, and Blade Rush.
+    7. Cast Between the Eyes on cooldown with 6+ Combo Points.
+    8. Use Killing Spree on cooldown at 6+ Combo Points.
+    9. Cast Dispatch as your main finisher with 6+ Combo Points if it is buffed by Coup de Grace.
+    10. Cast Dispatch as your main finisher at 6+ Combo Points.
+    11. Cast Pistol Shot if you have 6 stacks of Opportunity. If you have 3 stacks, use it at 1-3 Combo Points only.
+    12. Cast Sinister Strike to generate Combo Points.
+  opener: |
+    1. Cast Adrenaline Rush and Roll the Bones immediately before the pull.
+    2. Open with Blade Rush (Single Target) or Blade Flurry then Blade Rush (AoE).
+    3. Build Combo Points with Ambush (if available) or Sinister Strike.
+    4. Use Killing Spree at 6+ Combo Points.
+    5. Build Combo Points with Ambush or Sinister Strike.
+    6. Use Between the Eyes at 6+ Combo Points.
+    7. Use Preparation.
+    8. Follow regular rotational priorities.
+cooldowns:
+- name: Adrenaline Rush
+  cooldown: 3min
+  description: Increases Energy regen, max Energy, and attack speed. Reduces GCD to 0.8s based on Haste. Use on cooldown.
+- name: Roll the Bones
+  cooldown: 45s
+  description: 'Grants combat buffs in Stages (1-4). Reroll if only Stage 1 is active.'
+- name: Between the Eyes
+  cooldown: 45s
+  description: Main damage finisher and damage amp. Use on cooldown at 6+ CP.
+- name: Keep It Rolling
+  cooldown: 1.5min
+  description: Extends current RtB buffs by 30s. Use on Stage 2+ or when buffed by Loaded Dice.
+- name: Killing Spree
+  cooldown: 2min
+  description: Trickster focus. Use at 6+ CP on cooldown.
+- name: Blade Rush
+  cooldown: 45s
+  description: Gap closer and Energy generator. Use rotationally as a builder.
+- name: Preparation
+  cooldown: 5min
+  description: Resets cooldowns of Adrenaline Rush, BtE, and Blade Rush. Use after spending these CDs.
+- name: Blade Flurry
+  cooldown: 30s
+  description: 'Essential for AoE. Causes single-target attacks to cleave.'
+concepts:
+- 'Restless Blades: Every Combo Point spent reduces the cooldown of major abilities (AR, BtE, Blade Flurry, Killing Spree,
+  etc.).'
+- 'Roll the Bones Stages: Stage 1 (SS procs), Stage 2 (+1 CP/Damage), Stage 3 (+30% CDR), Stage 4 (+10% Crit). Higher stages
+  include all previous stage benefits.'
+- 'Coup de Grace: Trickster capstone. After 4 Unseen Blade procs, your next Dispatch is enhanced, dealing massive damage and
+  counting as 5 additional CP for Restless Blades CDR.'
+- 'Unseen Blade: Passive Trickster proc that builds toward Coup de Grace.'
+- 'Fan the Hammer: Allows Pistol Shot to stack Opportunity up to 6 times. Each shot consumes 2 stacks and generates 4 CP.'
+- 'Energy Management: Energy generation is lower in 12.0. Use Blade Rush to fill gaps when Energy is low.'
+- 'Blade Flurry: Cleave source is the player, not the target. Hits all nearby enemies within 8 yards of the Rogue.'
+- 'Atrophic Poison: Unique raid utility that reduces enemy damage dealt.'
+- 'Gravedigger (Apex): Grants a chance for free Between the Eyes casts and bonus Dispatch damage. Free BtE
+  casts do not incur a cooldown or cost resources.'
+- 'Restless Blades Scaling: Stage 3 Roll the Bones increases the CDR from Restless Blades by 30%.'
+commonMistakes:
+- Rerolling Roll the Bones when you already have Stage 2 or higher buffs
+- Overcapping Opportunity stacks (6 max) when using Fan the Hammer
+- Using finishers at fewer than 6 Combo Points (unless refreshing Slice and Dice)
+- Wasting the Coup de Grace proc by delaying Dispatch
+- Holding Preparation while Adrenaline Rush or Between the Eyes are still off cooldown
+- Overcapping Energy during Adrenaline Rush (though some waste is normal)
+patchChanges:
+  12.0.1: 'Roll the Bones overhauled into a Stage-based system (1-4). Energy generation reduced across passives; Blade Rush
+    importance increased. Trickster: Unseen Blade and Coup de Grace bugs fixed; scales better in AoE via Nimble Flurry. New
+    Apex Talent: Gravedigger added for free BtE procs. Stealth/Vanish reliance for DPS reduced; Crackshot removed.'

@@ -1,0 +1,114 @@
+specId: 253
+className: Hunter
+specName: Beast Mastery
+role: DPS
+heroTalent: Pack Leader
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Focus
+  secondaryResource: None
+  resourceNotes: 'Focus spent on Kill Command, Wild Thrash, and Cobra Shot. Generated passively (2 per
+    auto-attack) and via Barbed Shot (Pack Tactics). Serpentine Strikes allows Cobra Shot to refund Focus.
+    Pack Leader focuses on Stampede positioning and Nature''s Ally weaving.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: "Hunter's Mark"
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Universal 3% damage increase for entire raid/group. Ensure active on primary target.'
+- spellId: 0
+  spellName: Beast Cleave
+  targetUptimePct: 95
+  importance: critical
+  coachingTip: 'In AoE, maintain via Wild Thrash on cooldown (8s duration, 8s CD = 100% uptime).'
+- spellId: 0
+  spellName: "Nature's Ally"
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'Weave non-Kill Command abilities between Kill Commands for the 30% damage buff. Never cast
+    Kill Command twice in a row.'
+
+removedMechanics:
+- Kill Shot (now Marksmanship exclusive)
+- Explosive Shot (removed)
+- Bursting Shot and High Explosive Trap (removed)
+- Scatter Shot (removed)
+- Call of the Wild (removed)
+- Frenzy Stack Maintenance (reworked to passive 40% pet attack speed)
+- Multi-Shot (replaced by Wild Thrash)
+
+rotation:
+  singleTarget: |-
+    1. Use stat-granting on-use Trinkets right before Bestial Wrath.
+    2. Activate Bestial Wrath. First Kill Command spawns Stampede — aim the 40yd line to cover targets.
+    3. Always spend all Barbed Shot charges right before Bestial Wrath comes off cooldown.
+    4. Cast Kill Command on cooldown with Nature's Ally up. Hold a charge if BW is coming up soon.
+    5. You may ignore Nature's Ally only if Howl of the Pack Leader is ready (it will glow).
+    6. Cast Barbed Shot on cooldown.
+    7. Cast Cobra Shot as filler.
+  aoe: |-
+    1. Cast Wild Thrash on cooldown to maintain Beast Cleave.
+    2. Activate Bestial Wrath. Aim Stampede line to cover all targets.
+    3. Cast Kill Command on cooldown.
+    4. On 2 targets only: Cast Cobra Shot if Hogstrider is up and Wild Thrash is >1.25s away.
+    5. Cast Barbed Shot on cooldown.
+    6. Cast Cobra Shot if Wild Thrash is >1.25s away; otherwise wait for Wild Thrash.
+  opener: |-
+    1. Ensure Hunter's Mark is active on target.
+    2. Cast all charges of Barbed Shot.
+    3. Activate Bestial Wrath.
+    4. Cast Kill Command (spawns Pack Leader Stampede).
+    5. Cast Barbed Shot.
+    6. Cast Kill Command.
+    7. Continue with normal priority.
+
+cooldowns:
+- name: Bestial Wrath
+  cooldown: 30s (flat)
+  description: 'Increases damage by 20% for 15s. First Kill Command after BW spawns Stampede. Always spend
+    Barbed Shot charges before BW comes off CD.'
+- name: Stampede
+  cooldown: Triggered by first Kill Command after Bestial Wrath
+  description: 'Summons a line of beasts for 7s extending ~40yd from your position. Aim to cover as many
+    targets as possible.'
+- name: Wild Thrash
+  cooldown: 8s
+  description: 'Primary AoE ability and Beast Cleave activator. Replaces Multi-Shot.'
+- name: Aspect of the Turtle
+  cooldown: 2min
+  description: 'Major defensive. Immunity or 50% DR with talents.'
+- name: Exhilaration
+  cooldown: 1min
+  description: 'Major self-heal.'
+- name: Roar of Sacrifice
+  cooldown: 1min
+  description: 'External defensive for yourself or ally; pet takes 50% of damage.'
+
+concepts:
+- 'Nature''s Ally Weaving (Apex Talent): Always weave a non-Kill Command ability (Barbed Shot or Cobra Shot)
+  between Kill Commands for 30% damage buff. Casting KC twice in a row is never correct.'
+- 'Stampede Positioning: Pack Leader Stampede originates from your character, extends 40yd toward target.
+  Position and aim to cover as many enemies as possible.'
+- 'Bestial Wrath Windows: Most damage concentrated in BW. Spend Barbed Shot charges before activating to
+  avoid overcapping.'
+- 'Beast Cleave Uptime: Wild Thrash 8s CD = 8s Beast Cleave = near-100% uptime on cooldown.'
+- 'Mobility: BM is the only ranged spec executing entire rotation while moving without penalty.'
+- 'Pet Management: Majority of damage is pet-based. Ensure pets are on correct target.'
+- 'Focus Management: Avoid overspending on Cobra Shot filler, which can prevent KC or Wild Thrash casts.'
+- 'Defensive Profile: Strong active defensives (Turtle, Exhilaration) but weak passive mitigation. Use proactively.'
+
+commonMistakes:
+- Casting Kill Command twice in a row, wasting Nature's Ally buff.
+- Poorly aiming the Stampede line, causing it to miss moving targets.
+- Overcapping Barbed Shot charges instead of using on cooldown.
+- Overspending Focus on Cobra Shot, being unable to cast Kill Command.
+- Letting Beast Cleave drop in AoE by delaying Wild Thrash.
+
+patchChanges:
+  12.0.1: 'Pack Leader: Bear beast nerfed 40% for better balance. Focus regen increased to 2 per auto-attack.
+    Wild Thrash replaces Multi-Shot.'
+  '12.0': 'Frenzy stack maintenance removed (passive talent). Bestial Wrath flat 30s CD, 20% damage buff.
+    Hunter''s Mark universal 3% damage increase.'

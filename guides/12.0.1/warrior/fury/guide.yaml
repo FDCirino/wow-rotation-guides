@@ -1,0 +1,170 @@
+specId: 72
+className: Warrior
+specName: Fury
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Rage
+  secondaryResource: None
+  resourceNotes: 'Fury generates Rage through nearly all active abilities (builders) and spends it on Rampage. The core loop is generating enough Rage to cast Rampage, which triggers Enrage. Rage generation has been reduced in Midnight, making efficient generation critical. Rage starts at 0 and decays out of combat. Avoid overcapping Rage (typically 100-110) to maximize Rampage frequency.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Enrage
+    targetUptimePct: 95
+    importance: critical
+    coachingTip: 'Maintaining Enrage is your top priority as it increases damage and haste. Trigger it via Rampage, Bloodthirst procs, or Odyn''s Fury.'
+  - spellId: 0
+    spellName: Battle Shout
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'Ensure Battle Shout is active at all times for the 5% Attack Power bonus to yourself and your group.'
+  - spellId: 0
+    spellName: Meat Cleaver
+    targetUptimePct: 90
+    importance: high
+    coachingTip: 'As a Slayer in AoE, ensure Whirlwind is used to maintain Meat Cleaver so your single-target attacks cleave.'
+
+playstyles:
+  - id: slayer
+    name: Slayer
+    detectionCriteria:
+      heroTalents:
+        - "Slayer"
+  - id: mountain_thane
+    name: Mountain Thane
+    detectionCriteria:
+      heroTalents:
+        - "Mountain Thane"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Onslaught (Removed in 12.0)
+  - Ravager (Removed in 12.0)
+  - Bitter Immunity (Removed in 12.0)
+  - Thunderous Roar (Removed in 12.0)
+  - Single-Minded Fury (Removed as a performance talent in 12.0; now a transmog passive)
+
+rotation:
+  singleTarget: |
+    [Slayer] Single Target Priority:
+    1. Cast Recklessness on cooldown or whenever burst damage is needed.
+    2. Cast Avatar simultaneously with Recklessness.
+    3. Cast Odyn's Fury.
+    4. Cast Bloodthirst or Bloodbath during Recklessness.
+    5. Cast Rampage if Enrage is not active or you have more than 100 Rage.
+    6. Cast Bladestorm while Enraged.
+    7. Cast Storm Bolt during Bladestorm (if talented).
+    8. Cast Champion's Spear while Enraged.
+    9. Cast Execute.
+    10. Cast Rampage.
+    11. Cast Crushing Blow during Recklessness.
+    12. Cast Rend.
+    13. Cast Raging Blow.
+    14. Cast Whirlwind to fill the rotation.
+
+    [Mountain Thane] Single Target Priority:
+    1. Cast Recklessness on cooldown or whenever burst damage is needed.
+    2. Cast Avatar simultaneously with Recklessness.
+    3. Cast Odyn's Fury.
+    4. Cast Thunder Blast while Enraged.
+    5. Cast Bloodthirst or Bloodbath during Recklessness.
+    6. Cast Rampage if Enrage is not active or you have more than 100 Rage.
+    7. Cast Champion's Spear while Enraged.
+    8. Cast Execute.
+    9. Cast Rampage.
+    10. Cast Crushing Blow during Recklessness.
+    11. Cast Rend.
+    12. Cast Thunder Clap during Avatar.
+    13. Cast Raging Blow.
+    14. Cast Thunder Clap to fill the rotation.
+  aoe: |
+    [Slayer] AoE Priority:
+    1. Cast Odyn's Fury.
+    2. Cast Champion's Spear.
+    3. Cast Recklessness.
+    4. Cast Avatar simultaneously with Recklessness.
+    5. Cast Bladestorm while Enraged.
+    6. Cast Whirlwind if the Meat Cleaver buff is not active.
+    7. Cast Rampage if Enrage is not active or you have more than 110 Rage.
+    8. Cast Bloodthirst or Bloodbath during Recklessness.
+    9. Cast Execute with Sudden Death procs.
+    10. Cast Rampage.
+    11. Cast Rend if the debuff is not active or has less than 6 seconds remaining.
+    12. Cast Champion's Spear while Enraged.
+    13. Cast Execute.
+    14. Cast Raging Blow or Crushing Blow during Recklessness.
+    15. Cast Whirlwind as a filler.
+
+    [Mountain Thane] AoE Priority:
+    1. Cast Odyn's Fury.
+    2. Cast Champion's Spear.
+    3. Cast Recklessness.
+    4. Cast Avatar simultaneously with Recklessness.
+    5. Cast Bladestorm while Enraged.
+    6. Cast Rampage if Enrage is not active or you have more than 110 Rage.
+    7. Cast Bloodthirst or Bloodbath during Recklessness.
+    8. Cast Execute with Sudden Death procs.
+    9. Cast Rampage.
+    10. Cast Rend if the debuff is not active or has less than 6 seconds remaining.
+    11. Cast Champion's Spear while Enraged.
+    12. Cast Execute.
+    13. Cast Thunder Clap.
+    14. Cast Raging Blow or Crushing Blow during Recklessness.
+  opener: |
+    1. Cast Recklessness (pre-pull or immediately on pull).
+    2. Charge to the target.
+    3. Cast Bloodthirst (to trigger Enrage and enable Bloodborne bonus).
+    4. Cast Odyn's Fury.
+    5. Follow standard priority list.
+    Note: If Recklessness is unavailable, use Odyn's Fury or Fresh Meat procs to jumpstart Enrage.
+
+cooldowns: |
+  - Recklessness (1.5 min): Main offensive cooldown. Increases Rage generation and crit chance. Transforms Bloodthirst/Raging Blow with Reckless Abandon.
+  - Avatar (1.5 min): Increases damage and generates Rage. Essential for Mountain Thane synergy.
+  - Bladestorm (1.5 min): High damage channel. Slayer can Pummel/Storm Bolt during the channel. Use only while Enraged.
+  - Odyn's Fury (45 sec): Sudden burst and triggers Enrage. Use near Bloodthirst for Bloodborne bleed bonus.
+  - Champion's Spear (1.5 min): High damage area effect. Use while Enraged.
+  - Enraged Regeneration (2 min): Major defensive. Reduces damage taken and increases Bloodthirst healing. Use proactively.
+  - Spell Reflection (25 sec): Reflects or reduces magic damage. Extremely powerful for negating specific mechanics.
+  - Defensive Stance (No CD): Toggle for 20% damage reduction. Use when targeted by heavy mechanics.
+  - Rallying Cry (3 min): Group-wide health boost. Use to help the raid survive major hits.
+
+concepts: |
+  - Enrage Loop: The core of Fury is generating Rage to cast Rampage, which triggers Enrage. Enrage increases damage and haste, which speeds up Rage generation.
+  - Slayer Playstyle: Focuses on Execute and Bladestorm. Uses Whirlwind in AoE to enable Meat Cleaver cleaving.
+  - Mountain Thane Playstyle: Replaces Whirlwind with Thunder Clap. Focuses on Bloodthirst to trigger powerful Thunder Blast procs.
+  - Apex Talent (Rampaging Berserker): Casting Rampage grants stacks of Berserk (Strength). Treat this passively as it stacks and decays naturally.
+  - Bloodborne Synergy: Always try to use Odyn's Fury just before or after Bloodthirst to maximize the bleed damage bonus.
+  - Rage Pooling: You can delay Rampage slightly if Enrage is still active to pool a small amount of Rage, making the next Rampage come sooner.
+  - Mobility: Use Charge and Heroic Leap to maintain 100% uptime. Any time off-target is lost Rage and damage.
+  - Defensive Proactivity: Warrior survivability is pre-emptive. Use Defensive Stance and Enraged Regeneration before the damage hits.
+  - Slayer Bladestorm: Unlike other versions, Slayer can interrupt (Pummel) and stun (Storm Bolt) while channeling Bladestorm.
+  - Javelin Silence: Pairing Wrecking Throw with Javelineer provides a rare ranged silence for the spec.
+
+commonMistakes:
+  - 'Casting Bladestorm while not Enraged, losing significant damage'
+  - "Using Odyn''s Fury before Bloodthirst, missing the Bloodborne bleed bonus"
+  - 'Overcapping Rage instead of spending it on Rampage'
+  - 'Letting Enrage uptime drop by failing to prioritize Rage-generating builders'
+  - 'Using Whirlwind as a Slayer when the Meat Cleaver buff is already active'
+  - 'Treating the Imminent Demise glow as the primary indicator for Bladestorm usage instead of following the priority list'
+  - 'Standing out of melee range and losing Rage generation from auto-attacks and Haste scaling'
+  - 'Holding defensive cooldowns like Enraged Regeneration for emergencies instead of using them proactively'
+
+patchChanges: |
+  12.0.1:
+  - Single Target Slayer rotation updated to include Avatar.
+  - Mythic+ performance reviewed for Mountain Thane and Slayer.
+  12.0:
+  - Midnight Launch.
+  - Removed: Onslaught, Ravager, Bitter Immunity, Thunderous Roar.
+  - New Talent: Rend added to the rotation.
+  - New Talent: Rampaging Ruin (niche multi-target efficiency).
+  - New Talent: Stance Mastery (improves Defensive Stance).
+  - New Talent: Javelineer (adds ranged silence to Wrecking Throw).
+  - Rage generation reduced across the board.
+  - Single-Minded Fury removed as a performance talent (now transmog only).

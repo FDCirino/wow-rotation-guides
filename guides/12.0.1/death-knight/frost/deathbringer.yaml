@@ -1,0 +1,125 @@
+specId: 251
+className: Death Knight
+specName: Frost
+role: DPS
+heroTalent: Deathbringer
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Runes
+  secondaryResource: Runic Power
+  resourceNotes: 'Dual resource system. Consuming Runes (6 total) generates 10 RP per Rune. Spending RP on
+    Frost Strike/Glacial Advance has a chance to restore Runes via Runic Empowerment. Deathbringer adds
+    Exterminate procs granting free Killing Machine charges. Core loop: spend Killing Machine on Obliterate,
+    spend Rime on Howling Blast, spend RP on Frost Strike. Never cap either resource.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Remorseless Winter
+  targetUptimePct: 90
+  importance: high
+  coachingTip: 'With Frozen Dominion (recommended for Deathbringer builds), Remorseless Winter is auto-cast
+    whenever you use Pillar of Frost — 0 manual casts is expected and correct. Without Frozen Dominion,
+    maintain manually for Gathering Storm and Everfrost stacks. In AoE without Frozen Dominion, required
+    for Cleaving Strikes (buffs Frostscythe).'
+- spellId: 0
+  spellName: Razorice
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'Maintain 5 stacks on target. Frostbane and Shattering Blade increase value of consuming
+    stacks with Frost Strike.'
+- spellId: 0
+  spellName: Pillar of Frost
+  targetUptimePct: 25
+  importance: critical
+  coachingTip: 'Primary 45s burst window. 30% Strength for 12s. Always align with Reaper''s Mark. Use every
+    GCD effectively during this window.'
+
+removedMechanics:
+- Soul Reaper (moved to Unholy tree)
+- Sacrificial Pact (removed)
+- Unholy Ground (removed; Death and Decay no longer used rotationally)
+- Cleaving Strikes Obliterate cleave (reworked to buff Frostscythe during Remorseless Winter)
+
+rotation:
+  singleTarget: |-
+    1. Cast Reaper's Mark on cooldown (macro with Pillar of Frost — same 45s CD).
+    2. Cast Obliterate if you have Killing Machine proc.
+    3. Cast Howling Blast if you have Rime proc.
+    4. Cast Frost Strike to spend RP and trigger Runic Empowerment.
+    5. Cast Empower Rune Weapon to generate Killing Machine + 40 RP if out of procs.
+    6. Cast naked Obliterate only as last resort to generate RP.
+    If 3+ Runes available, prioritize consuming Killing Machine. If low on Runes, use Rime/Frost Strike first.
+  aoe: |-
+    1. Cast Remorseless Winter (essential for Cleaving Strikes).
+    2. Cast Obliterate with Killing Machine (swap to Frostscythe at 3+ targets if talented).
+    3. Cast Howling Blast with Rime proc.
+    4. Cast Glacial Advance at 3+ targets to spend RP.
+    5. Cast Empower Rune Weapon for resources and KM procs.
+    6. Cast naked Obliterate or Frostscythe as filler.
+  opener: |-
+    1. Cast Remorseless Winter.
+    2. Cast Pillar of Frost + Reaper's Mark + Trinket + Potion + Raise Dead + Obliterate (macroed).
+    3. Cast Frost Strike.
+    4. Continue with ST priority, prioritizing Killing Machine consumption.
+
+cooldowns:
+- name: "Reaper's Mark"
+  cooldown: 45s
+  description: 'Core Deathbringer ability. Deals massive damage and grants 2 Exterminate procs (Killing
+    Machine charges) when it expires. Always align with Pillar of Frost.'
+- name: Pillar of Frost
+  cooldown: 45s
+  description: '30% Strength for 12 seconds. Main throughput window.'
+- name: Breath of Sindragosa
+  cooldown: 90s
+  description: 'Massive AoE damage. Duration extended by consuming Killing Machine and Rime procs. No longer
+    drains RP — fixed duration with extension. Pool 60+ RP before casting.'
+- name: "Frostwyrm's Fury"
+  cooldown: 90s
+  description: 'Massive burst + 3s stun. Apex talents grant Haste, extend Pillar of Frost, and allow 50%
+    recast within 45s.'
+- name: Empower Rune Weapon
+  cooldown: 2min
+  description: 'Instant off-GCD. Generates 1 Killing Machine proc + RP. Use to fill KM generation gaps.'
+
+concepts:
+- 'Reaper''s Mark Alignment: 45s CD matches Pillar of Frost perfectly. Always macro together for maximum
+  Strength-buffed damage on the explosion.'
+- 'Exterminate Procs: After Reaper''s Mark pops, receive 2 Exterminate charges granting Killing Machine.
+  Track carefully — do not overcap KM.'
+- 'Killing Machine Nuance: 3+ Runes = prioritize consuming KM. Low Runes = use Rime/Frost Strike first to
+  trigger Runic Empowerment. Never have KM at 2 stacks without consuming.'
+- 'Breath Extension: Breath of Sindragosa is fixed duration extended by spending KM or Rime procs. No longer
+  RP drain.'
+- 'Rime Generation: Rime triggers from Frost Strike and Glacial Advance (not Obliterate). No more toxic
+  KM/Rime conflict.'
+- 'Chosen of Frostbrood (Apex): Frostwyrm''s Fury extends Pillar of Frost and grants Haste. Priority inside
+  Pillar windows.'
+- 'Resource Loop: Runes generate RP. RP spending refreshes Runes via Runic Empowerment. Never cap either.'
+- 'Obliteration Weaving: During Pillar of Frost, Frost Strike/Glacial Advance/Howling Blast generate KM
+  procs. Alternate between these generators and Obliterate to maximize KM consumption.'
+- 'Mastery (Frozen Heart): Increases all Frost damage. KM Obliterates deal Frost damage and scale with
+  Mastery — naked Obliterates deal physical and do NOT benefit. This is why KM procs are so important.'
+- 'Positioning: Breath of Sindragosa, Glacial Advance, and Frostwyrm''s Fury are frontal cone abilities.
+  Always face the maximum number of targets.'
+- 'Death Grip: Displaces the target toward you, which interrupts any cast in progress. While not a
+  traditional interrupt like Mind Freeze, Death Grip is excellent for repositioning dangerous caster adds
+  and stopping their casts. Especially valuable on fights with adds that must be gripped or displaced for
+  interrupts (e.g., Muzrukh Salabar). Death''s Echo grants an extra charge.'
+
+commonMistakes:
+- Overcapping Killing Machine stacks, especially when Exterminate procs are active.
+- Wasting Rime procs by casting Frost Strike while a proc is already active.
+- Failing to align Reaper's Mark with Pillar of Frost.
+- Casting naked Obliterates when Runic Power is available for Frost Strike.
+- Not pooling 60 RP before activating Breath of Sindragosa.
+- Missing the 45-second window to recast Frostwyrm's Fury at 50% effectiveness.
+
+patchChanges:
+  12.0.1: 'Obliterate now deals partial Frost damage by default. Empower Rune Weapon instant. Frostbane
+    main-target +300% on Razorice consumption. Breath of Sindragosa reworked to 90s CD with extension.
+    Cleaving Strikes reworked to buff Frostscythe during Remorseless Winter.'
+  '12.0': 'Soul Reaper moved to Unholy. Sacrificial Pact removed. Deathbringer hero talent added with
+    Reaper''s Mark, Exterminate, Bind in Darkness. Rime now procs from Frost Strike/Glacial Advance.'

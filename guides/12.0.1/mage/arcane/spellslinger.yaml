@@ -1,0 +1,135 @@
+specId: 62
+className: Mage
+specName: Arcane
+role: DPS
+heroTalent: Spellslinger
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Arcane Charges
+  resourceNotes: 'Arcane Charges (up to 4) increase the damage and mana cost of Arcane Blast and Arcane Pulse.
+    Spellslinger builds Arcane Salvo stacks (up to 20) via Arcane Orb, Arcane Blast, and Arcane Missiles to
+    empower Arcane Barrage. Clearcasting procs are spent on Arcane Orb via Orb Mastery (fires 3 orbs). Mana is
+    spent aggressively during Bigburn (Surge + Touch) and Miniburn (Touch only) windows, then recovered via
+    Arcane Surge mana regeneration.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Arcane Salvo
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Build to exactly 20 stacks before consuming with Arcane Barrage. Polished Focus reinforces
+    max-stack Barrage timing.'
+- spellId: 0
+  spellName: Arcane Charges
+  targetUptimePct: 95
+  importance: high
+  coachingTip: 'Stay at 4 Arcane Charges for maximum damage. Only reset with Arcane Barrage when at 20
+    Arcane Salvo stacks.'
+- spellId: 1459
+  spellName: Arcane Intellect
+  targetUptimePct: 100
+  importance: medium
+  coachingTip: 'Ensure raid buff is active at all times for the Intellect and Mana bonus.'
+
+removedMechanics:
+- Nether Precision (removed in 12.0)
+- Siphon Storm (removed from Evocation)
+- Shifting Power (removed in 12.0)
+- Mass Barrier (removed in 12.0)
+- Ice Floes (removed in 12.0)
+- Arcane Harmony (renamed/reworked into Arcane Salvo)
+- "Magi's Spark (removed in 12.0)"
+- Energy Reconstitution (removed in 12.0)
+
+rotation:
+  singleTarget: |-
+    Three-phase rotation: Bigburn (Surge + Touch active), Miniburn (Touch only), Filler (between CDs).
+    1. Cast Arcane Surge on cooldown (45s CD) when at low mana to begin burst phase.
+    2. Cast Touch of the Magi on cooldown (45s CD, ensure target lives 12 seconds).
+    3. Cast Arcane Orb when you have Clearcasting (Orb Mastery consumes Clearcasting, fires 3 orbs total).
+    4. Cast Arcane Barrage at 4 Arcane Charges ONLY when you have 20 stacks of Arcane Salvo.
+    5. Cast Arcane Blast as primary filler to build Arcane Charges and generate Splinters.
+    6. Use Evocation if mana is depleted and Arcane Surge is not imminent.
+    Do NOT use Arcane Missiles — Orb Mastery makes Arcane Orb strictly superior for Clearcasting spending.
+  aoe: |-
+    1. Cast Arcane Orb with Clearcasting (fires 3 orbs, generates charges and Salvo stacks on all targets).
+    2. Cast Arcane Barrage at 4 Arcane Charges for cleave damage when at 20 Salvo stacks.
+    3. Cast Arcane Pulse as primary AoE filler (ranged, scales with Arcane Charges).
+    4. Cast Arcane Surge and Touch of the Magi on cooldown.
+    5. Cast Arcane Explosion only if in melee range and Arcane Pulse is not preferred.
+    Talent swap for AoE: Drop Eureka, pick up Resonance (8% increased damage per target beyond the first).
+  opener: |-
+    Non-Pooling Opener:
+    1. Pre-pull consumables (15+ sec buffs).
+    2. Arcane Surge (can be prepull).
+    3. Time Warp (coordinate with group).
+    4. Shorter-duration buffs.
+    5. Arcane Barrage then Touch of the Magi mid-air.
+    6. Arcane Orb with Clearcasting procs to build Salvo stacks rapidly.
+    7. Arcane Blast as filler to 20 Salvo stacks, then Barrage.
+    8. Repeat 45s cycle when Touch resets.
+    Pooling Opener (Advanced): Pre-cast Arcane Blast or Arcane Pulse 2s before pull to build Salvo stacks to 20 before opening burst.
+
+cooldowns:
+- name: Arcane Surge
+  cooldown: 45s
+  description: 'Primary DPS cooldown. Spends all mana for damage scaling with mana spent. Grants 35% spell
+    damage + 425% mana regen for 15s. Generates 8 Arcane Splinters (Spellslinger). Use on cooldown — holding
+    it cascades into mana problems.'
+- name: Touch of the Magi
+  cooldown: 45s
+  description: 'Applies 12s debuff accumulating 20% of damage dealt, then detonates. Grants 4 Arcane Charges
+    instantly. Touch of the Archmage talent leaves a pulsing rune after explosion.'
+- name: Evocation
+  cooldown: Emergency
+  description: '1500% mana regen for 3s channel. Skip if Surge is imminent.'
+- name: Time Warp
+  cooldown: 10min shared
+  description: '30% Haste for 40s for all party/raid members. Coordinate with group.'
+- name: Ice Block / Ice Cold
+  cooldown: Major defensive
+  description: 'Ice Cold provides 70% damage reduction if talented, otherwise Ice Block provides total immunity.'
+
+concepts:
+- 'Orb Mastery (CORE): Defines Spellslinger. Casting Arcane Orb with Clearcasting fires 3 orbs total at 100%
+  effectiveness. This replaces Arcane Missiles entirely for Clearcasting spending. Generates charges, Salvo
+  stacks, and Splinters far more efficiently than Missiles.'
+- 'Arcane Missiles: NOT USED in the Orb Mastery build (the dominant meta). Orb Mastery makes Arcane Orb
+  strictly superior. Missiles are only relevant in a secondary Missile build that is significantly behind.'
+- 'Arcane Salvo: Central stacking mechanic. Stacks to 20 for Spellslinger. Arcane Barrage damage is massively
+  increased only when used at maximum stacks. Polished Focus reinforces max-stack timing.'
+- 'Three-Phase Rotation: Bigburn (Surge + Touch both active — use potions/trinkets), Miniburn (Touch active
+  only), Filler (between cooldowns). Don''t sit on cooldowns.'
+- 'Arcane Splinters: Passive Spellslinger mechanic. Arcane Blast and Arcane Pulse spawn splinters that deal
+  direct damage upfront (not DoT) and chain via Splinterstorm.'
+- 'Mana Management: Mana is spent aggressively during burn phases. Going out of mana is fine, especially
+  after Miniburn. Use Barrage to reduce charge count and throttle mana between cooldowns.'
+- 'Arcane Charges: Builders (Blast, Pulse, Orb) increase damage by 60% per charge and mana cost by 100%.
+  Barrage resets them. Stay at 4 charges as much as possible.'
+- 'Clearcasting: No longer guarantees proc at 13th cast. Uses bad luck protection starting at ~4% increasing
+  to 21%. Can go 20+ casts without proccing.'
+- 'Funnel DPS: Arcane single-target damage naturally increases in AoE due to Barrage cleave and Splinter procs.'
+- 'Touch of the Magi Sync: Touch of the Magi has exactly half the cooldown of Arcane Surge (45s vs 90s).
+  It must be used twice per Surge cycle. Do not let Touch desync from Surge.'
+- 'Known Orb Issue: Arcane Orbs can fall into holes/gaps in floor geometry on certain encounters, causing the
+  spell to fail.'
+
+- 'Mage Defensives: Ice Block (full immunity), Alter Time (health snapshot reset), and Ice Barrier/Blazing Barrier are the actual defensive tools. Mirror Image and Greater Invisibility are threat drops only — they do NOT reduce damage taken.'
+commonMistakes:
+- Casting Arcane Barrage before reaching 20 Arcane Salvo stacks.
+- Using Arcane Missiles instead of Arcane Orb for Clearcasting procs (Orb Mastery makes Orb strictly better).
+- Overcapping Arcane Salvo stacks and wasting potential generation.
+- Using Touch of the Magi on a target that will die before the 12-second explosion.
+- Holding Arcane Surge too long — cascades into mana starvation and lost damage windows.
+- Not utilizing Arcane Pulse for ranged AoE, unnecessarily moving into melee for Arcane Explosion.
+- Wasting Clearcasting procs by not having Arcane Orb ready to cast.
+
+patchChanges:
+  12.0.1: 'Optimized Arcane Surge sequences for Spellslinger. Arcane Pulse no longer grants double Salvo
+    stacks with Reverberate. Spellslinger dominates — 18-25% ahead of Sunfury in all content.'
+  '12.0': 'Major rework. Nether Precision removed. Arcane Salvo introduced as primary stacking mechanic.
+    Shifting Power removed, locking cooldown cadence. Arcane Pulse added as ranged AoE filler. Arcane Surge
+    CD reduced to 45s. Clearcasting proc system reworked (bad luck protection, no guaranteed proc).'

@@ -1,0 +1,132 @@
+specId: 64
+className: Mage
+specName: Frost
+role: DPS
+heroTalent: Spellslinger
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Freezing Stacks
+  resourceNotes: 'Generate Freezing stacks with Frostbolt, Flurry, Glacial Spike, and Ray of Frost. Consume
+    stacks with Ice Lance at 6+ stacks (Spellslinger threshold). Manage Fingers of Frost and Brain Freeze
+    procs. Spellslinger generates Frost Splinters passively through spell casts. Freezing stacks cap at 20.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Ice Barrier
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'Keep active to mitigate damage. Glacial Bulwark provides dual charges. Spellslinger has
+    Reactive Barrier for additional protection.'
+- spellId: 0
+  spellName: Fingers of Frost
+  targetUptimePct: 0
+  importance: medium
+  coachingTip: 'Spend Fingers of Frost procs on Ice Lance to deal Shatter damage without consuming actual
+    Freezing stacks. Do not cap at 2 charges.'
+
+removedMechanics:
+- Icy Veins (removed in 12.0)
+- "Winter's Chill (removed in 12.0)"
+- "Mastery: Icicles (removed in 12.0, replaced by Mastery: Freeze and Shatter)"
+- Ice Floes (removed in 12.0)
+- Blast Wave (removed in 12.0)
+- Ice Caller (removed in 12.0)
+- Mass Barrier (removed in 12.0)
+- Shifting Power (removed in 12.0)
+- Coldest Snap (removed in 12.0)
+
+rotation:
+  singleTarget: |-
+    1. Cast Flurry if Brain Freeze is active AND Thermal Void is not already active.
+    2. Cast Ice Lance if you have 2 Fingers of Frost charges (avoid capping).
+    3. Cast Frozen Orb on cooldown.
+    4. Cast Glacial Spike when available.
+    5. Cast Ice Lance if Fingers of Frost is active.
+    6. Cast Ice Lance if Freezing stacks are at 6 or more on target.
+    7. Cast Flurry if a charge is available (no Brain Freeze).
+    8. Cast Ray of Frost.
+    9. Cast Frostbolt as filler.
+  aoe: |-
+    1. Cast Blizzard if Freezing Rain is active (instant cast, +20% damage from Frozen Orb).
+    2. Cast Flurry with Brain Freeze if Thermal Void is not already active.
+    3. Cast Ice Lance if 2 Fingers of Frost charges.
+    4. Cast Frozen Orb.
+    5. Cast Glacial Spike when available.
+    6. Cast Ice Lance if Fingers of Frost active or Freezing at 6+ stacks.
+    7. Cast Flurry if a charge is available.
+    8. Cast Ray of Frost.
+    9. Cast Frostbolt.
+    Required AoE talents: Freezing Rain, Splitting Ice, Fractured Frost, Splintering Ray.
+    Lonely Winter over Water Elemental for AoE.
+  opener: |-
+    1. Pre-cast Frostbolt (or Glacial Spike if available) at 2 seconds on countdown.
+    2. Cast Flurry to start the cooldown.
+    3. Activate Time Warp.
+    4. Cast Frozen Orb.
+    5. Cast Ray of Frost.
+    6. Resume normal single-target priority.
+
+cooldowns:
+- name: Ray of Frost
+  cooldown: 1min
+  description: 'Main offensive cooldown. Channels for 4s dealing heavy damage and stacking 8 Freezing. Very
+    fragile — movement or knockbacks waste the cast. Hand of Frost grants 2 charges and 25% increased damage.
+    Use Shimmer to reposition without interrupting.'
+- name: Frozen Orb
+  cooldown: 1min
+  description: 'AoE damage over 15s, slows enemies 50%. Triggers Freezing Rain (instant Blizzard, +20%
+    Blizzard damage). Blizzard no longer reduces its cooldown.'
+- name: Time Warp
+  cooldown: 10min shared
+  description: '30% Haste for 40s. Coordinate with group.'
+- name: Ice Cold / Ice Block
+  cooldown: Major defensive
+  description: 'Glacial Bulwark provides dual charges for Ice Barrier and Ice Block/Ice Cold.'
+
+concepts:
+- 'Freezing Stack Threshold: Spellslinger consumes at 6+ stacks (vs Frostfire at 10+). Lower threshold
+  because Spellslinger lacks Comet Storm and relies on frequent Ice Lance shatters plus Frost Splinter
+  generation via Force of Will.'
+- 'Frost Splinters: Passive Spellslinger mechanic. Force of Will conjures Frost Splinters per 2 Freezing
+  stacks shattered by Ice Lance. More frequent shatters = more Splinters.'
+- 'Splinterstorm: Spellslinger Apex talent. Enhances Frost Splinter generation and provides burst AoE windows.
+  Core to Spellslinger damage profile.'
+- 'Shatter Rework: Freezing is a stacking debuff on the enemy consumed by Ice Lance. No longer a crit bonus.
+  Mastery: Freeze and Shatter provides 13% damage increase for freeze/shatter spells.'
+- 'Thermal Void: Consuming Brain Freeze with Flurry gives 100% chance for next Ice Lance to shatter 4
+  additional stacks. Polished Focus makes Ice Lance shatter 1 additional stack + 20% shatter damage increase.'
+- 'Brain Freeze: Frostbolt has 25% chance to reset Flurry cooldown and make next Flurry deal 50% increased
+  damage. Use immediately when procced.'
+- 'Fingers of Frost: 15% chance from Frostbolt. Max 2 charges. Ice Lance deals Shatter damage without
+  consuming actual Freezing stacks. Spend to avoid capping.'
+- 'Ray of Frost Fragility: With Icy Veins removed, Ray of Frost is the primary cooldown. No movement
+  protection — use Shimmer to reposition. Ray generates many Freezing stacks so consume existing stacks first.'
+- 'No Comet Storm: Spellslinger does NOT use Comet Storm — it is exclusive to Frostfire hero talent tree.'
+- 'Lonely Winter vs Water Elemental: Lonely Winter redesigned to flat 3% spell damage. ~1% ST gain vs ~1% AoE
+  loss. Minor optimization. Use Lonely Winter for AoE content.'
+- 'Ray of Frost Fragility: Main cooldown is a channel. Any movement or knockback wastes it. Position carefully.'
+- 'Brain Freeze: Procs that reset Flurry cooldown, a primary Freezing stack generator. Consume promptly.'
+- 'Fingers of Frost: Procs that allow Ice Lance to deal maximum shatter damage without consuming Freezing stacks.'
+- 'Spellslinger Dominance: Higher theoretical damage than Frostfire with a rotation that gets closer to
+  theoretical output in practice. Recommended for both raid and M+.'
+
+- 'Mage Defensives: Ice Block (full immunity), Alter Time (health snapshot reset), and Ice Barrier/Blazing Barrier are the actual defensive tools. Mirror Image and Greater Invisibility are threat drops only — they do NOT reduce damage taken.'
+commonMistakes:
+- Casting Ice Lance at too few Freezing stacks (should be 6+ for Spellslinger).
+- Overcapping Freezing stacks beyond the 20-stack limit.
+- Allowing Ray of Frost to be interrupted by movement or mechanics.
+- Casting Ray of Frost before consuming existing Freezing stacks (it generates stacks rapidly).
+- Hard-casting Blizzard in AoE when Freezing Rain is not active.
+- Trying to use Comet Storm as Spellslinger (it is a Frostfire-only ability).
+- Capping Fingers of Frost at 2 charges instead of spending on Ice Lance.
+- Not utilizing Frost Splinters effectively for additional damage.
+
+patchChanges:
+  12.0.1: 'Lonely Winter redesigned: flat 3% spell damage. Spellslinger dominant for both raid and M+.
+    Splintering Ray required for M+ AoE builds.'
+  '12.0': 'Major Frost rework. Icy Veins, Winter''s Chill, Mastery Icicles all removed. Freezing stacking
+    mechanic introduced. Ray of Frost becomes primary offensive cooldown. New Mastery: Freeze and Shatter.
+    Frost Splinters added as passive Spellslinger mechanic. Splinterstorm Apex talent added.'

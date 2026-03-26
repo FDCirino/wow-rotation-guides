@@ -1,0 +1,139 @@
+specId: 102
+className: Druid
+specName: Balance
+role: DPS
+heroTalent: Elune's Chosen
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Astral Power
+  secondaryResource: Eclipse
+  resourceNotes: Generate Astral Power using Starfire (inside Lunar Eclipse) and Wrath (outside Eclipse). Spend AP on Starsurge
+    for single-target or Starfall for multi-target. Elune's Chosen focuses heavily on Arcane spells and Starfire via Lunar
+    Calling, which prevents entering Solar Eclipse and makes Starfire your primary filler inside Eclipse. Outside of Eclipse,
+    cast Wrath to build AP up to 5 targets. Eclipse has 2 charges on a 32-second recharge and lasts 15 seconds.
+maintenanceBuffs:
+- spellId: 24858
+  spellName: Moonkin Form
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: Always stay in Moonkin Form during combat for bonus spell damage. Bear Form shifting kills DPS uptime.
+- spellId: 93402
+  spellName: Sunfire
+  targetUptimePct: 95
+  importance: high
+  coachingTip: Maintain Sunfire on all targets that will live at least 5.5 seconds (subtract 0.5s per additional target).
+    Only refresh during pandemic window (30% duration remaining) or movement.
+- spellId: 8921
+  spellName: Moonfire
+  targetUptimePct: 95
+  importance: high
+  coachingTip: Maintain Moonfire on all targets that will live at least 6 seconds. Only refresh during pandemic window or
+    movement.
+- spellId: 0
+  spellName: Starlord
+  targetUptimePct: 90
+  importance: high
+  coachingTip: Maintain 3 stacks of Starlord by spending Astral Power on Starsurge/Starfall. Build 50-70 AP before entering
+    Eclipse to stack Starlord quickly.
+removedMechanics:
+- Nature's Vigil (replaced by Gift of the Wild)
+- Renewal (replaced by Aessina's Renewal)
+- Warrior of Elune (Removed in 12.0.0)
+- Old Eclipse System (no longer requires two filler casts to enter; now an active ability with 2 charges)
+rotation:
+  singleTarget: |-
+    1. Apply and maintain Sunfire and Moonfire.
+    2. Incarnation: Chosen of Elune if outside Eclipse and Fury of Elune is off cooldown. (If talented into Convoke instead: use Celestial Alignment after Fury of Elune, then Convoke below 40 AP.)
+    3. Fury of Elune.
+    4. Enter Lunar Eclipse if above 90% AP and about to overcap on charges.
+    5. Cast Starsurge to consume Ascendant Eclipses stacks, spend Touch the Cosmos procs, or prevent AP capping.
+    6. Cast Starfire to generate Astral Power inside Lunar Eclipse.
+    7. Cast Wrath to generate Astral Power outside of Eclipse.
+    8. Before leaving Eclipse, build 50-70 AP to instantly stack Starlord when you re-enter Eclipse.
+  aoe: |-
+    1. Apply Sunfire (wait until targets are gathered; apply if target lives 5.5s+). Apply Moonfire to targets that will live 6s+.
+    2. Incarnation: Chosen of Elune if outside Eclipse and Fury of Elune is off cooldown.
+    3. Fury of Elune.
+    4. Enter Lunar Eclipse (Lunar Calling prevents Solar Eclipse).
+    5. Cast Starfall to consume Starweaver/Touch the Cosmos procs, maintain Starlord, or prevent AP capping.
+    6. Cast Starfire to generate Astral Power.
+    7. Cast Wrath outside of Eclipse.
+    8. Wild Mushroom if you will not overcap AP and Fungal Growth is not active.
+  opener: |-
+    1. Start from max range at 4 seconds on pull timer and cast Wrath 3 times.
+    2. Apply Moonfire and Sunfire.
+    3. Enter Lunar Eclipse.
+    4. Use Fury of Elune.
+    5. Starsurge/Starfall to spend the 3 Ascendant Eclipses empowered stacks.
+    6. Cast Starfire to generate AP and procs.
+    7. Press Incarnation: Chosen of Elune (or Celestial Alignment if using Convoke build).
+    8. Use on-use trinkets and potions.
+    9. Spend remaining Astral Power and proceed with normal rotation.
+cooldowns:
+- name: 'Celestial Alignment / Incarnation: Chosen of Elune'
+  cooldown: '2min (Whirling Stars: ~100s with 2 charges). CA lasts 15s; Incarnation lasts 20s.'
+  description: 'Major offensive cooldown. Grants both Eclipses and increases damage. Convoke the Spirits and Incarnation:
+    Chosen of Elune are a CHOICE NODE — you pick one or the other. Stack with Fury of Elune and trinkets.'
+- name: Convoke the Spirits
+  cooldown: '2min baseline (1min with Elune''s Guidance). Choice node with Incarnation: Chosen of Elune.'
+  description: Channels a flurry of Druid spells. Use during Celestial Alignment windows below 40 AP. Has 45-yard range; avoid
+    melee for better Balance-specific spell selection. Have Moonfire on targets before channeling.
+- name: Fury of Elune
+  cooldown: 1min (reduced by Lunation via casting Starfire)
+  description: Core Elune's Chosen cooldown. Deals Arcane damage beam and generates AP. Atmospheric Exposure increases your
+    damage to targets affected by FoE. Boundless Moonlight enhances end pulse. Lunation reduces its CD through casting.
+- name: New Moon / Half Moon / Full Moon
+  cooldown: Charge-based
+  description: Cycles through moon phases with escalating damage and AP generation. Don't let charges cap. Finish casts before
+    Eclipse ends. Boundless Moonlight enhances Full Moon damage.
+- name: Wild Mushroom
+  cooldown: Charge-based
+  description: AoE damage and AP generation (10 AP on single target). Keep charges rolling. Don't use if Fungal Growth is
+    already active on target.
+concepts:
+- 'Eclipse Rework: Eclipse is now an active ability with 2 charges on a 32-second recharge. Your last cast determines type:
+  Wrath for Solar, Starfire for Lunar. Lasts 15 seconds. Maximizing Eclipse uptime is core gameplay.'
+- 'Lunar Calling: Defines Elune''s Chosen. Prevents entering Solar Eclipse, significantly buffs Starfire damage to primary
+  target. You always enter Lunar Eclipse and cast Starfire as filler inside Eclipse.'
+- 'Outside Eclipse Filler: Cast Wrath (not Starfire) to generate AP when outside Eclipse, up to 5 targets.'
+- 'Lunation + Atmospheric Exposure: Casting reduces Fury of Elune''s cooldown (Lunation). Atmospheric Exposure increases your
+  damage to FoE-affected targets. This makes Elune''s Chosen stronger on stacked cleave.'
+- 'Boundless Moonlight: Enhances Fury of Elune with an energy pulse at the end. Also enhances Full Moon with additional damage
+  and AP generation.'
+- 'Ascendant Eclipses (Apex Talents): Entering Eclipse makes your next Wrath/Starfire instant and empowers your next 3 Starsurge/Starfall
+  with 20% increased damage. Critical strikes during Eclipse apply a languish DoT. Eclipse entry also launches Lunar Bolts
+  that always crit.'
+- 'Starlord Management: Spend AP to maintain 3 stacks. Build 50-70 AP before entering Eclipse to stack quickly. If Eclipse
+  is off cooldown, build AP then enter. If not, spend all AP before Eclipse expires.'
+- 'Convoke vs Incarnation: Choice node — pick one. Convoke is better for ST/raid burst windows. Incarnation is better for
+  M+ and council/multi-target fights.'
+- 'Always Be Casting: Use instant spenders (Starsurge/Starfall) during movement. More casts = more Lunation procs = more Fury
+  of Elune casts.'
+- 'Mastery (Astral Invocation): No longer interacts with DoTs. Provides a permanent damage increase to Nature spells in Solar
+  Eclipse and Arcane spells in Lunar Eclipse.'
+- 'Charge Management: Don''t let Wild Mushroom, New Moon, or Eclipse charges cap. Capped charges = wasted cooldown time.'
+- 'Astral Power Management: Builders generate AP, spenders consume. Never cap at 100.'
+- 'Starlord: Stacking haste buff from spenders. Pool AP before Eclipse ends to refresh stacks.'
+- 'Convoke Positioning: Stay within 45 yards but avoid melee range to ensure Balance-specific procs.'
+- 'Mastery (Astral Invocation): Increases Nature damage in Solar Eclipse and Arcane damage in Lunar Eclipse.'
+commonMistakes:
+- Capping Astral Power instead of spending it on Starsurge or Starfall.
+- Attempting to enter Solar Eclipse (denied by Lunar Calling — always enter Lunar Eclipse).
+- Casting Starfire outside of Eclipse instead of Wrath (Wrath is the correct filler outside Eclipse up to 5 targets).
+- Not spending all 3 Ascendant Eclipses empowered spender stacks at the start of each Eclipse.
+- Letting Starlord stacks drop during an Eclipse window.
+- Entering Eclipse with low Astral Power instead of building 50-70 AP beforehand.
+- Applying DoTs to targets that will die in less than 5-6 seconds.
+- Standing in melee range during Convoke the Spirits, reducing Balance-specific spell consistency.
+- Holding major cooldowns like Celestial Alignment or Fury of Elune instead of using them on cooldown.
+- Letting charges of Wild Mushroom, New Moon, or Eclipse cap instead of keeping them rolling.
+- Refreshing DoTs outside pandemic window (30% remaining) instead of casting fillers.
+- Using Convoke without Moonfire applied to targets, wasting casts on DoT application.
+patchChanges:
+  12.0.1: Reviewed and updated for Midnight Season 1. Tier set 4pc Shooting Stars proc reduced to 30% (was 40%). Elune's Chosen
+    sims within 1% of Keeper of the Grove.
+  '12.0': 'Eclipse reworked into active ability with 2 charges on 32s recharge. Warrior of Elune removed. Mastery reworked
+    (damage buff now permanent, no DoT interaction). Apex Talents (Ascendant Eclipses) added. CA duration reduced to 15s (was
+    20s). Incarnation duration reduced to 20s (was 30s). Lunar Calling updated: increases Starfire primary target damage by
+    100% (was 160%), no longer references Solar Eclipse trigger.'

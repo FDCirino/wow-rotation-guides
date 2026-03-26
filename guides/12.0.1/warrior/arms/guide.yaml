@@ -1,0 +1,179 @@
+specId: 71
+className: Warrior
+specName: Arms
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Rage
+  secondaryResource: None
+  resourceNotes: 'Rage is generated primarily through auto-attack swings. Nearly every active ability spends Rage. In Midnight, Rage generation has been significantly reduced, making auto-attack uptime critical. Players must manage the flow to avoid overcapping (reaching 100 Rage) while ensuring they have enough Rage to cast Mortal Strike on cooldown. High or dry streaks can occur; skipping a Slam is preferable to missing a Mortal Strike.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Rend
+    targetUptimePct: 95
+    importance: high
+    coachingTip: 'Maintain Rend on the target at all times. Refresh when there are four seconds or less remaining on the duration.'
+  - spellId: 0
+    spellName: Battle Stance
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'Ensure Battle Stance is always toggled on for optimal damage output.'
+  - spellId: 0
+    spellName: Battle Shout
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'Apply Battle Shout before combat begins to increase Attack Power for the entire raid/party.'
+
+playstyles:
+  - id: slayer
+    name: Slayer
+    detectionCriteria:
+      heroTalents:
+        - "Slayer"
+  - id: colossus
+    name: Colossus
+    detectionCriteria:
+      heroTalents:
+        - "Colossus"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Skullsplitter (Removed in 12.0)
+  - Bitter Immunity (Removed in 12.0)
+  - Thunderous Roar (Removed in 12.0)
+  - Warbreaker (Removed in 12.0; now baked into Colossus Smash)
+  - Juggernaut (Removed in 12.0)
+  - Mastery: Deep Wounds interaction (Reworked in 12.0; now simply increases damage with two-handed weapons)
+
+rotation:
+  singleTarget: |
+    [Slayer] Single Target Priority:
+    1. Apply or refresh Rend with four seconds remaining.
+    2. Cast Ravager just before Colossus Smash.
+    3. Cast Avatar just before or with Colossus Smash.
+    4. Cast Colossus Smash.
+    5. Cast Heroic Strike (Master of Warfare proc).
+    6. Cast Demolish during Colossus Smash.
+    7. Cast Bladestorm during Colossus Smash.
+    8. Cast Storm Bolt during Bladestorm (if talented).
+    9. Cast Overpower if two charges are available.
+    10. Cast Mortal Strike.
+    11. Cast Execute with Sudden Death proc.
+    12. Cast Heroic Strike.
+    13. Cast Execute to consume Sudden Death procs.
+    14. Cast Overpower.
+    15. Cast Wrecking Throw.
+    16. Cast Slam to fill the rotation.
+
+    [Colossus] Single Target Priority:
+    1. Apply or refresh Rend with four seconds remaining.
+    2. Cast Ravager just before Colossus Smash.
+    3. Cast Avatar just before or with Colossus Smash.
+    4. Cast Colossus Smash.
+    5. Cast Heroic Strike.
+    6. Cast Demolish during Colossus Smash.
+    7. Cast Bladestorm during Colossus Smash.
+    8. Cast Storm Bolt during Bladestorm.
+    9. Cast Overpower if two charges are available.
+    10. Cast Mortal Strike (High priority to reduce Demolish cooldown).
+    11. Cast Execute with Sudden Death proc.
+    12. Cast Heroic Strike.
+    13. Cast Execute to consume Sudden Death procs.
+    14. Cast Overpower.
+    15. Cast Wrecking Throw.
+    16. Cast Slam to fill the rotation.
+
+    [Execute Phase - Target <20% or <35% with Massacre]
+    1. Cast Ravager.
+    2. Cast Avatar just before or with Colossus Smash.
+    3. Cast Colossus Smash.
+    4. Cast Execute with Sudden Death.
+    5. Cast Heroic Strike.
+    6. Cast Demolish during Colossus Smash.
+    7. Cast Overpower with two charges available or less than 40 Rage.
+    8. Cast Mortal Strike (Slayer: only when buffed; Colossus: almost on cooldown).
+    9. Cast Bladestorm during Colossus Smash.
+    10. Cast Storm Bolt during Bladestorm.
+    11. Cast Mortal Strike with two stacks of Executioner's Precision.
+    12. Cast Overpower with less than 90 Rage.
+    13. Cast Execute with more than 40 Rage or Sudden Death.
+    14. Cast Overpower.
+    15. Cast Execute.
+    16. Cast Execute with Deep Wounds.
+    17. Cast Slam.
+    18. Cast Wrecking Throw.
+  aoe: |
+    [3+ Targets Cleave Priority]
+    1. Apply or refresh Rend under 4 seconds remaining.
+    2. Cast Sweeping Strikes if Broad Strokes is not talented or Colossus Smash is already on cooldown.
+    3. Cast Ravager.
+    4. Cast Avatar.
+    5. Cast Colossus Smash.
+    6. Cast Demolish during Colossus Smash.
+    7. Cast Cleave.
+    8. Cast Execute with Sudden Death.
+    9. Cast Bladestorm.
+    10. Cast Overpower with Opportunist or two charges available.
+    11. Cast Mortal Strike with two stacks of Executioner's Precision.
+    12. Cast Mortal Strike.
+    13. Cast Overpower.
+    14. Cast Mortal Strike.
+    15. Cast Execute with Sudden Death.
+    16. Cast Slam (with Fervor of Battle).
+    17. Cast Wrecking Throw.
+  opener: |
+    1. Charge to initiate combat and generate Rage.
+    2. Apply Rend.
+    3. Cast Ravager just before Colossus Smash.
+    4. Cast Avatar with Colossus Smash.
+    5. Cast Colossus Smash.
+    6. Proceed with standard Single Target priority.
+
+cooldowns: |
+  - Colossus Smash (45s base): Main burst window. Frequency increased by Anger Management. Use strictly on cooldown.
+  - Avatar (1.5m base): Minor offensive cooldown. Aligned with Colossus Smash via Anger Management.
+  - Bladestorm (1.5m base): Signature Slayer ability. Pseudo-generator (auto-attacks continue). Use on cooldown or for add waves.
+  - Ravager (1m base): Multi-target cooldown. Buffs Cleave. Use with Colossus Smash to benefit from Crushing Combo.
+  - Demolish (45s base): Channeled Hero Talent ability. Use during Colossus Smash windows. Cooldown reduced by Mortal Strike/Cleave (Colossus).
+  - Die by the Sword (2m): Major defensive. Grants 100% Parry and 30% damage reduction. Can be used to briefly tank.
+  - Rallying Cry (3m): Group defensive. Increases health by 15%. Effect increased by 50% in small groups (Midnight change).
+  - Spell Reflection (25s): Mitigates or reflects magical damage/effects.
+
+concepts: |
+  - Rage Management: Arms relies on auto-attacks for Rage. Downtime is a direct loss of resources and damage.
+  - Colossus Smash Window: Maximizing damage within the Colossus Smash debuff window is the core of Arms gameplay.
+  - Anger Management: This talent reduces the cooldown of Colossus Smash and Avatar based on Rage spent, causing them to desync if Rage spending is inconsistent.
+  - Master of Warfare (Apex): Procs replace Slam with Heroic Strike, which grants an armor penetration buff. Treat the buff passively but prioritize the Heroic Strike cast.
+  - Slayer Focus: Revolves around Execute and Bladestorm. Sudden Death procs are more frequent and critical.
+  - Colossus Focus: Revolves around Mortal Strike and Demolish. Mortal Strike usage is prioritized to reset Demolish.
+  - Sweeping Strikes: Now operates on a charge system, allowing for more flexible cleave windows without wasting the buff on non-cleavable spells.
+  - Tactician: Now has a consistent proc chance from all rotational abilities, including Sudden Death, for more reliable Overpower resets.
+  - Cycle Charging: A minor optimization where you move out of range to Charge back in for extra Rage, ideally between auto-attacks.
+
+commonMistakes:
+  - 'Overcapping Rage (reaching 100) instead of spending it on Slam or Heroic Strike filler.'
+  - 'Starving Rage so that Mortal Strike cannot be cast immediately on cooldown.'
+  - 'Letting Rend drop off the target, losing significant bleed damage.'
+  - 'Desyncing Colossus Smash and Avatar by not spending Rage consistently or delaying casts.'
+  - 'Using Bladestorm or Demolish outside of the Colossus Smash damage window.'
+  - 'Standing outside of melee range and losing auto-attack Rage generation.'
+  - 'Holding defensive cooldowns like Die by the Sword or Spell Reflection until it is too late to mitigate the hit.'
+
+patchChanges: |
+  12.0.1:
+  - Reviewed for Midnight 12.0.1; tuning remains low ("Undertuned").
+  12.0 (Midnight):
+  - Rage generation significantly reduced across the board.
+  - Mastery reworked: No longer interacts with Deep Wounds; now increases damage with 2H weapons.
+  - Tactician updated: Consistent proc chance from all abilities including Sudden Death.
+  - Sweeping Strikes: Moved to a charge-based system.
+  - Rallying Cry: Bonus increased by 50% in small group content.
+  - Javelineer: Wrecking Throw now acts as a ranged silence.
+  - Piercing Howl: Now grants a minor movement speed buff to allies.
+  - New Apex Talent: Master of Warfare (Heroic Strike replaces Slam).
+  - Warbreaker removed and baked into Colossus Smash.
+  - Juggernaut, Skullsplitter, Bitter Immunity, and Thunderous Roar removed.

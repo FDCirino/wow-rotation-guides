@@ -1,0 +1,170 @@
+specId: 104
+className: Druid
+specName: Guardian
+role: Tank
+heroTalent: Druid of the Claw
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Rage
+  secondaryResource: None
+  resourceNotes: Generate Rage through auto-attacks, Mangle, and Thrash. Spend Rage on Ironfur for physical mitigation or
+    Maul/Raze for damage. Never cap Rage — spending it fuels Ursoc's Guidance (reduces Incarnation CD) and After the Wildfire
+    (healing). In Midnight, actively spending Rage on Maul/Raze is more important than before due to removal of Thorns of
+    Iron; balance Ironfur maintenance with offensive spending.
+maintenanceBuffs:
+- spellId: 0
+  spellName: Ironfur
+  targetUptimePct: 90
+  importance: critical
+  coachingTip: Maintain at least 1 stack at all times while tanking. Layer 2-3 stacks before predictable damage spikes. Off
+    the GCD — weave with other abilities. Also beneficial for Gift of an Ancient Guardian (Mastery increase) and Ursol's Warding
+    (magic defense) if talented.
+- spellId: 0
+  spellName: Moonfire
+  targetUptimePct: 100
+  importance: high
+  coachingTip: Maintain Moonfire on all targets. Galactic Guardian procs refresh it and generate extra Rage. Pushes Swipe
+    out of the rotation but should never take priority over Mangle.
+- spellId: 0
+  spellName: Thrash
+  targetUptimePct: 95
+  importance: high
+  coachingTip: Keep Thrash active on targets for the bleed and Rage generation. Use on cooldown.
+- spellId: 0
+  spellName: Dreadful Wound (via Ravage)
+  targetUptimePct: 0
+  importance: medium
+  coachingTip: Ravage applies Dreadful Wound which provides 10% damage reduction. Aggravate Wounds extends this passively
+    through your normal rotation. Always consume Ravage procs quickly.
+rotation:
+  singleTarget: |-
+    1. Cast Ironfur early to get active mitigation rolling.
+    2. Maintain Moonfire on the target.
+    3. Cast Mangle on cooldown (primary Rage generator; heals 5% max HP via Strike for the Heart).
+    4. Cast Thrash on cooldown.
+    5. Consume Ravage procs immediately (replaces Maul for 20s or until used).
+    6. Cast Maul as Rage spender when Ironfur is maintained and you won't cap Rage.
+    7. Cast Moonfire on Galactic Guardian procs.
+    8. Use Incarnation: Guardian of Ursoc for burst windows.
+    9. Balance Ironfur spending with Maul/Raze — both are important. Ursoc's Fury gives Maul/Raze defensive value too.
+    10. Cast Swipe only if all other abilities are on cooldown.
+    11. Use Heart of the Wild in Cat Form for ST burst during safe windows (2min CD).
+  aoe: |-
+    1. Cast Ironfur immediately.
+    2. Maintain Moonfire on targets (Twin Moonfire spreads).
+    3. Cast Thrash on cooldown.
+    4. Consume Ravage procs (cleaves all targets, applies Dreadful Wound for 10% DR).
+    5. Cast Raze as primary AoE Rage spender (replaced Thorns of Iron damage in Midnight).
+    6. Cast Mangle on cooldown for Rage generation.
+    7. Use Incarnation: Guardian of Ursoc (reduces Mangle CD, Mangle hits 3 targets).
+    8. Cast Swipe as lowest priority filler.
+    9. Exacerbating Wounds: targets with Dreadful Wound take 15% more bleed damage from you.
+  opener: |-
+    1. Growl (pull) or Moonfire to pull at range.
+    2. Ironfur immediately (get active mitigation rolling ASAP).
+    3. Thrash.
+    4. Mangle.
+    5. Incarnation: Guardian of Ursoc.
+    6. Consume Ravage procs as they appear.
+    7. Continue priority: Mangle > Thrash > Ravage procs > Maul/Raze > Moonfire (GG procs) > Swipe.
+cooldowns:
+- name: 'Incarnation: Guardian of Ursoc'
+  cooldown: 2-3min (reduced by Ursoc's Guidance via Rage spending)
+  description: Major offensive and defensive CD. Increases health, reduces Thrash/Mangle CDs, Mangle hits 3 targets. CD is
+    reduced by spending Rage, so never cap.
+- name: Barkskin
+  cooldown: 40-60s depending on talents
+  description: Short defensive, off GCD. Use proactively and frequently. Brambles talent adds damage reflection.
+- name: Survival Instincts
+  cooldown: 2 charges
+  description: Major defensive for dangerous hits or large pulls. Use proactively before known heavy damage — don't save for
+    emergencies that never come.
+- name: Frenzied Regeneration
+  cooldown: 36s
+  description: Core self-heal. Use reactively after damage OR preemptively — Natural Resilience converts overhealing into
+    an absorb shield. Fount of Strength (DotC talent) causes it to boost max HP during the buff.
+- name: Heart of the Wild
+  cooldown: 2min
+  description: 'Effect depends on form. Cat Form: empowered Feral Frenzy (strong ST bleed). Moonkin Form: AoE Starfall-like
+    damage over 8s. Human Form: empowered Wild Growth healing 5 allies. Use during safe windows for DPS boost.'
+- name: Lunar Beam
+  cooldown: 1min
+  description: Deals damage and heals you. Provides Mastery buff. Use on cooldown.
+- name: Dream of Cenarius
+  cooldown: Proc-based, stacks to 4
+  description: 'Empowers Regrowth casts in Bear Form for off-healing yourself or allies. Bank stacks and spend when needed.
+    Careful: unempowered Regrowth shifts you out of Bear Form.'
+concepts:
+- 'Ravage: Auto-attacks have a chance to transform Maul/Raze into Ravage (lasts 20s or until used). Ravage deals high damage,
+  cleaves in AoE, and applies Dreadful Wound (10% DR). Limb from Limb increases proc chance by 30%. Always consume procs quickly.'
+- 'Dreadful Wound + Aggravate Wounds: Ravage applies a bleed with 10% DR. Aggravate Wounds extends this passively through
+  normal rotation. Exacerbating Wounds makes afflicted targets take 15% more bleed damage.'
+- 'Twin Claw: 16-18% chance to proc from single-target melee abilities, dealing physical damage and generating 5 Rage.'
+- 'Claw Rampage: During Incarnation, Ravage proc chance from abilities is 20% per cast (nerfed from 25%, and nerfed to proc
+  per cast not per target hit).'
+- 'Ursoc''s Fury: Maul and Raze now have defensive upside. Don''t think of offensive spending as purely damage — it contributes
+  to survival.'
+- 'Wild Guardian (Apex Talent): Echoed spells cast at 150% effectiveness and echo 2 additional times over 8s. Applies to Maul,
+  Ironfur, and Frenzied Regeneration. Major passive throughput increase.'
+- 'Catweaving (Nerfed): Wildpower Surge nerfed to 50% damage increase (was 200%). It is now more optimal to pick Empowered
+  Shapeshifting and stay in Bear Form. Heart of the Wild provides brief Cat Form burst without Wildpower Surge investment.'
+- 'Wildshape Mastery: Provides health and armor when shifting out of Bear Form. Buff cancels when returning to Bear Form.
+  Ironfur and Frenzied Regen persist through form shifts.'
+- 'Natural Resilience: Overhealing from Frenzied Regen converts to an absorb shield. Pre-cast Frenzied Regen before predictable
+  damage for maximum value.'
+- 'Gift of an Ancient Guardian: Ironfur active = Mastery increase. Another reason to maintain Ironfur uptime.'
+tankingGuide:
+  survivalPriority: |-
+    These abilities take absolute priority over the damage rotation below.
+    1. Maintain Ironfur while actively tanking — at least 1 stack at all times.
+       Layer 2-3 stacks before predictable damage spikes. Off-GCD — weave between abilities.
+       Ironfur only mitigates physical damage. Does NOT help against magic or bleeds.
+       Gift of an Ancient Guardian increases Mastery by 5% while Ironfur is active.
+    2. Use Frenzied Regeneration reactively after damage spikes or preemptively before them.
+       Natural Resilience converts 80% of overhealing into an absorb shield — pre-cast for max value.
+       Fount of Strength (DotC talent) causes it to boost max HP during the buff.
+  defensiveCooldowns: |-
+    - Barkskin (40-60s): Short defensive, off-GCD. Use proactively and frequently. Low cooldown means
+      you should not be holding it. Brambles talent adds damage reflection.
+    - Survival Instincts (2 charges): Major defensive for dangerous pulls or tank busters. Use proactively
+      before known heavy damage — do not save for emergencies that never come.
+    - Incarnation: Guardian of Ursoc (2-3min): Offensive and defensive. Increases health, reduces CDs.
+      CD reduced by spending Rage (Ursoc's Guidance) — another reason to never cap Rage.
+    - Dream of Cenarius (proc-based): Empowers Regrowth in Bear Form for self/ally healing. Bank stacks
+      and spend when needed. WARNING: unempowered Regrowth shifts you OUT of Bear Form.
+  rageManagement: |-
+    Rage is generated by auto-attacks, Mangle, and Thrash. Spending Rage fuels Ursoc's Guidance
+    (Incarnation CDR) and After the Wildfire (healing). Never cap Rage. Balance Ironfur maintenance
+    with Maul/Raze spending — Ursoc's Fury gives Maul/Raze defensive value too, so offensive
+    spending contributes to survival. Only prioritize Ironfur over Maul/Raze when actively
+    taking heavy damage.
+
+removedMechanics:
+- Rage of the Sleeper (Removed in 12.0)
+- Pulverize (Removed in 12.0)
+- Thorns of Iron (Removed in 12.0 — must now actively spend Rage on Raze for AoE damage)
+- Tooth and Claw (Removed in 12.0)
+- Renewal (Removed in 12.0)
+- Nature's Vigil (Removed in 12.0)
+- Earthwarden (Removed in 12.0)
+commonMistakes:
+- Overcapping Rage — wastes Ursoc's Guidance CDR and After the Wildfire healing.
+- Only spending Rage on Ironfur and never using Maul/Raze — missing significant damage and Ursoc's Fury defensive value.
+- Not casting Ironfur immediately on pull — get active mitigation rolling ASAP.
+- Ignoring Ravage procs — they are high priority for damage and Dreadful Wound DR.
+- Saving Survival Instincts for emergencies instead of using proactively before known heavy damage.
+- Letting Moonfire drop off targets — lost Rage generation from Galactic Guardian procs.
+- Casting unempowered Regrowth (without Dream of Cenarius proc) — shifts you out of Bear Form mid-combat.
+- Standing outside melee range — no auto-attacks means no Rage and no Ravage procs.
+- Over-investing in catweaving with Wildpower Surge — nerfed to 50% damage increase; Empowered Shapeshifting is now generally
+  better for damage.
+patchChanges:
+  12.0.1: 'Reviewed for Midnight Season 1. DotC recommended for all content per Maxroll. Tier set: 2pc Maul/Ravage +10% damage,
+    Moonfire +10% damage. 4pc Maul/Ravage 5% chance to proc Galactic Guardian; Moonfire periodic can make next Maul/Ravage
+    strike again at 100% effectiveness.'
+  '12.0': 'Thorns of Iron, Tooth and Claw, Rage of the Sleeper, Pulverize, Earthwarden removed. Wildpower Surge nerfed to
+    50% (was 200%) — catweaving much less effective. Dream of Cenarius reworked to stack to 4 with no ICD. Heart of the Wild
+    reworked to 2min CD with form-dependent effects. New talents: Limb from Limb (30% more Ravage procs), Twin Claw (proc
+    for damage + 5 rage), Exacerbating Wounds (Dreadful Wound targets take 15% more bleed damage). Claw Rampage reduced to
+    20% per cast (was 25% per target). Wild Guardian (Apex): echoed spells at 150% effectiveness.'

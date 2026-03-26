@@ -1,0 +1,126 @@
+specId: 65
+className: Paladin
+specName: Holy
+role: Healer
+heroTalent: Lightsmith
+patch: 12.0.1
+guideVersion: 3
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Holy Power
+  resourceNotes: 'Generate Holy Power through Holy Shock, Flash of Light, and Judgment (with Infusion of Light). Spend Holy Power on Light of Dawn for group healing or Eternal Flame for single-target. Lightsmith gameplay emphasizes casting Judgment frequently to trigger Hammer and Anvil. Lightsmith replaces Divine Toll/Holy Prism with Holy Armaments as the short-cooldown ability.'
+maintenanceBuffs:
+- spellId: 0
+  spellName: Beacon of Light / Beacon of Faith
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Keep Beacons on ranged players with lower survivability to maximize Mastery: Lightbringer value across the group.'
+- spellId: 0
+  spellName: Beacon of the Savior
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Apex talent that automatically moves to the lowest health ally. Benefits from all Beacon-related talents like Commanding Light and Saved by the Light. Rank 3 grants absorb shield.'
+- spellId: 0
+  spellName: Holy Armaments (Sacred Weapon / Holy Bulwark)
+  targetUptimePct: 95
+  importance: high
+  coachingTip: 'Keep Sacred Weapon or Holy Bulwark active on yourself or allies at all times. Solidarity means casting on an ally also buffs you, and vice versa. Reflection of Radiance can trigger Awakening while these are active.'
+- spellId: 0
+  spellName: Devotion Aura
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Ensure Devotion Aura is active at all times for passive 3% damage reduction.'
+rotation:
+  singleTarget: |-
+    Standard Priority:
+    1. Cast Holy Armaments (Sacred Weapon) on cooldown.
+    2. Never waste Holy Power; spend at 5 to avoid overcapping.
+    3. Cast Judgment as much as possible to trigger Hammer and Anvil.
+    4. Cast Holy Shock on cooldown.
+    5. Spend Holy Power on Light of Dawn (Raid) or Eternal Flame (Mythic+).
+    6. Cast Flash of Light when Infusion of Light is active or as filler.
+    7. Cast Holy Light only when major healing is needed and mana permits.
+    8. Use Shield of the Righteous during downtime to regenerate mana.
+  aoe: |-
+    Priority:
+    1. Cast Holy Armaments on cooldown.
+    2. Spend Holy Power on Light of Dawn (heals 5 players within 40 yards).
+    3. Cast Judgment on cooldown to trigger Hammer and Anvil procs.
+    4. Cast Holy Shock on cooldown.
+    5. Cast Flash of Light as filler.
+    6. Use Shield of the Righteous to spend Holy Power for damage when no healing is required.
+
+    Mythic+ additions:
+    - Judgment becomes higher priority for damage and Hammer and Anvil synergy.
+    - Spend Holy Power on Eternal Flame for Beacon transfer value.
+    - When no healing is needed, spend Holy Power on Shield of the Righteous.
+  opener: |-
+    1. Ensure Beacons and Devotion Aura are active.
+    2. Cast Holy Armaments (Sacred Weapon) on a priority target or yourself (Solidarity gives you the buff too).
+    3. Cast Judgment to generate Holy Power and trigger Hammer and Anvil.
+    4. Cast Holy Shock.
+    5. Cast Flash of Light (if Infusion procs).
+    6. Spend Holy Power on Light of Dawn or Eternal Flame.
+
+    Avenging Crusader Opener:
+    1. Cast Holy Armaments.
+    2. Cast Avenging Crusader (replaces Avenging Wrath).
+    3. Keep Judgment on cooldown.
+    4. Keep Crusader Strike on cooldown (available during AC).
+    5. Spend Holy Power on Light of Dawn.
+    6. Cast Holy Shock when nothing else is available.
+cooldowns:
+- name: Avenging Wrath
+  cooldown: 2min
+  description: Increases damage, healing, and crit for 30 seconds. Hammer of Wrath replaces Judgment during this window. Use on cooldown and line up with damage windows.
+- name: Avenging Crusader
+  cooldown: 2min (replaces Avenging Wrath, shorter duration)
+  description: Replaces Avenging Wrath. Returns Crusader Strike to the rotation for the duration. Judgment and Crusader Strike heal nearby allies when they deal damage. Priority shifts to keeping Judgment and Crusader Strike on cooldown while still spending Holy Power.
+- name: Aura Mastery
+  cooldown: 3min
+  description: Empowers Devotion Aura to provide 12% damage reduction. Often paired with heavy raid damage. Can be paired with Ringing of the Heavens.
+- name: Holy Armaments (Sacred Weapon / Holy Bulwark)
+  cooldown: 1min recharge
+  description: Lightsmith core ability that replaces Divine Toll/Holy Prism. Provides Holy Bulwark (absorb shield) or Sacred Weapon (damage/healing proc). Solidarity grants the buff to both you and your target.
+- name: Divine Shield
+  cooldown: 5min
+  description: Complete immunity. Use to cheese mechanics or survive lethal damage.
+- name: Blessing of Protection
+  cooldown: 5min
+  description: Physical damage immunity and bleed removal for an ally.
+concepts:
+- 'Holy Power is your primary throughput resource. Never waste it by overcapping (max 5).'
+- 'Lightsmith replaces Divine Toll/Holy Prism with Holy Armaments. You do not have access to Divine Toll or Holy Prism as Lightsmith.'
+- 'Hammer and Anvil: Judgment/Hammer of Wrath critting deals additional AoE damage. Judgment is your most important ability as Lightsmith.'
+- 'Solidarity: Casting Holy Armaments on an ally also gives you the buff. Casting on yourself gives it to a nearby ally. Always cast on cooldown.'
+- 'Masterwork: Casting Holy Armaments causes your next three abilities to cast lesser versions on nearby allies.'
+- 'Valiance: Spending Shining Light charges reduces the recharge time of Holy Armaments by 3 seconds. Use free Word of Glory procs to accelerate armament availability.'
+- 'Mastery: Lightbringer: Healing scales with proximity. Use Beacons on ranged targets to extend effective healing range.'
+- 'Infusion of Light: 10% proc from Holy Shock. Use on Flash of Light for fast healing, or Judgment for extra Holy Power and damage.'
+- 'Avenging Crusader Sub-rotation: During AC, prioritize Judgment > Crusader Strike > Holy Power spender > Holy Shock. Judgment and Crusader Strike heal allies when dealing damage.'
+- 'Beacon of the Savior: Apex talent providing a third beacon that auto-targets the lowest health ally. Rank 3 gives absorb shield.'
+- 'Shield of the Righteous: Returns mana in Midnight. Use during downtime to regenerate resources.'
+- 'ABC (Always Be Casting): It is better to cast a suboptimal spell than to miss a global cooldown.'
+- 'Lightsmith is currently weaker than Herald of the Sun for overall healing throughput, but offers strong Judgment-based gameplay and good damage.'
+- 'Crusader''s Might CDR Loop: Holy Shock reduces Judgment CD and Judgment reduces Holy Shock CD. Important
+  for Lightsmith since Judgment is your most important ability via Hammer and Anvil.'
+removedMechanics:
+- Blessing of Summer / Blessing of the Seasons (Removed in 12.0)
+- Merciful Auras (Removed in 12.0)
+- Repentance (Removed in 12.0)
+- Barrier of Faith (Removed in 12.0)
+- Boundless Salvation (Removed in 12.0)
+- Relentless Inquisitor (Removed in 12.0)
+- Crusader Strike (Removed from base kit; only available during Avenging Crusader)
+commonMistakes:
+- Overcapping Holy Power by casting a generator while at 5 Holy Power.
+- Underusing Holy Armaments and letting them sit off cooldown.
+- Overusing Holy Light and running out of mana too early in a fight.
+- Never using Avenging Wrath or Avenging Crusader during a fight. Use them during damage windows — holding briefly is fine, but never using them is worse than imperfect timing.
+- Not using free Word of Glory (Shining Light) charges to reduce the cooldown of Holy Armaments via Valiance.
+- Spending Holy Power on Shield of the Righteous right before an unexpected damage spike.
+- Standing too far from targets and losing Mastery Lightbringer effectiveness.
+- During Avenging Crusader, not prioritizing Judgment and Crusader Strike over other abilities.
+patchChanges:
+  '12.0': 'Crusader Strike removed from base kit (only available during Avenging Crusader). Blessing of the Seasons, Merciful Auras, Barrier of Faith, Boundless Salvation removed. Lightsmith replaces Divine Toll/Holy Prism with Holy Armaments.'
+  12.0.1: 'Holy Prism and Divine Toll share a choice node (not available to Lightsmith). Hammer of Wrath replaces Judgment during Avenging Wrath. Light of Dawn redesigned to heal 5 players within 40 yards. Crusader''s Might redesigned into a cooldown reduction loop. Lightsmith Reflection of Radiance added, allowing Holy Armaments to trigger Awakening procs. Infusion of Light proc chance set to 10%.'

@@ -1,0 +1,184 @@
+specId: 253
+className: Hunter
+specName: Beast Mastery
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Focus
+  secondaryResource: None
+  resourceNotes: 'Beast Mastery has no active Focus generators. Focus is generated passively (2 Focus per auto-attack for Pack Leader) and through talents like Pack Tactics (Focus from Barbed Shot) and Serpentine Strikes (Cobra Shot refunds). Spend Focus on Kill Command, Wild Thrash, and Cobra Shot. Avoid overspending Focus on Cobra Shot filler to ensure you have enough for high-priority Kill Commands and Wild Thrash casts.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Hunter's Mark
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'Hunter’s Mark provides a universal 3% damage increase. Ensure it is active on the target at all times.'
+  - spellId: 0
+    spellName: Beast Cleave
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'In AoE, maintain Beast Cleave uptime by casting Wild Thrash on cooldown (8s duration, 8s cooldown).'
+  - spellId: 0
+    spellName: Barbed Shot (DoT)
+    targetUptimePct: 95
+    importance: medium
+    coachingTip: 'Barbed Shot is now a rolling DoT. Maintain it on the target, but note that Frenzy stack maintenance is no longer a mechanic.'
+
+playstyles:
+  - id: pack_leader
+    name: Pack Leader
+    detectionCriteria:
+      heroTalents:
+        - "Pack Leader"
+  - id: dark_ranger
+    name: Dark Ranger
+    detectionCriteria:
+      heroTalents:
+        - "Dark Ranger"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Kill Shot (Removed for Beast Mastery in 12.0; now Marksmanship exclusive)
+  - Explosive Shot (Removed in 12.0)
+  - Bursting Shot (Removed in 12.0)
+  - High Explosive Trap (Removed in 12.0)
+  - Scatter Shot (Removed in 12.0)
+  - Implosive Trap (Removed in 12.0)
+  - Call of the Wild (Removed in 12.0; was the main TWW cooldown)
+  - Frenzy Stack Maintenance (Reworked in 12.0: Barbed Shot no longer generates or maintains Frenzy stacks; Frenzy is now a passive talent providing flat 40% pet attack speed)
+  - Multi-Shot (Removed in 12.0; replaced by Wild Thrash)
+  - Ghillie Suit (Removed in 12.0)
+  - Scrappy (Removed in 12.0)
+  - Binding Shackles (Removed in 12.0)
+  - Fortitude of the Bear (Reworked: no longer an active CD, now a passive 3% DR)
+  - Roar of Sacrifice (Reworked: now an external defensive for self or allies)
+  - Thrill of the Hunt (Reworked: now flat crit, no longer a maintenance buff)
+
+rotation:
+  singleTarget: |
+    [Pack Leader] Single Target Priority:
+    1. Use stat-granting on-use Trinkets right before Bestial Wrath.
+    2. Activate Bestial Wrath on cooldown.
+    3. Cast Kill Command on cooldown if Nature's Ally is up. If Bestial Wrath is coming up within a few seconds, hold a Kill Command charge for it. (Note: You may ignore Nature's Ally only if Howl of the Pack Leader is ready/glowing).
+    4. Cast Barbed Shot on cooldown.
+    5. Cast Cobra Shot as a filler.
+
+    [Dark Ranger] Single Target Priority:
+    1. Use stat-granting on-use Trinkets right before Bestial Wrath.
+    2. Activate Bestial Wrath on cooldown.
+    3. Cast Kill Command on cooldown if Nature's Ally is up. If Bestial Wrath is coming up within a few seconds, hold a Kill Command charge for it.
+    4. Cast Wailing Arrow when there is 7 seconds left on Bestial Wrath (to fit into the end of the Withering Fire window).
+    5. Cast Barbed Shot during Bestial Wrath.
+    6. Cast Black Arrow.
+    7. Cast Barbed Shot as a filler.
+    8. Cast Cobra Shot as a filler only when you can do absolutely nothing else.
+  aoe: |
+    [Pack Leader] AoE Priority:
+    1. Use stat-granting on-use Trinkets right before Bestial Wrath.
+    2. Cast Wild Thrash on cooldown.
+    3. Activate Bestial Wrath. Aim the resulting Stampede line to cover as many targets as possible.
+    4. Cast Kill Command on cooldown.
+    5. On 2 targets only: Cast Cobra Shot if Hogstrider is up and Wild Thrash is more than ~1.25 seconds away.
+    6. Cast Barbed Shot on cooldown.
+    7. Cast Cobra Shot if Wild Thrash is more than ~1.25 seconds away. Otherwise, spam Wild Thrash in anticipation of it coming off cooldown.
+
+    [Dark Ranger] AoE Priority:
+    1. Use stat-granting on-use Trinkets right before Bestial Wrath.
+    2. Cast Black Arrow if Beast Cleave is expiring.
+    3. Activate Bestial Wrath.
+    4. Cast Wailing Arrow if Bestial Wrath is about to end.
+    5. Cast Wild Thrash on cooldown.
+    6. Cast Kill Command on cooldown if Nature's Ally is up. If Bestial Wrath is coming up within a few seconds, hold a Kill Command charge for it.
+    7. Cast Black Arrow during the first 10 seconds of Bestial Wrath.
+    8. Cast Barbed Shot on cooldown.
+    9. Cast Wailing Arrow.
+    10. Cast Black Arrow.
+    11. Cast Cobra Shot as a filler.
+  opener: |
+    [Pack Leader] Single-Target Opener:
+    1. Ensure Hunter's Mark is active.
+    2. Cast all Barbed Shot charges.
+    3. Bestial Wrath.
+    4. Kill Command.
+    5. Barbed Shot.
+    6. Kill Command.
+
+    [Dark Ranger] Single-Target Opener:
+    1. Ensure Hunter's Mark is active.
+    2. Barbed Shot.
+    3. Bestial Wrath.
+    4. Black Arrow.
+    5. Kill Command.
+    6. Barbed Shot.
+    7. Kill Command.
+    8. (Later) Wailing Arrow when 7s left on Bestial Wrath.
+
+    [Pack Leader] AoE Opener:
+    1. Ensure Hunter's Mark is active.
+    2. Barbed Shot.
+    3. Bestial Wrath.
+    4. Wild Thrash.
+    5. Kill Command.
+    6. Barbed Shot.
+    7. Kill Command.
+
+    [Dark Ranger] AoE Opener:
+    1. Ensure Hunter's Mark is active.
+    2. Black Arrow.
+    3. Bestial Wrath.
+    4. Wild Thrash.
+    5. Kill Command.
+    6. Black Arrow.
+    7. Kill Command.
+    8. Barbed Shot.
+    9. Wailing Arrow when out of Barbed Shots/Kill Commands.
+
+cooldowns: |
+  - Bestial Wrath (30s): Flat cooldown. Increases damage by 20% and triggers Hero Talent mechanics (Stampede for Pack Leader, Wailing Arrow/Black Arrow for Dark Ranger).
+  - Aspect of the Turtle (2m): Major immunity/defensive. Can be talented for 50% damage reduction. Emergency use or to cheese mechanics.
+  - Exhilaration (1m): Self-heal. Cooldown is now a flat 1 minute.
+  - Roar of Sacrifice (1m): External defensive. Reduces target damage taken by 15% for 10s; pet takes 50% of that damage.
+  - Aspect of the Cheetah (3m): Mobility tool. Initial burst of speed is doubled with talents.
+  - Counter Shot (24s): Ranged interrupt. Spell-locks for 5s and grants 30 Focus on success.
+  - Intimidation (1m or 40s): Single-target stun. Can be talented into a 1s AoE stun.
+
+concepts: |
+  - Nature's Ally: This Apex talent incentivizes weaving. Never cast Kill Command twice in a row; always use a filler (Barbed Shot, Cobra Shot, or Black Arrow) in between to maximize the 30% buff.
+  - Pack Leader Stampede: Your first Kill Command after Bestial Wrath spawns a 40yd line of beasts. Positioning is critical; aim the line where mobs are or where they are moving.
+  - Dark Ranger Mechanics: Focuses on generating Black Arrow procs via Soul Drinker. Bestial Wrath turns into Wailing Arrow once activated.
+  - Mobility: Beast Mastery is the only ranged spec that can execute its full rotation while moving.
+  - Focus Management: You have no active generators. Focus comes from passive regen and Barbed Shot. Don't overcap Focus, but don't starve yourself of it by spamming Cobra Shot.
+  - Bestial Wrath Windows: Most damage is concentrated here. Ensure you spend Barbed Shots and Black Arrows before activating to avoid overcapping resources granted by the CD.
+  - Beast Cleave: Maintained entirely by Wild Thrash (8s CD, 8s duration). Press Wild Thrash on cooldown in AoE.
+  - Hunter's Mark: Mandatory 3% damage buff for the raid.
+  - Pet Management: Damage is pet-centric. Ensure pets are on the correct target and in range.
+  - Defensive Utility: Use Feign Death to negate mechanics or dispel Poisons/Diseases (via Emergency Salve).
+
+commonMistakes:
+  - "Casting Kill Command twice in a row and losing the Nature's Ally buff"
+  - 'Overcapping Barbed Shot or Kill Command charges'
+  - 'Overspending Focus on Cobra Shot, leaving no resources for Kill Command or Wild Thrash'
+  - 'Mis-aiming the Pack Leader Stampede line, missing targets'
+  - 'Failing to maintain Hunter’s Mark on the primary target'
+  - 'Letting Beast Cleave drop in AoE by not using Wild Thrash on cooldown'
+  - 'Using Kill Shot (it is removed for Beast Mastery in 12.0)'
+
+patchChanges: |
+  12.0.1:
+  - Pack Leader: Bear nerfed by 40% to balance beasts.
+  - Focus regen increased (2 Focus per auto-attack).
+  - Dark Ranger: Barbed Shot now has a 50% chance to grant Deathblow.
+  - Dark Ranger: Auto-shots no longer proc Deathblow.
+  12.0:
+  - Frenzy stack maintenance mechanic removed; Frenzy reworked into a passive talent.
+  - Multi-Shot replaced by Wild Thrash.
+  - Bestial Wrath changed to flat 30s cooldown.
+  - Call of the Wild removed.
+  - Hunter's Mark changed to 3% damage increase.
+  - New Apex Talents (Nature's Ally) added.
+  - Intimidation reworked into a choice for AoE stop.
+  - Implosive/High Explosive traps removed.

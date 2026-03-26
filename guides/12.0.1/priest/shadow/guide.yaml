@@ -1,0 +1,135 @@
+specId: 258
+className: Priest
+specName: Shadow
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Insanity
+  secondaryResource: None
+  resourceNotes: 'Generate Insanity with builders like Mind Blast, Mind Flay, and Void Torrent. Spend Insanity on Shadow Word: Madness (formerly Devouring Plague). Avoid capping at 100 Insanity (or 150 with the Voidtouched talent). Shadow Word: Madness damage rolls over when refreshed, meaning remaining damage from the previous application is added to the new one, allowing for early refreshes without loss.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: 'Shadow Word: Madness'
+    targetUptimePct: 95
+    importance: critical
+    coachingTip: 'Maintain Shadow Word: Madness for the Mastery: Shadow Weaving bonus. Refresh when less than one GCD remains or when near capping Insanity to ensure maximum damage rollover.'
+  - spellId: 0
+    spellName: Vampiric Touch
+    targetUptimePct: 95
+    importance: high
+    coachingTip: 'Essential for Psychic Link cleave damage. Apply to all targets (up to 12) using Tentacle Slam or manual casts.'
+  - spellId: 0
+    spellName: 'Shadow Word: Pain'
+    targetUptimePct: 95
+    importance: high
+    coachingTip: 'Usually applied automatically via Vampiric Touch when using the Misery talent. If using Invoked Nightmare, manual application is required for low target counts.'
+
+playstyles:
+  - id: archon
+    name: Archon
+    detectionCriteria:
+      heroTalents:
+        - "Archon"
+  - id: voidweaver
+    name: Voidweaver
+    detectionCriteria:
+      heroTalents:
+        - "Voidweaver"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Void Shift (Removed in 12.0)
+  - Psychic Horror (Removed in 12.0)
+  - Shadow Crash (Reworked into Tentacle Slam in 12.0)
+  - Dark Ascension (Removed in 12.0)
+  - Void Bolt (Removed in 12.0)
+  - Void Torrent for Archon (Removed in 12.0; now Voidweaver exclusive)
+  - Halo for Voidweaver (Removed in 12.0; now Archon exclusive)
+  - Shadowy Apparitions triggered by Mind Blast (Removed in 12.0)
+  - Concentrated Infusion (Removed in 12.0)
+  - Shadowfiend, Mindbender, and Voidwraith (Reworked into passive spells in 12.0)
+  - Devouring Plague (Renamed to Shadow Word: Madness in 12.0)
+
+rotation:
+  singleTarget: |
+    1. Cast Halo (Archon exclusive) on cooldown.
+    2. Cast Power Infusion (sync with Voidform).
+    3. Cast Shadow Word: Death if the target has an absorb shield (requires Devour Matter talent).
+    4. Spend Insanity on Shadow Word: Madness if it is not active, about to expire, or you are about to cap on Insanity.
+    5. Cast Void Blast (Voidweaver exclusive) while available if Shadow Word: Madness is active or Entropic Rift is about to expire.
+    6. Cast Void Torrent (Voidweaver exclusive) to open Entropic Rift.
+    7. Cast Mind Blast (Prioritize if at 2 charges or reacting to Shadowy Insight procs).
+    8. Cast Mind Flay: Insanity (Archon exclusive) if Shadow Word: Madness is active.
+    9. Cast Mind Flay as filler (Interrupt this for any other action as it becomes available).
+    10. Cast Shadow Word: Death for movement scenarios when no other instant cast spells are available.
+  aoe: |
+    1. Cast Halo on cooldown.
+    2. Cast Power Infusion.
+    3. Sync any on-use trinkets with your cooldowns.
+    4. Cast Shadow Word: Death if the target has an absorb shield for Devour Matter.
+    5. Spend Insanity on Shadow Word: Madness with high priority if it is not active, about to expire, or you are about to cap out on Insanity. (Spread to new targets for overall AoE or funnel into priority target).
+    6. Cast Void Blast (Voidweaver) while available if Shadow Word: Madness is active or Entropic Rift is about to expire.
+    7. Cast Void Torrent (Voidweaver) to open up Entropic Rift.
+    8. Cast Mind Blast.
+    9. Cast Mind Flay: Insanity (Archon) if Shadow Word: Madness is active.
+    10. Cast Mind Flay (Filler; interrupt for any other action).
+    11. Cast Shadow Word: Death for movement scenarios.
+  opener: |
+    1. Pre-combat: Ensure Shadowform and Power Word: Fortitude are active.
+    2. Cast Halo once all mobs are engaged and in range.
+    3. Use Tempered Potion.
+    4. Use Power Infusion and any stat-based racial abilities (sync with Twins of the Sun Priestess).
+    5. Cast Shadow Word: Madness.
+    6. Cast Void Torrent.
+    7. Continue with normal priority (Mind Blast / Void Blast).
+    Note: Use Fade during the pull to apply DoTs without gaining threat.
+
+cooldowns: |
+  - Voidform (2min): Main offensive cooldown. Grants access to Void Volley and treats Mastery as fully stacked. Sync with Power Infusion.
+  - Power Infusion (2min): Major Haste buff. Use on cooldown and share with an ally via Twins of the Sun Priestess.
+  - Halo (1min): Archon exclusive. Used on cooldown to empower Voidform and proc Mind Flay: Insanity.
+  - Void Torrent (45s): Voidweaver exclusive. Spawns Entropic Rift. Must be channeled fully to refresh the Rift duration.
+  - Tentacle Slam: Instant cleave damage that applies Vampiric Touch. Replaces Shadow Crash.
+  - Dispersion (2min): Primary defensive. Reduces damage taken by 75% and provides a small heal with talents.
+  - Vampiric Embrace (2min): Group utility. Converts single-target Shadow damage into healing for nearby allies.
+  - Desperate Prayer (1.5min): Personal defensive. Increases maximum health and heals the Priest.
+
+concepts: |
+  - Mastery: Shadow Weaving increases damage dealt to targets based on the number of DoTs active (Vampiric Touch, Shadow Word: Pain, Shadow Word: Madness).
+  - Insanity Management: Spend Insanity on Shadow Word: Madness to avoid capping at 100 (or 150). SW: Madness damage rolls over, so it can be refreshed early.
+  - Psychic Link: Single-target spells (Mind Blast, Mind Flay, SW: Madness) cleave damage to all targets afflicted by Vampiric Touch.
+  - Tentacle Slam: Use this to apply Vampiric Touch to groups of up to 6 targets. Manual DoTing is required beyond this limit.
+  - Apex Talents (Void Apparitions): A core gameplay loop where generating Shadowy Apparitions builds stacks for Idol of Yogg-Saron procs.
+  - Archon Playstyle: Revolves around using Halo to empower Voidform and generate Mind Flay: Insanity procs.
+  - Voidweaver Playstyle: Revolves around Void Torrent spawning Entropic Rifts, which transform Mind Blast into the powerful Void Blast.
+  - Fade Pulling: Use Fade as a threat drop while the tank is gathering mobs to safely apply Vampiric Touch early.
+  - Power Infusion Targets: Best used on 2-minute cooldown classes like Affliction Warlock, Unholy DK, or Demonology Warlock.
+  - Movement: Shadow has limited mobility. Plan positioning ahead of time and use instant casts like Shadow Word: Death or procs while moving.
+
+commonMistakes:
+  - 'Capping Insanity at 100 (or 150) instead of spending it on Shadow Word: Madness'
+  - 'Letting Shadow Word: Madness drop off, losing the Mastery: Shadow Weaving damage bonus'
+  - 'Casting Void Torrent without Shadow Word: Madness active, missing out on damage modifiers'
+  - 'Interrupting the Void Torrent channel early, which fails to refresh the Entropic Rift (Voidweaver)'
+  - 'Holding Power Infusion for too long instead of syncing it with the 2-minute Voidform window'
+  - 'Standing outside of range or failing to plan movement, leading to excessive downtime'
+  - 'Not using Fade to manage threat during the pull phase in Mythic+, leading to early deaths'
+  - 'Over-capping Mind Blast charges instead of spending them or reacting to Shadowy Insight procs'
+
+patchChanges: |
+  12.0.1:
+  - Rotation updated: Tentacle Slam moved earlier in the opener after bug fixes.
+  - Added dedicated sections for Apex Talents (Void Apparitions).
+  - Archon: Perfected Form damage bonus during Voidform reduced to 5% (was 20%).
+  12.0:
+  - Major Rework: Dark Ascension removed; Voidform is now the primary cooldown.
+  - Devouring Plague renamed to Shadow Word: Madness.
+  - Shadow Crash reworked into Tentacle Slam.
+  - Void Bolt removed.
+  - Shadowy Apparitions no longer triggered by Mind Blast.
+  - Hero Talents Archon and Voidweaver introduced.
+  - Void Shift and Psychic Horror removed.

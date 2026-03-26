@@ -1,0 +1,147 @@
+specId: 102
+className: Druid
+specName: Balance
+role: DPS
+patch: 12.0.1
+guideVersion: 3
+heroTalent: Keeper of the Grove
+resourceManagement:
+  primaryResource: Astral Power
+  secondaryResource: Eclipse
+  resourceNotes: Generate Astral Power using builders like Wrath and Starfire, and through periodic damage from Sunfire and
+    Moonfire via Shooting Stars. Spend AP on Starsurge for single-target or Starfall for multi-target. Keeper of the Grove
+    specifically interacts with Force of Nature to trigger Dream Surge and Harmony of the Grove buffs. Eclipse is now an active
+    ability with 2 charges on a 32-second recharge that lasts 15 seconds.
+maintenanceBuffs:
+- spellId: 93402
+  spellName: Sunfire
+  targetUptimePct: 95
+  importance: high
+  coachingTip: Maintain Sunfire on all targets that will live 5.5s+ (subtract 0.5s per extra target). Generates AP via Shooting
+    Stars. Refresh only during pandemic window (30% remaining) or movement.
+- spellId: 8921
+  spellName: Moonfire
+  targetUptimePct: 95
+  importance: high
+  coachingTip: Keep Moonfire active on targets living 6s+. Force of Nature Treants also spread Moonfire automatically. Refresh
+    during pandemic window or movement.
+- spellId: 0
+  spellName: Starlord
+  targetUptimePct: 80
+  importance: medium
+  coachingTip: Build 50-70 AP before entering Eclipse to quickly stack Starlord to 3 using spenders. Enter Eclipse when Starlord
+    falls off.
+- spellId: 0
+  spellName: Harmony of the Grove
+  targetUptimePct: 30
+  importance: high
+  coachingTip: Spell damage increase active while Treants are alive (4% per Treant, 12% total with 3 Treants; 16% with Bounteous
+    Bloom's 4th Treant). Align your biggest damage windows with Force of Nature.
+removedMechanics:
+- Nature's Vigil (Removed; replaced with Gift of the Wild)
+- Renewal (Removed; passive Aessina's Renewal remains)
+- Warrior of Elune (Removed in 12.0.0)
+rotation:
+  singleTarget: |-
+    1. Apply Moonfire.
+    2. Apply Sunfire.
+    3. Use Force of Nature with either Eclipse or Celestial Alignment.
+    4. Press Fury of Elune and align it with either Eclipse or Force of Nature.
+    5. Use Celestial Alignment if you just used Force of Nature and will have a charge back before Convoke the Spirits.
+    6. Use Convoke the Spirits together with Force of Nature and Celestial Alignment.
+    7. Enter Solar Eclipse whenever Starlord falls off and you have free Starsurge procs or can overlap with Force of Nature.
+    8. Spend Starweaver and Touch the Cosmos procs on Starfall if Ascendant Eclipses buff is not up.
+    9. Starsurge to prevent capping AP or to consume Ascendant Eclipses procs at the start of Eclipse.
+    10. Wrath as filler.
+  aoe: |-
+    1. Apply Sunfire (wait until targets are gathered).
+    2. Apply Moonfire to targets living 6s+ (Force of Nature also spreads Moonfire).
+    3. Use Force of Nature with either Eclipse or Celestial Alignment.
+    4. Press Fury of Elune aligned with Eclipse or Force of Nature.
+    5. Use Celestial Alignment if you just used Force of Nature.
+    6. Enter Solar Eclipse on fewer than 3 targets; Lunar Eclipse on 3+ targets.
+    7. Spend Starweaver and Touch the Cosmos procs on Starfall.
+    8. Starfall to spend AP and maintain Starlord.
+    9. Wild Mushroom if you will not overcap AP and Fungal Growth is not active.
+    10. Starfire to generate Astral Power.
+  opener: |-
+    1. Start pressing Wrath at 3-4 seconds on pull timer from max range.
+    2. Apply Moonfire.
+    3. Apply Sunfire.
+    4. Enter Solar Eclipse.
+    5. Starsurge/Starfall to spend 3 Ascendant Eclipses stacks.
+    6. Wrath to generate AP and procs if needed.
+    7. When Ascendant Eclipses stacks are spent, use Fury of Elune.
+    8. Refresh Sunfire early so you don't refresh during cooldowns.
+    9. Force of Nature.
+    10. Incarnation: Chosen of Elune / Celestial Alignment.
+    11. Use on-use trinkets and potions.
+    12. Resume regular priority.
+cooldowns:
+- name: 'Celestial Alignment / Incarnation: Chosen of Elune'
+  cooldown: '2min (Whirling Stars: ~100s with 2 charges). CA 15s duration; Incarnation 20s.'
+  description: Major offensive cooldown. Grants both Eclipses and increases damage. Convoke and Incarnation are a choice node.
+    Stack with Force of Nature and trinkets. Don't overcap charges with Whirling Stars.
+- name: Force of Nature
+  cooldown: 1min
+  description: Summons Treants that trigger Harmony of the Grove (4% spell damage per Treant) and Dream Surge procs. Treants
+    also spread Moonfire. Always overlap with Eclipse or Celestial Alignment.
+- name: Convoke the Spirits
+  cooldown: 2min baseline (1min with Elune's Guidance). Choice node with Incarnation.
+  description: Channels a flurry of Druid spells. Use inside CA/Incarnation windows below 40 AP. 45-yard range; avoid melee
+    for better Balance spell selection. Have Moonfire on targets before channeling.
+- name: Fury of Elune
+  cooldown: 1min
+  description: Arcane damage beam generating AP. Align with Eclipse or Force of Nature windows.
+- name: Wild Mushroom
+  cooldown: Charge-based
+  description: AoE damage and AP generation (10 AP single target). Don't cap charges. Don't use if Fungal Growth already active
+    on target.
+- name: New Moon / Half Moon / Full Moon
+  cooldown: Charge-based
+  description: Escalating damage and AP generation. Don't cap charges. Finish casts before Eclipse ends.
+- name: Solar Beam
+  cooldown: 1min (reduced by Light of the Sun)
+  description: Powerful AoE silence. Critical for Mythic+ caster management.
+concepts:
+- 'Eclipse Rework: Active ability with 2 charges on 32-second recharge. Wrath before pressing = Solar Eclipse; Starfire =
+  Lunar Eclipse. Lasts 15 seconds. Maximizing uptime is core gameplay.'
+- 'Mastery (Astral Invocation): No longer interacts with Sunfire/Moonfire. Damage buff is now permanent during Eclipse. Increases
+  Nature damage in Solar Eclipse and Arcane damage in Lunar Eclipse.'
+- 'Dream Surge: Force of Nature procs Dream Surge, empowering your next Wraths or Starfires. Spend these procs with the appropriate
+  filler for your Eclipse type.'
+- 'Harmony of the Grove: 4% spell damage increase per active Treant (12% with 3 Treants; 16% with Bounteous Bloom''s 4th).
+  Overlap Force of Nature with Eclipse and CA windows for maximum value.'
+- 'Ascendant Eclipses (Apex Talents): Entering Eclipse makes next Wrath/Starfire instant and empowers next 3 Starsurge/Starfall
+  with 20% increased damage. Crits during Eclipse apply languish DoT. Eclipse entry launches Solar/Lunar Bolts that always
+  crit.'
+- 'Cooldown Stacking: General sequence is Sunfire refresh > Fury of Elune > Force of Nature > CA/Incarnation. Research fight
+  timings for optimal placement.'
+- 'Starlord Management: Build 50-70 AP before entering Eclipse to quickly reach 3 stacks. Enter Eclipse when Starlord falls
+  off.'
+- 'Always Be Casting: Instant spenders (Starsurge/Starfall) during movement. Pool AP for movement phases.'
+- 'Shooting Stars: DoT ticks generate AP via Shooting Stars procs. More DoTs on more targets = more AP generation. Tier set
+  enhances this further.'
+- 'Convoke vs Incarnation: Choice node. Convoke better for ST/raid burst. Incarnation better for M+ and council fights. Both
+  are very close in performance.'
+- 'Astral Power Management: Builders generate AP, spenders consume. Never cap at 100.'
+- 'Starlord: Stacking haste buff from spenders. Pool AP before Eclipse ends to refresh stacks.'
+- 'Convoke Positioning: Stay within 45 yards but avoid melee range to ensure Balance-specific procs.'
+commonMistakes:
+- Overcapping Astral Power instead of spending on Starsurge or Starfall.
+- Not overlapping Force of Nature with Eclipse or Celestial Alignment — always align these.
+- Holding Force of Nature or Celestial Alignment too long instead of using on cooldown.
+- Not spending all 3 Ascendant Eclipses empowered spender stacks at the start of each Eclipse.
+- Casting Convoke the Spirits in melee range, reducing Balance-specific spell consistency.
+- Entering wrong Eclipse for target count (Solar for ST/<3 targets, Lunar for 3+ targets).
+- Letting Sunfire or Moonfire drop off targets living longer than 6 seconds.
+- Entering Eclipse with low AP instead of building 50-70 beforehand to stack Starlord.
+- Letting charges of Wild Mushroom, New Moon, or Eclipse cap.
+- Refreshing DoTs outside pandemic window (30% remaining) instead of casting fillers.
+- Using Convoke without Moonfire on targets, wasting casts on DoT application.
+patchChanges:
+  12.0.1: Reviewed for Midnight Season 1. Tier set 4pc Shooting Stars proc reduced to 30% (was 40%).
+  '12.0': 'Eclipse redesigned as active ability with 2 charges on 32s recharge. Mastery reworked (permanent buff, no DoT interaction).
+    Warrior of Elune removed. Apex Talents (Ascendant Eclipses) added. CA duration 15s (was 20s). Incarnation duration 20s
+    (was 30s). Harmony of the Grove nerfed to 4% per Treant (was 8%). Bounteous Bloom updated: Force of Nature summons 4 Treants
+    but Treant Moonfire no longer generates AP. Starfall now baseline at level 15.'

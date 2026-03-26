@@ -1,0 +1,132 @@
+specId: 63
+className: Mage
+specName: Fire
+role: DPS
+heroTalent: Frostfire
+patch: "12.0.1"
+guideVersion: 3
+
+resourceManagement:
+  primaryResource: Mana
+  secondaryResource: Hot Streak
+  resourceNotes: 'Core loop: generate Heating Up with critical strikes from Frostfire Bolt and Fire Blast.
+    Two consecutive crits grant Hot Streak for instant Pyroblast or Flamestrike. Frostfire Bolt replaces
+    Fireball as primary filler. Frostfire has shorter Combustion window than Sunfury but simpler execution.'
+
+maintenanceBuffs:
+- spellId: 0
+  spellName: Blazing Barrier
+  targetUptimePct: 100
+  importance: high
+  coachingTip: 'Keep active for damage absorption and minor healing. Short GCD, primary defensive tool.'
+- spellId: 0
+  spellName: 'Mastery: Ignite'
+  targetUptimePct: 100
+  importance: critical
+  coachingTip: 'Primary cleave mechanic. Target the central enemy in packs. Ignite no longer auto-spreads
+    via Fire Blast — requires Ignition or Wildfire talents.'
+
+removedMechanics:
+- Phoenix Flames (removed in 12.0)
+- "Sun King's Blessing (removed in 12.0, replaced by Pyroclasm)"
+- Shifting Power (removed in 12.0)
+- Ice Floes (removed in 12.0)
+- Mass Barrier (removed in 12.0)
+- Lit Fuse / Living Bomb (removed in 12.0)
+- Mirror Image/Greater Invisibility damage reduction (removed in 12.0)
+
+rotation:
+  singleTarget: |-
+    Firestarter Phase (target above 90% HP): All Fireball/Frostfire Bolt crits are guaranteed.
+    1. Pre-cast Frostfire Bolt before pull.
+    2. Fire Blast during cast to convert Heating Up -> Hot Streak.
+    3. Double Pyroblast (instant Pyro immediately after hard-cast Frostfire Bolt, both land simultaneously).
+    4. Alternate Fire Blast and Pyroblast until charges depleted.
+    5. Repeat: Frostfire Bolt -> Fire Blast -> Pyroblast (x2) until target below 90%.
+
+    Normal Priority:
+    1. Combustion when ready (activate near end of hard-cast).
+    2. Pyroclasm (hard-cast Pyroblast) if 2 stacks or about to expire.
+    3. Pyroblast with Hot Streak — always cast immediately after a Frostfire Bolt so both land simultaneously.
+    4. Pyroblast with Hyperthermia active (instant Pyroblast spam window).
+    5. Fire Blast to convert Heating Up into Hot Streak.
+    6. Frostfire Bolt as filler to generate Heating Up and procs.
+    7. Frostfire Empowerment procs on instant-cast Frostfire Bolts.
+
+    Execute Phase (below 30% HP — FROSTFIRE SPECIFIC):
+    Spam Frostfire Bolt regardless of Hot Streak, ignoring Pyroblast. This is unique to Frostfire.
+  aoe: |-
+    1. Combustion when ready.
+    2. Meteor on cooldown (triggers Isothermic Core and Flash Freezeburn).
+    3. Flamestrike with Hot Streak at 3+ targets (outside Combustion) or 4+ targets (during Combustion).
+    4. Fire Blast to convert Heating Up into Hot Streak.
+    5. Frostfire Bolt as filler.
+    Never replace Frostfire Bolt casts with Flamestrike — only replace Pyroblast with Flamestrike.
+    Never use Flamestrike during Firestarter phase (>90% HP).
+  opener: |-
+    1. Pre-cast Frostfire Bolt.
+    2. Fire Blast during Frostfire Bolt cast.
+    3. Double Pyroblast with Hot Streak.
+    4. Continue Firestarter phase (all crits above 90% HP).
+    5. When target reaches 90%, pool resources 8-10s before Combustion.
+    6. Activate Combustion near end of hard-cast.
+    7. Chain Pyroblast -> Fire Blast during Combustion window.
+    8. Meteor within Combustion to maximize Ignite for Burnout.
+
+cooldowns:
+- name: Combustion
+  cooldown: 60s (Kindling rework)
+  description: 'Primary DPS cooldown. Guarantees all spells critically strike for 10s. Can cast while casting.
+    Extended by Fired Up procs. Frostfire has shorter window than Sunfury. Pool Fire Blast charges 8-10s before.'
+- name: Meteor
+  cooldown: 30s
+  description: 'Critical for Frostfire. Hits hard, activates Frostfire Empowerment and Comet Storm via
+    Isothermic Core. Use immediately when available.'
+- name: Hyperthermia (Proc)
+  cooldown: Random proc
+  description: 'While Combustion is NOT active, consuming Hot Streak has a low chance to grant Hyperthermia
+    for 5 seconds — all Pyroblasts and Flamestrikes become instant with guaranteed crits. Each cast increases
+    damage by 15%, stacking up to 150%. Treat as a mini-Combustion.'
+- name: Time Warp
+  cooldown: 10min shared
+  description: '30% Haste for 40s. Coordinate with group.'
+- name: Ice Block / Ice Cold
+  cooldown: Major defensive
+  description: 'Ice Cold provides 70% DR if talented; otherwise Ice Block provides total immunity.'
+
+concepts:
+- 'Frostfire Bolt: Replaces Fireball as primary filler. Faster cast time, interacts with all Frostfire hero
+  talents. Any reference to Fireball also applies to Frostfire Bolt.'
+- 'Pyroblast Chaining: Cast instant Pyroblast immediately after hard-cast Frostfire Bolt so both land
+  simultaneously. 0.2s grace period prevents losing Heating Up if only one crits.'
+- 'Frostfire Empowerment: Procced by Meteor and Frostfire spell casts (10% chance). Makes next Frostfire Bolt
+  instant, deal 60% increased damage, and explode for AoE.'
+- 'Isothermic Core: Meteor also calls down a Comet Storm, significantly increasing burst value.'
+- 'Burnout: Ignite explodes for 75% of remaining damage when Combustion ends. Maximize Ignite during
+  Combustion. Delay Meteor until within Combustion to benefit.'
+- 'Fired Up (Apex Talent): Consuming Hot Streak can reduce Fire Blast CD and extend Combustion duration.'
+- 'Pyroclasm: Hot Streak has 15% chance to make next hard-cast Pyroblast deal 230% additional damage. Max 2
+  stacks — do not overcap.'
+- 'Firestarter: Above 90% HP, Fireball/Frostfire Bolt always critically strike. Use this to build Hot Streak
+  chains before first Combustion.'
+- 'Execute (Frostfire-specific): Below 30%, spam Frostfire Bolt ignoring Hot Streak and Pyroblast entirely.
+  This is unique to Frostfire — Sunfury uses standard Scorch execute.'
+- 'Ignite Spreading: Ignite no longer auto-spreads via Fire Blast. Requires Ignition or Wildfire talents.'
+- 'Movement: Fire is highly mobile. Shimmer, instant Pyroblasts from Hot Streak, and Scorch (castable while
+  moving) mean Fire rarely has to stop dealing damage during mechanics.'
+
+- 'Mage Defensives: Ice Block (full immunity), Alter Time (health snapshot reset), and Ice Barrier/Blazing Barrier are the actual defensive tools. Mirror Image and Greater Invisibility are threat drops only — they do NOT reduce damage taken.'
+commonMistakes:
+- Casting Scorch instead of Frostfire Bolt (Scorch is a DPS loss for Frostfire even during execute).
+- Delaying Meteor and losing Frostfire Empowerment uptime.
+- Hard-casting Pyroblast during Combustion (risks overcapping Fire Blast charges from Fired Up procs).
+- Not utilizing the 0.2s grace period by failing to chain Pyroblast with Frostfire Bolt.
+- Overcapping Pyroclasm stacks instead of spending them before Combustion.
+- Ignoring Hyperthermia procs — treat them as mini-Combustion windows.
+- Not pooling Fire Blast charges 8-10 seconds before Combustion.
+
+patchChanges:
+  12.0.1: 'Frostfire rotation updated: Scorch not recommended as filler. Flamestrike target thresholds adjusted.
+    Frostfire has shorter Combustion than Sunfury but simpler execution.'
+  '12.0': 'Major rework. Combustion uptime reduced but burst increased. Fireball replaced by Frostfire Bolt.
+    Mastery Ignite spread moved to talents. Phoenix Flames removed. Kindling reworked to flat 60s CD.'

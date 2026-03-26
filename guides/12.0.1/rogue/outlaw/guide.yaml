@@ -1,0 +1,177 @@
+specId: 260
+className: Rogue
+specName: Outlaw
+role: DPS
+patch: "12.0.1"
+guideVersion: 2
+
+resourceManagement:
+  primaryResource: Energy
+  secondaryResource: Combo Points
+  resourceNotes: 'Energy is generated passively (base 10/sec) and increased by Haste, Combat Potency, and Adrenaline Rush. Spend Energy on builders (Sinister Strike, Pistol Shot, Ambush, Blade Rush) to generate Combo Points. Spend Combo Points on finishers (Dispatch, Between the Eyes, Roll the Bones). Restless Blades reduces cooldowns by 1s per Combo Point spent; overcapping Combo Points or wasting them on low-value finishers significantly reduces your cooldown cycling and overall DPS.'
+
+maintenanceBuffs:
+  - spellId: 0
+    spellName: Slice and Dice
+    targetUptimePct: 100
+    importance: high
+    coachingTip: 'Maintain Slice and Dice at all times. It is usually refreshed automatically via talents, but ensure it does not drop.'
+  - spellId: 0
+    spellName: Roll the Bones
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'Always keep RtB active. Reroll if you are only in Stage 1; keep Stage 2 or higher.'
+  - spellId: 0
+    spellName: Blade Flurry
+    targetUptimePct: 100
+    importance: critical
+    coachingTip: 'Maintain 100% uptime during AoE encounters. Try to cast at low Combo Points due to Deft Maneuvers.'
+  - spellId: 0
+    spellName: Between the Eyes (Buff)
+    targetUptimePct: 95
+    importance: high
+    coachingTip: 'BtE applies a stacking damage amp. Use on cooldown to maintain and stack this buff.'
+
+playstyles:
+  - id: fatebound
+    name: Fatebound
+    detectionCriteria:
+      heroTalents:
+        - "Fatebound"
+  - id: trickster
+    name: Trickster
+    detectionCriteria:
+      heroTalents:
+        - "Trickster"
+
+# ── Text fields (AI reads raw) ───────────────────────────────────────────────
+
+removedMechanics: |
+  - Count the Odds (Removed in 12.0)
+  - Crackshot (Removed in 12.0)
+  - Underhanded Upper Hand (Removed in 12.0)
+  - Cold Blood (Removed in 12.0)
+  - Ghostly Strike (Removed in 12.0)
+  - Float Like a Butterfly (Removed/Nerfed in 12.0)
+  - Retractable Hook (Removed/Nerfed in 12.0)
+  - Cheap Shot (Reworked: Now has a cooldown in 12.0)
+  - Roll the Bones (Reworked: Now uses a Stage 1-4 system instead of individual random buffs)
+
+rotation:
+  singleTarget: |
+    [Fatebound] Single-Target Priority:
+    1. Use Roll the Bones on cooldown unless you are already in Stage 2 or higher.
+    2. Use Keep It Rolling when you are in Stage 2 or higher. If next RtB is buffed by Loaded Dice, you can hold for Stage 3/4, but use immediately if you land in Stage 2.
+    3. Use Adrenaline Rush on cooldown, at low Combo Points.
+    4. Use Blade Rush on cooldown as a builder.
+    5. Use Preparation to reset the cooldown of Adrenaline Rush, Between the Eyes, and Blade Rush.
+    6. Cast Dispatch as your first finisher with 5+ CP if Slice and Dice is not active.
+    7. Cast Between the Eyes on cooldown with 6+ CP.
+    8. Cast Dispatch as your main finisher with 5+ CP.
+    9. Cast Pistol Shot if you have 6 stacks of Opportunity. If you have 3 stacks, use it at 1-3 CPs only.
+    10. Cast Sinister Strike to generate Combo Points.
+
+    [Trickster] Single-Target Priority:
+    1. Use Roll the Bones on cooldown unless you are already in Stage 2 or higher.
+    2. Use Keep It Rolling when you are in Stage 2 or higher. If next RtB is buffed by Loaded Dice, you can hold for Stage 3/4, but use immediately if you land in Stage 2.
+    3. Use Adrenaline Rush on cooldown, at low Combo Points.
+    4. Use Blade Rush on cooldown as a builder.
+    5. Use Preparation to reset the cooldown of Adrenaline Rush, Between the Eyes, and Blade Rush.
+    6. Cast Between the Eyes on cooldown with 6+ CP.
+    7. Use Killing Spree on cooldown, at 6+ Combo Points.
+    8. Cast Dispatch as your main finisher with 6+ CP, if it is buffed by Coup de Grace.
+    9. Cast Dispatch as your main finisher with 6+ CP.
+    10. Cast Pistol Shot if you have 6 stacks of Opportunity. If you have 3 stacks, use it at 1-3 CPs only.
+    11. Cast Sinister Strike to generate Combo Points.
+  aoe: |
+    [Fatebound] AoE Priority:
+    1. Use Roll the Bones on cooldown unless you are already in Stage 2 or higher.
+    2. Maintain Blade Flurry; try to use it at low Combo Points due to Deft Maneuvers.
+    3. Use Keep It Rolling when you have 4+ buffs already. If missing Broadside, wait until the last second of lowest duration RtB buff.
+    4. Use Adrenaline Rush on cooldown, at low Combo Points.
+    5. Use Blade Rush on cooldown as a builder.
+    6. Use Preparation to reset the cooldown of Adrenaline Rush, Between the Eyes, and Blade Rush.
+    7. Cast Between the Eyes on cooldown with 6+ CP.
+    8. Cast Dispatch as your main finisher at 5+ CP.
+    9. Cast Pistol Shot if you have 6 stacks of Opportunity. If you have 3 stacks, use it at 1-3 CPs only.
+    10. Cast Sinister Strike to generate Combo Points.
+
+    [Trickster] AoE Priority:
+    1. Use Roll the Bones on cooldown unless you are already in Stage 2 or higher.
+    2. Maintain Blade Flurry; try to use it at low Combo Points due to Deft Maneuvers.
+    3. Use Keep It Rolling when you have 4+ buffs already. If missing Broadside, wait until the last second of lowest duration RtB buff.
+    4. Use Adrenaline Rush on cooldown, at low Combo Points.
+    5. Use Blade Rush on cooldown as a builder.
+    6. Use Preparation to reset the cooldown of Adrenaline Rush, Between the Eyes, and Blade Rush.
+    7. Cast Between the Eyes on cooldown with 6+ CP.
+    8. Use Killing Spree on cooldown, at 6+ Combo Points.
+    9. Cast Dispatch as your main finisher with 6+ CP, if it is buffed by Coup de Grace.
+    10. Cast Dispatch as your main finisher at 6+ CP.
+    11. Cast Pistol Shot if you have 6 stacks of Opportunity. If you have 3 stacks, use it at 1-3 CPs only.
+    12. Cast Sinister Strike to generate Combo Points.
+  opener: |
+    Single-Target Opener:
+    1. Cast Adrenaline Rush and Roll the Bones immediately before the pull.
+    2. Open with Blade Rush.
+    3. Build Combo Points with Ambush (if available) or Sinister Strike.
+    4. Use Killing Spree at 6+ CP (if talented).
+    5. Build Combo Points with Ambush (if available) or Sinister Strike.
+    6. Use Between the Eyes at 6+ CP.
+    7. Use Preparation.
+
+    AoE Opener:
+    1. Cast Adrenaline Rush and Roll the Bones immediately before the pull.
+    2. Open with Blade Flurry.
+    3. Use Blade Rush immediately.
+    4. Build Combo Points with Ambush (if available) or Sinister Strike.
+    5. Use Killing Spree at 6+ CP (if talented).
+    6. Build Combo Points with Ambush (if available) or Sinister Strike.
+    7. Use Between the Eyes at 6+ CP.
+    8. Use Preparation.
+
+cooldowns: |
+  - Adrenaline Rush (3m): Increases Energy regen, max Energy, and Attack Speed. Reduces GCD to 0.8s based on Haste. Use on cooldown.
+  - Roll the Bones (45s): Reworked into Stages 1-4. Reroll if only Stage 1 is active.
+  - Between the Eyes (45s): Main damage finisher and damage amp. Use on cooldown.
+  - Keep It Rolling (7m): Extends RtB duration by 30s. Use on Stage 2+ or Stage 3/4 if possible.
+  - Blade Rush (45s): Gap closer and Energy generator. Use rotationally as a builder.
+  - Killing Spree (2m): High damage finisher (Trickster focus). Use at 6+ CP.
+  - Preparation (5m): Resets cooldowns of Adrenaline Rush, BtE, and Blade Rush. Use after these are on cooldown.
+  - Vanish (2m): Used to trigger Subterfuge for Ambush/Cheap Shot.
+  - Cloak of Shadows (2m): Magic immunity and debuff clear.
+  - Evasion (2m): 100% Dodge chance.
+  - Feint (15s): 40% AoE damage reduction.
+  - Crimson Vial (30s): Self-heal.
+  - Cheat Death (6m): Passive talent that prevents death once every 6 minutes.
+
+concepts: |
+  - Restless Blades: Your core mechanic. Every Combo Point spent on finishers reduces the cooldown of major abilities (AR, BtE, Blade Flurry, Blade Rush, Killing Spree, etc.).
+  - Roll the Bones Rework: You now progress through Stages. Stage 1: SS strike chance. Stage 2: SS/Ambush CP and damage. Stage 3: Restless Blades CDR +30%. Stage 4: +10% Crit. Higher stages include all previous stage buffs.
+  - Energy Management: Energy generation is lower in Midnight. Blade Rush is essential for Energy recovery. Avoid pooling unless preparing for specific add spawns or damage phases.
+  - Fan the Hammer: Talent that makes Opportunity Pistol Shots generate 4 CP and consume 2 stacks. Do not overcap stacks.
+  - Coup de Grace (Trickster): Procs from Unseen Blade. Enhances Dispatch to act as if 5 additional CP were spent, providing massive CDR and damage.
+  - Hand of Fate (Fatebound): Finisher-based coin flips (Heads = damage buff, Tails = direct damage). Procs a major capstone buff after 7 flips.
+  - Gravedigger (Apex Talent): Provides free BtE casts and damage amp stacks. Smooths out rotation lows.
+  - Blade Flurry: Cleave is centered on the player, not the target. Position yourself so targets are within 8 yards of you.
+  - Atrophic Poison: Unique raid utility that reduces enemy damage dealt.
+
+commonMistakes:
+  - 'Rerolling Roll the Bones when you already have Stage 2 or higher active'
+  - 'Overcapping Combo Points, which wastes the cooldown reduction from Restless Blades'
+  - 'Using finishers at low Combo Point counts (below 5 for Fatebound, below 6 for Trickster)'
+  - 'Letting Blade Flurry drop during multi-target encounters'
+  - 'Overcapping Opportunity stacks when talented into Fan the Hammer'
+  - 'Holding Preparation for too long instead of using it to reset Adrenaline Rush and BtE'
+  - 'Standing too far from secondary targets, causing Blade Flurry cleave to miss'
+
+patchChanges: |
+  12.0.1:
+  - Mythic+ performance and builds reviewed.
+  12.0:
+  - Roll the Bones fully reworked into a Stage 1-4 system.
+  - Energy generation lowered across all passives.
+  - New Apex Talent: Gravedigger.
+  - Removed: Count the Odds, Crackshot, Underhanded Upper Hand, Cold Blood, Ghostly Strike.
+  - Adrenaline Rush uptime reduced to ~30-35%.
+  - Blade Rush energy recharge made core to the rotation.
+  - Vanish/Stealth benefits (Crackshot) removed or baked into base abilities.
