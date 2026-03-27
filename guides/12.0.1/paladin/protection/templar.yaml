@@ -44,17 +44,17 @@ tankingGuide:
     4. Sacrosanct Crusade: Casting Divine Toll and Hammer of Light grants a 15% HP shield and
        Hammer of Light heals for 15% HP. Templar has built-in defensive value from its burst window.
   defensiveCooldowns: |-
-    - Guardian of Ancient Kings (3min, 2nd charge via Empyrean Authority talent): Major defensive —
-      50% DR for 8 seconds. Second charge is NOT baseline. Use before heavy damage.
+    - Guardian of Ancient Kings (3min/1.5min via Righteous Protector talent, 2nd charge via Empyrean Authority talent): Major defensive —
+      50% DR for 8 seconds/4.8 seconds via Righteous Protector talent. Second charge is NOT baseline. Use before heavy damage.
     - Ardent Defender (1.5min): 20% DR for 8 seconds. First killing blow heals to 12% HP instead.
       Short CD — use frequently and proactively.
-    - Avenging Wrath / Sentinel (2min): Both offensive and defensive. AW grants 20% damage/healing +
-      20% crit. Sentinel provides stacking DR (15 stacks, 2% HP + 2% DR each, loses stacks after 5s
-      but spending 3 HP prevents loss). Sentinel does NOT grant 20% crit like AW.
+    - Avenging Wrath / Sentinel (2min/1min via Righteous Protector talent): Both offensive and defensive. AW grants 20% damage/healing +
+      20% crit. Sentinel provides stacking DR (15 stacks, 2% HP + 2% DR each). Spending 3 HP prevents
+      stack loss.
     - Divine Shield (5min): Total immunity. With Final Stand talent, provides AoE taunt during immunity.
-    - Lay on Hands (10min): Emergency full heal for yourself or an ally.
-    - Blessing of Protection / Spellwarding (5min, shared CD): BoP removes bleeds/physical DoTs.
-      Spellwarding provides magic immunity but does NOT remove debuffs. Both castable on allies.
+      Can cancel early with macro to just clear debuffs.
+    - Lay on Hands (10min): Emergency full heal for yourself or an ally. Last resort.
+    - Blessing of Sacrifice (2min): External damage reduction for a party member.
   holyPowerManagement: |-
     Generate Holy Power with Judgment, Blessed Hammer, and Avenger's Shield (via Vanguard — up to 3 HP).
     Spend on Shield of the Righteous for mitigation (priority while tanking) or Word of Glory for healing.
@@ -108,33 +108,27 @@ rotation:
     12. Cast Shield of the Righteous.
 
 cooldowns:
-- name: Divine Toll
-  cooldown: 1min
-  description: 'Fires multiple Avenger''s Shields. For Templar, this is the activator for Hammer of Light
-    (12-second window). Primary burst trigger.'
 - name: Guardian of Ancient Kings
-  cooldown: 3min (second charge via Empyrean Authority talent)
-  description: 'Major defensive — 50% DR for 8 seconds. Second charge requires Empyrean Authority talent,
-    not baseline. Use before periods of large damage.'
+  cooldown: 3min (second charge via Empyrean Authority talent)/1.5min (reduced via Righteous Protector talent)
+  description: 'Major defensive — 50% DR for 8 seconds/4.8 seconds (reduced via Righteous Protector talent). Second charge is NOT baseline; requires Empyrean
+    Authority talent. Use before periods of large damage.'
 - name: Ardent Defender
   cooldown: 1.5min
-  description: '20% DR for 8 seconds. First killing blow heals to 12% HP instead. Use proactively and
-    frequently — short CD.'
+  description: '20% DR for 8 seconds. First killing blow heals you to 12% HP instead of killing you.
+    Use frequently — short CD. Great for bypassing deadly mechanics or playing at low HP safely.'
 - name: Avenging Wrath / Sentinel
-  cooldown: 2min baseline (shorter with Righteous Protector)
-  description: 'Increases damage/healing by 20%, changes Judgment to Hammer of Wrath. Sentinel replaces
-    with stacking DR (15 stacks, 2% HP + 2% DR each). Loses stacks after 5s but spending 3 HP prevents
-    stack loss. Does NOT grant 20% crit like AW does.'
+  cooldown: 2min baseline (1min with Righteous Protector)
+  description: 'Avenging Wrath: Increases damage, healing, and critical strike chance by 20% and changes Judgment into Hammer of Wrath. Sentinel: replaces Avenging Wrath''s damage/healing effect but does NOT grant the crit bonus; instead provides stacking DR (15 stacks, 2% HP + 2% DR each, lose 1/sec after 5s, spending 3 HP prevents stack loss).'
 - name: Divine Shield
   cooldown: 5min
-  description: 'Total immunity. Final Stand talent forces AoE taunt during immunity.'
+  description: 'Total immunity. Use Final Stand talent for AoE taunt during immunity. Can cancel early
+    with macro to just remove debuffs.'
 - name: Lay on Hands
   cooldown: 10min
-  description: 'Emergency heal equal to your max HP.'
-- name: Blessing of Protection / Spellwarding
-  cooldown: 5min (shared CD)
-  description: 'BoP: Physical immunity, removes bleeds/physical DoTs. Spellwarding: Magic immunity but
-    does NOT remove debuffs. Both can be cast on allies.'
+  description: 'Emergency full heal (your max HP) for yourself or ally.'
+- name: Blessing of Sacrifice
+  cooldown: 2min
+  description: 'External damage reduction for a party member.'
 
 concepts:
 - 'Hammer of Light: Templar''s signature ability. Activated by Divine Toll (NOT Wake of Ashes — that is

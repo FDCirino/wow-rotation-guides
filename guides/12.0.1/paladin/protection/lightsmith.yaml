@@ -39,18 +39,17 @@ tankingGuide:
     1. Maintain Shield of the Righteous while actively tanking. Provides Armor based on Strength.
        Off-GCD — weave between generators. Use at 4-5 Holy Power, avoid at exactly 3 HP to keep
        HP available for emergency Word of Glory.
-    2. Stand in Consecration for Mastery: Divine Bulwark (block and spell block bonus) and
-       Sanctuary (5% DR that lingers 4s after leaving). Recast when repositioning.
+    2. Stand in Consecration for Sanctuary (5% DR that lingers 4s after leaving). Recast when repositioning.
     3. Use Word of Glory with Shining Light charges when below 50% HP. As Lightsmith, free WoG
        charges also trigger Valiance (reduces Holy Armament recharge by 3s) — use liberally.
     4. Keep Holy Armaments cycling. Holy Bulwark provides absorb shield; Sacred Weapon provides
        damage/healing procs. Solidarity grants the same buff to a nearby ally.
   defensiveCooldowns: |-
-    - Guardian of Ancient Kings (3min, 2nd charge via Empyrean Authority talent): Major defensive —
-      50% DR for 8 seconds. Second charge is NOT baseline. Use before heavy damage.
+    - Guardian of Ancient Kings (3min/1.5min via Righteous Protector talent, 2nd charge via Empyrean Authority talent): Major defensive —
+      50% DR for 8 seconds/4.8 seconds via Righteous Protector talent. Second charge is NOT baseline. Use before heavy damage.
     - Ardent Defender (1.5min): 20% DR for 8 seconds. First killing blow heals to 12% HP instead.
       Short CD — use frequently and proactively.
-    - Avenging Wrath / Sentinel (2min): Both offensive and defensive. AW grants 20% damage/healing +
+    - Avenging Wrath / Sentinel (2min/1min via Righteous Protector talent): Both offensive and defensive. AW grants 20% damage/healing +
       20% crit. Sentinel provides stacking DR (15 stacks, 2% HP + 2% DR each). Spending 3 HP prevents
       stack loss.
     - Divine Shield (5min): Total immunity. With Final Stand talent, provides AoE taunt during immunity.
@@ -110,15 +109,15 @@ rotation:
 
 cooldowns:
 - name: Guardian of Ancient Kings
-  cooldown: 3min (second charge via Empyrean Authority talent)
-  description: 'Major defensive — 50% DR for 8 seconds. Second charge is NOT baseline; requires Empyrean
+  cooldown: 3min (second charge via Empyrean Authority talent)/1.5min (reduced via Righteous Protector Talent)
+  description: 'Major defensive — 50% DR for 8 seconds/4.8 seconds (reduced via Righteous Protector Talent). Second charge is NOT baseline; requires Empyrean
     Authority talent. Use before periods of large damage.'
 - name: Ardent Defender
   cooldown: 1.5min
   description: '20% DR for 8 seconds. First killing blow heals you to 12% HP instead of killing you.
     Use frequently — short CD. Great for bypassing deadly mechanics or playing at low HP safely.'
 - name: Avenging Wrath / Sentinel
-  cooldown: 2min baseline (shorter with Righteous Protector)
+  cooldown: 2min baseline (1min with Righteous Protector)
   description: 'Increases damage and healing by 20%. Changes Judgment into Hammer of Wrath. With talents
     grants 20% crit. Sentinel replaces it with stacking DR (15 stacks, 2% HP + 2% DR each, lose 1/sec
     after 5s, spending 3 HP prevents stack loss).'
